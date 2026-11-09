@@ -535,3 +535,47 @@ main { overflow-x: clip; }
   .has-sub:hover > button::after { transform: translateY(1px) rotate(225deg); }
   .has-sub:hover > .sub { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
 }
+
+/* ---------- Training topics: flip cards ---------- */
+.flip-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.flip-card { perspective: 1200px; min-height: 250px; }
+.flip-inner { position: relative; height: 100%; min-height: 250px; transform-style: preserve-3d; transition: transform 650ms cubic-bezier(.3, .7, .2, 1); }
+.flip-face {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start;
+  padding: 26px 24px; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  font: inherit; text-align: left;
+}
+.flip-front { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--blue); color: var(--ink); cursor: pointer; transition: box-shadow 250ms ease; }
+.flip-front:hover { box-shadow: var(--shadow); }
+.flip-front .icon { margin: 0 0 20px; width: 56px; height: 56px; }
+.flip-front h3 { font-size: 1.125rem; line-height: 1.35; }
+.flip-hint { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: .875rem; font-weight: 600; color: var(--blue); }
+.flip-hint::before {
+  content: ""; width: 16px; height: 16px; flex: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23195b9c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12a8 8 0 1 1-2.3-5.7M20 4v4h-4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.flip-back { transform: rotateY(180deg); background: var(--navy); color: #c9d6e4; border-top: 3px solid var(--amber); pointer-events: none; }
+.flip-back h3 { color: #fff; font-size: 1.125rem; margin-bottom: 10px; }
+.flip-back p { margin: 0 0 16px; font-size: .96875rem; color: #dbe5f0; }
+.flip-num { margin: 0 0 8px !important; font-size: .8125rem !important; font-weight: 700; color: var(--amber) !important; letter-spacing: .04em; }
+.flip-actions { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; }
+.flip-back .link-arrow { color: #fff; }
+.flip-return { min-height: 36px; padding: 6px 12px; background: transparent; color: #c9d6e4; border: 1px solid rgba(255, 255, 255, .3); font: inherit; font-size: .8125rem; font-weight: 600; cursor: pointer; }
+.flip-return:hover { color: #fff; border-color: #fff; }
+.flip-card.is-flipped .flip-inner, .flip-card:focus-within:not(:has(.flip-front:focus-visible)) .flip-inner { transform: rotateY(180deg); }
+.flip-card.is-flipped .flip-back, .flip-card:focus-within .flip-back { pointer-events: auto; }
+.flip-card.is-flipped .flip-front { pointer-events: none; }
+@media (hover: hover) and (min-width: 861px) {
+  .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+  .flip-card:hover .flip-back { pointer-events: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transition: none; transform: none !important; }
+  .flip-back { transform: none; opacity: 0; transition: opacity 150ms ease; }
+  .flip-card.is-flipped .flip-back, .flip-card:focus-within:not(:has(.flip-front:focus-visible)) .flip-back { opacity: 1; }
+  .flip-card.is-flipped .flip-front { visibility: hidden; }
+}
+@media (hover: hover) and (min-width: 861px) and (prefers-reduced-motion: reduce) { .flip-card:hover .flip-back { opacity: 1; } }
+@media (max-width: 1100px) { .flip-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .flip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .flip-grid { grid-template-columns: 1fr; } .flip-card, .flip-inner { min-height: 220px; } }

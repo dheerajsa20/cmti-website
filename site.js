@@ -93,6 +93,20 @@ for (const board of document.querySelectorAll('[data-tabs]')) {
   });
 }
 
+// Training topic flip cards: hover flips on desktop; click, tap or Enter flips everywhere
+for (const card of document.querySelectorAll('[data-flip]')) {
+  const front = card.querySelector('.flip-front');
+  const back = card.querySelector('.flip-back');
+  const setFlipped = (flipped, focusTarget) => {
+    card.classList.toggle('is-flipped', flipped);
+    front.setAttribute('aria-expanded', String(flipped));
+    focusTarget?.focus({ preventScroll: true });
+  };
+  front.addEventListener('click', () => setFlipped(true, back.querySelector('a')));
+  card.querySelector('.flip-return').addEventListener('click', () => setFlipped(false, front));
+  card.addEventListener('keydown', (event) => { if (event.key === 'Escape' && card.classList.contains('is-flipped')) setFlipped(false, front); });
+}
+
 // Course journey: tabs that also advance on their own until the visitor takes over
 const journey = document.querySelector('[data-journey]');
 if (journey) {

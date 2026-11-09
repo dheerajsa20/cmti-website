@@ -622,10 +622,19 @@ TOPICS = [("building", "Construction Management", "Core and shell, formwork, fin
     ("handshake", "Customer Relationship Management", "Customer communication, issue resolution and handover coordination."),
     ("scale", "RERA and National Building Code", "An overview of real estate regulation and building code requirements."),
     ("leaf", "Green Buildings, Sustainability and ESG", "Resource efficiency, sustainable construction and ESG practices.")]
-tabs = "".join(f'<button role="tab" id="tt-{i}" aria-selected="{"true" if i == 0 else "false"}" aria-controls="tp-{i}"{"" if i == 0 else " tabindex=\"-1\""}>{icon(ic)}{t}</button>' for i, (ic, t, d) in enumerate(TOPICS))
-panels = "".join(f'<div class="topic-detail" role="tabpanel" id="tp-{i}" aria-labelledby="tt-{i}"{"" if i == 0 else " hidden"}>{icon(ic)}<h3>{t}</h3><p>{d}</p><a class="btn btn-white" style="align-self:flex-start" href="{enquire(PC)}">Discuss a programme for your team</a><p class="topic-count">Topic {i + 1} of {len(TOPICS)}</p></div>' for i, (ic, t, d) in enumerate(TOPICS))
+# Topic flip cards: hover (or tap / Enter) flips a card to show what the topic covers.
+flips = "".join(
+    f'<article class="flip-card" data-flip>'
+    f'<div class="flip-inner">'
+    f'<button class="flip-face flip-front" type="button" aria-expanded="false">{icon(ic)}<h3>{t}</h3>'
+    f'<span class="flip-hint" aria-hidden="true">Flip for details</span><span class="sr-only">: show what this topic covers</span></button>'
+    f'<div class="flip-face flip-back"><p class="flip-num">Topic {i:02d}</p><h3>{t}</h3><p>{d}</p>'
+    f'<div class="flip-actions"><a class="link-arrow" href="{enquire(PC)}">Enquire with CMTI</a>'
+    f'<button class="flip-return" type="button">Back</button></div></div>'
+    f'</div></article>'
+    for i, (ic, t, d) in enumerate(TOPICS, 1))
 corp += section(shead("", "Explore training topics", "Select a topic to see what it covers.", hid="topics-title") +
-    f'<div class="topic-board reveal" data-tabs><div class="topic-list" role="tablist" aria-label="Training topics">{tabs}</div>{panels}</div>', sid="training-topics", label="topics-title")
+    f'<div class="flip-grid reveal">{flips}</div>', sid="training-topics", label="topics-title")
 corp += section(f'''<div class="two-col center">
   <div class="photo reveal"><img src="images/photos/workman.webp" alt="Tradesperson in a hard hat working on site" loading="lazy" width="900" height="601"></div>
   <div class="reveal">
