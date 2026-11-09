@@ -602,3 +602,12 @@ main { overflow-x: clip; }
 .service-text { color: var(--text); font-size: 1rem; margin-bottom: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 .service-cta { margin-top: auto; align-self: flex-start; }
 @media (max-width: 1100px) { .service-grid { grid-template-columns: 1fr; max-width: 640px; } }
+
+/* ---------- Training by career stage: same high-contrast style as the service cards ---------- */
+.stage-list { display: grid; gap: 20px; }
+.stage .service-head { padding: 20px 24px; }
+.stage .service-head .icon { width: 52px; height: 52px; }
+.stage .service-head h3 { font-size: 1.25rem; }
+.stage .service-body { padding: 22px 24px 24px; }
+.stage .service-text { margin: 0; padding: 0; border: 0; font-size: 1.0625rem; }
+.stage-badge { align-self: flex-start; margin: 0 0 14px; padding: 6px 14px; background: var(--blue); color: #fff; font-size: .875rem; font-weight: 700; }
