@@ -75,7 +75,7 @@ NAV = [
     ("Contact", "index.html#contact", None),
 ]
 
-def header():
+def header(home=False):
     items = []
     for label, href, sub in NAV:
         if sub:
@@ -90,7 +90,7 @@ def header():
       <li class="tb-hide"><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></li>
     </ul>
     <ul class="tb-right">
-      <li><a href="{GOOGLE}" target="_blank" rel="noopener"><span class="rating" aria-hidden="true">★★★★★</span> 4.7 Google reviews (2,362)</a></li>
+      {"" if home else f'<li><a href="{GOOGLE}" target="_blank" rel="noopener"><span class="rating" aria-hidden="true">★★★★★</span> 4.7 Google reviews (2,362)</a></li>'}
       <li class="tb-hide"><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li>
       <li class="tb-hide"><a href="https://linktr.ee/cmti">Social channels</a></li>
     </ul>
@@ -148,7 +148,8 @@ def head(title, desc):
 '''
 
 def write(name, title, desc, body):
-    html = head(title, desc) + header() + '\n\n<main id="main">\n' + body + '\n</main>\n\n' + FOOTER + "\n\n" + QUICK + "\n</body>\n</html>\n"
+    footer = FOOTER.replace('<li><a href="testimonials.html">Google reviews</a></li>', '') if name == "index.html" else FOOTER
+    html = head(title, desc) + header(name == "index.html") + '\n\n<main id="main">\n' + body + '\n</main>\n\n' + footer + "\n\n" + QUICK + "\n</body>\n</html>\n"
     open(f"{ROOT}/{name}", "w", encoding="utf-8").write(html)
     print("wrote", name)
 
