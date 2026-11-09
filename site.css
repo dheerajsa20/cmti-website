@@ -619,3 +619,26 @@ main { overflow-x: clip; }
   .stage-block { grid-template-columns: 1fr; gap: 14px; padding: 24px 22px; }
   .stage-block:hover { transform: none; }
 }
+
+/* ---------- MoU benefits: For your students / For your college ---------- */
+.mou-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); box-shadow: var(--shadow); }
+.mou-col { padding: clamp(26px, 3.5vw, 44px); }
+.mou-col h3 { margin: 0 0 18px; font-size: 1.5rem; }
+.mou-col ul { margin: 0; padding: 0; list-style: none; }
+.mou-col li { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid rgba(25, 91, 156, .18); }
+.mou-col li:last-child { border-bottom: 0; }
+.mou-col li .icon { margin: 0; width: 52px; height: 52px; flex: none; }
+.mou-col h4 { margin: 0 0 4px; font-size: 1.125rem; font-weight: 600; }
+.mou-col li p { margin: 0; font-size: 1rem; }
+.mou-students { background: var(--blue-tint); border-top: 6px solid var(--blue); }
+.mou-students h3, .mou-students h4 { color: var(--ink); }
+.mou-students li p { color: var(--text); }
+.mou-students .icon { background: var(--blue); }
+.mou-students .icon svg { stroke: #fff; }
+.mou-college { background: var(--navy); border-top: 6px solid var(--amber); }
+.mou-college h3, .mou-college h4 { color: #fff; }
+.mou-college li p { color: #c9d6e4; }
+.mou-college li { border-bottom-color: rgba(255, 255, 255, .14); }
+.mou-college .icon { background: var(--amber); }
+.mou-college .icon svg { stroke: var(--navy); stroke-width: 2; }
+@media (max-width: 860px) { .mou-split { grid-template-columns: 1fr; } }
