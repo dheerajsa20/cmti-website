@@ -603,30 +603,19 @@ main { overflow-x: clip; }
 .service-cta { margin-top: auto; align-self: flex-start; }
 @media (max-width: 1100px) { .service-grid { grid-template-columns: 1fr; max-width: 640px; } }
 
-/* ---------- Training by career stage: a rising career ladder ---------- */
-.ladder-title { margin: 64px 0 24px; font-size: 1.5rem; }
-.ladder { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; gap: 0; margin: 0; padding: 0; list-style: none; position: relative; }
-.rung { display: flex; flex-direction: column; padding: 30px 30px 34px; color: #e6eef7; border-top: 5px solid var(--amber); transition: transform 300ms var(--ease), box-shadow 300ms ease; }
-.rung:hover { transform: translateY(-6px); box-shadow: var(--shadow); position: relative; z-index: 1; }
-.rung-1 { min-height: 330px; background: #2f6fb0; }
-.rung-2 { min-height: 420px; background: var(--blue); }
-.rung-3 { min-height: 510px; background: var(--navy); }
-.rung-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
-.rung-step { font-size: 3rem; font-weight: 700; line-height: 1; color: rgba(255, 255, 255, .28); letter-spacing: -.02em; }
-.rung .icon { margin: 0; width: 56px; height: 56px; background: var(--amber); }
-.rung .icon svg { stroke: var(--navy); stroke-width: 2; }
-.rung-years { align-self: flex-start; margin: 0 0 12px; padding: 5px 12px; background: var(--amber); color: var(--navy); font-size: .875rem; font-weight: 700; }
-.rung h4 { margin: 0 0 12px; color: #fff; font-size: 1.375rem; font-weight: 600; line-height: 1.2; }
-.rung p:last-child { margin: 0; color: #e6eef7; font-size: 1.0625rem; }
-.ladder::after {
-  content: ""; position: absolute; right: 0; top: -46px; width: 120px; height: 36px; pointer-events: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 36' fill='none' stroke='%23ffa434' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 32 L40 32 L40 20 L76 20 L76 8 L112 8'/%3E%3Cpath d='M104 2 L112 8 L104 14'/%3E%3C/svg%3E") right center / contain no-repeat;
+/* ---------- Training by career stage: solid colour blocks ---------- */
+.stage-blocks { display: grid; box-shadow: var(--shadow); }
+.stage-block { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 24px; padding: 30px 32px; color: #fff; transition: transform 250ms var(--ease); }
+.stage-block:hover { transform: translateX(6px); }
+.stage-block h4 { margin: 0 0 8px; font-size: 1.375rem; font-weight: 600; line-height: 1.2; color: inherit; }
+.stage-block p { margin: 0; font-size: 1.0625rem; }
+.sb-figure { font-size: 2.5rem !important; font-weight: 700; line-height: 1; letter-spacing: -.02em; }
+.sb-figure small { display: block; margin-top: 8px; font-size: .8125rem; font-weight: 600; letter-spacing: .02em; opacity: .9; }
+.tone-1 { background: var(--blue); }
+.tone-1 .sb-figure { font-size: 1.5rem !important; white-space: nowrap; }
+.tone-2 { background: var(--navy); }
+.tone-3 { background: var(--amber); color: var(--navy); }
+@media (max-width: 600px) {
+  .stage-block { grid-template-columns: 1fr; gap: 14px; padding: 24px 22px; }
+  .stage-block:hover { transform: none; }
 }
-@media (max-width: 860px) {
-  .ladder { grid-template-columns: 1fr; gap: 12px; }
-  .ladder::after { display: none; }
-  .rung { min-height: 0 !important; }
-  .rung-2 { margin-left: 16px; }
-  .rung-3 { margin-left: 32px; }
-}
-@media (max-width: 480px) { .rung { padding: 24px 22px 26px; } .rung-2 { margin-left: 10px; } .rung-3 { margin-left: 20px; } }
