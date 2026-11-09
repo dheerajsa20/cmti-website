@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script src="site.js" defer></script>
+<script src="building.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -57,6 +58,7 @@
       <h1 id="hero-title">Build the skills construction demands.</h1>
       <p class="lede">Practical training for engineers, interior professionals, project teams and site workmen, taught by construction practitioners, most of them former L&amp;T professionals.</p>
     </div>
+    <div class="sheet-drawing" data-building data-autobuild aria-hidden="true"></div>
     <div class="title-block" role="group" aria-label="Find the right starting point">
       <p class="tb-head">Where do you start?</p>
       <a class="tb-row" href="finishing-school.html">
@@ -73,9 +75,9 @@
       </a>
       <dl class="tb-facts">
         <div><dt>Founded</dt><dd>2018, Bengaluru</dd></div>
-        <div><dt>College partners</dt><dd>100+</dd></div>
-        <div><dt>Engineers placed</dt><dd>5,000+</dd></div>
-        <div><dt>Hiring companies</dt><dd>300+</dd></div>
+        <div><dt>College partners</dt><dd data-count="100">100+</dd></div>
+        <div><dt>Engineers placed</dt><dd data-count="5000">5,000+</dd></div>
+        <div><dt>Hiring companies</dt><dd data-count="300">300+</dd></div>
       </dl>
     </div>
   </div>
@@ -147,6 +149,41 @@
         <a href="e-learning.html#webinars">Webinars</a>
       </div>
     </article>
+  </div>
+</section>
+
+<section id="stages" class="section" aria-labelledby="stages-title">
+  <div class="section-head">
+    <h2 id="stages-title">From first drawing to handover</h2>
+    <p>The construction management course follows a building through every stage of the job. Choose a stage to build it and see what you learn there.</p>
+  </div>
+  <div class="stages">
+    <div class="stages-drawing sheet-panel">
+      <div data-building data-stage="1" aria-hidden="true"></div>
+      <p class="stages-caption" aria-live="polite">Stage 1 of 5: Read the drawings</p>
+    </div>
+    <ol class="stage-list">
+      <li>
+        <button type="button" class="stage-btn" data-stage-btn="1" aria-expanded="true" aria-controls="stage-1"><span class="stage-no">1</span>Read the drawings</button>
+        <div class="stage-detail" id="stage-1"><p>Interpret drawings and specifications, convert units and take site measurements to set out the work.</p></div>
+      </li>
+      <li>
+        <button type="button" class="stage-btn" data-stage-btn="2" aria-expanded="false" aria-controls="stage-2"><span class="stage-no">2</span>Materials and quantities</button>
+        <div class="stage-detail" id="stage-2" hidden><p>Identify cement, aggregates, reinforcement steel and masonry, run basic quality checks, and prepare BOQs, bar bending schedules and rate analyses.</p></div>
+      </li>
+      <li>
+        <button type="button" class="stage-btn" data-stage-btn="3" aria-expanded="false" aria-controls="stage-3"><span class="stage-no">3</span>Structure and site execution</button>
+        <div class="stage-detail" id="stage-3" hidden><p>Sequence construction activities, understand formwork and execution methods, and apply the quality and safety checks you see on site visits.</p></div>
+      </li>
+      <li>
+        <button type="button" class="stage-btn" data-stage-btn="4" aria-expanded="false" aria-controls="stage-4"><span class="stage-no">4</span>Digital construction</button>
+        <div class="stage-detail" id="stage-4" hidden><p>Draw, model and coordinate the building in AutoCAD, SketchUp and BIM tools.</p></div>
+      </li>
+      <li>
+        <button type="button" class="stage-btn" data-stage-btn="5" aria-expanded="false" aria-controls="stage-5"><span class="stage-no">5</span>Handover and your first job</button>
+        <div class="stage-detail" id="stage-5" hidden><p>Prepare for interviews with placement support from CMTI, which works with 300+ companies in construction, real estate, interiors and BIM.</p><p><a href="finishing-school.html">See the full course</a></p></div>
+      </li>
+    </ol>
   </div>
 </section>
 
