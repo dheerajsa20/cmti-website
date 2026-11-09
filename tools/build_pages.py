@@ -531,7 +531,7 @@ idm = page_hero("IDM Course", "Interior Design &amp; Management Training Institu
     "Founded by Er. S. G. Ashok Kumar, IDMTI prepares aspiring professionals for residential and commercial interiors. Alumni have worked with firms including HomeLane, DesignCafe, Bonito Designs and Purva Streaks.",
     "images/photos/plans-desk.webp", "How an interior fit-out comes together", ["Design and layouts", "Modular production", "Site installation"],
     meta="3 months · Offline, online and hybrid", actions=f'<a class="btn btn-white" href="{enquire(PI)}">Enquire about the course</a>',
-    badge='<img class="hero-badge" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321">')
+    badge='<img class="hero-badge" src="idmti-logo-dark.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321">')
 idm += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
   <div><dt>Certificate course duration</dt><dd>3 months</dd></div>
   <div><dt>interior firms hiring IDMTI alumni over the past 8 years</dt><dd data-count="200">200+</dd></div>
