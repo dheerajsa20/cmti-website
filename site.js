@@ -26,6 +26,7 @@ for (const button of subButtons) {
 }
 function setMenu(open) {
   if (!nav || !menuToggle) return;
+  nav.style.setProperty('--nav-top', masthead.getBoundingClientRect().bottom + 'px');
   nav.classList.toggle('is-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
   menuToggle.querySelector('.menu-label').textContent = open ? 'Close' : 'Menu';
@@ -76,6 +77,14 @@ const finderTabs = [...document.querySelectorAll('.finder [role="tab"]')];
 setupTabs(finderTabs, (tab) => {
   for (const t of finderTabs) document.getElementById(t.getAttribute('aria-controls')).hidden = t !== tab;
 });
+
+// Generic tab boards ([data-tabs]): each tab shows the panel it controls
+for (const board of document.querySelectorAll('[data-tabs]')) {
+  const tabs = [...board.querySelectorAll('[role="tab"]')];
+  setupTabs(tabs, (tab) => {
+    for (const t of tabs) document.getElementById(t.getAttribute('aria-controls')).hidden = t !== tab;
+  });
+}
 
 // Course journey: tabs that also advance on their own until the visitor takes over
 const journey = document.querySelector('[data-journey]');
@@ -140,25 +149,43 @@ if (journey) {
   }
 }
 
-// ----- Client logo marquee -----
-const marquee = document.querySelector('.marquee');
-if (marquee && !reducedMotion) {
-  const track = marquee.querySelector('.marquee-track');
-  for (const item of [...track.children]) {
-    const copy = item.cloneNode(true);
-    copy.setAttribute('aria-hidden', 'true');
-    track.append(copy);
+// ----- Logo marquees: continuous scroll, one pause button per group -----
+for (const group of document.querySelectorAll('[data-marquee-group]')) {
+  const rows = [...group.querySelectorAll('.marquee')];
+  const toggle = group.querySelector('.marquee-toggle');
+  if (reducedMotion) { toggle?.remove(); continue; }
+  for (const row of rows) {
+    const track = row.querySelector('.marquee-track');
+    for (const item of [...track.children]) {
+      const copy = item.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      track.append(copy);
+    }
+    row.style.setProperty('--marquee-duration', track.children.length * 2.4 + 's');
+    row.classList.add('is-running');
   }
-  marquee.style.setProperty('--marquee-duration', track.children.length * 2.2 + 's');
-  marquee.classList.add('is-running');
-  const toggle = document.querySelector('.marquee-toggle');
   toggle?.addEventListener('click', () => {
-    const paused = marquee.classList.toggle('is-paused');
+    const paused = toggle.getAttribute('aria-pressed') !== 'true';
     toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Play logos' : 'Pause logos';
+    toggle.textContent = paused ? 'Play scrolling' : 'Pause scrolling';
+    for (const row of rows) row.classList.toggle('is-paused', paused);
   });
-} else {
-  document.querySelector('.marquee-toggle')?.remove();
+}
+
+// ----- Embedded videos: load the YouTube player in place on click -----
+for (const button of document.querySelectorAll('[data-embed]')) {
+  button.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + button.dataset.embed + '?autoplay=1&rel=0';
+    iframe.title = button.dataset.title || 'Video';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    const frame = document.createElement('div');
+    frame.className = 'video-embed';
+    frame.append(iframe);
+    button.replaceWith(frame);
+    iframe.focus();
+  });
 }
 
 // ----- Reveal on scroll and number count-up -----
@@ -247,9 +274,13 @@ choose(new URLSearchParams(location.search).get('programme'));
 // ----- Enquiry form: validate, then open WhatsApp with the message -----
 const messages = {
   name: 'Enter your name so we know who to reply to.',
-  programme: 'Choose the programme you are asking about.',
-  message: 'Tell us briefly what training you need.',
+  email: 'Enter an email address, for example name@example.com.',
+  programme: 'Select the programme you are asking about.',
+  message: 'Tell us briefly about your training requirements.',
 };
+const isValid = (field) => field.name === 'email'
+  ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())
+  : Boolean(field.value.trim());
 function showError(field, text) {
   const error = document.querySelector('#e-' + field.name);
   field.setAttribute('aria-invalid', text ? 'true' : 'false');
@@ -257,7 +288,7 @@ function showError(field, text) {
 }
 form?.addEventListener('blur', (event) => {
   const field = event.target;
-  if (messages[field.name] && field.value.trim()) showError(field, '');
+  if (messages[field.name] && isValid(field)) showError(field, '');
 }, true);
 
 form?.addEventListener('submit', (event) => {
@@ -266,24 +297,19 @@ form?.addEventListener('submit', (event) => {
   let firstInvalid = null;
   for (const name of Object.keys(messages)) {
     const field = form.elements[name];
-    const empty = !field.value.trim();
-    showError(field, empty ? messages[name] : '');
-    if (empty && !firstInvalid) firstInvalid = field;
+    const bad = !isValid(field);
+    showError(field, bad ? messages[name] : '');
+    if (bad && !firstInvalid) firstInvalid = field;
   }
   if (firstInvalid) { status.textContent = ''; firstInvalid.focus(); return; }
 
   const data = new FormData(form);
-  const organisation = data.get('organisation').trim();
-  const lines = [
-    'Hello CMTI, I have a training enquiry.',
-    '',
-    'Name: ' + data.get('name').trim(),
-    ...(organisation ? ['Organisation: ' + organisation] : []),
-    'Programme: ' + data.get('programme'),
-    'Preferred format: ' + data.get('format'),
-    '',
-    data.get('message').trim(),
-  ];
+  const lines = ['CMTI training enquiry – ' + data.get('programme'), ''];
+  for (const [label, key] of [['Name', 'name'], ['Email', 'email'], ['Phone', 'phone'], ['Organisation', 'organisation'], ['Programme', 'programme'], ['Preferred format', 'format']]) {
+    const value = (data.get(key) || '').trim();
+    if (value) lines.push(label + ': ' + value);
+  }
+  lines.push('', 'Training requirements: ' + data.get('message').trim());
   const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
   // Open WhatsApp in a new tab; fall back to the same tab if pop-ups are blocked.
   const opened = window.open(url, '_blank');
@@ -293,7 +319,7 @@ form?.addEventListener('submit', (event) => {
   status.textContent = 'WhatsApp opened with your enquiry. Press Send there to deliver it. No WhatsApp? Email ';
   status.append(
     Object.assign(document.createElement('a'), {
-      href: 'mailto:cmtioffice@cmti.co.in?subject=' + encodeURIComponent('Training enquiry: ' + data.get('programme')) + '&body=' + encodeURIComponent(lines.join('\n')),
+      href: 'mailto:cmtioffice@cmti.co.in?subject=' + encodeURIComponent('CMTI training enquiry – ' + data.get('programme')) + '&body=' + encodeURIComponent(lines.join('\n')),
       textContent: 'cmtioffice@cmti.co.in',
     }),
     '.'
