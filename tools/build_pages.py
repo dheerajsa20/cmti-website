@@ -7,10 +7,17 @@ The wording comes from the original CMTI site; page structure follows the
 "CMTI Website Inputs" brief. Edit text here, not in the generated .html files,
 or the next run will overwrite your edits.
 """
+import hashlib
 import sys
 from urllib.parse import quote
 
 ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
+def asset_version(path):
+    """Short content hash, so browsers fetch a fresh copy whenever the file changes."""
+    return hashlib.sha256(open(f"{ROOT}/{path}", "rb").read()).hexdigest()[:10]
+
+CSS_V = asset_version("site.css")
+JS_V = asset_version("site.js")
 GOOGLE = "https://www.google.com/maps/search/?api=1&amp;query=Construction+Management+Training+Institute+Jayanagar+Bengaluru"
 WA = "918884422179"
 
@@ -139,9 +146,9 @@ def head(title, desc):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v={CSS_V}">
 <script>document.documentElement.classList.add("js")</script>
-<script src="site.js" defer></script>
+<script src="site.js?v={JS_V}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
