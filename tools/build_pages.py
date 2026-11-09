@@ -97,7 +97,6 @@ def header(home=False):
       <li class="tb-hide"><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></li>
     </ul>
     <ul class="tb-right">
-      {"" if home else f'<li><a href="{GOOGLE}" target="_blank" rel="noopener"><span class="rating" aria-hidden="true">★★★★★</span> 4.7 Google reviews (2,362)</a></li>'}
       <li class="tb-hide"><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li>
       <li class="tb-hide"><a href="https://linktr.ee/cmti">Social channels</a></li>
     </ul>
