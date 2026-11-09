@@ -69,7 +69,7 @@ NAV = [
     ("Home", "index.html", None),
     ("About Us", None, [("About Us", "about.html"), ("Mission &amp; Vision", "vision-mission.html"), ("Client List", "about.html#clients"),
                         ("Professional Associations", "associations.html")]),
-    ("Finishing School", None, [("CACM Course", "finishing-school.html"), ("IDM Course", "idmti.html"),
+    ("Certified Courses", None, [("Advanced Construction Management Course", "finishing-school.html"), ("Interior Design &amp; Management Course", "idmti.html"),
                                 ("Internships", "finishing-school.html#internship"),
                                 ("Construction Software Courses", "finishing-school.html#construction-software"),
                                 ("BIM Design Software", "finishing-school.html#bim-design"), ("College MoUs", "colleges.html"),
@@ -93,10 +93,12 @@ def header(home=False):
     return f'''<div class="topbar">
   <div class="topbar-inner">
     <ul>
+      <li class="tb-label tb-hide">Contact us</li>
       <li><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a></li>
       <li class="tb-hide"><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></li>
     </ul>
     <ul class="tb-right">
+      <li class="tb-label tb-hide">Follow us</li>
       <li class="tb-hide"><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li>
       <li class="tb-hide"><a href="https://linktr.ee/cmti">Social channels</a></li>
     </ul>
@@ -121,7 +123,7 @@ FOOTER = f'''<footer class="site-footer">
       <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
     </div>
     <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Client List</a></li><li><a href="associations.html">Professional Associations</a></li></ul></div>
-    <div><h3>Finishing School</h3><ul><li><a href="finishing-school.html">CACM Course</a></li><li><a href="idmti.html">IDM Course</a></li><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course</a></li><li><a href="idmti.html">Interior Design &amp; Management Course</a></li><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development for Staff</a></li><li><a href="corporate.html#workmen">Capability Development for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
@@ -487,7 +489,7 @@ write("e-learning.html", "CMTI E-Learning | CMTI", "CMTI Civil Engg Connect: 80+
 
 # ================================================================ FINISHING SCHOOL (CACM)
 P = "CMTI Finishing School"
-fs = page_hero("CACM Course", "CMTI Finishing School", "Certificate Course on Advanced Construction Management",
+fs = page_hero("Advanced Construction Management Course", "CMTI Finishing School", "Certificate Course on Advanced Construction Management",
     img="images/photos/site-rebar.webp", tags_label="Skills practised in the CACM course",
     tags=["Drawings, BOQ and BBS", "Construction sequencing", "Site quality and safety"],
     meta="3 months · Offline, online and hybrid · Hands-on exercises and construction site visits",
@@ -517,17 +519,17 @@ fs += section(shead("", "Learning outcomes", hid="outcomes-title") + '<ul class=
     "Prepare for job interviews and identify the first steps towards starting a construction business."]) + "</ul>",
     label="outcomes-title")
 fs += section(shead("CMTI / IDMTI Finishing School", "More Finishing School programmes", hid="more-title") + '<div class="grid" style="--cols:4">' +
-    card("IDM Course", "Certificate Course on Interior Design &amp; Management", None, extra='<img class="card-brand" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321" loading="lazy">' + arrow_link("Explore the three-month interior design course", "idmti.html")) +
+    card("Interior Design &amp; Management Course", "Certificate Course on Interior Design &amp; Management", None, extra='<img class="card-brand" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321" loading="lazy">' + arrow_link("Explore the three-month interior design course", "idmti.html")) +
     card("Internships", "Explore practical exposure to construction projects and enquire about current internship opportunities.", "briefcase", cid="internship", extra=arrow_link("Enquire", enquire(P))) +
     card("Construction Software Courses", "Build software skills for construction drawings, quantity estimation and project planning.", "laptop", cid="construction-software", extra=arrow_link("Enquire", enquire(P))) +
     card("BIM Design Software", "Explore model-based design and coordination for construction and interiors.", "cpu", cid="bim-design", extra=arrow_link("Enquire", enquire(P))) +
     "</div>", "section alt", label="more-title")
 fs += cta()
-write("finishing-school.html", "Finishing School | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
+write("finishing-school.html", "Advanced Construction Management Course | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
 
 # ================================================================ IDMTI
 PI = "IDMTI"
-idm = page_hero("IDM Course", "Interior Design &amp; Management Training Institute", "Certificate Course on Interior Design &amp; Management",
+idm = page_hero("Interior Design &amp; Management Course", "Interior Design &amp; Management Training Institute", "Certificate Course on Interior Design &amp; Management",
     "Founded by Er. S. G. Ashok Kumar, IDMTI prepares aspiring professionals for residential and commercial interiors. Alumni have worked with firms including HomeLane, DesignCafe, Bonito Designs and Purva Streaks.",
     "images/photos/plans-desk.webp", "How an interior fit-out comes together", ["Design and layouts", "Modular production", "Site installation"],
     meta="3 months · Offline, online and hybrid", actions=f'<a class="btn btn-white" href="{enquire(PI)}">Enquire about the course</a>',
@@ -559,7 +561,7 @@ idm += section(shead("", "Learning outcomes", hid="idm-out") + '<ul class="tick-
     "Calculate quantities and prepare estimates and cut lists.", "Explain how drawings guide manufacturing and installation.",
     "Document client requirements, present options and respond to feedback."]) + "</ul>", label="idm-out")
 idm += cta()
-write("idmti.html", "IDM Course | CMTI Finishing School", "Certificate Course on Interior Design & Management from IDMTI: 3 months, offline, online and hybrid.", idm)
+write("idmti.html", "Interior Design &amp; Management Course | CMTI", "Certificate Course on Interior Design & Management from IDMTI: 3 months, offline, online and hybrid.", idm)
 
 # ================================================================ COLLEGES
 col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/photos/drawings.webp",
