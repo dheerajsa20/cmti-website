@@ -622,17 +622,19 @@ TOPICS = [("building", "Construction Management", "Core and shell, formwork, fin
     ("handshake", "Customer Relationship Management", "Customer communication, issue resolution and handover coordination."),
     ("scale", "RERA and National Building Code", "An overview of real estate regulation and building code requirements."),
     ("leaf", "Green Buildings, Sustainability and ESG", "Resource efficiency, sustainable construction and ESG practices.")]
-# Topic tiles: clicking a tile opens its details in a full-width panel directly below that tile's row.
-tiles = "".join(
-    f'<button class="topic-tile" type="button" aria-expanded="false" aria-controls="topic-panel" data-title="{t}" data-desc="{d}">'
-    f'{icon(ic)}<span class="tt-name">{t}</span><span class="tt-more" aria-hidden="true">View</span></button>'
-    for ic, t, d in TOPICS)
-panel = (f'<div class="topic-panel" id="topic-panel" role="region" aria-label="Topic details" tabindex="-1" hidden>'
-         f'<div class="tp-icon" aria-hidden="true"></div><div class="tp-body"><p class="tp-count"></p><h3 class="tp-title"></h3><p class="tp-desc"></p></div>'
-         f'<div class="tp-actions"><a class="btn btn-white" href="{enquire(PC)}">Discuss a programme for your team</a>'
-         f'<button class="tp-close" type="button">Close</button></div></div>')
+# Topic flip cards: hover (or tap / Enter) flips a card to show what the topic covers.
+flips = "".join(
+    f'<article class="flip-card" data-flip>'
+    f'<div class="flip-inner">'
+    f'<button class="flip-face flip-front" type="button" aria-expanded="false">{icon(ic)}<h3>{t}</h3>'
+    f'<span class="flip-hint" aria-hidden="true">Flip for details</span><span class="sr-only">: show what this topic covers</span></button>'
+    f'<div class="flip-face flip-back"><p class="flip-num">Topic {i:02d}</p><h3>{t}</h3><p>{d}</p>'
+    f'<div class="flip-actions"><a class="link-arrow" href="{enquire(PC)}">Enquire with CMTI</a>'
+    f'<button class="flip-return" type="button">Back</button></div></div>'
+    f'</div></article>'
+    for i, (ic, t, d) in enumerate(TOPICS, 1))
 corp += section(shead("", "Explore training topics", "Select a topic to see what it covers.", hid="topics-title") +
-    f'<div class="topic-grid reveal" data-topic-grid>{tiles}{panel}</div>', sid="training-topics", label="topics-title")
+    f'<div class="flip-grid reveal">{flips}</div>', sid="training-topics", label="topics-title")
 corp += section(f'''<div class="two-col center">
   <div class="photo reveal"><img src="images/photos/workman.webp" alt="Tradesperson in a hard hat working on site" loading="lazy" width="900" height="601"></div>
   <div class="reveal">
