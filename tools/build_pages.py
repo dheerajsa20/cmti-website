@@ -646,9 +646,10 @@ corp += section(f'''<div class="two-col center">
   </div>
 </div>''', "section alt", "workmen", "workmen-title")
 def service(sid, ic, title, steps, text):
-    return (f'<article class="card reveal" id="{sid}">{icon(ic)}<h3>{title}</h3><ol class="steps mini">' + "".join(f"<li>{s}</li>" for s in steps) +
-            f'</ol><p>{text}</p>{arrow_link("Enquire with CMTI", enquire(PC))}</article>')
-corp += section('<div class="grid" style="--cols:3">' +
+    return (f'<article class="service reveal" id="{sid}"><div class="service-head">{icon(ic)}<h3>{title}</h3></div>'
+            f'<div class="service-body"><p class="service-label">How it works</p><ol class="service-steps">' + "".join(f"<li>{s}</li>" for s in steps) +
+            f'</ol><p class="service-text">{text}</p><a class="btn btn-primary service-cta" href="{enquire(PC)}">Enquire with CMTI</a></div></article>')
+corp += section('<div class="service-grid">' +
     service("content-development", "doc", "Content Development", ["Understand project workflows", "Develop SOPs and learning materials", "Review with your team"],
             "CMTI develops standard operating procedures and training content for in-house learning systems. We tailor materials to project workflows, roles and site requirements.") +
     service("assessment", "search", "Assessment of Employees", ["Identify role competencies", "Assess skills and knowledge", "Report gaps and training priorities"],
