@@ -104,7 +104,7 @@ def header(home=False):
 </div>
 <header class="masthead">
   <div class="masthead-inner">
-    <a class="brand" href="index.html"><img src="cmti-logo.webp" alt="Construction Management Training Institute" width="425" height="248"></a>
+    <a class="brand" href="index.html"><img src="cmti-logo.webp" alt="Construction Management Training Institute" width="900" height="529"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <ul>{"".join(items)}</ul>
@@ -116,7 +116,7 @@ def header(home=False):
 FOOTER = f'''<footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <img class="footer-logo" src="cmti-logo.webp" alt="CMTI" width="425" height="248">
+      <img class="footer-logo" src="cmti-logo-dark.webp" alt="CMTI" width="900" height="529">
       <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
       <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
     </div>
@@ -160,7 +160,7 @@ def write(name, title, desc, body):
     print("wrote", name)
 
 # ---------------------------------------------------------------- building blocks
-def page_hero(crumb_label, eyebrow, title, lede="", img="", tags_label="", tags=(), meta="", actions="", extra=""):
+def page_hero(crumb_label, eyebrow, title, lede="", img="", tags_label="", tags=(), meta="", actions="", extra="", badge=""):
     crumbs = f'<ol class="crumbs" aria-label="Breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">{crumb_label}</li></ol>'
     tags_html = (f'<p class="tags-label">{tags_label}</p>' if tags_label else "") + (
         '<ul class="tags">' + "".join(f"<li>{t}</li>" for t in tags) + "</ul>" if tags else "")
@@ -169,6 +169,7 @@ def page_hero(crumb_label, eyebrow, title, lede="", img="", tags_label="", tags=
   <div class="page-hero-inner">
     {crumbs}
     <div class="copy hero-copy">
+      {badge}
       <p class="eyebrow">{eyebrow}</p>
       <h1 id="page-title">{title}</h1>
       {f'<p class="lede">{lede}</p>' if lede else ''}
@@ -516,7 +517,7 @@ fs += section(shead("", "Learning outcomes", hid="outcomes-title") + '<ul class=
     "Prepare for job interviews and identify the first steps towards starting a construction business."]) + "</ul>",
     label="outcomes-title")
 fs += section(shead("CMTI / IDMTI Finishing School", "More Finishing School programmes", hid="more-title") + '<div class="grid" style="--cols:4">' +
-    card("IDM Course", "Certificate Course on Interior Design &amp; Management", "layers", extra=arrow_link("Explore the three-month interior design course", "idmti.html")) +
+    card("IDM Course", "Certificate Course on Interior Design &amp; Management", None, extra='<img class="card-brand" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321" loading="lazy">' + arrow_link("Explore the three-month interior design course", "idmti.html")) +
     card("Internships", "Explore practical exposure to construction projects and enquire about current internship opportunities.", "briefcase", cid="internship", extra=arrow_link("Enquire", enquire(P))) +
     card("Construction Software Courses", "Build software skills for construction drawings, quantity estimation and project planning.", "laptop", cid="construction-software", extra=arrow_link("Enquire", enquire(P))) +
     card("BIM Design Software", "Explore model-based design and coordination for construction and interiors.", "cpu", cid="bim-design", extra=arrow_link("Enquire", enquire(P))) +
@@ -529,7 +530,8 @@ PI = "IDMTI"
 idm = page_hero("IDM Course", "Interior Design &amp; Management Training Institute", "Certificate Course on Interior Design &amp; Management",
     "Founded by Er. S. G. Ashok Kumar, IDMTI prepares aspiring professionals for residential and commercial interiors. Alumni have worked with firms including HomeLane, DesignCafe, Bonito Designs and Purva Streaks.",
     "images/photos/plans-desk.webp", "How an interior fit-out comes together", ["Design and layouts", "Modular production", "Site installation"],
-    meta="3 months · Offline, online and hybrid", actions=f'<a class="btn btn-white" href="{enquire(PI)}">Enquire about the course</a>')
+    meta="3 months · Offline, online and hybrid", actions=f'<a class="btn btn-white" href="{enquire(PI)}">Enquire about the course</a>',
+    badge='<img class="hero-badge" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321">')
 idm += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
   <div><dt>Certificate course duration</dt><dd>3 months</dd></div>
   <div><dt>interior firms hiring IDMTI alumni over the past 8 years</dt><dd data-count="200">200+</dd></div>

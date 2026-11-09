@@ -2,7 +2,7 @@
    IBM Plex Sans throughout; CMTI logo blue, deep navy and a restrained amber accent. */
 
 :root {
-  --blue: #185a9d;
+  --blue: #195b9c;           /* CMTI Denim Blue */
   --blue-dark: #0f3d6e;
   --blue-tint: #edf3fa;
   --navy: #0a1f3a;
@@ -12,7 +12,7 @@
   --muted: #55657a;         /* 5.9:1 on white */
   --line: #dde3ea;
   --alt: #f4f6f9;
-  --amber: #f2a21b;
+  --amber: #ffa434;          /* CMTI Carrot Orange */
   --white: #ffffff;
   --error: #b42318;
   --wa: #128c4b;
@@ -88,7 +88,7 @@ main { overflow-x: clip; }
 .masthead { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .97); border-bottom: 1px solid var(--line); transition: box-shadow 200ms ease; }
 .masthead.is-scrolled { box-shadow: 0 8px 24px -16px rgba(10, 31, 58, .4); }
 .masthead-inner { max-width: var(--page); margin: 0 auto; padding: 8px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand img { width: 118px; }
+.brand img { width: 128px; }
 .site-nav { display: flex; align-items: center; gap: 18px; }
 .site-nav > ul { display: flex; margin: 0; padding: 0; list-style: none; }
 .site-nav li { position: relative; }
@@ -390,7 +390,7 @@ main { overflow-x: clip; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: #a9bad0; font-size: .9375rem; }
 .footer-grid { max-width: var(--page); margin: 0 auto; padding: 72px var(--gutter) 48px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; }
-.footer-logo { width: 128px; padding: 10px; background: #fff; margin-bottom: 18px; }
+.footer-logo { width: 170px; margin-bottom: 20px; }
 .site-footer h3 { color: #fff; font-size: 1rem; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--amber); display: inline-block; }
 .site-footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
 .site-footer a { color: #d5e0ec; text-decoration: none; }
@@ -520,3 +520,10 @@ main { overflow-x: clip; }
 @media (max-width: 1100px) { .info-grid { --cols: 2 !important; } .topic-board { grid-template-columns: 1fr; } .topic-list { border-right: 0; } }
 @media (max-width: 860px) { .vm-block { grid-template-columns: 1fr; } .vm-block.flip .vm-img { order: 0; } .vm-block .vm-img img { min-height: 240px; } }
 @media (max-width: 600px) { .info-grid { --cols: 1 !important; } .topic-list { grid-template-columns: 1fr; } .marquee-track li { width: 150px; height: 88px; } .marquee.large .marquee-track li { width: 170px; height: 96px; } }
+
+/* ---------- Brand logos ---------- */
+.hero-badge { width: 220px; margin-bottom: 26px; padding: 14px 18px; background: #fff; }
+.card-brand { width: 200px; margin: 0 0 20px; }
+@media (max-width: 600px) { .hero-badge { width: 180px; } .brand img { width: 108px; } }
+.page-hero .eyebrow { color: #fff; }
+.card-brand { order: -1; }
