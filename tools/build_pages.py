@@ -248,9 +248,13 @@ MOU = [("briefcase", "Placement support and campus interviews", "Employer coordi
     ("award", "NBA accreditation visits", "Industry partner inputs on internships, practical training and collaboration.")]
 
 def mou_tiles():
-    return '<div class="info-grid reveal" style="--cols:3">' + "".join(
-        f'<div class="info-tile"><span class="n">{i:02d}</span>{icon(ic)}<div><h3>{t}</h3><p>{d}</p></div></div>'
-        for i, (ic, t, d) in enumerate(MOU, 1)) + "</div>"
+    """MoU benefits split by who they help: students (light) and the college (navy)."""
+    def items(rows):
+        return "".join(f'<li>{icon(ic)}<div><h4>{t}</h4><p>{d}</p></div></li>' for ic, t, d in rows)
+    return (f'<div class="mou-split reveal">'
+            f'<div class="mou-col mou-students"><h3>For your students</h3><ul>{items(MOU[:5])}</ul></div>'
+            f'<div class="mou-col mou-college"><h3>For your college</h3><ul>{items(MOU[5:])}</ul></div>'
+            f'</div>')
 
 TEAM = [
     ("AK", "Founder &amp; CEO", "Er. S. G. Ashok Kumar", "PMP, IGBC AP · 26 years in construction", "Founded CMTI and established IDMTI to develop interior design professionals. He leads the CMTI Finishing School, corporate training, industry readiness programmes and partnerships. His experience includes L&amp;T highway and airport projects. He serves on the IGBC Core Committee.", "https://www.linkedin.com/in/er-ashok-kumar-b645126b/"),
@@ -337,10 +341,6 @@ home += section(shead("Delivery formats", "Learn in the format that fits", hid="
   <article>''' + icon("layers") + '''<h3>Hybrid</h3><p>Online instruction combined with in-person workshops or site-based practice.</p></article>
 </div>''', sid="formats", label="formats-title")
 home += section('<div class="section-head reveal"><h2 id="clients-title">CMTI\'s Client List Includes below companies.</h2></div>' + client_marquee(), "section alt", "clients", "clients-title")
-home += section(shead("College partnerships", "What a CMTI MoU offers your college", hid="colleges-title") + mou_tiles() +
-    '<div class="head-row" style="margin:56px 0 24px"><div class="section-head"><p class="eyebrow">College network</p><h3>Selected institutions</h3></div></div>' +
-    college_marquee() + f'<p style="margin-top:32px"><a class="btn btn-primary" href="#contact" data-programme="College MoU">Discuss a College MoU</a></p>',
-    "section", "colleges", "colleges-title")
 home += team_section("section alt")
 home += trainers_section()
 home += section(f'<p class="reveal">{arrow_link("Explore CMTI webinars", "e-learning.html#webinars")}</p>', "section", "webinars")
