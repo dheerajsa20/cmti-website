@@ -93,6 +93,62 @@ for (const board of document.querySelectorAll('[data-tabs]')) {
   });
 }
 
+// Training topics: open the clicked topic in a panel placed right after that tile's row
+for (const grid of document.querySelectorAll('[data-topic-grid]')) {
+  const tiles = [...grid.querySelectorAll('.topic-tile')];
+  const panel = grid.querySelector('.topic-panel');
+  let current = null;
+
+  const columns = () => getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+
+  function place() {
+    if (!current) return;
+    const cols = columns();
+    const index = tiles.indexOf(current);
+    const rowEnd = Math.min(Math.floor(index / cols) * cols + cols - 1, tiles.length - 1);
+    tiles[rowEnd].after(panel);
+    // Point the panel's arrow at the centre of the chosen tile
+    const g = grid.getBoundingClientRect();
+    const t = current.getBoundingClientRect();
+    panel.style.setProperty('--arrow-x', (t.left - g.left + t.width / 2) + 'px');
+  }
+
+  function close() {
+    if (!current) return;
+    current.setAttribute('aria-expanded', 'false');
+    current.classList.remove('is-active');
+    panel.hidden = true;
+    const was = current;
+    current = null;
+    return was;
+  }
+
+  function open(tile) {
+    if (current) { current.setAttribute('aria-expanded', 'false'); current.classList.remove('is-active'); }
+    current = tile;
+    tile.setAttribute('aria-expanded', 'true');
+    tile.classList.add('is-active');
+    panel.querySelector('.tp-icon').innerHTML = tile.querySelector('.icon').outerHTML;
+    panel.querySelector('.tp-title').textContent = tile.dataset.title;
+    panel.querySelector('.tp-desc').textContent = tile.dataset.desc;
+    panel.querySelector('.tp-count').textContent = 'Topic ' + (tiles.indexOf(tile) + 1) + ' of ' + tiles.length;
+    panel.hidden = false;
+    place();
+    panel.classList.remove('is-entering');
+    void panel.offsetWidth;
+    panel.classList.add('is-entering');
+    const r = panel.getBoundingClientRect();
+    if (r.bottom > innerHeight || r.top < 80) panel.scrollIntoView({ block: 'nearest', behavior: reducedMotion ? 'auto' : 'smooth' });
+  }
+
+  for (const tile of tiles) {
+    tile.addEventListener('click', () => (tile === current ? close() : open(tile)));
+  }
+  panel.querySelector('.tp-close').addEventListener('click', () => { const was = close(); was?.focus(); });
+  panel.addEventListener('keydown', (event) => { if (event.key === 'Escape') { const was = close(); was?.focus(); } });
+  window.addEventListener('resize', place);
+}
+
 // Course journey: tabs that also advance on their own until the visitor takes over
 const journey = document.querySelector('[data-journey]');
 if (journey) {
