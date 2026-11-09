@@ -579,6 +579,11 @@ col += cta()
 write("colleges.html", "College MoUs | CMTI", "What a CMTI MoU offers engineering colleges: placements, internships, software training, curriculum development and more.", col)
 
 # ================================================================ CORPORATE
+def stage(title, text, big, small, tone):
+    """Solid colour block: a large experience figure on the left, title and text on the right."""
+    return (f'<article class="stage-block tone-{tone}"><p class="sb-figure">{big}<small>{small}</small></p>'
+            f'<div><h4>{title}</h4><p>{text}</p></div></article>')
+
 PC = "Corporate Training"
 corp = page_hero("For Corporates", "For Corporates", "Technical capability development",
     "Customised construction training for your teams, project needs and industry standards.", "images/photos/classroom.webp",
@@ -604,10 +609,10 @@ corp += section(f'''<div class="two-col">
   </div>
   <div class="reveal">
     <h3 style="margin-bottom:20px">Training by career stage</h3>
-    <div class="grid" style="--cols:1">
-      {card("Freshers", "Diploma Engineer Trainee (DET) and Graduate Engineer Trainee (GET) programmes. We tailor the duration and topics to business needs. CMTI has delivered GET programmes for nine years, with programme details available on request.", "cap")}
-      {card("Middle management", "We recommend a two-day workshop on construction topics selected with your team.", "users", label="3–15 years of experience")}
-      {card("Construction and project managers", "Workshops tailored to senior project responsibilities and organisational priorities.", "briefcase", label="15+ years of experience")}
+    <div class="stage-blocks">
+      {stage("Freshers", "Diploma Engineer Trainee (DET) and Graduate Engineer Trainee (GET) programmes. We tailor the duration and topics to business needs. CMTI has delivered GET programmes for nine years, with programme details available on request.", "DET / GET", "programmes", 1)}
+      {stage("Middle management", "We recommend a two-day workshop on construction topics selected with your team.", "3–15", "years of experience", 2)}
+      {stage("Construction and project managers", "Workshops tailored to senior project responsibilities and organisational priorities.", "15+", "years of experience", 3)}
     </div>
   </div>
 </div>''', "section alt", "training-participants", "staff-title")

@@ -602,3 +602,20 @@ main { overflow-x: clip; }
 .service-text { color: var(--text); font-size: 1rem; margin-bottom: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 .service-cta { margin-top: auto; align-self: flex-start; }
 @media (max-width: 1100px) { .service-grid { grid-template-columns: 1fr; max-width: 640px; } }
+
+/* ---------- Training by career stage: solid colour blocks ---------- */
+.stage-blocks { display: grid; box-shadow: var(--shadow); }
+.stage-block { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 24px; padding: 30px 32px; color: #fff; transition: transform 250ms var(--ease); }
+.stage-block:hover { transform: translateX(6px); }
+.stage-block h4 { margin: 0 0 8px; font-size: 1.375rem; font-weight: 600; line-height: 1.2; color: inherit; }
+.stage-block p { margin: 0; font-size: 1.0625rem; }
+.sb-figure { font-size: 2.5rem !important; font-weight: 700; line-height: 1; letter-spacing: -.02em; }
+.sb-figure small { display: block; margin-top: 8px; font-size: .8125rem; font-weight: 600; letter-spacing: .02em; opacity: .9; }
+.tone-1 { background: var(--blue); }
+.tone-1 .sb-figure { font-size: 1.5rem !important; white-space: nowrap; }
+.tone-2 { background: var(--navy); }
+.tone-3 { background: var(--amber); color: var(--navy); }
+@media (max-width: 600px) {
+  .stage-block { grid-template-columns: 1fr; gap: 14px; padding: 24px 22px; }
+  .stage-block:hover { transform: none; }
+}
