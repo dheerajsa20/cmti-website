@@ -17,6 +17,13 @@ const subButtons = [...document.querySelectorAll('.has-sub > button')];
 function closeSubs(except) {
   for (const button of subButtons) if (button !== except) button.setAttribute('aria-expanded', 'false');
 }
+// On desktop, hovering one menu closes any other menu opened by click or keyboard
+const canHover = window.matchMedia('(hover: hover) and (min-width: 1101px)');
+for (const item of document.querySelectorAll('.has-sub')) {
+  item.addEventListener('mouseenter', () => { if (canHover.matches) closeSubs(item.querySelector('button')); });
+  item.addEventListener('mouseleave', () => { if (canHover.matches) item.querySelector('button').setAttribute('aria-expanded', 'false'); });
+}
+
 for (const button of subButtons) {
   button.addEventListener('click', () => {
     const open = button.getAttribute('aria-expanded') === 'true';

@@ -522,8 +522,15 @@ main { overflow-x: clip; }
 @media (max-width: 600px) { .info-grid { --cols: 1 !important; } .topic-list { grid-template-columns: 1fr; } .marquee-track li { width: 150px; height: 88px; } .marquee.large .marquee-track li { width: 170px; height: 96px; } }
 
 /* ---------- Brand logos ---------- */
-.hero-badge { width: 220px; margin-bottom: 26px; padding: 14px 18px; background: #fff; }
+.hero-badge { width: 240px; margin-bottom: 28px; }
 .card-brand { width: 200px; margin: 0 0 20px; }
 @media (max-width: 600px) { .hero-badge { width: 180px; } .brand img { width: 108px; } }
 .page-hero .eyebrow { color: #fff; }
 .card-brand { order: -1; }
+
+/* Desktop: menus also open on hover (click, tap and keyboard still work) */
+@media (hover: hover) and (min-width: 1101px) {
+  .has-sub:hover > button { color: var(--blue); border-bottom-color: var(--blue); }
+  .has-sub:hover > button::after { transform: translateY(1px) rotate(225deg); }
+  .has-sub:hover > .sub { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+}
