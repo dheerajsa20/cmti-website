@@ -579,11 +579,11 @@ col += cta()
 write("colleges.html", "College MoUs | CMTI", "What a CMTI MoU offers engineering colleges: placements, internships, software training, curriculum development and more.", col)
 
 # ================================================================ CORPORATE
-def stage(title, text, ic, years=""):
-    """High-contrast career-stage card: navy header with icon and title, experience badge, text."""
-    badge = f'<p class="stage-badge">{years}</p>' if years else ""
-    return (f'<article class="service stage reveal"><div class="service-head">{icon(ic)}<h3>{title}</h3></div>'
-            f'<div class="service-body">{badge}<p class="service-text">{text}</p></div></article>')
+def stage(title, text, ic, years="", step=1):
+    """One step of the career ladder: each step sits higher and in a deeper blue than the one before."""
+    badge = f'<p class="rung-years">{years}</p>' if years else ""
+    return (f'<li class="rung rung-{step}"><div class="rung-top"><span class="rung-step" aria-hidden="true">{step:02d}</span>{icon(ic)}</div>'
+            f'{badge}<h4>{title}</h4><p>{text}</p></li>')
 
 PC = "Corporate Training"
 corp = page_hero("For Corporates", "For Corporates", "Technical capability development",
@@ -601,22 +601,20 @@ corp += section(shead("", "Top 5 reasons corporates choose CMTI as their technic
 corp += section(shead("", "How we customise each programme", hid="steps-title") + '<ol class="steps reveal" aria-label="Programme customisation steps">' + "".join(f"<li>{s}</li>" for s in [
     "Discuss needs with L&amp;D and Operations", "Identify skill gaps and map competencies", "Refine and agree the session plan",
     "Develop tailored training content", "Deliver and assess learning"]) + "</ol>", "section dark on-dark", label="steps-title")
-corp += section(f'''<div class="two-col">
+corp += section(f'''<div class="two-col center">
   <div class="prose reveal">
     <p class="eyebrow">Corporate training</p>
     <h2 id="staff-title">Capability Development for Staff</h2>
     <p class="lead">When skilled hires are hard to find, upskilling helps existing staff take on more responsibility in their current roles, while reskilling prepares them for new roles. CMTI works with L&amp;D and Operations to identify skill gaps and design training around the work participants will do.</p>
-    <div class="photo" style="margin-top:32px"><img src="images/photos/site-team.webp" alt="Engineers in safety vests reviewing a construction site" loading="lazy" width="1400" height="934"></div>
   </div>
-  <div class="reveal">
-    <h3 style="margin-bottom:20px">Training by career stage</h3>
-    <div class="stage-list">
-      {stage("Freshers", "Diploma Engineer Trainee (DET) and Graduate Engineer Trainee (GET) programmes. We tailor the duration and topics to business needs. CMTI has delivered GET programmes for nine years, with programme details available on request.", "cap")}
-      {stage("Middle management", "We recommend a two-day workshop on construction topics selected with your team.", "users", "3–15 years of experience")}
-      {stage("Construction and project managers", "Workshops tailored to senior project responsibilities and organisational priorities.", "briefcase", "15+ years of experience")}
-    </div>
-  </div>
-</div>''', "section alt", "training-participants", "staff-title")
+  <div class="photo reveal"><img src="images/photos/site-team.webp" alt="Engineers in safety vests reviewing a construction site" loading="lazy" width="1400" height="934"></div>
+</div>
+<h3 class="ladder-title reveal">Training by career stage</h3>
+<ol class="ladder reveal">
+  {stage("Freshers", "Diploma Engineer Trainee (DET) and Graduate Engineer Trainee (GET) programmes. We tailor the duration and topics to business needs. CMTI has delivered GET programmes for nine years, with programme details available on request.", "cap", step=1)}
+  {stage("Middle management", "We recommend a two-day workshop on construction topics selected with your team.", "users", "3–15 years of experience", step=2)}
+  {stage("Construction and project managers", "Workshops tailored to senior project responsibilities and organisational priorities.", "briefcase", "15+ years of experience", step=3)}
+</ol>''', "section alt", "training-participants", "staff-title")
 TOPICS = [("building", "Construction Management", "Core and shell, formwork, finishes and handover protocols."),
     ("chart", "Project Management", "Project planning, project controls and software tools."),
     ("check", "Quality Management", "Quality planning, inspections and corrective actions."),
