@@ -649,3 +649,20 @@ main { overflow-x: clip; }
   .site-nav > ul > li > a, .site-nav > ul > li > button { padding: 0 10px; }
   .site-nav .btn { padding: 12px 18px; }
 }
+
+/* ---------- Trainers, mentor photo, legal footer line ---------- */
+.trainer-grid .card .link-arrow { color: #fff; }
+.section:not(.dark) .trainer-grid .card .link-arrow { color: var(--blue); }
+.mentor-photo { width: 168px; height: 168px; object-fit: cover; border: 4px solid var(--amber); }
+.footer-base p { display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: baseline; }
+.footer-base strong { color: #fff; font-weight: 600; }
+.footer-base .legal { color: #a9bad0; }
+
+/* ---------- Full-width header: logo at the left edge, menu at the right ---------- */
+.masthead-inner, .topbar-inner { max-width: none; padding-left: clamp(16px, 3vw, 56px); padding-right: clamp(16px, 3vw, 56px); }
+.site-nav { margin-left: auto; gap: 28px; }
+.brand img { width: 140px; }
+@media (min-width: 1500px) {
+  .site-nav > ul > li > a, .site-nav > ul > li > button { padding: 0 18px; font-size: 1rem; }
+}
+@media (max-width: 1200px) { .brand img { width: 112px; } }

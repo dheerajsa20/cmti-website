@@ -68,7 +68,7 @@ def arrow_link(text, href, attrs=""):
 NAV = [
     ("Home", "index.html", None),
     ("About Us", None, [("About Us", "about.html"), ("Mission &amp; Vision", "vision-mission.html"), ("Our Clients", "about.html#clients"),
-                        ("Professional Associations", "associations.html")]),
+                        ("Professional Associations", "associations.html"), ("Testimonials", "testimonials.html")]),
     ("For Corporates", None, [("Overview", "corporate.html"), ("Capability Development Programme for Staff", "corporate.html#training-participants"),
                               ("Capability Development Programme for Workmen", "corporate.html#workmen"),
                               ("Content Development", "corporate.html#content-development"),
@@ -76,8 +76,7 @@ NAV = [
     ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "finishing-school.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
                                 ("Internships", "finishing-school.html#internship"),
                                 ("Construction Software Courses", "finishing-school.html#construction-software"),
-                                ("BIM Design Software", "finishing-school.html#bim-design"),
-                                ("Testimonials", "testimonials.html")]),
+                                ("BIM Design Software", "finishing-school.html#bim-design")]),
     ("College MoUs", "colleges.html", None),
     ("E-Learning", None, [("Online Courses", "e-learning.html"), ("Webinars", "e-learning.html#webinars")]),
     ("Contact", "index.html#contact", None),
@@ -123,12 +122,12 @@ FOOTER = f'''<footer class="site-footer">
       <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
       <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
     </div>
-    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li></ul></div>
+    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
-    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
-  <div class="footer-base"><p>© CMTI, Construction Management Training Institute. Photos from Unsplash.</p></div>
+  <div class="footer-base"><p><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span class="legal">GSTIN: 29AAJCC1709L1ZE</span><span class="legal">CIN: U74999KA2020PTC142113</span><span class="legal">Photos from Unsplash</span></p></div>
 </footer>'''
 
 WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>'
@@ -271,6 +270,19 @@ def team_section(cls="section", sid="team"):
         for m, role, name, cred, bio, li in TEAM)
     return section(shead("Leadership", "The team behind CMTI", hid=f"{sid}-title") + f'<div class="grid" style="--cols:4">{cards}</div>', cls, sid, f"{sid}-title")
 
+TRAINERS = [
+    ("Er. S. G. Ashok Kumar", "PMP, IGBC AP. 26 years of construction industry experience, including highway and airport projects.", "https://www.linkedin.com/in/er-ashok-kumar-b645126b/", "Founder &amp; CEO"),
+    ("Sachin Amarnath", "Sachin Specializes on Project Management, Digital Construction, Real Estate, Artificial Intelligence in Construction and Risk Management", "https://www.linkedin.com/in/sachin-amarnath/", ""),
+    ("K B Natarajan", "Natarajan Specializes on Construction Management, having Vast Experience in Handling the Graduate Engineer Trainees / Diploma Engineer Trainees", "https://www.linkedin.com/in/kozunjavadi-balu-natarajan-193b8754/", ""),
+    ("N Balaji", "N Balaji Specializes on Construction Management having vast experience in handling Real Estate and Industrial Construction Projects", "https://www.linkedin.com/in/balaji-nachiappan-362475214/", ""),
+    ("Manish Dave", "Manish Dave carries experience on Project Management, executed complex projects and held leadership positions in leading Construction Companies", "https://www.linkedin.com/in/manish-dave-464081296/", ""),
+    ("Nagareddayya Subbagari", "Nagareddayya Subbagari carries rich experience on Quality Management Systems, Construction Management", "https://www.linkedin.com/in/nagareddayya-subbagari-81309318/", ""),
+    ("Madhukeshwar Jaglur", "Madhukeshwar Jaglur carries rich experience on Project Management, handled Large Complex projects", "https://www.linkedin.com/in/jaglur-m-188b1316/", ""),
+]
+
+def trainer(name, text, linkedin, label):
+    return card(name, text, label=label, extra=arrow_link("View LinkedIn profile", linkedin, f' aria-label="View {name} on LinkedIn"'))
+
 def trainers_section(cls="section dark on-dark", sid="trainers"):
     return section(f'''<div class="two-col">
   <div class="reveal">
@@ -283,10 +295,8 @@ def trainers_section(cls="section dark on-dark", sid="trainers"):
     <p><a class="link-arrow" style="color:#fff" href="{enquire("Trainer Profiles")}">Request trainer profiles for your programme</a></p>
   </div>
 </div>
-<div class="grid" style="--cols:3;margin-top:48px">
-  {card("Er. S. G. Ashok Kumar", "PMP, IGBC AP. 26 years of construction industry experience, including highway and airport projects.", label="Founder &amp; CEO")}
-  {card("Vijay Gupta", "PMP-certified project management instructor.", label="Project management")}
-  {card("Madhukeshwar Jaglur", "Senior project management professional and CMTI webinar speaker on cost priorities and AI prompt engineering.", label="Visiting speaker")}
+<div class="grid trainer-grid" style="--cols:4;margin-top:48px">
+  {"".join(trainer(*t) for t in TRAINERS)}
 </div>''', cls, sid, f"{sid}-title")
 
 NITI = '''<aside class="panel reveal">
@@ -390,8 +400,12 @@ about += section(f'''<div class="two-col">
   {NITI.replace("<h3>Construction skills for a developed India</h3>", "")}
 </div>
 {ABOUT_CARDS}''', label="story-title")
-about += section('''<div class="mentor reveal">
-  <span class="monogram" aria-hidden="true">VS</span>
+import os as _os
+MENTOR_PHOTO = "images/team/v-suresh.webp"
+mentor_visual = (f'<img class="mentor-photo" src="{MENTOR_PHOTO}" alt="Er. V. Suresh" width="400" height="400">'
+                 if _os.path.exists(f"{ROOT}/{MENTOR_PHOTO}") else '<span class="monogram" aria-hidden="true">VS</span>')
+about += section(f'''<div class="mentor reveal">
+  {mentor_visual}
   <div>
     <p class="eyebrow">CMTI Mentor</p>
     <h2 id="mentor-title">Er. V. Suresh</h2>
@@ -445,11 +459,6 @@ tst += section(shead("", "Hear from CMTI students", hid="students-title") + '<di
     video("vd9OFFVTzVo", "Amrita Bhat", "CMTI Finishing School", "https://www.youtube.com/watch?v=vd9OFFVTzVo") +
     f'</div><p style="margin-top:28px">{arrow_link("Explore CMTI testimonials on YouTube", "https://www.youtube.com/@CMTICivil/playlists")}</p>',
     label="students-title")
-tst += section('''<div class="panel light reveal">
-  <h2 id="share-title">Share your first-job story</h2>
-  <p>Recently placed or started your first job? Tell us about your new role, what helped you prepare, and what you’d like the next batch to know. You can include a link to your video and let us know if we may feature it.</p>
-  <p style="margin-top:20px"><a class="btn btn-primary" href="mailto:cmtioffice@cmti.co.in?subject=My%20CMTI%20first-job%20story">Share your feedback with CMTI</a></p>
-</div>''', label="share-title")
 tst += cta()
 write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimonials from the CMTI Finishing School and CMTI’s Google reviews.", tst)
 
