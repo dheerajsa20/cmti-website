@@ -59,7 +59,8 @@ def icon(name, cls="icon"):
     return f'<span class="{cls}" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="{ICONS[name]}"/></svg></span>'
 
 def enquire(programme):
-    return "index.html?programme=" + quote(programme) + "#contact"
+    import html as _html
+    return "index.html?programme=" + quote(_html.unescape(programme)) + "#contact"
 
 def arrow_link(text, href, attrs=""):
     return f'<a class="link-arrow" href="{href}"{attrs}>{text}</a>'
@@ -286,7 +287,7 @@ TEAM = [
 
 def team_section(cls="section", sid="team"):
     cards = "".join(
-        f'<article class="card reveal"><p class="label">{role}</p><h3>{name}</h3>'
+        f'<article class="card reveal leader"><h3 class="leader-name">{name}</h3><p class="label leader-role">{role}</p>'
         f'<p class="cred">{cred}</p><p>{bio}</p>{arrow_link("View LinkedIn profile", li, f" aria-label=\"View {name.split(". ",1)[-1]} on LinkedIn\"")}</article>'
         for m, role, name, cred, bio, li in TEAM)
     return section(shead("Leadership", "The team behind CMTI", hid=f"{sid}-title") + f'<div class="grid" style="--cols:4">{cards}</div>', cls, sid, f"{sid}-title")
@@ -331,7 +332,11 @@ ABOUT_CARDS = ('<div class="grid" style="--cols:2;margin-top:40px">' +
     card("College Trainings and Placements", "On-campus and off-campus training, internship support and campus interviews for engineering students. CMTI partners with <strong>100+ engineering colleges</strong>, has placed <strong>5,000+ engineers</strong> in construction and interiors roles, and works with <strong>300+ companies</strong> across construction, real estate, interiors and BIM.", "cap", extra=arrow_link("Explore college partnerships", "colleges.html")) +
     "</div>")
 
-PROGRAMME_OPTIONS = ["CMTI Finishing School", "IDMTI", "Corporate Training", "CMTI Workmen Skills", "Webinars", "College MoU", "Trainer Profiles", "Other"]
+PROGRAMME_GROUPS = [
+    ("Certified Courses", ["Advanced Construction Management Course (CACM)", "Interior Design &amp; Management Course (IDM)", "Internships", "Construction Software Courses", "BIM Design Software"]),
+    ("For Corporates", ["Capability Development Programme for Staff", "Capability Development Programme for Workmen", "Content Development", "Assessment of Employees", "Hiring Support", "Trainer Profiles"]),
+    ("Other", ["College MoU", "E-Learning and Webinars", "Something else"]),
+]
 
 # ================================================================ HOME
 home = f'''<section class="hero" aria-labelledby="hero-title">
@@ -384,7 +389,7 @@ home += section(f'''<div class="webinar-strip reveal">
   </div>
   <a class="btn btn-primary" href="e-learning.html#webinars">Explore CMTI webinars</a>
 </div>''', "section webinar-section", "webinars", "webinars-title")
-options = "".join(f"<option>{o}</option>" for o in PROGRAMME_OPTIONS)
+options = "".join(f'<optgroup label="{g}">' + "".join(f"<option>{o}</option>" for o in opts) + "</optgroup>" for g, opts in PROGRAMME_GROUPS)
 home += section(f'''<div class="contact-wrap">
   <div class="contact-info reveal">
     <p class="eyebrow">Contact us</p>
@@ -527,7 +532,7 @@ el += cta()
 write("e-learning.html", "CMTI E-Learning | CMTI", "CMTI Civil Engg Connect: 80+ affordable, self-paced construction courses, plus free CMTI webinars.", el)
 
 # ================================================================ FINISHING SCHOOL (CACM)
-P = "CMTI Finishing School"
+P = "Advanced Construction Management Course (CACM)"
 fs = page_hero("Advanced Construction Management Course (CACM)", "CMTI Finishing School", "Certificate Course on Advanced Construction Management",
     img="images/photos/site-rebar.webp", tags_label="Skills practised in the CACM course",
     tags=["Drawings, BOQ and BBS", "Construction sequencing", "Site quality and safety"],
@@ -559,15 +564,15 @@ fs += section(shead("", "Learning outcomes", hid="outcomes-title") + '<ul class=
     label="outcomes-title")
 fs += section(shead("CMTI / IDMTI Finishing School", "More Finishing School programmes", hid="more-title") + '<div class="grid" style="--cols:4">' +
     card("Interior Design &amp; Management Course (IDM)", "Certificate Course on Interior Design &amp; Management", None, extra='<img class="card-brand" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321" loading="lazy">' + arrow_link("Explore the three-month interior design course", "idmti.html")) +
-    card("Internships", "Explore practical exposure to construction projects and enquire about current internship opportunities.", "briefcase", cid="internship", extra=arrow_link("Enquire", enquire(P))) +
-    card("Construction Software Courses", "Build software skills for construction drawings, quantity estimation and project planning.", "laptop", cid="construction-software", extra=arrow_link("Enquire", enquire(P))) +
-    card("BIM Design Software", "Explore model-based design and coordination for construction and interiors.", "cpu", cid="bim-design", extra=arrow_link("Enquire", enquire(P))) +
+    card("Internships", "Explore practical exposure to construction projects and enquire about current internship opportunities.", "briefcase", cid="internship", extra=arrow_link("Enquire", enquire("Internships"))) +
+    card("Construction Software Courses", "Build software skills for construction drawings, quantity estimation and project planning.", "laptop", cid="construction-software", extra=arrow_link("Enquire", enquire("Construction Software Courses"))) +
+    card("BIM Design Software", "Explore model-based design and coordination for construction and interiors.", "cpu", cid="bim-design", extra=arrow_link("Enquire", enquire("BIM Design Software"))) +
     "</div>", "section alt", label="more-title")
 fs += cta()
 write("finishing-school.html", "Advanced Construction Management Course (CACM) | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
 
 # ================================================================ IDMTI
-PI = "IDMTI"
+PI = "Interior Design &amp; Management Course (IDM)"
 idm = page_hero("Interior Design &amp; Management Course (IDM)", "Interior Design &amp; Management Training Institute", "Certificate Course on Interior Design &amp; Management",
     "Founded by Er. S. G. Ashok Kumar, IDMTI prepares aspiring professionals for residential and commercial interiors. Alumni have worked with firms including HomeLane, DesignCafe, Bonito Designs and Purva Streaks.",
     "images/photos/plans-desk.webp", "How an interior fit-out comes together", ["Design and layouts", "Modular production", "Site installation"],
@@ -623,7 +628,7 @@ def stage(title, text, big, small, tone):
     return (f'<article class="stage-block tone-{tone}"><p class="sb-figure">{big}<small>{small}</small></p>'
             f'<div><h4>{title}</h4><p>{text}</p></div></article>')
 
-PC = "Corporate Training"
+PC = "Capability Development Programme for Staff"
 corp = page_hero("For Corporates", "For Corporates", "Technical capability development",
     "Customised construction training for your teams, project needs and industry standards.", "images/photos/classroom.webp",
     actions=f'<a class="btn btn-white" href="{enquire(PC)}">Discuss your training needs</a>')
@@ -696,13 +701,14 @@ corp += section(f'''<div class="two-col center">
     <ul class="tags light" style="padding:0">{"".join(f'<li style="border:1px solid var(--line);color:var(--ink)">{t}</li>' for t in ["Formwork &amp; scaffolding", "Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"])}</ul>
     <p class="lead">Experienced trade trainers customise practical programmes around project requirements and the work crews perform on site.</p>
     <p>Formwork and scaffolding certification is available as part of the trade training offering.</p>
-    <a class="btn btn-primary" href="{enquire(PC)}">Enquire with CMTI</a>
+    <a class="btn btn-primary" href="{enquire("Capability Development Programme for Workmen")}">Enquire with CMTI</a>
   </div>
 </div>''', "section alt", "workmen", "workmen-title")
 def service(sid, ic, title, steps, text):
+    prog = title
     return (f'<article class="service reveal" id="{sid}"><div class="service-head">{icon(ic)}<h3>{title}</h3></div>'
             f'<div class="service-body"><p class="service-label">How it works</p><ol class="service-steps">' + "".join(f"<li>{s}</li>" for s in steps) +
-            f'</ol><p class="service-text">{text}</p><a class="btn btn-primary service-cta" href="{enquire(PC)}">Enquire with CMTI</a></div></article>')
+            f'</ol><p class="service-text">{text}</p><a class="btn btn-primary service-cta" href="{enquire(prog)}">Enquire with CMTI</a></div></article>')
 corp += section('<div class="service-grid">' +
     service("content-development", "doc", "Content Development", ["Understand project workflows", "Develop SOPs and learning materials", "Review with your team"],
             "CMTI develops standard operating procedures and training content for in-house learning systems. We tailor materials to project workflows, roles and site requirements.") +
