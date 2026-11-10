@@ -18,7 +18,7 @@ function closeSubs(except) {
   for (const button of subButtons) if (button !== except) button.setAttribute('aria-expanded', 'false');
 }
 // On desktop, hovering one menu closes any other menu opened by click or keyboard
-const canHover = window.matchMedia('(hover: hover) and (min-width: 1101px)');
+const canHover = window.matchMedia('(hover: hover) and (min-width: 1201px)');
 for (const item of document.querySelectorAll('.has-sub')) {
   item.addEventListener('mouseenter', () => { if (canHover.matches) closeSubs(item.querySelector('button')); });
   item.addEventListener('mouseleave', () => { if (canHover.matches) item.querySelector('button').setAttribute('aria-expanded', 'false'); });

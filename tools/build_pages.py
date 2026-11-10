@@ -67,17 +67,18 @@ def arrow_link(text, href, attrs=""):
 # ---------------------------------------------------------------- shared chrome
 NAV = [
     ("Home", "index.html", None),
-    ("About Us", None, [("About Us", "about.html"), ("Mission &amp; Vision", "vision-mission.html"), ("Client List", "about.html#clients"),
+    ("About Us", None, [("About Us", "about.html"), ("Mission &amp; Vision", "vision-mission.html"), ("Our Clients", "about.html#clients"),
                         ("Professional Associations", "associations.html")]),
+    ("For Corporates", None, [("Overview", "corporate.html"), ("Capability Development Programme for Staff", "corporate.html#training-participants"),
+                              ("Capability Development Programme for Workmen", "corporate.html#workmen"),
+                              ("Content Development", "corporate.html#content-development"),
+                              ("Assessment of Employees", "corporate.html#assessment"), ("Hiring Support", "corporate.html#hiring")]),
     ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "finishing-school.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
                                 ("Internships", "finishing-school.html#internship"),
                                 ("Construction Software Courses", "finishing-school.html#construction-software"),
-                                ("BIM Design Software", "finishing-school.html#bim-design"), ("College MoUs", "colleges.html"),
+                                ("BIM Design Software", "finishing-school.html#bim-design"),
                                 ("Testimonials", "testimonials.html")]),
-    ("For Corporates", None, [("Overview", "corporate.html"), ("Capability Development for Staff", "corporate.html#training-participants"),
-                              ("Capability Development for Workmen", "corporate.html#workmen"),
-                              ("Content Development", "corporate.html#content-development"),
-                              ("Assessment of Employees", "corporate.html#assessment"), ("Hiring Support", "corporate.html#hiring")]),
+    ("College MoUs", "colleges.html", None),
     ("E-Learning", None, [("Online Courses", "e-learning.html"), ("Webinars", "e-learning.html#webinars")]),
     ("Contact", "index.html#contact", None),
 ]
@@ -122,10 +123,10 @@ FOOTER = f'''<footer class="site-footer">
       <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
       <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
     </div>
-    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Client List</a></li><li><a href="associations.html">Professional Associations</a></li></ul></div>
-    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
-    <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development for Staff</a></li><li><a href="corporate.html#workmen">Capability Development for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
-    <div><h3>CMTI</h3><ul><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
+    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li></ul></div>
+    <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
+    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+    <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
   <div class="footer-base"><p>© CMTI, Construction Management Training Institute. Photos from Unsplash.</p></div>
 </footer>'''
@@ -225,7 +226,7 @@ def client_marquee():
         return (f'<div class="marquee {cls}"><ul class="marquee-track">' +
                 "".join(f'<li><img src="client-logos/{n}.{e}" alt="{a}" loading="lazy"></li>' for n, e, a in items) + "</ul></div>")
     return ('<div class="marquee-group reveal" data-marquee-group>' + row(CLIENTS[:10], "large") + row(CLIENTS[10:], "reverse") +
-            '<p style="margin:8px 0 0"><button class="marquee-toggle" type="button" aria-pressed="false">Pause scrolling</button></p></div>')
+            '</div>')
 
 COLLEGES = [("bmsit", "BMSIT"), ("presidency", "Presidency University"), ("sharnbasava", "Sharnbasava University"),
     ("kpriet", "KPRIET"), ("karunya", "Karunya"), ("sona", "Sona College"), ("rgm", "RGM Nandyal"),
@@ -235,7 +236,7 @@ COLLEGES = [("bmsit", "BMSIT"), ("presidency", "Presidency University"), ("sharn
 def college_marquee():
     return ('<div class="marquee-group reveal" data-marquee-group><div class="marquee"><ul class="marquee-track">' +
             "".join(f'<li class="college"><img src="college-logos/{f}.jpeg" alt="" loading="lazy">{n}</li>' for f, n in COLLEGES) +
-            '</ul></div><p style="margin:8px 0 0"><button class="marquee-toggle" type="button" aria-pressed="false">Pause scrolling</button></p></div>')
+            '</ul></div></div>')
 
 MOU = [("briefcase", "Placement support and campus interviews", "Employer coordination, résumé guidance, mock interviews and campus interviews."),
     ("helmet", "Internships", "Help students find and apply for relevant industry opportunities."),
@@ -340,7 +341,7 @@ home += section(shead("Delivery formats", "Learn in the format that fits", hid="
   <article>''' + icon("laptop") + '''<h3>Online</h3><p>Live sessions and self-paced learning through CMTI Civil Engg Connect.</p>''' + arrow_link("Explore CMTI e-learning", "e-learning.html") + '''</article>
   <article>''' + icon("layers") + '''<h3>Hybrid</h3><p>Online instruction combined with in-person workshops or site-based practice.</p></article>
 </div>''', sid="formats", label="formats-title")
-home += section('<div class="section-head reveal"><h2 id="clients-title">CMTI\'s Client List Includes below companies.</h2></div>' + client_marquee(), "section alt", "clients", "clients-title")
+home += section('<div class="section-head reveal"><h2 id="clients-title">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "clients", "clients-title")
 home += team_section("section alt")
 home += trainers_section()
 home += section(f'<p class="reveal">{arrow_link("Explore CMTI webinars", "e-learning.html#webinars")}</p>', "section", "webinars")
@@ -402,7 +403,7 @@ about += section('''<div class="mentor reveal">
 </div>''', "section dark on-dark", "mentor", "mentor-title")
 about += team_section()
 about += trainers_section("section alt", "trainers").replace('style="color:#fff"', "")
-about += section('<div class="section-head reveal"><p class="eyebrow">Client List</p><h2 id="about-clients">CMTI\'s Client List Includes below companies.</h2></div>' + client_marquee(), "section", "clients", "about-clients")
+about += section('<div class="section-head reveal"><p class="eyebrow">Our Clients</p><h2 id="about-clients">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section", "clients", "about-clients")
 about += cta()
 write("about.html", "About CMTI | CMTI", "About the Construction Management Training Institute: our story, mentor, leadership team, trainer network and clients.", about)
 
@@ -603,7 +604,7 @@ corp += section(shead("", "How we customise each programme", hid="steps-title") 
 corp += section(f'''<div class="two-col">
   <div class="prose reveal">
     <p class="eyebrow">Corporate training</p>
-    <h2 id="staff-title">Capability Development for Staff</h2>
+    <h2 id="staff-title">Capability Development Programme for Staff</h2>
     <p class="lead">When skilled hires are hard to find, upskilling helps existing staff take on more responsibility in their current roles, while reskilling prepares them for new roles. CMTI works with L&amp;D and Operations to identify skill gaps and design training around the work participants will do.</p>
     <div class="photo" style="margin-top:32px"><img src="images/photos/site-team.webp" alt="Engineers in safety vests reviewing a construction site" loading="lazy" width="1400" height="934"></div>
   </div>
@@ -643,7 +644,7 @@ corp += section(shead("", "Explore training topics", "Select a topic to see what
 corp += section(f'''<div class="two-col center">
   <div class="photo reveal"><img src="images/photos/workman.webp" alt="Tradesperson in a hard hat working on site" loading="lazy" width="900" height="601"></div>
   <div class="reveal">
-    <h2 id="workmen-title">Capability Development for Workmen</h2>
+    <h2 id="workmen-title">Capability Development Programme for Workmen</h2>
     <ul class="tags light" style="padding:0">{"".join(f'<li style="border:1px solid var(--line);color:var(--ink)">{t}</li>' for t in ["Formwork &amp; scaffolding", "Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"])}</ul>
     <p class="lead">Experienced trade trainers customise practical programmes around project requirements and the work crews perform on site.</p>
     <p>Formwork and scaffolding certification is available as part of the trade training offering.</p>
@@ -662,6 +663,6 @@ corp += section('<div class="service-grid">' +
     service("hiring", "handshake", "Hiring Support", ["Share your hiring needs", "Connect with campuses", "Interview potential hires"],
             "CMTI has trained 5,000+ engineers through its Finishing School and works with 100+ engineering colleges. We can help employers coordinate campus hiring for entry-level engineering roles.") +
     "</div>")
-corp += section('<div class="section-head reveal"><h2 id="corp-clients">CMTI\'s Client List Includes below companies.</h2></div>' + client_marquee(), "section alt", "client-logos", "corp-clients")
+corp += section('<div class="section-head reveal"><h2 id="corp-clients">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "client-logos", "corp-clients")
 corp += cta()
 write("corporate.html", "For Corporates | CMTI", "Customised construction training for staff and workmen, content development, employee assessment and hiring support across India.", corp)
