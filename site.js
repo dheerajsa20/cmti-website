@@ -93,6 +93,24 @@ for (const board of document.querySelectorAll('[data-tabs]')) {
   });
 }
 
+// "Top 5 reasons": one reason open at a time; opens on click/tap, and on hover with a mouse
+for (const list of document.querySelectorAll('[data-reasons]')) {
+  const items = [...list.querySelectorAll('.reason')];
+  const open = (item) => {
+    for (const other of items) {
+      const on = other === item;
+      other.classList.toggle('is-open', on);
+      other.querySelector('.reason-head').setAttribute('aria-expanded', String(on));
+      other.querySelector('.reason-body').hidden = !on;
+    }
+  };
+  const mouse = window.matchMedia('(hover: hover)');
+  for (const item of items) {
+    item.querySelector('.reason-head').addEventListener('click', () => open(item));
+    item.addEventListener('mouseenter', () => { if (mouse.matches) open(item); });
+  }
+}
+
 // Training topic flip cards: hover flips on desktop; click, tap or Enter flips everywhere
 for (const card of document.querySelectorAll('[data-flip]')) {
   const front = card.querySelector('.flip-front');

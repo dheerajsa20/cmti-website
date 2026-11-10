@@ -115,6 +115,16 @@ def header(home=False):
   </div>
 </header>'''
 
+SOCIAL = [
+    ("Instagram", "https://www.instagram.com/cmtionline/", "M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM16.6 2.5H7.4a4.9 4.9 0 0 0-4.9 4.9v9.2a4.9 4.9 0 0 0 4.9 4.9h9.2a4.9 4.9 0 0 0 4.9-4.9V7.4a4.9 4.9 0 0 0-4.9-4.9Zm3.2 14.1a3.2 3.2 0 0 1-3.2 3.2H7.4a3.2 3.2 0 0 1-3.2-3.2V7.4a3.2 3.2 0 0 1 3.2-3.2h9.2a3.2 3.2 0 0 1 3.2 3.2Z"),
+    ("LinkedIn", "https://www.linkedin.com/company/cmtionline", "M6 9h3v10H6V9Zm1.5-4.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5ZM11 9h2.9v1.4c.4-.8 1.5-1.6 3.1-1.6 3 0 3.5 2 3.5 4.6V19h-3v-4.9c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19H11V9Z"),
+    ("Telegram", "https://t.me/joinchat/GsDRTxTSDa356YAqiiwY3Q", "M20.7 3.8 2.9 10.7c-1.2.5-1.2 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14.2c.3-1.2-.5-1.8-1.6-1.3ZM9.8 14.3l-.4 3.8-1.4-4.6 10.3-6.5-8.5 7.3Z"),
+    ("YouTube (Prayojana Institute)", "https://www.youtube.com/c/PrayojanaInstitute", "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"),
+    ("YouTube (CMTI)", "https://www.youtube.com/channel/UCcpn4sgDRi_1YmUWdPagPCA", "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"),
+    ("Facebook", "https://www.facebook.com/cmtionline", "M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v1.7H7.5V12h2.8v9.5H14V12h2.8l.4-3.5H14Z"),
+]
+SOCIAL_LINKS = "".join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="CMTI on {n}" title="{n}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{p}"/></svg></a></li>' for n, u, p in SOCIAL)
+
 FOOTER = f'''<footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -125,9 +135,17 @@ FOOTER = f'''<footer class="site-footer">
     <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
     <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
-    <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
+    <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
-  <div class="footer-base"><p><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span class="legal">GSTIN: 29AAJCC1709L1ZE</span><span class="legal">CIN: U74999KA2020PTC142113</span><span class="legal">Photos from Unsplash</span></p></div>
+  <div class="footer-social">
+    <p class="fs-title">Follow our social media for regular updates</p>
+    <ul class="social-links">{SOCIAL_LINKS}</ul>
+  </div>
+  <div class="footer-base"><div class="fb-inner">
+    <p class="fb-rights">© 2026 CMTi. All Rights Reserved.</p>
+    <p class="fb-company"><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span>GSTIN: 29AAJCC1709L1ZE</span><span>CIN: U74999KA2020PTC142113</span></p>
+    <p class="fb-links"><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="privacy-policy.html">Privacy Policy</a></p>
+  </div><p class="fb-credit">Photos from Unsplash</p></div>
 </footer>'''
 
 WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>'
@@ -611,10 +629,19 @@ REASONS = [("target", "Customised programmes", "We work with Learning &amp; Deve
     ("pin", "Pan-India delivery", "We deliver training at project sites and corporate offices across India, with online and hybrid options."),
     ("tag", "Affordable pricing", "We align the scope, duration and delivery format with your training priorities and budget."),
     ("chart", "Proven track record and strong NPS", "We deliver programmes for real estate, EPC and government organisations, track participant feedback using Net Promoter Score, and assess learning against agreed objectives.")]
-corp += section(shead("", "Top 5 reasons corporates choose CMTI as their technical capability development partner", hid="why-title") +
-    '<div class="info-grid reveal" style="--cols:3">' + "".join(f'<div class="info-tile"><span class="n">{i:02d}</span>{icon(ic)}<div><h3>{t}</h3><p>{d}</p></div></div>' for i, (ic, t, d) in enumerate(REASONS, 1)) +
-    f'<div class="info-tile" style="background:var(--navy);color:#c9d6e4;display:block"><h3 style="color:#fff">Discuss your training needs</h3><p style="color:#c9d6e4;margin-bottom:18px">Customised construction training for your teams, project needs and industry standards.</p><a class="btn btn-white" href="{enquire(PC)}">Make an enquiry</a></div>' +
-    "</div>", label="why-title")
+reason_items = "".join(
+    f'<li class="reason{" is-open" if i == 1 else ""}"><button type="button" class="reason-head" aria-expanded="{"true" if i == 1 else "false"}" aria-controls="reason-{i}">'
+    f'<span class="reason-num">{i:02d}</span>{icon(ic)}<span class="reason-title">{t}</span><span class="reason-x" aria-hidden="true"></span></button>'
+    f'<div class="reason-body" id="reason-{i}"{"" if i == 1 else " hidden"}><p>{d}</p></div></li>'
+    for i, (ic, t, d) in enumerate(REASONS, 1))
+corp += section(f'''<div class="reasons-panel reveal">
+  <div class="reasons-lead">
+    <h2 id="why-title">Top 5 reasons corporates choose CMTI as their technical capability development partner</h2>
+    <p>Customised construction training for your teams, project needs and industry standards.</p>
+    <a class="btn btn-primary" href="{enquire(PC)}">Make an enquiry</a>
+  </div>
+  <ol class="reasons-list" data-reasons>{reason_items}</ol>
+</div>''', label="why-title")
 corp += section(shead("", "How we customise each programme", hid="steps-title") + '<ol class="steps reveal" aria-label="Programme customisation steps">' + "".join(f"<li>{s}</li>" for s in [
     "Discuss needs with L&amp;D and Operations", "Identify skill gaps and map competencies", "Refine and agree the session plan",
     "Develop tailored training content", "Deliver and assess learning"]) + "</ol>", "section dark on-dark", label="steps-title")
@@ -684,3 +711,61 @@ corp += section('<div class="service-grid">' +
 corp += section('<div class="section-head reveal"><h2 id="corp-clients">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "client-logos", "corp-clients")
 corp += cta()
 write("corporate.html", "For Corporates | CMTI", "Customised construction training for staff and workmen, content development, employee assessment and hiring support across India.", corp)
+
+# ================================================================ PRIVACY POLICY and TERMS (text from cmti.co.in)
+def legal_page(blocks):
+    """blocks: list of (heading, [paragraph or list-of-bullets, ...])."""
+    out = []
+    for heading, parts in blocks:
+        out.append(f"<h2>{heading}</h2>")
+        for part in parts:
+            if isinstance(part, list):
+                out.append("<ul>" + "".join(f"<li>{x}</li>" for x in part) + "</ul>")
+            else:
+                out.append(f"<p>{part}</p>")
+    return '<article class="legal-text reveal">' + "".join(out) + "</article>"
+
+privacy = page_hero("Privacy Policy", "CMTi", "CMTi Privacy Policy", img="images/photos/drawings.webp")
+privacy += section(legal_page([
+    ("Information that is gathered from visitors", [[
+        "In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.",
+        "Cookies may be used to remember visitor preferences when interacting with the website.",
+        "Where registration is required, the visitor's email and a username will be stored on the server."]]),
+    ("How the Information is used?", [[
+        "The information is used to enhance the vistor's experience when using the website to display personalised content and possibly advertising.",
+        "E-mail addresses &amp; Mobile numbers will not be sold, rented or leased to 3rd parties.",
+        "E-mails and SMSes may be sent to inform you of news of our services or offers by us or our affiliates."]]),
+    ("Visitor Options", [[
+        "If you have subscribed to one of our services, you may unsubscribe by following the instructions which are included in e-mail that you receive.",
+        "You may be able to block cookies via your browser settings but this may prevent you from access to certain features of the website."]]),
+    ("Cookies", [
+        "Cookies are small digital signature files that are stored by your web browser that allow your preferences to be recorded when visiting the website. Also they may be used to track your return visits to the website. 3rd party advertising companies may also use cookies for tracking purposes."]),
+    ("Google Ads", [[
+        "Google, as a third party vendor, uses cookies to serve ads.",
+        "Google's use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.",
+        "Website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy."]]),
+]), label=None)
+privacy += cta()
+write("privacy-policy.html", "Privacy Policy | CMTi", "CMTi privacy policy: information gathered from visitors, how it is used, visitor options, cookies and Google Ads.", privacy)
+
+terms = page_hero("Terms &amp; Conditions", "CMTi", "CMTi Terms &amp; Conditions", "CMTI Refund Policy", img="images/photos/classroom.webp")
+terms += section(legal_page([
+    ("How will I receive my refund?", [
+        "The refund will be done online and will reflect directly in your bank account used during the online transaction."]),
+    ("How much time does it take for the refunded amount to reflect in my account?", [[
+        "In case of workshops and other classroom programs, Our team will verify the validity of your request after the event is completed and initiate the refund.",
+        "If your request is valid, your refund will be initiated and the refund should reflect in your bank account within 4-7 working days refund request being placed."]]),
+    ("How should I raise a request for my refund?", [
+        "Writing an email to <a href=\"mailto:info@cmtionline.com\">info@cmtionline.com</a> sharing the bank details, email id from your registered email id and mentioning reason."]),
+    ("When can I raise the refund request?", [[
+        "Refund would be initiated only if the cancellation happens one day before the event. (e.g. If the event is starting on 20th April, cancellation should happen before 00:01 AM on 19th April).",
+        "For Online Courses, the refund requests will be allowed even when the course is in progress."]]),
+    ("How will I receive the confirmation on refund details?", [[
+        "Once you initiate your refund request, our Event Manager will contact you for verification.",
+        "Upon successful verification, the refund will be initiated from the company and you will receive the complete details to your registered email-id immediately."]]),
+    ("Whom should I contact in case of any unresolved disputes?", [
+        "We make sure that all the refunds are processed with 100% accuracy and in case you have any unresolved disputes please feel free to contact us at <a href=\"mailto:ashok@cmtionline.com\">ashok@cmtionline.com</a> with all your details. We assure you that your issue will be resolved with utmost priority"]),
+]), label=None)
+terms += cta()
+write("terms-and-conditions.html", "Terms &amp; Conditions | CMTi", "CMTi terms and conditions, including the CMTI refund policy.", terms)
+
