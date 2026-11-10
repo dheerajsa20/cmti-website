@@ -138,8 +138,7 @@ FOOTER = f'''<footer class="site-footer">
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
   <div class="footer-social">
-    <p class="fs-title">Follow our Social media for regular Updates on Construction Industry Jobs</p>
-    <p class="fs-sub">We’re social</p>
+    <p class="fs-title">Follow our social media for regular updates</p>
     <ul class="social-links">{SOCIAL_LINKS}</ul>
   </div>
   <div class="footer-base"><div class="fb-inner">
