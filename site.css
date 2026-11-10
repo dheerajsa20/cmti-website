@@ -666,3 +666,31 @@ main { overflow-x: clip; }
   .site-nav > ul > li > a, .site-nav > ul > li > button { padding: 0 18px; font-size: 1rem; }
 }
 @media (max-width: 1200px) { .brand img { width: 112px; } }
+
+/* Mentor: photo column as tall as the text beside it */
+.mentor:has(.mentor-photo) { grid-template-columns: minmax(260px, 360px) minmax(0, 1fr); align-items: stretch; gap: clamp(32px, 5vw, 72px); }
+.mentor-photo { width: 100%; height: 100%; min-height: 340px; object-fit: cover; object-position: center 30%; }
+@media (max-width: 860px) {
+  .mentor:has(.mentor-photo) { grid-template-columns: 1fr; }
+  .mentor-photo { height: auto; min-height: 0; max-width: 360px; aspect-ratio: 1; }
+}
+
+/* A white section after a navy or grey one keeps its full top spacing */
+.section.dark + .section:not(.alt):not(.dark),
+.section.alt + .section:not(.alt):not(.dark),
+.cta-band + .section { padding-top: var(--section); }
+
+/* ---------- Full-width footer, matching the header edges ---------- */
+.footer-grid {
+  max-width: none; padding-left: clamp(16px, 3vw, 56px); padding-right: clamp(16px, 3vw, 56px);
+  grid-template-columns: minmax(260px, 340px) repeat(4, auto); justify-content: space-between; column-gap: clamp(32px, 4vw, 72px);
+}
+.footer-base p { max-width: none; padding-left: clamp(16px, 3vw, 56px); padding-right: clamp(16px, 3vw, 56px); }
+@media (max-width: 1100px) { .footer-grid { grid-template-columns: repeat(3, auto); } }
+@media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Larger sub-titles (eyebrows) and card labels for readability ---------- */
+.eyebrow { font-size: clamp(1.125rem, 1.6vw, 1.3125rem); font-weight: 600; gap: 16px; margin-bottom: 14px; letter-spacing: 0; }
+.eyebrow::before { width: 44px; height: 4px; }
+.card .label { font-size: 1rem; }
+.tags-label { font-size: 1rem; }
