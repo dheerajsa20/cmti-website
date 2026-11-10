@@ -666,3 +666,11 @@ main { overflow-x: clip; }
   .site-nav > ul > li > a, .site-nav > ul > li > button { padding: 0 18px; font-size: 1rem; }
 }
 @media (max-width: 1200px) { .brand img { width: 112px; } }
+
+/* Mentor: photo column as tall as the text beside it */
+.mentor:has(.mentor-photo) { grid-template-columns: minmax(260px, 360px) minmax(0, 1fr); align-items: stretch; gap: clamp(32px, 5vw, 72px); }
+.mentor-photo { width: 100%; height: 100%; min-height: 340px; object-fit: cover; object-position: center 30%; }
+@media (max-width: 860px) {
+  .mentor:has(.mentor-photo) { grid-template-columns: 1fr; }
+  .mentor-photo { height: auto; min-height: 0; max-width: 360px; aspect-ratio: 1; }
+}
