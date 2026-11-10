@@ -674,3 +674,8 @@ main { overflow-x: clip; }
   .mentor:has(.mentor-photo) { grid-template-columns: 1fr; }
   .mentor-photo { height: auto; min-height: 0; max-width: 360px; aspect-ratio: 1; }
 }
+
+/* A white section after a navy or grey one keeps its full top spacing */
+.section.dark + .section:not(.alt):not(.dark),
+.section.alt + .section:not(.alt):not(.dark),
+.cta-band + .section { padding-top: var(--section); }
