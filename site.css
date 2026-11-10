@@ -129,7 +129,7 @@ main { overflow-x: clip; }
 .menu-toggle[aria-expanded="true"] .menu-bars::before { transform: translateY(6px) rotate(45deg); }
 .menu-toggle[aria-expanded="true"] .menu-bars::after { transform: translateY(-6px) rotate(-45deg); }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .menu-toggle { display: inline-flex; }
   .site-nav {
     position: fixed; inset: var(--nav-top, 120px) 0 0 0; flex-direction: column; align-items: stretch; gap: 20px;
@@ -529,7 +529,7 @@ main { overflow-x: clip; }
 .card-brand { order: -1; }
 
 /* Desktop: menus also open on hover (click, tap and keyboard still work) */
-@media (hover: hover) and (min-width: 1101px) {
+@media (hover: hover) and (min-width: 1201px) {
   .has-sub:hover > button { color: var(--blue); border-bottom-color: var(--blue); }
   .has-sub:hover > button::after { transform: translateY(1px) rotate(225deg); }
   .has-sub:hover > .sub { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
@@ -641,3 +641,11 @@ main { overflow-x: clip; }
 .mou-college .icon { background: var(--amber); }
 .mou-college .icon svg { stroke: var(--navy); stroke-width: 2; }
 @media (max-width: 860px) { .mou-split { grid-template-columns: 1fr; } }
+
+/* Keep menu labels on one line; tighten spacing on smaller laptops */
+.site-nav > ul > li > a, .site-nav > ul > li > button, .site-nav .btn { white-space: nowrap; }
+@media (min-width: 1201px) and (max-width: 1360px) {
+  .site-nav { gap: 12px; }
+  .site-nav > ul > li > a, .site-nav > ul > li > button { padding: 0 10px; }
+  .site-nav .btn { padding: 12px 18px; }
+}
