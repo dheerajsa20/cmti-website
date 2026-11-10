@@ -127,7 +127,7 @@ FOOTER = f'''<footer class="site-footer">
     <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
-  <div class="footer-base"><p><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span class="legal">GSTIN: 29AAJCC1709L1ZE</span><span class="legal">CIN: U74999KA2020PTC142113</span><span class="legal">Photos from Unsplash</span></p></div>
+  <div class="footer-base"><p><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span class="legal">GSTIN: 29AAJCC1709L1ZE</span><span class="legal">CIN: U74999KA2020PTC142113</span><span class="legal">Photos from Unsplash</span><span class="legal-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></span></p></div>
 </footer>'''
 
 WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>'
@@ -684,3 +684,61 @@ corp += section('<div class="service-grid">' +
 corp += section('<div class="section-head reveal"><h2 id="corp-clients">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "client-logos", "corp-clients")
 corp += cta()
 write("corporate.html", "For Corporates | CMTI", "Customised construction training for staff and workmen, content development, employee assessment and hiring support across India.", corp)
+
+# ================================================================ PRIVACY POLICY and TERMS (text from cmti.co.in)
+def legal_page(blocks):
+    """blocks: list of (heading, [paragraph or list-of-bullets, ...])."""
+    out = []
+    for heading, parts in blocks:
+        out.append(f"<h2>{heading}</h2>")
+        for part in parts:
+            if isinstance(part, list):
+                out.append("<ul>" + "".join(f"<li>{x}</li>" for x in part) + "</ul>")
+            else:
+                out.append(f"<p>{part}</p>")
+    return '<article class="legal-text reveal">' + "".join(out) + "</article>"
+
+privacy = page_hero("Privacy Policy", "CMTi", "CMTi Privacy Policy", img="images/photos/drawings.webp")
+privacy += section(legal_page([
+    ("Information that is gathered from visitors", [[
+        "In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.",
+        "Cookies may be used to remember visitor preferences when interacting with the website.",
+        "Where registration is required, the visitor's email and a username will be stored on the server."]]),
+    ("How the Information is used?", [[
+        "The information is used to enhance the vistor's experience when using the website to display personalised content and possibly advertising.",
+        "E-mail addresses &amp; Mobile numbers will not be sold, rented or leased to 3rd parties.",
+        "E-mails and SMSes may be sent to inform you of news of our services or offers by us or our affiliates."]]),
+    ("Visitor Options", [[
+        "If you have subscribed to one of our services, you may unsubscribe by following the instructions which are included in e-mail that you receive.",
+        "You may be able to block cookies via your browser settings but this may prevent you from access to certain features of the website."]]),
+    ("Cookies", [
+        "Cookies are small digital signature files that are stored by your web browser that allow your preferences to be recorded when visiting the website. Also they may be used to track your return visits to the website. 3rd party advertising companies may also use cookies for tracking purposes."]),
+    ("Google Ads", [[
+        "Google, as a third party vendor, uses cookies to serve ads.",
+        "Google's use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.",
+        "Website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy."]]),
+]), label=None)
+privacy += cta()
+write("privacy-policy.html", "Privacy Policy | CMTi", "CMTi privacy policy: information gathered from visitors, how it is used, visitor options, cookies and Google Ads.", privacy)
+
+terms = page_hero("Terms &amp; Conditions", "CMTi", "CMTi Terms &amp; Conditions", "CMTI Refund Policy", img="images/photos/classroom.webp")
+terms += section(legal_page([
+    ("How will I receive my refund?", [
+        "The refund will be done online and will reflect directly in your bank account used during the online transaction."]),
+    ("How much time does it take for the refunded amount to reflect in my account?", [[
+        "In case of workshops and other classroom programs, Our team will verify the validity of your request after the event is completed and initiate the refund.",
+        "If your request is valid, your refund will be initiated and the refund should reflect in your bank account within 4-7 working days refund request being placed."]]),
+    ("How should I raise a request for my refund?", [
+        "Writing an email to <a href=\"mailto:info@cmtionline.com\">info@cmtionline.com</a> sharing the bank details, email id from your registered email id and mentioning reason."]),
+    ("When can I raise the refund request?", [[
+        "Refund would be initiated only if the cancellation happens one day before the event. (e.g. If the event is starting on 20th April, cancellation should happen before 00:01 AM on 19th April).",
+        "For Online Courses, the refund requests will be allowed even when the course is in progress."]]),
+    ("How will I receive the confirmation on refund details?", [[
+        "Once you initiate your refund request, our Event Manager will contact you for verification.",
+        "Upon successful verification, the refund will be initiated from the company and you will receive the complete details to your registered email-id immediately."]]),
+    ("Whom should I contact in case of any unresolved disputes?", [
+        "We make sure that all the refunds are processed with 100% accuracy and in case you have any unresolved disputes please feel free to contact us at <a href=\"mailto:ashok@cmtionline.com\">ashok@cmtionline.com</a> with all your details. We assure you that your issue will be resolved with utmost priority"]),
+]), label=None)
+terms += cta()
+write("terms-and-conditions.html", "Terms &amp; Conditions | CMTi", "CMTi terms and conditions, including the CMTI refund policy.", terms)
+
