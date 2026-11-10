@@ -459,11 +459,6 @@ tst += section(shead("", "Hear from CMTI students", hid="students-title") + '<di
     video("vd9OFFVTzVo", "Amrita Bhat", "CMTI Finishing School", "https://www.youtube.com/watch?v=vd9OFFVTzVo") +
     f'</div><p style="margin-top:28px">{arrow_link("Explore CMTI testimonials on YouTube", "https://www.youtube.com/@CMTICivil/playlists")}</p>',
     label="students-title")
-tst += section('''<div class="panel light reveal">
-  <h2 id="share-title">Share your first-job story</h2>
-  <p>Recently placed or started your first job? Tell us about your new role, what helped you prepare, and what you’d like the next batch to know. You can include a link to your video and let us know if we may feature it.</p>
-  <p style="margin-top:20px"><a class="btn btn-primary" href="mailto:cmtioffice@cmti.co.in?subject=My%20CMTI%20first-job%20story">Share your feedback with CMTI</a></p>
-</div>''', label="share-title")
 tst += cta()
 write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimonials from the CMTI Finishing School and CMTI’s Google reviews.", tst)
 
