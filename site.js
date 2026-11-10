@@ -330,10 +330,12 @@ choose(new URLSearchParams(location.search).get('programme'));
 const messages = {
   name: 'Enter your name so we know who to reply to.',
   email: 'Enter an email address, for example name@example.com.',
+  phone: 'Enter a phone number with at least 10 digits so we can call you back.',
   programme: 'Select the programme you are asking about.',
-  message: 'Tell us briefly about your training requirements.',
 };
-const isValid = (field) => field.name === 'email'
+const isValid = (field) => field.name === 'phone'
+  ? field.value.replace(/\D/g, '').length >= 10
+  : field.name === 'email'
   ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())
   : Boolean(field.value.trim());
 function showError(field, text) {
@@ -364,7 +366,8 @@ form?.addEventListener('submit', (event) => {
     const value = (data.get(key) || '').trim();
     if (value) lines.push(label + ': ' + value);
   }
-  lines.push('', 'Training requirements: ' + data.get('message').trim());
+  const requirements = (data.get('message') || '').trim();
+  if (requirements) lines.push('', 'Training requirements: ' + requirements);
   const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
   // Open WhatsApp in a new tab; fall back to the same tab if pop-ups are blocked.
   const opened = window.open(url, '_blank');
