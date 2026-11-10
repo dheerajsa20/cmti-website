@@ -68,7 +68,7 @@ def arrow_link(text, href, attrs=""):
 NAV = [
     ("Home", "index.html", None),
     ("About Us", None, [("About Us", "about.html"), ("Mission &amp; Vision", "vision-mission.html"), ("Our Clients", "about.html#clients"),
-                        ("Professional Associations", "associations.html")]),
+                        ("Professional Associations", "associations.html"), ("Testimonials", "testimonials.html")]),
     ("For Corporates", None, [("Overview", "corporate.html"), ("Capability Development Programme for Staff", "corporate.html#training-participants"),
                               ("Capability Development Programme for Workmen", "corporate.html#workmen"),
                               ("Content Development", "corporate.html#content-development"),
@@ -76,8 +76,7 @@ NAV = [
     ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "finishing-school.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
                                 ("Internships", "finishing-school.html#internship"),
                                 ("Construction Software Courses", "finishing-school.html#construction-software"),
-                                ("BIM Design Software", "finishing-school.html#bim-design"),
-                                ("Testimonials", "testimonials.html")]),
+                                ("BIM Design Software", "finishing-school.html#bim-design")]),
     ("College MoUs", "colleges.html", None),
     ("E-Learning", None, [("Online Courses", "e-learning.html"), ("Webinars", "e-learning.html#webinars")]),
     ("Contact", "index.html#contact", None),
@@ -123,9 +122,9 @@ FOOTER = f'''<footer class="site-footer">
       <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
       <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
     </div>
-    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li></ul></div>
+    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
-    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li><li><a href="https://linktr.ee/cmti">Social channels</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
   <div class="footer-base"><p>© CMTI, Construction Management Training Institute. Photos from Unsplash.</p></div>
