@@ -116,14 +116,17 @@ def header(home=False):
 </header>'''
 
 SOCIAL = [
-    ("Instagram", "https://www.instagram.com/cmtionline/", "M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM16.6 2.5H7.4a4.9 4.9 0 0 0-4.9 4.9v9.2a4.9 4.9 0 0 0 4.9 4.9h9.2a4.9 4.9 0 0 0 4.9-4.9V7.4a4.9 4.9 0 0 0-4.9-4.9Zm3.2 14.1a3.2 3.2 0 0 1-3.2 3.2H7.4a3.2 3.2 0 0 1-3.2-3.2V7.4a3.2 3.2 0 0 1 3.2-3.2h9.2a3.2 3.2 0 0 1 3.2 3.2Z"),
+    # Exactly the links on https://linktr.ee/cmti (except the CMTI Website link, which is this site), plus the WhatsApp channel.
+    ("WhatsApp channel", "https://whatsapp.com/channel/0029Va4S47dEgGfOPitXTT2f", "M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"),
     ("LinkedIn", "https://www.linkedin.com/company/cmtionline", "M6 9h3v10H6V9Zm1.5-4.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5ZM11 9h2.9v1.4c.4-.8 1.5-1.6 3.1-1.6 3 0 3.5 2 3.5 4.6V19h-3v-4.9c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19H11V9Z"),
-    ("Telegram", "https://t.me/joinchat/GsDRTxTSDa356YAqiiwY3Q", "M20.7 3.8 2.9 10.7c-1.2.5-1.2 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14.2c.3-1.2-.5-1.8-1.6-1.3ZM9.8 14.3l-.4 3.8-1.4-4.6 10.3-6.5-8.5 7.3Z"),
-    ("YouTube (Prayojana Institute)", "https://www.youtube.com/c/PrayojanaInstitute", "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"),
-    ("YouTube (CMTI)", "https://www.youtube.com/channel/UCcpn4sgDRi_1YmUWdPagPCA", "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"),
-    ("Facebook", "https://www.facebook.com/cmtionline", "M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v1.7H7.5V12h2.8v9.5H14V12h2.8l.4-3.5H14Z"),
+    ("Instagram", "https://www.instagram.com/cmtionline?r=nametag", "M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM16.6 2.5H7.4a4.9 4.9 0 0 0-4.9 4.9v9.2a4.9 4.9 0 0 0 4.9 4.9h9.2a4.9 4.9 0 0 0 4.9-4.9V7.4a4.9 4.9 0 0 0-4.9-4.9Zm3.2 14.1a3.2 3.2 0 0 1-3.2 3.2H7.4a3.2 3.2 0 0 1-3.2-3.2V7.4a3.2 3.2 0 0 1 3.2-3.2h9.2a3.2 3.2 0 0 1 3.2 3.2Z"),
+    ("Telegram", "https://t.me/joinchat/FNINrel7x3SKLBjd", "M20.7 3.8 2.9 10.7c-1.2.5-1.2 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14.2c.3-1.2-.5-1.8-1.6-1.3ZM9.8 14.3l-.4 3.8-1.4-4.6 10.3-6.5-8.5 7.3Z"),
+    ("YouTube: CMTI Connect", "https://youtube.com/c/CMTIConnect", "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"),
+    ("YouTube: Success Stories &amp; Expert Talk", "https://www.youtube.com/channel/UCuonfOq-oGww9MEuw9JlfHg", "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"),
+    ("CMTI Android Application", "https://qrgo.page.link/SxLYw", "M7 9h10v8a1 1 0 0 1-1 1h-1v3h-2v-3h-2v3H9v-3H8a1 1 0 0 1-1-1V9Zm-3 0h2v6H4V9Zm14 0h2v6h-2V9ZM7 8a5 5 0 0 1 10 0H7Zm3-2.5a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4Zm4 0a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4ZM8.2 2.8l1.2 1.6M15.8 2.8l-1.2 1.6"),
+    ("CMTI E Learning Website", "https://elearn.cmti.co.in/", "M2 9l10-5 10 5-10 5L2 9Zm4 2.2v4.3c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.3l-6 3-6-3Z"),
 ]
-SOCIAL_LINKS = "".join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="CMTI on {n}" title="{n}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{p}"/></svg></a></li>' for n, u, p in SOCIAL)
+SOCIAL_LINKS = "".join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="{n}" title="{n}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{p}"/></svg></a></li>' for n, u, p in SOCIAL)
 
 FOOTER = f'''<footer class="site-footer">
   <div class="footer-grid">
@@ -149,7 +152,8 @@ FOOTER = f'''<footer class="site-footer">
 </footer>'''
 
 WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>'
-QUICK = f'''<div class="quick-contact">
+QUICK = f'''<button class="to-top" type="button" aria-label="Back to top" title="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="quick-contact">
   <a class="qc-wa" href="https://wa.me/{WA}" target="_blank" rel="noopener">{WA_ICON}<span>WhatsApp</span></a>
   <a class="qc-call" href="tel:+918884422179" aria-label="Call CMTI"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></a>
 </div>'''

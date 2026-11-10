@@ -9,6 +9,19 @@ const onScroll = () => masthead?.classList.toggle('is-scrolled', window.scrollY 
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
+// ----- Back to top button: appears after scrolling down -----
+const toTop = document.querySelector('.to-top');
+if (toTop) {
+  toTop.hidden = false;
+  const updateToTop = () => toTop.classList.toggle('is-visible', window.scrollY > 600);
+  updateToTop();
+  window.addEventListener('scroll', updateToTop, { passive: true });
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    document.querySelector('.skip')?.focus({ preventScroll: true });
+  });
+}
+
 // ----- Navigation: dropdowns and mobile menu -----
 const nav = document.querySelector('#site-nav');
 const menuToggle = document.querySelector('.menu-toggle');
