@@ -629,10 +629,19 @@ REASONS = [("target", "Customised programmes", "We work with Learning &amp; Deve
     ("pin", "Pan-India delivery", "We deliver training at project sites and corporate offices across India, with online and hybrid options."),
     ("tag", "Affordable pricing", "We align the scope, duration and delivery format with your training priorities and budget."),
     ("chart", "Proven track record and strong NPS", "We deliver programmes for real estate, EPC and government organisations, track participant feedback using Net Promoter Score, and assess learning against agreed objectives.")]
-corp += section(shead("", "Top 5 reasons corporates choose CMTI as their technical capability development partner", hid="why-title") +
-    '<div class="info-grid reveal" style="--cols:3">' + "".join(f'<div class="info-tile"><span class="n">{i:02d}</span>{icon(ic)}<div><h3>{t}</h3><p>{d}</p></div></div>' for i, (ic, t, d) in enumerate(REASONS, 1)) +
-    f'<div class="info-tile" style="background:var(--navy);color:#c9d6e4;display:block"><h3 style="color:#fff">Discuss your training needs</h3><p style="color:#c9d6e4;margin-bottom:18px">Customised construction training for your teams, project needs and industry standards.</p><a class="btn btn-white" href="{enquire(PC)}">Make an enquiry</a></div>' +
-    "</div>", label="why-title")
+reason_items = "".join(
+    f'<li class="reason{" is-open" if i == 1 else ""}"><button type="button" class="reason-head" aria-expanded="{"true" if i == 1 else "false"}" aria-controls="reason-{i}">'
+    f'<span class="reason-num">{i:02d}</span>{icon(ic)}<span class="reason-title">{t}</span><span class="reason-x" aria-hidden="true"></span></button>'
+    f'<div class="reason-body" id="reason-{i}"{"" if i == 1 else " hidden"}><p>{d}</p></div></li>'
+    for i, (ic, t, d) in enumerate(REASONS, 1))
+corp += section(f'''<div class="reasons-panel reveal">
+  <div class="reasons-lead">
+    <h2 id="why-title">Top 5 reasons corporates choose CMTI as their technical capability development partner</h2>
+    <p>Customised construction training for your teams, project needs and industry standards.</p>
+    <a class="btn btn-primary" href="{enquire(PC)}">Make an enquiry</a>
+  </div>
+  <ol class="reasons-list" data-reasons>{reason_items}</ol>
+</div>''', label="why-title")
 corp += section(shead("", "How we customise each programme", hid="steps-title") + '<ol class="steps reveal" aria-label="Programme customisation steps">' + "".join(f"<li>{s}</li>" for s in [
     "Discuss needs with L&amp;D and Operations", "Identify skill gaps and map competencies", "Refine and agree the session plan",
     "Develop tailored training content", "Deliver and assess learning"]) + "</ol>", "section dark on-dark", label="steps-title")
