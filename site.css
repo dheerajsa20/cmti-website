@@ -688,3 +688,9 @@ main { overflow-x: clip; }
 .footer-base p { max-width: none; padding-left: clamp(16px, 3vw, 56px); padding-right: clamp(16px, 3vw, 56px); }
 @media (max-width: 1100px) { .footer-grid { grid-template-columns: repeat(3, auto); } }
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Larger sub-titles (eyebrows) and card labels for readability ---------- */
+.eyebrow { font-size: clamp(1.125rem, 1.6vw, 1.3125rem); font-weight: 600; gap: 16px; margin-bottom: 14px; letter-spacing: 0; }
+.eyebrow::before { width: 44px; height: 4px; }
+.card .label { font-size: 1rem; }
+.tags-label { font-size: 1rem; }
