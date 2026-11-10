@@ -694,3 +694,28 @@ main { overflow-x: clip; }
 .eyebrow::before { width: 44px; height: 4px; }
 .card .label { font-size: 1rem; }
 .tags-label { font-size: 1rem; }
+
+/* Flip cards size to the taller of their two faces, so the back never overflows */
+.flip-inner { display: grid; min-height: 250px; }
+.flip-face { position: relative; inset: auto; grid-area: 1 / 1; }
+.flip-card { min-height: 0; }
+@media (max-width: 480px) { .flip-inner { min-height: 220px; } }
+
+/* ---------- Homepage webinar banner ---------- */
+.section.webinar-section { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
+.webinar-strip {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 24px 32px;
+  padding: clamp(24px, 3vw, 36px) clamp(24px, 3.5vw, 44px);
+  background: var(--blue-tint); border-left: 6px solid var(--amber);
+}
+.webinar-strip .icon { margin: 0; width: 72px; height: 72px; background: var(--blue); }
+.webinar-strip .icon svg { stroke: #fff; width: 36px; height: 36px; }
+.ws-label { margin: 0 0 4px; font-size: 1.0625rem; font-weight: 600; color: var(--blue); }
+.webinar-strip h2 { font-size: clamp(1.375rem, 2.4vw, 1.875rem); margin: 0 0 6px; }
+.ws-when { margin: 0; color: var(--text); font-weight: 500; }
+@media (max-width: 760px) {
+  .webinar-strip { grid-template-columns: auto minmax(0, 1fr); }
+  .webinar-strip .btn { grid-column: 1 / -1; justify-self: start; }
+  .webinar-strip .icon { width: 56px; height: 56px; }
+}
+.section.dark + .section.webinar-section { padding-top: clamp(40px, 5vw, 64px); }
