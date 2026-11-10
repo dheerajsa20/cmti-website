@@ -286,7 +286,7 @@ TEAM = [
 
 def team_section(cls="section", sid="team"):
     cards = "".join(
-        f'<article class="card reveal"><span class="monogram" aria-hidden="true">{m}</span><p class="label">{role}</p><h3>{name}</h3>'
+        f'<article class="card reveal"><p class="label">{role}</p><h3>{name}</h3>'
         f'<p class="cred">{cred}</p><p>{bio}</p>{arrow_link("View LinkedIn profile", li, f" aria-label=\"View {name.split(". ",1)[-1]} on LinkedIn\"")}</article>'
         for m, role, name, cred, bio, li in TEAM)
     return section(shead("Leadership", "The team behind CMTI", hid=f"{sid}-title") + f'<div class="grid" style="--cols:4">{cards}</div>', cls, sid, f"{sid}-title")
