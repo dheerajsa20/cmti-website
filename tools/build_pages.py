@@ -146,7 +146,7 @@ FOOTER = f'''<footer class="site-footer">
   <div class="footer-base"><div class="fb-inner">
     <p class="fb-rights">© 2026 CMTi. All Rights Reserved.</p>
     <p class="fb-company"><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span>GSTIN: 29AAJCC1709L1ZE</span><span>CIN: U74999KA2020PTC142113</span></p>
-    <p class="fb-links"><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="privacy-policy.html">Privacy Policy</a></p>
+    <p class="fb-links"><a href="privacy-policy.html">Privacy Policy</a></p>
   </div><p class="fb-credit">Photos from Unsplash</p></div>
 </footer>'''
 
@@ -715,7 +715,7 @@ corp += section('<div class="section-head reveal"><h2 id="corp-clients">Trusted 
 corp += cta()
 write("corporate.html", "For Corporates | CMTI", "Customised construction training for staff and workmen, content development, employee assessment and hiring support across India.", corp)
 
-# ================================================================ PRIVACY POLICY and TERMS (text from cmti.co.in)
+# ================================================================ PRIVACY POLICY (text from cmti.co.in)
 def legal_page(blocks):
     """blocks: list of (heading, [paragraph or list-of-bullets, ...])."""
     out = []
@@ -751,24 +751,4 @@ privacy += section(legal_page([
 privacy += cta()
 write("privacy-policy.html", "Privacy Policy | CMTi", "CMTi privacy policy: information gathered from visitors, how it is used, visitor options, cookies and Google Ads.", privacy)
 
-terms = page_hero("Terms &amp; Conditions", "CMTi", "CMTi Terms &amp; Conditions", "CMTI Refund Policy", img="images/photos/classroom.webp")
-terms += section(legal_page([
-    ("How will I receive my refund?", [
-        "The refund will be done online and will reflect directly in your bank account used during the online transaction."]),
-    ("How much time does it take for the refunded amount to reflect in my account?", [[
-        "In case of workshops and other classroom programs, Our team will verify the validity of your request after the event is completed and initiate the refund.",
-        "If your request is valid, your refund will be initiated and the refund should reflect in your bank account within 4-7 working days refund request being placed."]]),
-    ("How should I raise a request for my refund?", [
-        "Writing an email to <a href=\"mailto:info@cmtionline.com\">info@cmtionline.com</a> sharing the bank details, email id from your registered email id and mentioning reason."]),
-    ("When can I raise the refund request?", [[
-        "Refund would be initiated only if the cancellation happens one day before the event. (e.g. If the event is starting on 20th April, cancellation should happen before 00:01 AM on 19th April).",
-        "For Online Courses, the refund requests will be allowed even when the course is in progress."]]),
-    ("How will I receive the confirmation on refund details?", [[
-        "Once you initiate your refund request, our Event Manager will contact you for verification.",
-        "Upon successful verification, the refund will be initiated from the company and you will receive the complete details to your registered email-id immediately."]]),
-    ("Whom should I contact in case of any unresolved disputes?", [
-        "We make sure that all the refunds are processed with 100% accuracy and in case you have any unresolved disputes please feel free to contact us at <a href=\"mailto:ashok@cmtionline.com\">ashok@cmtionline.com</a> with all your details. We assure you that your issue will be resolved with utmost priority"]),
-]), label=None)
-terms += cta()
-write("terms-and-conditions.html", "Terms &amp; Conditions | CMTi", "CMTi terms and conditions, including the CMTI refund policy.", terms)
 

@@ -16,9 +16,12 @@ if (toTop) {
   const updateToTop = () => toTop.classList.toggle('is-visible', window.scrollY > 600);
   updateToTop();
   window.addEventListener('scroll', updateToTop, { passive: true });
-  toTop.addEventListener('click', () => {
+  toTop.addEventListener('click', (event) => {
     window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-    document.querySelector('.skip')?.focus({ preventScroll: true });
+    // Keyboard users (Enter/Space give detail 0) land on the logo link; mouse and touch users keep no focus,
+    // so the hidden "Skip to content" link never pops up.
+    if (event.detail === 0) document.querySelector('.brand')?.focus({ preventScroll: true });
+    else toTop.blur();
   });
 }
 
