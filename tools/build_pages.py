@@ -407,11 +407,11 @@ home += section(f'''<div class="contact-wrap">
     <div class="fields">
       <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required maxlength="100" aria-describedby="e-name"><p class="field-error" id="e-name"></p></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="150" aria-describedby="e-email"><p class="field-error" id="e-email"></p></div>
-      <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="35"><p class="field-error"></p></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="35" aria-describedby="e-phone"><p class="field-error" id="e-phone"></p></div>
       <div class="field"><label for="f-org">Organisation (optional)</label><input id="f-org" name="organisation" autocomplete="organization" maxlength="120"><p class="field-error"></p></div>
       <div class="field"><label for="programme">Programme</label><select id="programme" name="programme" required aria-describedby="e-programme"><option value="">Select a programme</option>{options}</select><p class="field-error" id="e-programme"></p></div>
       <div class="field"><label for="f-format">Preferred format</label><select id="f-format" name="format"><option>Flexible</option><option>Offline</option><option>Online</option><option>Hybrid</option></select><p class="field-error"></p></div>
-      <div class="field field-wide"><label for="f-message">Training requirements</label><textarea id="f-message" name="message" required maxlength="1000" aria-describedby="e-message"></textarea><p class="field-error" id="e-message"></p></div>
+      <div class="field field-wide"><label for="f-message">Training requirements (optional)</label><textarea id="f-message" name="message" maxlength="1000"></textarea><p class="field-error"></p></div>
     </div>
     <button class="btn btn-wa" type="submit">{WA_ICON}Open WhatsApp draft</button>
     <p class="form-status" id="form-status" role="status"></p>
