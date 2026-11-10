@@ -354,7 +354,15 @@ home += section(shead("Delivery formats", "Learn in the format that fits", hid="
 home += section('<div class="section-head reveal"><h2 id="clients-title">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "clients", "clients-title")
 home += team_section("section alt")
 home += trainers_section()
-home += section(f'<p class="reveal">{arrow_link("Explore CMTI webinars", "e-learning.html#webinars")}</p>', "section", "webinars")
+home += section(f'''<div class="webinar-strip reveal">
+  {icon("monitor")}
+  <div class="ws-text">
+    <p class="ws-label">CMTI Webinars</p>
+    <h2 id="webinars-title">Free webinars led by industry practitioners</h2>
+    <p class="ws-when">Saturdays at 7:00 PM IST · Certificate of participation</p>
+  </div>
+  <a class="btn btn-primary" href="e-learning.html#webinars">Explore CMTI webinars</a>
+</div>''', "section webinar-section", "webinars", "webinars-title")
 options = "".join(f"<option>{o}</option>" for o in PROGRAMME_OPTIONS)
 home += section(f'''<div class="contact-wrap">
   <div class="contact-info reveal">
@@ -636,7 +644,8 @@ TOPICS = [("building", "Construction Management", "Core and shell, formwork, fin
     ("rupee", "Finance", "Finance fundamentals for non-finance professionals."),
     ("handshake", "Customer Relationship Management", "Customer communication, issue resolution and handover coordination."),
     ("scale", "RERA and National Building Code", "An overview of real estate regulation and building code requirements."),
-    ("leaf", "Green Buildings, Sustainability and ESG", "Resource efficiency, sustainable construction and ESG practices.")]
+    ("leaf", "Green Buildings, Sustainability and ESG", "Resource efficiency, sustainable construction and ESG practices."),
+    ("award", "Quality Management Systems (QMS)", "ISO 9001:2026 requirements, audit planning, auditing principles, audit reporting and the third-party certification process.")]
 # Topic flip cards: hover (or tap / Enter) flips a card to show what the topic covers.
 flips = "".join(
     f'<article class="flip-card" data-flip>'
