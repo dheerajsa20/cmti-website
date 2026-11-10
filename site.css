@@ -469,7 +469,6 @@ main { overflow-x: clip; }
 .marquee-toggle:hover { border-color: var(--blue); color: var(--blue); }
 @media (prefers-reduced-motion: no-preference) {
   .marquee.is-running .marquee-track { animation: marquee var(--marquee-duration, 60s) linear infinite; }
-  .marquee.is-running:hover .marquee-track, .marquee.is-paused .marquee-track { animation-play-state: paused; }
 }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
