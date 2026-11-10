@@ -718,4 +718,4 @@ main { overflow-x: clip; }
   .webinar-strip .btn { grid-column: 1 / -1; justify-self: start; }
   .webinar-strip .icon { width: 56px; height: 56px; }
 }
-.section.dark + .section.webinar-section { padding-top: clamp(40px, 5vw, 64px); }
+#webinars.webinar-section { padding-top: clamp(40px, 5vw, 64px); }
