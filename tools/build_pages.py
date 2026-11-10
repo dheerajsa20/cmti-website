@@ -126,11 +126,6 @@ SOCIAL = [
 SOCIAL_LINKS = "".join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="CMTI on {n}" title="{n}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{p}"/></svg></a></li>' for n, u, p in SOCIAL)
 
 FOOTER = f'''<footer class="site-footer">
-  <div class="footer-social">
-    <p class="fs-title">Follow our Social media for regular Updates on Construction Industry Jobs</p>
-    <p class="fs-sub">We’re social</p>
-    <ul class="social-links">{SOCIAL_LINKS}</ul>
-  </div>
   <div class="footer-grid">
     <div class="footer-brand">
       <img class="footer-logo" src="cmti-logo-dark.webp" alt="CMTI" width="900" height="529">
@@ -141,6 +136,11 @@ FOOTER = f'''<footer class="site-footer">
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
     <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
+  </div>
+  <div class="footer-social">
+    <p class="fs-title">Follow our Social media for regular Updates on Construction Industry Jobs</p>
+    <p class="fs-sub">We’re social</p>
+    <ul class="social-links">{SOCIAL_LINKS}</ul>
   </div>
   <div class="footer-base"><div class="fb-inner">
     <p class="fb-rights">© 2026 CMTi. All Rights Reserved.</p>
