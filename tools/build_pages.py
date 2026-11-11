@@ -758,9 +758,14 @@ privacy += cta()
 write("privacy-policy.html", "Privacy Policy | CMTi", "CMTi privacy policy: information gathered from visitors, how it is used, visitor options, cookies and Google Ads.", privacy)
 
 # ================================================================ AWARDS & CERTIFICATES
-def award(img, alt, w, h, kind, title, meta, text=""):
-    return (f'<article class="award reveal"><a class="award-img" href="{img}" target="_blank" rel="noopener" aria-label="Open full-size image: {title}">'
-            f'<img src="{img}" alt="{alt}" width="{w}" height="{h}" loading="lazy"><span class="award-zoom" aria-hidden="true">View full size</span></a>'
+def award(img, alt, w, h, kind, title, meta, text="", extra=None):
+    def pic(src, a, iw, ih, label):
+        return (f'<a class="award-img" href="{src}" target="_blank" rel="noopener" aria-label="Open full-size image: {label}">'
+                f'<img src="{src}" alt="{a}" width="{iw}" height="{ih}" loading="lazy"><span class="award-zoom" aria-hidden="true">View full size</span></a>')
+    pics = pic(img, alt, w, h, title)
+    if extra:
+        pics = f'<div class="award-pics">{pics}{pic(*extra, title + " (certificate)")}</div>'
+    return (f'<article class="award reveal">{pics}'
             f'<div class="award-body"><p class="award-kind">{kind}</p><h2>{title}</h2><p class="award-meta">{meta}</p>{f"<p>{text}</p>" if text else ""}</div></article>')
 
 aw = page_hero("Awards &amp; Certificates", "About CMTI", "Awards &amp; Certificates",
@@ -769,10 +774,11 @@ aw += section('<div class="award-list">' +
     award("images/awards/isda-infracon-2025-award.webp", "CMTI receiving the Best Skill Development Award on stage at the ISDA Infracon National Awards 2025", 1600, 1200,
           "Award", "Best Skill Development Award for CMTI",
           "ISDA Infracon 2025 National Level Awards at New Delhi") +
-    award("images/awards/towell-programme-certificate.webp", "Appreciation certificate presented to CMTI by Towell Group", 1308, 887,
+    award("images/awards/towell-manchester-appreciation.webp", "CMTI receiving the appreciation certificate from Towell Group in Manchester, UK", 800, 615,
           "Certificate", "Appreciation Certificate",
           "Issued by Towell Group Chairman",
-          "For conducting a two-week programme for Omani officials at Manchester, UK.") +
+          "For conducting a two-week programme for Omani officials at Manchester, UK.",
+          extra=("images/awards/towell-programme-certificate.webp", "The certificate presented to CMTI by Towell Infrastructure Projects LLC", 1308, 887)) +
     '</div>', label=None)
 aw += cta()
 write("awards.html", "Awards &amp; Certificates | CMTI", "Awards and certificates received by CMTI, including the Best Skill Development Award at the ISDA Infracon 2025 National Level Awards, New Delhi.", aw)

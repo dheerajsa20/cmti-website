@@ -815,3 +815,6 @@ main { overflow-x: clip; }
 .award-meta { font-size: 1.125rem; font-weight: 600; color: var(--ink); }
 .award-body p:last-child { margin-bottom: 0; }
 @media (max-width: 860px) { .award { grid-template-columns: 1fr; } .award:nth-child(even) .award-img { order: 0; } }
+.award-pics { display: grid; gap: 14px; }
+.award:nth-child(even) .award-pics { order: 2; }
+@media (max-width: 860px) { .award:nth-child(even) .award-pics { order: 0; } }
