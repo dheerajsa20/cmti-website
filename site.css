@@ -835,3 +835,14 @@ main { overflow-x: clip; }
 .slider-dots button { width: 12px; height: 12px; padding: 0; border: 2px solid var(--blue); border-radius: 50%; background: transparent; cursor: pointer; }
 .slider-dots button[aria-current="true"] { background: var(--amber); border-color: var(--amber); }
 @media (max-width: 860px) { .award:nth-child(even) .award-slider { order: 0; } }
+
+/* "Ask CMTI" chatbot (loaded from cmti-chatbot.onrender.com): stack it on the right, above WhatsApp,
+   with back-to-top above both. "html body" beats the widget's own stylesheet, which loads later. */
+html body .cmti-chat { left: auto; right: 20px; bottom: 84px; }
+html body .cmti-chat.is-open { bottom: 20px; }
+.to-top { bottom: 148px; }
+@media (max-width: 600px) {
+  html body .cmti-chat { left: auto; right: 16px; bottom: 80px; }
+  html body .cmti-chat.is-open { left: 0; right: 0; top: 0; bottom: 0; }
+  .to-top { bottom: 144px; }
+}
