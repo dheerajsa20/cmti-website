@@ -329,9 +329,29 @@ NITI = '''<aside class="panel reveal">
   <p class="muted">Source inspiration: NITI Aayog, <cite>Reimagining Skilling for Viksit Bharat@2047</cite>, August 2026.</p>
 </aside>'''
 
-ABOUT_CARDS = ('<div class="grid" style="--cols:2;margin-top:40px">' +
-    card("Corporate, Government and International Training", "CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies. It delivers capability development programmes at project sites across India, has trained the Indian Space Research Organisation (ISRO), and delivered an international programme for Towell Group in Manchester, UK.", "building", extra=arrow_link("Explore corporate training", "corporate.html")) +
-    card("College Trainings and Placements", "On-campus and off-campus training, internship support and campus interviews for engineering students. CMTI partners with <strong>100+ engineering colleges</strong>, has placed <strong>5,000+ engineers</strong> in construction and interiors roles, and works with <strong>300+ companies</strong> across construction, real estate, interiors and BIM.", "cap", extra=arrow_link("Explore college partnerships", "colleges.html")) +
+def offer(img, alt, kicker, title, text, stats, cta, href, cls=""):
+    st = "".join(f'<li><strong>{n}</strong><span>{l}</span></li>' for n, l in stats)
+    return f'''<article class="offer {cls} reveal">
+  <div class="offer-media"><img src="{img}" alt="{alt}" loading="lazy" width="1600" height="1200">
+    <div class="offer-cap"><p class="offer-kicker">{kicker}</p><h3>{title}</h3></div></div>
+  <div class="offer-body">
+    <p>{text}</p>
+    <ul class="offer-stats">{st}</ul>
+    <a class="btn offer-cta" href="{href}">{cta}<span aria-hidden="true"> →</span></a>
+  </div>
+</article>'''
+
+ABOUT_CARDS = ('<div class="offers">' +
+    offer("images/cmti/rebar-inspection.webp", "A CMTI trainer explaining slab reinforcement on a project site", "For companies",
+          "Corporate, Government and International Training",
+          "CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies. It delivers capability development programmes at project sites across India, has trained the Indian Space Research Organisation (ISRO), and delivered an international programme for Towell Group in Manchester, UK.",
+          [("ISRO", "Government training"), ("Pan&#8209;India", "Project-site programmes"), ("UK", "Towell Group, Manchester")],
+          "Explore corporate training", "corporate.html") +
+    offer("images/cmti/street-group.webp", "CMTI students with their trainer on a site visit", "For colleges",
+          "College Trainings and Placements",
+          "On-campus and off-campus training, internship support and campus interviews for engineering students, across construction, real estate, interiors and BIM.",
+          [("100+", "Engineering colleges"), ("5,000+", "Engineers placed"), ("300+", "Hiring companies")],
+          "Explore college partnerships", "colleges.html", "offer-alt") +
     "</div>")
 
 PROGRAMME_GROUPS = [
