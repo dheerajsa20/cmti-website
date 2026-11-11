@@ -769,10 +769,10 @@ aw += section('<div class="award-list">' +
     award("images/awards/isda-infracon-2025-award.webp", "CMTI receiving the Best Skill Development Award on stage at the ISDA Infracon National Awards 2025", 1600, 1200,
           "Award", "Best Skill Development Award for CMTI",
           "ISDA Infracon 2025 National Level Awards at New Delhi") +
-    award("images/awards/towell-programme-certificate.webp", "Programme Completion Certificate presented to CMTI by Towell Infrastructure Projects LLC", 1308, 887,
-          "Certificate", "Programme Completion Certificate",
-          "Towell Infrastructure Projects LLC · 9 August 2026 to 20 August 2026",
-          "Presented to CMTI in recognition of the successful design and delivery of the 5-day Executive Programme in Infrastructure Leadership &amp; Project Excellence for Nama Water Services, organised by Towell Infrastructure Projects LLC, for senior engineers, managers and support staff.") +
+    award("images/awards/towell-programme-certificate.webp", "Appreciation certificate presented to CMTI by Towell Group", 1308, 887,
+          "Certificate", "Appreciation Certificate",
+          "Issued by Towell Group Chairman",
+          "For conducting a two-week programme for Omani officials at Manchester, UK.") +
     '</div>', label=None)
 aw += cta()
 write("awards.html", "Awards &amp; Certificates | CMTI", "Awards and certificates received by CMTI, including the Best Skill Development Award at the ISDA Infracon 2025 National Level Awards, New Delhi.", aw)
