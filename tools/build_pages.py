@@ -172,6 +172,8 @@ def head(title, desc):
 <link rel="stylesheet" href="site.css?v={CSS_V}">
 <script>document.documentElement.classList.add("js")</script>
 <script src="site.js?v={JS_V}" defer></script>
+<!-- "Ask CMTI" help-desk chatbot (backend: github.com/dheerajsa20/cmti-chatbot, hosted on Render) -->
+<script src="https://cmti-chatbot.onrender.com/widget.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
