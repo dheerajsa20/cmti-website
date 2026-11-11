@@ -157,7 +157,7 @@ FOOTER = f'''<footer class="site-footer">
 WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>'
 QUICK = f'''<button class="to-top" type="button" aria-label="Back to top" title="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <div class="quick-contact">
-  <a class="qc-wa" href="https://wa.me/{WA}" target="_blank" rel="noopener">{WA_ICON}<span>WhatsApp</span></a>
+  <a class="qc-wa" href="https://wa.me/{WA}" target="_blank" rel="noopener">{WA_ICON}<span class="qc-text"><span>WhatsApp</span><small>8884422480 / 8884422179</small></span></a>
   <a class="qc-call" href="tel:+918884422179" aria-label="Call CMTI"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></a>
 </div>'''
 
@@ -175,7 +175,7 @@ def head(title, desc):
 <link rel="stylesheet" href="site.css?v={CSS_V}">
 <script>document.documentElement.classList.add("js")</script>
 <script src="site.js?v={JS_V}" defer></script>
-<!-- "Ask CMTI" help-desk chatbot (backend: github.com/dheerajsa20/cmti-chatbot, hosted on Render) -->
+<!-- "Ask Neo" help-desk chatbot (backend: github.com/dheerajsa20/cmti-chatbot, hosted on Render) -->
 <script src="chatbot/widget.js?v={CHAT_V}" data-api="https://cmti-chatbot.onrender.com" defer></script>
 </head>
 <body>
