@@ -148,7 +148,7 @@ FOOTER = f'''<footer class="site-footer">
     <p class="fb-rights">© 2026 CMTi. All Rights Reserved.</p>
     <p class="fb-company"><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span>GSTIN: 29AAJCC1709L1ZE</span><span>CIN: U74999KA2020PTC142113</span></p>
     <p class="fb-links"><a href="privacy-policy.html">Privacy Policy</a></p>
-  </div><p class="fb-credit">Photos from Unsplash</p></div>
+  </div></div>
 </footer>'''
 
 WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>'
@@ -340,7 +340,7 @@ PROGRAMME_GROUPS = [
 
 # ================================================================ HOME
 home = f'''<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg"><img src="images/photos/site-team.webp" alt="" width="1400" height="934" fetchpriority="high"></div>
+  <div class="hero-bg"><img src="images/cmti/site-visit-group.webp" alt="CMTI students in hard hats on a construction site visit" width="1600" height="1200" fetchpriority="high"></div>
   <div class="hero-inner">
     <div class="hero-copy">
       <p class="eyebrow">Construction education and skilling · Pan India</p>
@@ -423,7 +423,7 @@ write("index.html", "CMTI | Construction Management Training Institute",
 # ================================================================ ABOUT
 about = page_hero("About Us", "About CMTI · Established 2018", "Preparing professionals for construction careers",
     "CMTI is one of India’s leading construction edtech institutes, delivering industry-led skilling across India.",
-    "images/photos/crane.webp", "How CMTI connects learning to project work",
+    "images/cmti/street-group.webp", "How CMTI connects learning to project work",
     ["Technical foundations", "Practitioner-led training", "Project applications"])
 about += section(f'''<div class="two-col">
   <div class="prose reveal">
@@ -456,13 +456,13 @@ about += cta()
 write("about.html", "About CMTI | CMTI", "About the Construction Management Training Institute: our story, mentor, leadership team, trainer network and clients.", about)
 
 # ================================================================ VISION & MISSION
-vm = page_hero("Mission &amp; Vision", "What guides CMTI", "Vision &amp; Mission", img="images/photos/site-team.webp")
+vm = page_hero("Mission &amp; Vision", "What guides CMTI", "Vision &amp; Mission", img="images/cmti/site-visit-group.webp")
 vm += section(f'''<div class="vm-block reveal">
-  <div class="vm-img"><img src="images/photos/drawings.webp" alt="Hands drafting construction drawings" loading="lazy" width="900" height="506"></div>
+  <div class="vm-img"><img src="images/cmti/rebar-inspection.webp" alt="A CMTI trainer explaining slab reinforcement to students on site" loading="lazy" width="1600" height="1200"></div>
   <div class="vm-text">{icon("eye")}<h2 id="vision-title">Vision</h2><p>Our objective is to help construction based professionals be prepared and ready once they enter the industry by providing an extensive module of necessary training that gives them the fundamental skills and paramount level of preparedness to perform tasks and tackle any challenge that lies ahead of them once they enter the building and construction industry.</p></div>
 </div>
 <div class="vm-block flip reveal">
-  <div class="vm-img"><img src="images/photos/site-rebar.webp" alt="Workers fixing reinforcement on a building site" loading="lazy" width="900" height="655"></div>
+  <div class="vm-img"><img src="images/cmti/street-group.webp" alt="CMTI students and trainer on a site visit" loading="lazy" width="1500" height="1125"></div>
   <div class="vm-text">{icon("target")}<h2>Mission</h2><p>Our services are designed to help individuals improve their chances of building their careers in the construction industry in two different ways. Firstly by providing the required training to be eligible for employment. Secondly by offering placements and opportunities to professionals through our list of excellent, renowned clients and contacts in the construction industry.</p></div>
 </div>''', label="vision-title")
 vm += cta()
@@ -473,7 +473,7 @@ def assoc(logo, abbr, name, text):
     return f'<article class="card reveal"><img class="logo" src="association-logos/{logo}" alt="{abbr} logo" loading="lazy"><p class="label">{abbr}</p><h3>{name}</h3><p>{text}</p></article>'
 asc = page_hero("Professional Associations", "Professional network", "Professional associations",
     "CMTI experts regularly participate in conferences, exhibitions and webinars to keep up with emerging industry requirements.",
-    "images/photos/crane.webp", "Areas of professional exchange", ["Civil engineering", "Concrete practice", "Plumbing systems", "Green buildings"])
+    "images/cmti/rebar-inspection.webp", "Areas of professional exchange", ["Civil engineering", "Concrete practice", "Plumbing systems", "Green buildings"])
 asc += section('<div class="grid" style="--cols:4">' +
     assoc("acce.jpeg", "ACCE", "Association of Consulting Civil Engineers", "A forum for civil engineers to exchange practical knowledge on design, construction and professional practice.") +
     assoc("ici.jpeg", "ICI", "Indian Concrete Institute", "Promotes knowledge of concrete technology, from materials and mix design to site execution, testing and durability.") +
@@ -486,7 +486,7 @@ write("associations.html", "Associations | CMTI", "CMTI’s professional associa
 # ================================================================ TESTIMONIALS
 tst = page_hero("Testimonials", "CMTI Finishing School · Student testimonials", "From training to your first job",
     "Hear students share what they learnt, how they prepared for placements, and what it felt like to take their first step into the industry.",
-    "images/photos/site-team.webp",
+    "images/cmti/site-visit-group.webp",
     extra=f'<a class="rating-box" href="{GOOGLE}" target="_blank" rel="noopener" style="margin-top:28px"><span class="score">4.7</span><span><span class="stars" style="--rating:4.7" role="img" aria-label="Rated 4.7 out of 5"></span><strong>2,362</strong> Google reviews</span></a>')
 tst += section(shead("", "Hear from CMTI students", hid="students-title") + '<div class="grid" style="--cols:2">' +
     video("gd1zW_J2vXc", "Keerthana", "CMTI Finishing School", "https://www.youtube.com/watch?v=gd1zW_J2vXc") +
@@ -499,7 +499,7 @@ write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimoni
 # ================================================================ E-LEARNING
 el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skills at your pace",
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
-    "images/photos/elearning.webp",
+    "images/cmti/street-group.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
 el += section(f'''<div class="two-col center">
   <div class="reveal">
@@ -534,7 +534,7 @@ write("e-learning.html", "CMTI E-Learning | CMTI", "CMTI Civil Engg Connect: 80+
 # ================================================================ FINISHING SCHOOL (CACM)
 P = "Advanced Construction Management Course (CACM)"
 fs = page_hero("Advanced Construction Management Course (CACM)", "CMTI Finishing School", "Certificate Course on Advanced Construction Management",
-    img="images/photos/site-rebar.webp", tags_label="Skills practised in the CACM course",
+    img="images/cmti/rebar-inspection.webp", tags_label="Skills practised in the CACM course",
     tags=["Drawings, BOQ and BBS", "Construction sequencing", "Site quality and safety"],
     meta="3 months · Offline, online and hybrid · Hands-on exercises and construction site visits",
     actions=f'<a class="btn btn-white" href="{enquire(P)}">Enquire about the course</a>')
@@ -575,7 +575,7 @@ write("finishing-school.html", "Advanced Construction Management Course (CACM) |
 PI = "Interior Design &amp; Management Course (IDM)"
 idm = page_hero("Interior Design &amp; Management Course (IDM)", "Interior Design &amp; Management Training Institute", "Certificate Course on Interior Design &amp; Management",
     "Founded by Er. S. G. Ashok Kumar, IDMTI prepares aspiring professionals for residential and commercial interiors. Alumni have worked with firms including HomeLane, DesignCafe, Bonito Designs and Purva Streaks.",
-    "images/photos/plans-desk.webp", "How an interior fit-out comes together", ["Design and layouts", "Modular production", "Site installation"],
+    "images/cmti/showroom-visit.webp", "How an interior fit-out comes together", ["Design and layouts", "Modular production", "Site installation"],
     meta="3 months · Offline, online and hybrid", actions=f'<a class="btn btn-white" href="{enquire(PI)}">Enquire about the course</a>',
     badge='<img class="hero-badge" src="idmti-logo-dark.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321">')
 idm += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
@@ -608,7 +608,7 @@ idm += cta()
 write("idmti.html", "Interior Design &amp; Management Course (IDM) | CMTI", "Certificate Course on Interior Design & Management from IDMTI: 3 months, offline, online and hybrid.", idm)
 
 # ================================================================ COLLEGES
-col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/photos/drawings.webp",
+col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/site-visit-group.webp",
     tags_label="Campus-to-career support", tags=["Software and workshops", "Internship exposure", "Interview preparation"],
     actions=f'<a class="btn btn-white" href="{enquire("College MoU")}">Discuss a College MoU</a>')
 col += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
@@ -630,7 +630,7 @@ def stage(title, text, big, small, tone):
 
 PC = "Capability Development Programme for Staff"
 corp = page_hero("For Corporates", "For Corporates", "Technical capability development",
-    "Customised construction training for your teams, project needs and industry standards.", "images/photos/classroom.webp",
+    "Customised construction training for your teams, project needs and industry standards.", "images/cmti/showroom-visit.webp",
     actions=f'<a class="btn btn-white" href="{enquire(PC)}">Discuss your training needs</a>')
 REASONS = [("target", "Customised programmes", "We work with Learning &amp; Development and Operations teams to align training with participant roles, project needs and industry standards."),
     ("helmet", "Experienced industry practitioners", "Our network of 50+ trainers brings hands-on construction and real estate experience. Most are former Larsen &amp; Toubro professionals."),
@@ -658,7 +658,7 @@ corp += section(f'''<div class="two-col">
     <p class="eyebrow">Corporate training</p>
     <h2 id="staff-title">Capability Development Programme for Staff</h2>
     <p class="lead">When skilled hires are hard to find, upskilling helps existing staff take on more responsibility in their current roles, while reskilling prepares them for new roles. CMTI works with L&amp;D and Operations to identify skill gaps and design training around the work participants will do.</p>
-    <div class="photo" style="margin-top:32px"><img src="images/photos/site-team.webp" alt="Engineers in safety vests reviewing a construction site" loading="lazy" width="1400" height="934"></div>
+    <div class="photo" style="margin-top:32px"><img src="images/cmti/site-visit-group.webp" alt="CMTI students in hard hats on a construction site visit" loading="lazy" width="1600" height="1200"></div>
   </div>
   <div class="reveal">
     <h3 style="margin-bottom:20px">Training by career stage</h3>
@@ -695,7 +695,7 @@ flips = "".join(
 corp += section(shead("", "Explore training topics", "Select a topic to see what it covers.", hid="topics-title") +
     f'<div class="flip-grid reveal">{flips}</div>', sid="training-topics", label="topics-title")
 corp += section(f'''<div class="two-col center">
-  <div class="photo reveal"><img src="images/photos/workman.webp" alt="Tradesperson in a hard hat working on site" loading="lazy" width="900" height="601"></div>
+  <div class="photo reveal"><img src="images/cmti/rebar-inspection.webp" alt="A CMTI trainer explaining slab reinforcement to students on site" loading="lazy" width="1600" height="1200"></div>
   <div class="reveal">
     <h2 id="workmen-title">Capability Development Programme for Workmen</h2>
     <ul class="tags light" style="padding:0">{"".join(f'<li style="border:1px solid var(--line);color:var(--ink)">{t}</li>' for t in ["Formwork &amp; scaffolding", "Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"])}</ul>
@@ -734,7 +734,7 @@ def legal_page(blocks):
                 out.append(f"<p>{part}</p>")
     return '<article class="legal-text reveal">' + "".join(out) + "</article>"
 
-privacy = page_hero("Privacy Policy", "CMTi", "CMTi Privacy Policy", img="images/photos/drawings.webp")
+privacy = page_hero("Privacy Policy", "CMTi", "CMTi Privacy Policy", img="images/cmti/street-group.webp")
 privacy += section(legal_page([
     ("Information that is gathered from visitors", [[
         "In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.",
