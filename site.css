@@ -800,3 +800,18 @@ main { overflow-x: clip; }
 .leader .leader-role { min-height: 3em; margin: 0 0 8px; font-size: 1rem; font-weight: 600; color: var(--blue); }
 @media (max-width: 1100px) { .leader .leader-role { min-height: 0; } }
 @media (max-width: 1250px) and (min-width: 1101px) { .leader .leader-name { white-space: normal; min-height: 2.6em; } }
+
+/* ---------- Awards & Certificates ---------- */
+.award-list { display: grid; gap: clamp(32px, 4vw, 56px); }
+.award { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.award:nth-child(even) .award-img { order: 2; }
+.award-img { position: relative; display: block; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; }
+.award-img img { width: 100%; height: auto; transition: transform 500ms var(--ease); }
+.award-img:hover img { transform: scale(1.03); }
+.award-zoom { position: absolute; right: 12px; bottom: 12px; padding: 6px 12px; background: rgba(10, 31, 58, .8); color: #fff; font-size: .8125rem; font-weight: 600; }
+.award-body { border-left: 5px solid var(--amber); padding-left: clamp(18px, 2.5vw, 28px); }
+.award-kind { margin: 0 0 8px; font-size: 1rem; font-weight: 700; color: var(--blue); }
+.award-body h2 { font-size: clamp(1.5rem, 2.6vw, 2.125rem); margin-bottom: 12px; }
+.award-meta { font-size: 1.125rem; font-weight: 600; color: var(--ink); }
+.award-body p:last-child { margin-bottom: 0; }
+@media (max-width: 860px) { .award { grid-template-columns: 1fr; } .award:nth-child(even) .award-img { order: 0; } }

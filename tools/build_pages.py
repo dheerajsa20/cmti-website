@@ -69,7 +69,7 @@ def arrow_link(text, href, attrs=""):
 NAV = [
     ("Home", "index.html", None),
     ("About Us", None, [("About Us", "about.html"), ("Mission &amp; Vision", "vision-mission.html"), ("Our Clients", "about.html#clients"),
-                        ("Professional Associations", "associations.html"), ("Testimonials", "testimonials.html")]),
+                        ("Professional Associations", "associations.html"), ("Awards &amp; Certificates", "awards.html"), ("Testimonials", "testimonials.html")]),
     ("For Corporates", None, [("Overview", "corporate.html"), ("Capability Development Programme for Staff", "corporate.html#training-participants"),
                               ("Capability Development Programme for Workmen", "corporate.html#workmen"),
                               ("Content Development", "corporate.html#content-development"),
@@ -135,7 +135,7 @@ FOOTER = f'''<footer class="site-footer">
       <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
       <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
     </div>
-    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
+    <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="awards.html">Awards &amp; Certificates</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
     <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
@@ -757,4 +757,23 @@ privacy += section(legal_page([
 privacy += cta()
 write("privacy-policy.html", "Privacy Policy | CMTi", "CMTi privacy policy: information gathered from visitors, how it is used, visitor options, cookies and Google Ads.", privacy)
 
+# ================================================================ AWARDS & CERTIFICATES
+def award(img, alt, w, h, kind, title, meta, text=""):
+    return (f'<article class="award reveal"><a class="award-img" href="{img}" target="_blank" rel="noopener" aria-label="Open full-size image: {title}">'
+            f'<img src="{img}" alt="{alt}" width="{w}" height="{h}" loading="lazy"><span class="award-zoom" aria-hidden="true">View full size</span></a>'
+            f'<div class="award-body"><p class="award-kind">{kind}</p><h2>{title}</h2><p class="award-meta">{meta}</p>{f"<p>{text}</p>" if text else ""}</div></article>')
+
+aw = page_hero("Awards &amp; Certificates", "About CMTI", "Awards &amp; Certificates",
+    "Recognition for CMTI's work in construction skilling and corporate training.", "images/awards/isda-infracon-2025-award.webp")
+aw += section('<div class="award-list">' +
+    award("images/awards/isda-infracon-2025-award.webp", "CMTI receiving the Best Skill Development Award on stage at the ISDA Infracon National Awards 2025", 1600, 1200,
+          "Award", "Best Skill Development Award for CMTI",
+          "ISDA Infracon 2025 National Level Awards at New Delhi") +
+    award("images/awards/towell-programme-certificate.webp", "Programme Completion Certificate presented to CMTI by Towell Infrastructure Projects LLC", 1308, 887,
+          "Certificate", "Programme Completion Certificate",
+          "Towell Infrastructure Projects LLC · 9 August 2026 to 20 August 2026",
+          "Presented to CMTI in recognition of the successful design and delivery of the 5-day Executive Programme in Infrastructure Leadership &amp; Project Excellence for Nama Water Services, organised by Towell Infrastructure Projects LLC, for senior engineers, managers and support staff.") +
+    '</div>', label=None)
+aw += cta()
+write("awards.html", "Awards &amp; Certificates | CMTI", "Awards and certificates received by CMTI, including the Best Skill Development Award at the ISDA Infracon 2025 National Level Awards, New Delhi.", aw)
 
