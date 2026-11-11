@@ -109,6 +109,35 @@ for (const board of document.querySelectorAll('[data-tabs]')) {
   });
 }
 
+// Photo sliders (Awards page): swipe, arrows, dots and arrow keys
+for (const slider of document.querySelectorAll('[data-slider]')) {
+  const track = slider.querySelector('.slider-track');
+  const slides = [...track.children];
+  const dots = [...slider.querySelectorAll('.slider-dots button')];
+  const prev = slider.querySelector('.prev');
+  const next = slider.querySelector('.next');
+  const current = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = (i) => {
+    const n = Math.max(0, Math.min(slides.length - 1, i));
+    track.scrollTo({ left: n * track.clientWidth, behavior: reducedMotion ? 'auto' : 'smooth' });
+  };
+  const update = () => {
+    const i = current();
+    dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  };
+  prev.addEventListener('click', () => go(current() - 1));
+  next.addEventListener('click', () => go(current() + 1));
+  dots.forEach((d, k) => d.addEventListener('click', () => go(k)));
+  track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(current() - 1); }
+  });
+  update();
+}
+
 // "Top 5 reasons": one reason open at a time; opens on click/tap, and on hover with a mouse
 for (const list of document.querySelectorAll('[data-reasons]')) {
   const items = [...list.querySelectorAll('.reason')];

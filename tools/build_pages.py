@@ -764,7 +764,12 @@ def award(img, alt, w, h, kind, title, meta, text="", extra=None):
                 f'<img src="{src}" alt="{a}" width="{iw}" height="{ih}" loading="lazy"><span class="award-zoom" aria-hidden="true">View full size</span></a>')
     pics = pic(img, alt, w, h, title)
     if extra:
-        pics = f'<div class="award-pics">{pics}{pic(*extra, title + " (certificate)")}</div>'
+        slides = [pic(img, alt, w, h, title), pic(*extra, title + " (certificate)")]
+        pics = (f'<div class="award-slider" data-slider aria-roledescription="carousel" aria-label="{title} photos">'
+                f'<div class="slider-track" tabindex="0">' + "".join(f'<div class="slide" role="group" aria-roledescription="slide" aria-label="{i + 1} of {len(slides)}">{s}</div>' for i, s in enumerate(slides)) + '</div>'
+                '<button class="slider-btn prev" type="button" aria-label="Previous photo"></button>'
+                '<button class="slider-btn next" type="button" aria-label="Next photo"></button>'
+                '<div class="slider-dots">' + "".join(f'<button type="button" aria-label="Show photo {i + 1}"></button>' for i in range(len(slides))) + '</div></div>')
     return (f'<article class="award reveal">{pics}'
             f'<div class="award-body"><p class="award-kind">{kind}</p><h2>{title}</h2><p class="award-meta">{meta}</p>{f"<p>{text}</p>" if text else ""}</div></article>')
 
@@ -777,7 +782,7 @@ aw += section('<div class="award-list">' +
     award("images/awards/towell-manchester-appreciation.webp", "CMTI receiving the appreciation certificate from Towell Group in Manchester, UK", 800, 615,
           "Certificate", "Appreciation Certificate",
           "Issued by Towell Group Chairman",
-          "For conducting a two-week programme for Omani officials at Manchester, UK.",
+          "For conducting a two-week programme for Omani officials at Manchester, UK.</p><p>Presented to CMTI in recognition of the successful design and delivery of the 5-day Executive Programme in Infrastructure Leadership &amp; Project Excellence for Nama Water Services, organised by Towell Infrastructure Projects LLC, for senior engineers, managers and support staff.",
           extra=("images/awards/towell-programme-certificate.webp", "The certificate presented to CMTI by Towell Infrastructure Projects LLC", 1308, 887)) +
     '</div>', label=None)
 aw += cta()

@@ -815,6 +815,23 @@ main { overflow-x: clip; }
 .award-meta { font-size: 1.125rem; font-weight: 600; color: var(--ink); }
 .award-body p:last-child { margin-bottom: 0; }
 @media (max-width: 860px) { .award { grid-template-columns: 1fr; } .award:nth-child(even) .award-img { order: 0; } }
-.award-pics { display: grid; gap: 14px; }
-.award:nth-child(even) .award-pics { order: 2; }
-@media (max-width: 860px) { .award:nth-child(even) .award-pics { order: 0; } }
+
+/* ---------- Award photo slider ---------- */
+.award-slider { position: relative; }
+.award:nth-child(even) .award-slider { order: 2; }
+.slider-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border: 1px solid var(--line); box-shadow: var(--shadow); background: #0a1f3a; }
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.slide { flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 4 / 3; display: grid; place-items: center; }
+.slide .award-img { width: 100%; height: 100%; border: 0; box-shadow: none; background: #0a1f3a; }
+.slide .award-img img { width: 100%; height: 100%; object-fit: contain; }
+.slider-btn { position: absolute; top: 50%; width: 46px; height: 46px; margin-top: -40px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .92); box-shadow: 0 6px 18px rgba(10, 31, 58, .35); cursor: pointer; transition: background-color 200ms ease, opacity 200ms ease; }
+.slider-btn::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; border-top: 3px solid var(--navy); border-right: 3px solid var(--navy); }
+.slider-btn.prev { left: 12px; } .slider-btn.prev::after { transform: translate(-30%, -50%) rotate(-135deg); }
+.slider-btn.next { right: 12px; } .slider-btn.next::after { transform: translate(-70%, -50%) rotate(45deg); }
+.slider-btn:hover { background: var(--amber); }
+.slider-btn:disabled { opacity: .35; cursor: default; background: rgba(255, 255, 255, .92); }
+.slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 14px; }
+.slider-dots button { width: 12px; height: 12px; padding: 0; border: 2px solid var(--blue); border-radius: 50%; background: transparent; cursor: pointer; }
+.slider-dots button[aria-current="true"] { background: var(--amber); border-color: var(--amber); }
+@media (max-width: 860px) { .award:nth-child(even) .award-slider { order: 0; } }
