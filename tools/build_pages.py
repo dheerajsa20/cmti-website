@@ -342,9 +342,34 @@ NITI = '''<aside class="panel reveal">
   <p class="muted">Source inspiration: NITI Aayog, <cite>Reimagining Skilling for Viksit Bharat@2047</cite>, August 2026.</p>
 </aside>'''
 
-ABOUT_CARDS = ('<div class="grid" style="--cols:2;margin-top:40px">' +
-    card("Corporate, Government and International Training", "CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies. It delivers capability development programmes at project sites across India, has trained the Indian Space Research Organisation (ISRO), and delivered an international programme for Towell Group in Manchester, UK.", "building", extra=arrow_link("Explore corporate training", "corporate.html")) +
-    card("College Trainings and Placements", "On-campus and off-campus training, internship support and campus interviews for engineering students. CMTI partners with <strong>100+ engineering colleges</strong>, has placed <strong>5,000+ engineers</strong> in construction and interiors roles, and works with <strong>300+ companies</strong> across construction, real estate, interiors and BIM.", "cap", extra=arrow_link("Explore college partnerships", "colleges.html")) +
+def pillar(num, label, title, text, points, img, alt, cta, href, tone=""):
+    pts = "".join(f"<li>{icon('check', 'tick')}<span>{pt}</span></li>" for pt in points)
+    return f"""<article class="pillar {tone} reveal">
+  <div class="pillar-img"><img src="{img}" alt="{alt}" loading="lazy" width="1600" height="1000"><span class="pillar-num">{num}</span></div>
+  <div class="pillar-body">
+    <p class="pillar-label">{label}</p>
+    <h3>{title}</h3>
+    <p class="pillar-text">{text}</p>
+    <ul class="pillar-points">{pts}</ul>
+    <a class="btn btn-primary" href="{href}">{cta}</a>
+  </div>
+</article>"""
+
+ABOUT_CARDS = ('<div class="pillars">' +
+    pillar("01", "For companies and institutions", "Corporate, Government and International Training",
+        "CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies.",
+        ["Capability development programmes delivered at project sites across India",
+         "Training delivered for the Indian Space Research Organisation (ISRO)",
+         "International programme for Towell Group in Manchester, UK"],
+        "images/cmti/corporate-staff-training.webp", "A CMTI trainer leading a capability development session for corporate staff",
+        "Explore corporate training", "corporate.html") +
+    pillar("02", "For engineering colleges and students", "College Trainings and Placements",
+        "On-campus and off-campus training, internship support and campus interviews for engineering students.",
+        ["Partnerships with <strong>100+ engineering colleges</strong>",
+         "<strong>5,000+ engineers</strong> placed in construction and interiors roles",
+         "Hiring connections with <strong>300+ companies</strong> across construction, real estate, interiors and BIM"],
+        "images/cmti/colleges-banner.webp", "CMTI college partnerships sign with a handshake on a college campus",
+        "Explore college partnerships", "colleges.html", tone="alt") +
     "</div>")
 
 PROGRAMME_GROUPS = [
@@ -376,6 +401,9 @@ home = f'''<section class="hero" aria-labelledby="hero-title">
   </div>
 </div>
 '''
+home += section(shead("What we do", "Two ways CMTI builds construction talent",
+    "Industry-led training for the companies that build India, and for the engineers who join them.", hid="services-title") +
+    ABOUT_CARDS, "section services", "services", "services-title")
 home += section(f'''<div class="two-col">
   <div class="prose reveal">
     <p class="eyebrow">About CMTI · Established 2018</p>
@@ -385,8 +413,7 @@ home += section(f'''<div class="two-col">
     {arrow_link("About Us", "about.html")}
   </div>
   {NITI}
-</div>
-{ABOUT_CARDS}''', sid="about", label="about-title")
+</div>''', sid="about", label="about-title")
 home += section(shead("Delivery formats", "Learn in the format that fits", hid="formats-title") + '''<div class="cols-rule reveal">
   <article>''' + icon("building") + '''<h3>Offline</h3><p>Classroom workshops, site visits and hands-on trade demonstrations.</p></article>
   <article>''' + icon("laptop") + '''<h3>Online</h3><p>Live sessions and self-paced learning through CMTI Civil Engg Connect.</p>''' + arrow_link("Explore CMTI e-learning", "e-learning.html") + '''</article>
