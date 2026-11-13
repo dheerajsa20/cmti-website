@@ -504,7 +504,7 @@ write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimoni
 # ================================================================ E-LEARNING
 el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skills at your pace",
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
-    "images/cmti/street-group.webp",
+    "images/cmti/e-learning-laptop.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
 el += section(f'''<div class="two-col center">
   <div class="reveal">
