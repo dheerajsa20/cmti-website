@@ -700,7 +700,7 @@ flips = "".join(
 corp += section(shead("", "Explore training topics", "Select a topic to see what it covers.", hid="topics-title") +
     f'<div class="flip-grid reveal">{flips}</div>', sid="training-topics", label="topics-title")
 corp += section(f'''<div class="two-col center">
-  <div class="photo reveal"><img src="images/cmti/rebar-inspection.webp" alt="A CMTI trainer explaining slab reinforcement to students on site" loading="lazy" width="1600" height="1200"></div>
+  <div class="photo reveal"><img src="images/cmti/workmen-bar-bending.webp" alt="Workmen in hard hats learning to use a bar bending machine during CMTI on-site training" loading="lazy" width="960" height="720"></div>
   <div class="reveal">
     <h2 id="workmen-title">Capability Development Programme for Workmen</h2>
     <ul class="tags light" style="padding:0">{"".join(f'<li style="border:1px solid var(--line);color:var(--ink)">{t}</li>' for t in ["Formwork &amp; scaffolding", "Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"])}</ul>
