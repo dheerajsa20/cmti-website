@@ -504,7 +504,7 @@ write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimoni
 # ================================================================ E-LEARNING
 el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skills at your pace",
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
-    "images/cmti/street-group.webp",
+    "images/cmti/e-learning-laptop.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
 el += section(f'''<div class="two-col center">
   <div class="reveal">
@@ -663,7 +663,7 @@ corp += section(f'''<div class="two-col">
     <p class="eyebrow">Corporate training</p>
     <h2 id="staff-title">Capability Development Programme for Staff</h2>
     <p class="lead">When skilled hires are hard to find, upskilling helps existing staff take on more responsibility in their current roles, while reskilling prepares them for new roles. CMTI works with L&amp;D and Operations to identify skill gaps and design training around the work participants will do.</p>
-    <div class="photo" style="margin-top:32px"><img src="images/cmti/site-visit-group.webp" alt="CMTI students in hard hats on a construction site visit" loading="lazy" width="1600" height="1200"></div>
+    <div class="photo" style="margin-top:32px"><img src="images/cmti/corporate-staff-group.webp" alt="Corporate staff participants of a CMTI capability development programme" loading="lazy" width="1455" height="1091"></div>
   </div>
   <div class="reveal">
     <h3 style="margin-bottom:20px">Training by career stage</h3>
@@ -700,7 +700,7 @@ flips = "".join(
 corp += section(shead("", "Explore training topics", "Select a topic to see what it covers.", hid="topics-title") +
     f'<div class="flip-grid reveal">{flips}</div>', sid="training-topics", label="topics-title")
 corp += section(f'''<div class="two-col center">
-  <div class="photo reveal"><img src="images/cmti/rebar-inspection.webp" alt="A CMTI trainer explaining slab reinforcement to students on site" loading="lazy" width="1600" height="1200"></div>
+  <div class="photo reveal"><img src="images/cmti/workmen-bar-bending.webp" alt="Workmen in hard hats learning to use a bar bending machine during CMTI on-site training" loading="lazy" width="960" height="720"></div>
   <div class="reveal">
     <h2 id="workmen-title">Capability Development Programme for Workmen</h2>
     <ul class="tags light" style="padding:0">{"".join(f'<li style="border:1px solid var(--line);color:var(--ink)">{t}</li>' for t in ["Formwork &amp; scaffolding", "Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"])}</ul>
