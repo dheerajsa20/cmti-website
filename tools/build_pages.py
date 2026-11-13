@@ -489,15 +489,53 @@ asc += cta()
 write("associations.html", "Associations | CMTI", "CMTI’s professional associations: ACCE, Indian Concrete Institute, Indian Plumbing Association and Indian Green Building Council.", asc)
 
 # ================================================================ TESTIMONIALS
+def story(vid, name, sub):
+    yt = f"https://www.youtube.com/watch?v={vid}"
+    return f'''<article class="story reveal">
+  <button class="video" type="button" data-embed="{vid}" data-title="{name}">
+    <span class="thumb"><img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play" aria-hidden="true"></span></span>
+  </button>
+  <div class="story-body">
+    <span class="story-mark" aria-hidden="true">&ldquo;</span>
+    <div><h3>{name}</h3><p>{sub}</p></div>
+    {arrow_link("Watch on YouTube", yt)}
+  </div>
+</article>'''
+
 tst = page_hero("Testimonials", "CMTI Finishing School · Student testimonials", "From training to your first job",
     "Hear students share what they learnt, how they prepared for placements, and what it felt like to take their first step into the industry.",
-    "images/cmti/site-visit-group.webp",
-    extra=f'<a class="rating-box" href="{GOOGLE}" target="_blank" rel="noopener" style="margin-top:28px"><span class="score">4.7</span><span><span class="stars" style="--rating:4.7" role="img" aria-label="Rated 4.7 out of 5"></span><strong>2,362</strong> Google reviews</span></a>')
-tst += section(shead("", "Hear from CMTI students", hid="students-title") + '<div class="grid" style="--cols:2">' +
-    video("gd1zW_J2vXc", "Keerthana", "CMTI Finishing School", "https://www.youtube.com/watch?v=gd1zW_J2vXc") +
-    video("vd9OFFVTzVo", "Amrita Bhat", "CMTI Finishing School", "https://www.youtube.com/watch?v=vd9OFFVTzVo") +
-    f'</div><p style="margin-top:28px">{arrow_link("Explore CMTI testimonials on YouTube", "https://www.youtube.com/@CMTICivil/playlists")}</p>',
-    label="students-title")
+    "images/cmti/testimonials-banner.webp",
+    actions=f'<a class="btn btn-white" href="#stories">Watch student stories</a><a class="btn btn-ghost-white" href="{GOOGLE}" target="_blank" rel="noopener">Read Google reviews</a>')
+tst += '''<div class="stat-strip"><div class="container"><dl>
+  <div><dt>average rating on Google</dt><dd>4.7&#9733;</dd></div>
+  <div><dt>Google reviews</dt><dd>2,362</dd></div>
+  <div><dt>engineers placed</dt><dd data-count="5000">5,000+</dd></div>
+  <div><dt>hiring companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
+</dl></div></div>'''
+tst += section(shead("Student stories", "Hear it from our students",
+    "CMTI students talk about their training and their first steps into the construction industry.", hid="students-title") +
+    '<div class="story-grid">' +
+    story("wjxFxRWlbUQ", "CMTI student", "CMTI Finishing School") +
+    story("DmFHuy2J4ow", "CMTI student", "CMTI Finishing School") +
+    '</div>', sid="stories", label="students-title")
+tst += section(shead("The journey", "From training to your first job", hid="journey-title") +
+    '''<ol class="journey reveal">
+  <li><span class="j-num">01</span><h3>Learn on real sites</h3><p>Classroom workshops, site visits and hands-on trade demonstrations led by construction industry experts.</p></li>
+  <li><span class="j-num">02</span><h3>Prepare for placements</h3><p>Interview preparation and career guidance as students get ready for recruitment.</p></li>
+  <li><span class="j-num">03</span><h3>Start your career</h3><p>CMTI coordinates with employers across construction, real estate, interiors and BIM to help students take their first step.</p></li>
+</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore the CMTI Finishing School", "finishing-school.html")}</p>',
+    cls="section alt", sid="journey", label="journey-title")
+tst += section(f'''<div class="review-band reveal">
+  <div class="rb-score">
+    <span class="score">4.7</span>
+    <div><span class="stars" style="--rating:4.7;--size:26px" role="img" aria-label="Rated 4.7 out of 5"></span><p><strong>2,362</strong> Google reviews</p></div>
+  </div>
+  <div class="rb-copy">
+    <h2 id="reviews-title">Read what students say on Google</h2>
+    <p>Reviews from CMTI students and professionals, in their own words.</p>
+    <div class="rb-actions"><a class="btn btn-white" href="{GOOGLE}" target="_blank" rel="noopener">Read Google reviews</a><a class="btn btn-ghost-white" href="https://www.youtube.com/@CMTICivil/playlists" target="_blank" rel="noopener">More stories on YouTube</a></div>
+  </div>
+</div>''', cls="section dark", sid="reviews", label="reviews-title")
 tst += cta()
 write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimonials from the CMTI Finishing School and CMTI’s Google reviews.", tst)
 

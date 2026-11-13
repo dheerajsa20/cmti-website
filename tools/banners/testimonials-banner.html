@@ -1,0 +1,86 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root { --navy:#0a1f3a; --navy2:#102c50; --blue:#195b9c; --amber:#ffa434; }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1600px; height: 900px; overflow: hidden; font-family: "IBM Plex Sans", sans-serif;
+    background: radial-gradient(1200px 800px at 70% 40%, #1d5a96 0%, #123a66 45%, var(--navy) 100%); position: relative; }
+  .grid { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px; }
+  svg.bld { position: absolute; right: -40px; bottom: 0; width: 900px; height: 900px; opacity: .22; }
+  .glow { position: absolute; width: 700px; height: 700px; right: 160px; top: 20px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,164,52,.28), transparent 65%); filter: blur(10px); }
+
+  .player { position: absolute; left: 660px; top: 120px; width: 740px; height: 440px; border-radius: 18px; overflow: hidden;
+    background: linear-gradient(160deg, #24609c, #0e2c52 70%); box-shadow: 0 50px 90px -30px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.12) inset;
+    transform: rotate(-3deg); }
+  .player .scene { position: absolute; inset: 0; }
+  .player .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 64px; background: linear-gradient(transparent, rgba(0,0,0,.55)); }
+  .player .track { position: absolute; left: 36px; right: 36px; bottom: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.3); }
+  .player .track i { display: block; width: 38%; height: 100%; border-radius: 3px; background: var(--amber); position: relative; }
+  .player .track i::after { content: ""; position: absolute; right: -9px; top: -6px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .play { position: absolute; left: 50%; top: 46%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; background: var(--amber);
+    box-shadow: 0 0 0 22px rgba(255,164,52,.22), 0 0 0 46px rgba(255,164,52,.1); }
+  .play::after { content: ""; position: absolute; left: 60px; top: 45px; border-left: 46px solid var(--navy); border-top: 30px solid transparent; border-bottom: 30px solid transparent; }
+
+  .quote { position: absolute; left: 540px; top: 440px; width: 460px; padding: 34px 40px 28px; border-radius: 16px; background: #fff;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); transform: rotate(2deg); }
+  .quote .mark { position: absolute; top: -54px; left: 34px; width: 100px; height: 100px; border-radius: 50%; background: var(--amber);
+    color: var(--navy); font: 700 120px/1 Georgia, serif; text-align: center; padding-top: 22px; }
+  .stars { display: flex; gap: 8px; margin: 18px 0 18px; }
+  .stars svg { width: 40px; height: 40px; }
+  .line { height: 14px; border-radius: 7px; background: #dde3ea; margin-bottom: 14px; }
+  .who { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
+  .who .av { width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--navy2)); position: relative; overflow: hidden; }
+  .who .av::before { content: ""; position: absolute; left: 17px; top: 10px; width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.85); }
+  .who .av::after { content: ""; position: absolute; left: 7px; top: 38px; width: 44px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.85); }
+  .who .t { flex: 1; }
+
+  .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 26px; border-radius: 14px; background: rgba(255,255,255,.1);
+    backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.18); color: #fff; font-weight: 600; font-size: 26px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); }
+  .chip svg { width: 40px; height: 40px; flex: none; }
+  .c1 { left: 1190px; top: 70px; transform: rotate(4deg); }
+  .c2 { left: 1130px; top: 560px; transform: rotate(-3deg); }
+</style></head>
+<body>
+  <div class="grid"></div>
+  <svg class="bld" style="height:800px;width:800px" viewBox="0 0 900 900" fill="none" stroke="#fff" stroke-width="3">
+    <path d="M120 900V420h220v480M340 900V260h240v640M580 900V480h200v420"/>
+    <path d="M160 470h140M160 530h140M160 590h140M160 650h140M160 710h140M160 770h140M160 830h140"/>
+    <path d="M380 310h160M380 370h160M380 430h160M380 490h160M380 550h160M380 610h160M380 670h160M380 730h160M380 790h160M380 850h160"/>
+    <path d="M620 530h120M620 590h120M620 650h120M620 710h120M620 770h120M620 830h120"/>
+    <path d="M700 120v360M560 120h300M700 120l140 80M700 150l-120-30M840 120v60" />
+  </svg>
+  <div class="glow"></div>
+
+  <div class="player">
+    <svg class="scene" viewBox="0 0 760 470" preserveAspectRatio="none">
+      <rect width="760" height="470" fill="url(#g)"/>
+      <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b8fc4"/><stop offset=".62" stop-color="#2a5d93"/><stop offset=".62" stop-color="#7a6146"/><stop offset="1" stop-color="#4c3c2c"/></linearGradient></defs>
+      <g fill="#183b63" opacity=".85"><rect x="40" y="170" width="120" height="122"/><rect x="180" y="110" width="150" height="182"/><rect x="560" y="140" width="140" height="152"/></g>
+      <g stroke="#ffa434" stroke-width="5" fill="none" opacity=".9"><path d="M470 292V60M410 60h200M470 80l-60-20M610 60v40"/></g>
+    </svg>
+    <div class="play"></div>
+    <div class="bar"></div>
+    <div class="track"><i></i></div>
+  </div>
+
+  <div class="quote">
+    <div class="mark">&ldquo;</div>
+    <div class="stars">
+      <svg viewBox="0 0 24 24"><path fill="#ffa434" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#ffa434" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#ffa434" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#ffa434" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#ffa434" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+    </div>
+    <div class="line"></div><div class="line" style="width:72%"></div>
+    <div class="who"><div class="av"></div><div class="t"><div class="line" style="width:52%;background:#0a1f3a;opacity:.8"></div><div class="line" style="width:36%;background:#ffa434;margin:0"></div></div></div>
+  </div>
+
+  <div class="chip c1"><svg viewBox="0 0 24 24" fill="none" stroke="#ffa434" stroke-width="2"><path d="M2 20h20M4 20v-3a8 8 0 0 1 16 0v3M12 9V5M9 9.5 7.5 6M15 9.5 16.5 6"/></svg>Site-ready</div>
+  <div class="chip c2"><svg viewBox="0 0 24 24" fill="none" stroke="#ffa434" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Placement-ready</div>
+</body></html>
