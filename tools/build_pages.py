@@ -8,6 +8,7 @@ The wording comes from the original CMTI site; page structure follows the
 or the next run will overwrite your edits.
 """
 import hashlib
+import re
 import sys
 from urllib.parse import quote
 
@@ -185,8 +186,17 @@ def head(title, desc):
 def write(name, title, desc, body):
     footer = FOOTER.replace('<li><a href="testimonials.html">Google reviews</a></li>', '') if name == "index.html" else FOOTER
     html = head(title, desc) + header(name == "index.html") + '\n\n<main id="main">\n' + body + '\n</main>\n\n' + footer + "\n\n" + QUICK + "\n</body>\n</html>\n"
+    html = clean_links(html)
     open(f"{ROOT}/{name}", "w", encoding="utf-8").write(html)
     print("wrote", name)
+
+def clean_links(html):
+    """Link to /about rather than /about.html, and to ./ rather than index.html.
+    GitHub Pages serves about.html for /about, so the address bar never shows .html."""
+    def fix(m):
+        page, rest = m.group(1), m.group(2) or ""
+        return f'href="{"./" if page == "index" else page}{rest}"'
+    return re.sub(r'href="([a-z0-9-]+)\.html([?#][^"]*)?"', fix, html)
 
 # ---------------------------------------------------------------- building blocks
 def page_hero(crumb_label, eyebrow, title, lede="", img="", tags_label="", tags=(), meta="", actions="", extra="", badge=""):

@@ -65,9 +65,11 @@ document.addEventListener('keydown', (event) => {
 });
 nav?.addEventListener('click', (event) => { if (event.target.closest('a')) { setMenu(false); closeSubs(); } });
 
-const here = location.pathname.split('/').pop() || 'index.html';
+// Links use clean addresses (./, about) but a page may also be opened as about.html.
+const pageName = (path) => path.split(/[?#]/)[0].split('/').pop().replace(/\.html$/, '').replace(/^index$/, '') || 'home';
+const here = pageName(location.pathname);
 for (const link of document.querySelectorAll('.site-nav a[href]')) {
-  if (link.getAttribute('href') === here) link.setAttribute('aria-current', 'page');
+  if (pageName(link.getAttribute('href')) === here) link.setAttribute('aria-current', 'page');
 }
 
 // ----- Tabs helper (hero finder and course journey) -----
