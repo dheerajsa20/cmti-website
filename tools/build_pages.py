@@ -502,21 +502,21 @@ def story(vid, name, sub):
   </div>
 </article>'''
 
-tst = page_hero("Testimonials", "CMTI Finishing School · Student testimonials", "From training to your first job",
-    "Hear students share what they learnt, how they prepared for placements, and what it felt like to take their first step into the industry.",
+tst = page_hero("Testimonials", "CMTI testimonials", "Hear from the people we train",
+    "Feedback from participants of CMTI training programmes, from on-site corporate training to the CMTI Finishing School.",
     "images/cmti/testimonials-banner.webp",
-    actions=f'<a class="btn btn-white" href="#stories">Watch student stories</a><a class="btn btn-ghost-white" href="{GOOGLE}" target="_blank" rel="noopener">Read Google reviews</a>')
+    actions=f'<a class="btn btn-white" href="#stories">Watch training feedback</a><a class="btn btn-ghost-white" href="{GOOGLE}" target="_blank" rel="noopener">Read Google reviews</a>')
 tst += '''<div class="stat-strip"><div class="container"><dl>
   <div><dt>average rating on Google</dt><dd>4.7&#9733;</dd></div>
   <div><dt>Google reviews</dt><dd>2,362</dd></div>
   <div><dt>engineers placed</dt><dd data-count="5000">5,000+</dd></div>
   <div><dt>hiring companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
 </dl></div></div>'''
-tst += section(shead("Student stories", "Hear it from our students",
-    "CMTI students talk about their training and their first steps into the construction industry.", hid="students-title") +
+tst += section(shead("Training feedback", "In their own words",
+    "Participants share their experience of CMTI training delivered for DLF and Bluewing Design and Constructions.", hid="students-title") +
     '<div class="story-grid">' +
-    story("wjxFxRWlbUQ", "CMTI student", "CMTI Finishing School") +
-    story("DmFHuy2J4ow", "CMTI student", "CMTI Finishing School") +
+    story("wjxFxRWlbUQ", "Muskan Singh", "DLF training by CMTI experts, Gurugram") +
+    story("DmFHuy2J4ow", "Bluewing Design and Constructions", "Formwork training · Employee feedback") +
     '</div>', sid="stories", label="students-title")
 tst += section(shead("The journey", "From training to your first job", hid="journey-title") +
     '''<ol class="journey reveal">
@@ -651,7 +651,7 @@ idm += cta()
 write("idmti.html", "Interior Design &amp; Management Course (IDM) | CMTI", "Certificate Course on Interior Design & Management from IDMTI: 3 months, offline, online and hybrid.", idm)
 
 # ================================================================ COLLEGES
-col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/site-visit-group.webp",
+col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/colleges-banner.webp",
     tags_label="Campus-to-career support", tags=["Software and workshops", "Internship exposure", "Interview preparation"],
     actions=f'<a class="btn btn-white" href="{enquire("College MoU")}">Discuss a College MoU</a>')
 col += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
