@@ -478,7 +478,7 @@ def assoc(logo, abbr, name, text):
     return f'<article class="card reveal"><img class="logo" src="association-logos/{logo}" alt="{abbr} logo" loading="lazy"><p class="label">{abbr}</p><h3>{name}</h3><p>{text}</p></article>'
 asc = page_hero("Professional Associations", "Professional network", "Professional associations",
     "CMTI experts regularly participate in conferences, exhibitions and webinars to keep up with emerging industry requirements.",
-    "images/cmti/rebar-inspection.webp", "Areas of professional exchange", ["Civil engineering", "Concrete practice", "Plumbing systems", "Green buildings"])
+    "images/cmti/associations-banner.webp", "Areas of professional exchange", ["Civil engineering", "Concrete practice", "Plumbing systems", "Green buildings"])
 asc += section('<div class="grid" style="--cols:4">' +
     assoc("acce.jpeg", "ACCE", "Association of Consulting Civil Engineers", "A forum for civil engineers to exchange practical knowledge on design, construction and professional practice.") +
     assoc("ici.jpeg", "ICI", "Indian Concrete Institute", "Promotes knowledge of concrete technology, from materials and mix design to site execution, testing and durability.") +
