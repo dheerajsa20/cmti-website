@@ -78,10 +78,10 @@ NAV = [
                               ("Capability Development Programme for Workmen", "corporate.html#workmen"),
                               ("Content Development", "corporate.html#content-development"),
                               ("Assessment of Employees", "corporate.html#assessment"), ("Hiring Support", "corporate.html#hiring")]),
-    ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "finishing-school.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
-                                ("Internships", "finishing-school.html#internship"),
-                                ("Construction Software Courses", "finishing-school.html#construction-software"),
-                                ("BIM Design Software", "finishing-school.html#bim-design")]),
+    ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "cacm.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
+                                ("Internships", "cacm.html#internship"),
+                                ("Construction Software Courses", "cacm.html#construction-software"),
+                                ("BIM Design Software", "cacm.html#bim-design")]),
     ("College MoUs", "colleges.html", None),
     ("E-Learning", None, [("Online Courses", "e-learning.html"), ("Webinars", "e-learning.html#webinars")]),
     ("Contact", "index.html#contact", None),
@@ -141,7 +141,7 @@ FOOTER = f'''<footer class="site-footer">
     </div>
     <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="awards.html">Awards &amp; Certificates</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
-    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
+    <div><h3>Certified Courses</h3><ul><li><a href="cacm.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
   <div class="footer-social">
@@ -361,7 +361,7 @@ home = f'''<section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow">Construction education and skilling · Pan India</p>
       <h1 id="hero-title">Build the skills construction demands.</h1>
       <p class="lede">Practical training for engineers, interior professionals, project teams and skilled workmen, led by industry practitioners.</p>
-      <div class="hero-actions"><a class="btn btn-white" href="finishing-school.html">Explore programmes</a><a class="btn btn-ghost-white" href="#contact">Make an enquiry</a></div>
+      <div class="hero-actions"><a class="btn btn-white" href="cacm.html">Explore programmes</a><a class="btn btn-ghost-white" href="#contact">Make an enquiry</a></div>
     </div>
   </div>
 </section>
@@ -528,7 +528,7 @@ tst += section(shead("The journey", "From training to your first job", hid="jour
   <li><span class="j-num">01</span><h3>Learn on real sites</h3><p>Classroom workshops, site visits and hands-on trade demonstrations led by construction industry experts.</p></li>
   <li><span class="j-num">02</span><h3>Prepare for placements</h3><p>Interview preparation and career guidance as students get ready for recruitment.</p></li>
   <li><span class="j-num">03</span><h3>Start your career</h3><p>CMTI coordinates with employers across construction, real estate, interiors and BIM to help students take their first step.</p></li>
-</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore our certified courses", "finishing-school.html")}</p>',
+</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore our certified courses", "cacm.html")}</p>',
     cls="section alt", sid="journey", label="journey-title")
 tst += cta()
 write("testimonials.html", "Testimonials and Reviews | CMTI", "Training feedback from CMTI programmes and CMTI’s Google reviews.", tst)
@@ -606,7 +606,24 @@ fs += section(shead("Certified Courses", "More certified courses", hid="more-tit
     card("BIM Design Software", "Explore model-based design and coordination for construction and interiors.", "cpu", cid="bim-design", extra=arrow_link("Enquire", enquire("BIM Design Software"))) +
     "</div>", "section alt", label="more-title")
 fs += cta()
-write("finishing-school.html", "Advanced Construction Management Course (CACM) | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
+write("cacm.html", "Advanced Construction Management Course (CACM) | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
+
+# Old address: the CACM page used to live at /finishing-school. Send visitors on, keeping any #section.
+REDIRECT = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Advanced Construction Management Course (CACM) | CMTI</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="cacm">
+<meta http-equiv="refresh" content="0; url=cacm">
+<script>location.replace('cacm' + location.search + location.hash)</script>
+</head>
+<body><p>This page has moved to <a href="cacm">the CACM course page</a>.</p></body>
+</html>
+"""
+open(f"{ROOT}/finishing-school.html", "w", encoding="utf-8").write(REDIRECT)
+print("wrote finishing-school.html (redirect)")
 
 # ================================================================ IDMTI
 PI = "Interior Design &amp; Management Course (IDM)"
