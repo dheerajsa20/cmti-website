@@ -651,7 +651,7 @@ idm += cta()
 write("idmti.html", "Interior Design &amp; Management Course (IDM) | CMTI", "Certificate Course on Interior Design & Management from IDMTI: 3 months, offline, online and hybrid.", idm)
 
 # ================================================================ COLLEGES
-col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/site-visit-group.webp",
+col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/colleges-banner.webp",
     tags_label="Campus-to-career support", tags=["Software and workshops", "Internship exposure", "Interview preparation"],
     actions=f'<a class="btn btn-white" href="{enquire("College MoU")}">Discuss a College MoU</a>')
 col += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
