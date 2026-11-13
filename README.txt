@@ -1,6 +1,10 @@
 CMTI WEBSITE SOURCE
 
-Extract this ZIP and open index.html, or run python -m http.server 8000 from this folder and visit http://localhost:8000.
+Links use clean addresses (/about rather than /about.html), which GitHub Pages serves automatically. To preview the site on your own computer, run this from this folder and visit http://localhost:3000:
+
+    npx serve .
+
+Opening index.html by double-clicking it shows the home page, but links to other pages will not work that way.
 
 This is a static HTML, CSS and JavaScript website. No build step is required. All local logos and inline SVG illustrations are included.
 
