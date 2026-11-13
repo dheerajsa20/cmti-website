@@ -463,11 +463,11 @@ write("about.html", "About CMTI | CMTI", "About the Construction Management Trai
 # ================================================================ VISION & MISSION
 vm = page_hero("Mission &amp; Vision", "What guides CMTI", "Vision &amp; Mission", img="images/cmti/site-visit-group.webp")
 vm += section(f'''<div class="vm-block reveal">
-  <div class="vm-img"><img src="images/cmti/rebar-inspection.webp" alt="A CMTI trainer explaining slab reinforcement to students on site" loading="lazy" width="1600" height="1200"></div>
+  <div class="vm-img"><img src="images/cmti/vision.webp" alt="A CMTI trainer pointing out a city skyline and green building to engineers on a rooftop" loading="lazy" width="1600" height="800"></div>
   <div class="vm-text">{icon("eye")}<h2 id="vision-title">Vision</h2><p>Our objective is to help construction based professionals be prepared and ready once they enter the industry by providing an extensive module of necessary training that gives them the fundamental skills and paramount level of preparedness to perform tasks and tackle any challenge that lies ahead of them once they enter the building and construction industry.</p></div>
 </div>
 <div class="vm-block flip reveal">
-  <div class="vm-img"><img src="images/cmti/street-group.webp" alt="CMTI students and trainer on a site visit" loading="lazy" width="1500" height="1125"></div>
+  <div class="vm-img"><img src="images/cmti/mission.webp" alt="A CMTI trainer reviewing drawings with engineers at a construction site" loading="lazy" width="1440" height="667"></div>
   <div class="vm-text">{icon("target")}<h2>Mission</h2><p>Our services are designed to help individuals improve their chances of building their careers in the construction industry in two different ways. Firstly by providing the required training to be eligible for employment. Secondly by offering placements and opportunities to professionals through our list of excellent, renowned clients and contacts in the construction industry.</p></div>
 </div>''', label="vision-title")
 vm += cta()
