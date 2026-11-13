@@ -503,41 +503,25 @@ def story(vid, name, sub):
 </article>'''
 
 tst = page_hero("Testimonials", "CMTI testimonials", "Hear from the people we train",
-    "Feedback from participants of CMTI training programmes, from on-site corporate training to the CMTI Finishing School.",
+    "Feedback from participants of CMTI training programmes, from on-site corporate training to our certified courses.",
     "images/cmti/testimonials-banner.webp",
-    actions=f'<a class="btn btn-white" href="#stories">Watch training feedback</a><a class="btn btn-ghost-white" href="{GOOGLE}" target="_blank" rel="noopener">Read Google reviews</a>')
-tst += '''<div class="stat-strip"><div class="container"><dl>
-  <div><dt>average rating on Google</dt><dd>4.7&#9733;</dd></div>
-  <div><dt>Google reviews</dt><dd>2,362</dd></div>
-  <div><dt>engineers placed</dt><dd data-count="5000">5,000+</dd></div>
-  <div><dt>hiring companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
-</dl></div></div>'''
+    actions='<a class="btn btn-white" href="#stories">Watch training feedback</a>',
+    extra='<div class="rating-box" style="margin-top:28px"><span class="score">4.7</span><span><span class="stars" style="--rating:4.7" role="img" aria-label="Rated 4.7 out of 5"></span><strong>2,362</strong> Google reviews</span></div>')
 tst += section(shead("Training feedback", "In their own words",
     "Participants share their experience of CMTI training delivered for DLF and Bluewing Design and Constructions.", hid="students-title") +
     '<div class="story-grid">' +
     story("wjxFxRWlbUQ", "Muskan Singh", "DLF training by CMTI experts, Gurugram") +
     story("DmFHuy2J4ow", "Bluewing Design and Constructions", "Formwork training · Employee feedback") +
-    '</div>', sid="stories", label="students-title")
+    f'</div><p style="margin-top:28px">{arrow_link("Explore CMTI testimonials on YouTube", "https://www.youtube.com/@CMTICivil/playlists")}</p>', sid="stories", label="students-title")
 tst += section(shead("The journey", "From training to your first job", hid="journey-title") +
     '''<ol class="journey reveal">
   <li><span class="j-num">01</span><h3>Learn on real sites</h3><p>Classroom workshops, site visits and hands-on trade demonstrations led by construction industry experts.</p></li>
   <li><span class="j-num">02</span><h3>Prepare for placements</h3><p>Interview preparation and career guidance as students get ready for recruitment.</p></li>
   <li><span class="j-num">03</span><h3>Start your career</h3><p>CMTI coordinates with employers across construction, real estate, interiors and BIM to help students take their first step.</p></li>
-</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore the CMTI Finishing School", "finishing-school.html")}</p>',
+</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore our certified courses", "finishing-school.html")}</p>',
     cls="section alt", sid="journey", label="journey-title")
-tst += section(f'''<div class="review-band reveal">
-  <div class="rb-score">
-    <span class="score">4.7</span>
-    <div><span class="stars" style="--rating:4.7;--size:26px" role="img" aria-label="Rated 4.7 out of 5"></span><p><strong>2,362</strong> Google reviews</p></div>
-  </div>
-  <div class="rb-copy">
-    <h2 id="reviews-title">Read what students say on Google</h2>
-    <p>Reviews from CMTI students and professionals, in their own words.</p>
-    <div class="rb-actions"><a class="btn btn-white" href="{GOOGLE}" target="_blank" rel="noopener">Read Google reviews</a><a class="btn btn-ghost-white" href="https://www.youtube.com/@CMTICivil/playlists" target="_blank" rel="noopener">More stories on YouTube</a></div>
-  </div>
-</div>''', cls="section dark", sid="reviews", label="reviews-title")
 tst += cta()
-write("testimonials.html", "Testimonials and Reviews | CMTI", "Student testimonials from the CMTI Finishing School and CMTI’s Google reviews.", tst)
+write("testimonials.html", "Testimonials and Reviews | CMTI", "Training feedback from CMTI programmes and CMTI’s Google reviews.", tst)
 
 # ================================================================ E-LEARNING
 el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skills at your pace",
@@ -576,7 +560,7 @@ write("e-learning.html", "CMTI E-Learning | CMTI", "CMTI Civil Engg Connect: 80+
 
 # ================================================================ FINISHING SCHOOL (CACM)
 P = "Advanced Construction Management Course (CACM)"
-fs = page_hero("Advanced Construction Management Course (CACM)", "CMTI Finishing School", "Certificate Course on Advanced Construction Management",
+fs = page_hero("Advanced Construction Management Course (CACM)", "Certified Courses", "Certificate Course on Advanced Construction Management",
     img="images/cmti/rebar-inspection.webp", tags_label="Skills practised in the CACM course",
     tags=["Drawings, BOQ and BBS", "Construction sequencing", "Site quality and safety"],
     meta="3 months · Offline, online and hybrid · Hands-on exercises and construction site visits",
@@ -589,7 +573,7 @@ fs += section(f'''<div class="two-col">
       {card("Target audience", "Aspiring construction professionals who want practical skills in site execution, quantity estimation, quality and safety. The course also supports those preparing for job interviews or exploring construction entrepreneurship.", "target")}
     </div>
   </div>
-  {video("jxEoc8QkPOo", "Certificate Course on Advanced Construction Management", "CMTI Finishing School", "https://youtu.be/jxEoc8QkPOo?si=nEbcd9MJnwgl8fzC")}
+  {video("jxEoc8QkPOo", "Certificate Course on Advanced Construction Management", "Certified Courses", "https://youtu.be/jxEoc8QkPOo?si=nEbcd9MJnwgl8fzC")}
 </div>''', "section alt", label="apply-title")
 fs += section('''<div class="panel reveal">
   <h2 id="objective-title">Programme objective</h2>
@@ -605,7 +589,7 @@ fs += section(shead("", "Learning outcomes", hid="outcomes-title") + '<ul class=
     "Use AutoCAD, SketchUp and BIM tools in construction workflows.",
     "Prepare for job interviews and identify the first steps towards starting a construction business."]) + "</ul>",
     label="outcomes-title")
-fs += section(shead("CMTI / IDMTI Finishing School", "More Finishing School programmes", hid="more-title") + '<div class="grid" style="--cols:4">' +
+fs += section(shead("Certified Courses", "More certified courses", hid="more-title") + '<div class="grid" style="--cols:4">' +
     card("Interior Design &amp; Management Course (IDM)", "Certificate Course on Interior Design &amp; Management", None, extra='<img class="card-brand" src="idmti-logo.webp" alt="IDMTI, Interior Design &amp; Management Training Institute" width="600" height="321" loading="lazy">' + arrow_link("Explore the three-month interior design course", "idmti.html")) +
     card("Internships", "Explore practical exposure to construction projects and enquire about current internship opportunities.", "briefcase", cid="internship", extra=arrow_link("Enquire", enquire("Internships"))) +
     card("Construction Software Courses", "Build software skills for construction drawings, quantity estimation and project planning.", "laptop", cid="construction-software", extra=arrow_link("Enquire", enquire("Construction Software Courses"))) +

@@ -348,7 +348,7 @@ main { overflow-x: clip; }
 .video-close { position: absolute; right: 0; top: -54px; min-height: 44px; padding: 8px 18px; border: 0; background: #fff; color: var(--navy); font: inherit; font-weight: 600; cursor: pointer; }
 
 .rating-box { display: inline-flex; align-items: center; gap: 18px; padding: 16px 22px; background: #fff; color: var(--muted); text-decoration: none; border-left: 4px solid var(--amber); }
-.rating-box:hover { color: var(--muted); box-shadow: var(--shadow); }
+a.rating-box:hover { color: var(--muted); box-shadow: var(--shadow); }
 .rating-box .score { font-size: 2.5rem; font-weight: 600; color: var(--ink); line-height: 1; }
 .rating-box strong { color: var(--ink); }
 .stars { --size: 18px; display: block; width: calc(var(--size) * 5); height: var(--size); margin-bottom: 4px;
@@ -873,24 +873,14 @@ html body .cmti-chat.is-open { bottom: 20px; }
 .journey p { margin: 0; color: var(--muted); }
 .journey li:not(:last-child)::after { content: ""; position: absolute; right: -19px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-top: 3px solid var(--amber); border-right: 3px solid var(--amber); transform: rotate(45deg); z-index: 1; }
 
-.review-band { display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
-.rb-score { display: flex; align-items: center; gap: 22px; padding: 32px 40px; background: var(--navy-2); border: 1px solid rgba(255, 255, 255, .12); border-left: 5px solid var(--amber); }
-.rb-score .score { font-size: clamp(4rem, 8vw, 6rem); font-weight: 700; line-height: 1; color: #fff; letter-spacing: -.03em; }
-.rb-score p { margin: 6px 0 0; color: #c9d6e4; }
-.rb-score strong { color: #fff; }
-.rb-copy h2 { margin-bottom: 12px; }
-.rb-copy p { margin: 0 0 28px; font-size: 1.125rem; }
-.rb-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
 @media (max-width: 900px) {
   .story-grid, .journey { grid-template-columns: 1fr; }
   .journey li:not(:last-child)::after { right: 50%; top: auto; bottom: -19px; margin: 0 -7px 0 0; transform: rotate(135deg); }
-  .review-band { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .story { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .story-body { padding: 20px 18px; gap: 12px; }
   .story-mark { width: 44px; height: 44px; font-size: 2.5rem; padding-top: 12px; }
   .story-body .link-arrow { font-size: .875rem; gap: 4px; }
-  .rb-score { padding: 24px; }
 }
