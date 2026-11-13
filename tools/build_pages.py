@@ -779,7 +779,7 @@ def award(img, alt, w, h, kind, title, meta, text="", extra=None):
             f'<div class="award-body"><p class="award-kind">{kind}</p><h2>{title}</h2><p class="award-meta">{meta}</p>{f"<p>{text}</p>" if text else ""}</div></article>')
 
 aw = page_hero("Awards &amp; Certificates", "About CMTI", "Awards &amp; Certificates",
-    "Recognition for CMTI's work in construction skilling and corporate training.", "images/awards/isda-infracon-2025-award.webp")
+    "Recognition for CMTI's work in construction skilling and corporate training.", "images/awards/awards-banner.webp")
 aw += section('<div class="award-list">' +
     award("images/awards/isda-infracon-2025-award.webp", "CMTI receiving the Best Skill Development Award on stage at the ISDA Infracon National Awards 2025", 1600, 1200,
           "Award", "Best Skill Development Award for CMTI",
