@@ -635,7 +635,7 @@ def stage(title, text, big, small, tone):
 
 PC = "Capability Development Programme for Staff"
 corp = page_hero("For Corporates", "For Corporates", "Technical capability development",
-    "Customised construction training for your teams, project needs and industry standards.", "images/cmti/showroom-visit.webp",
+    "Customised construction training for your teams, project needs and industry standards.", "images/cmti/corporate-staff-training.webp",
     actions=f'<a class="btn btn-white" href="{enquire(PC)}">Discuss your training needs</a>')
 REASONS = [("target", "Customised programmes", "We work with Learning &amp; Development and Operations teams to align training with participant roles, project needs and industry standards."),
     ("helmet", "Experienced industry practitioners", "Our network of 50+ trainers brings hands-on construction and real estate experience. Most are former Larsen &amp; Toubro professionals."),
