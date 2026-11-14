@@ -516,9 +516,6 @@ a.rating-box:hover { color: var(--muted); box-shadow: var(--shadow); }
 .vm-block.flip .vm-img { order: 2; }
 .vm-block .vm-text p { font-size: 1.125rem; margin: 0; }
 .vm-block h2 { margin-bottom: 18px; }
-.app-frame { max-width: 380px; margin: 0 auto; padding: 14px; background: #0d1726; border-radius: 34px; box-shadow: var(--shadow); }
-.app-frame img { border-radius: 22px; width: 100%; }
-.app-cap { text-align: center; margin-top: 14px; font-size: .875rem; color: #9fb2c8; }
 @media (max-width: 1100px) { .info-grid { --cols: 2 !important; } .topic-board { grid-template-columns: 1fr; } .topic-list { border-right: 0; } }
 @media (max-width: 860px) { .vm-block { grid-template-columns: 1fr; } .vm-block.flip .vm-img { order: 0; } .vm-block .vm-img img { min-height: 240px; } }
 @media (max-width: 600px) { .info-grid { --cols: 1 !important; } .topic-list { grid-template-columns: 1fr; } .marquee-track li { width: 180px; height: 100px; } .marquee.large .marquee-track li { width: 200px; height: 110px; } .marquee-track li.college { width: 210px; } .marquee-track li.college img { height: 104px; } }

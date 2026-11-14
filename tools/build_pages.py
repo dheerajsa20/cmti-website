@@ -565,21 +565,12 @@ el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skil
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
     "images/cmti/e-learning-laptop.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
-el += section(f'''<div class="two-col center">
-  <div class="reveal">
-    <p class="eyebrow">Learn, practise and earn a certificate</p>
-    <h2 id="app-title">Self-paced lessons · Mock tests · Course e-certificate</h2>
-    <div class="grid" style="--cols:1;margin-top:32px">
+el += section(shead("Learn, practise and earn a certificate", "Self-paced lessons · Mock tests · Course e-certificate", hid="app-title") +
+    f'''<div class="grid" style="--cols:3">
       {card("Learn anytime", "Fit lessons around work or study and revisit them when you need a refresher.", "clock")}
       {card("Practise with mock tests", "Check your understanding and identify topics to review.", "check")}
       {card("Earn an e-certificate", "Complete the course requirements to earn your certificate.", "award")}
-    </div>
-  </div>
-  <figure class="reveal" style="margin:0">
-    <div class="app-frame"><img src="images/app-preview.png" alt="CMTI Civil Engg Connect app preview from Google Play" loading="lazy"></div>
-    <figcaption class="app-cap" style="color:var(--muted)">App preview from Google Play</figcaption>
-  </figure>
-</div>''', label="app-title")
+    </div>''', label="app-title")
 el += section(f'''<div class="two-col center">
   <div class="reveal">
     <p class="eyebrow">CMTI Webinars</p>
