@@ -1,7 +1,7 @@
 # CMTI website — server rules for Hostinger (Apache / LiteSpeed).
 
 Options -Indexes -MultiViews
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
