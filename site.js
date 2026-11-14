@@ -69,7 +69,9 @@ nav?.addEventListener('click', (event) => { if (event.target.closest('a')) { set
 const pageName = (path) => path.split(/[?#]/)[0].split('/').pop().replace(/\.html$/, '').replace(/^index$/, '') || 'home';
 const here = pageName(location.pathname);
 for (const link of document.querySelectorAll('.site-nav a[href]')) {
-  if (pageName(link.getAttribute('href')) === here) link.setAttribute('aria-current', 'page');
+  const href = link.getAttribute('href');
+  // Links to a section (./#contact, cacm#internship) point into a page, not at it.
+  if (!href.includes('#') && pageName(href) === here) link.setAttribute('aria-current', 'page');
 }
 
 // ----- Tabs helper (hero finder and course journey) -----
