@@ -11,6 +11,9 @@ RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://cmti.co.in%{REQUEST_URI} [R=301,L]
 
+# The quality-contest section is a separate app: leave its addresses untouched.
+RewriteRule ^quality-contest(/|$) - [L]
+
 # Keep development files private.
 RewriteRule ^(\.git|\.claude|tools)(/|$) - [F,L]
 RewriteRule ^(README\.(md|txt)|\.gitignore)$ - [F,L]
