@@ -265,16 +265,6 @@ def client_marquee():
     return ('<div class="marquee-group reveal" data-marquee-group>' + row(CLIENTS[:10], "large") + row(CLIENTS[10:], "reverse") +
             '</div>')
 
-COLLEGES = [("bmsit", "BMSIT"), ("presidency", "Presidency University"), ("sharnbasava", "Sharnbasava University"),
-    ("kpriet", "KPRIET"), ("karunya", "Karunya"), ("sona", "Sona College"), ("rgm", "RGM Nandyal"),
-    ("gndec", "Gurunanak Dev, Bidar"), ("bgsit", "BGSIT"), ("gprec", "G. Pulla Reddy Engineering College"),
-    ("nitte", "Nitte Meenakshi Institute of Technology")]
-
-def college_marquee():
-    return ('<div class="marquee-group reveal" data-marquee-group><div class="marquee"><ul class="marquee-track">' +
-            "".join(f'<li class="college"><img src="college-logos/{f}.jpeg" alt="" loading="lazy">{n}</li>' for f, n in COLLEGES) +
-            '</ul></div></div>')
-
 from college_list import COLLEGE_STATES
 
 def college_logo(slug):
@@ -682,8 +672,6 @@ col += '''<div class="stat-strip"><div class="container"><dl style="grid-templat
   <div><dt>companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
 </dl></div></div>'''
 col += section(shead("College partnerships", "Benefits for Colleges Signing an MoU with CMTI", hid="mou-title") + mou_tiles(), label="mou-title")
-col += section('<div class="section-head reveal"><p class="eyebrow">College network</p><h2 id="net-title">Selected institutions</h2></div>' + college_marquee() +
-    f'<p style="margin-top:32px"><a class="btn btn-primary" href="{enquire("College MoU")}">Discuss a College MoU</a></p>', "section alt", label="net-title")
 col += section(college_directory(), label="dir-title")
 col += cta()
 write("colleges.html", "College MoUs | CMTI", "What a CMTI MoU offers engineering colleges: placements, internships, software training, curriculum development and more.", col)
