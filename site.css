@@ -317,6 +317,21 @@ main { overflow-x: clip; }
 .college-grid li { display: grid; justify-items: center; align-content: start; gap: 12px; padding: 22px 14px; background: #fff; border: 1px solid var(--line); text-align: center; font-size: .9375rem; font-weight: 500; color: var(--ink); line-height: 1.35; }
 .college-grid img { width: 64px; height: 64px; object-fit: contain; }
 
+/* Partner colleges, state by state */
+.state-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 8px; }
+.state-nav a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 16px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: .9375rem; text-decoration: none; }
+.state-nav a:hover { border-color: var(--blue); color: var(--blue); }
+.state-nav a span, .state-title span { font-size: .8125rem; font-weight: 700; color: var(--blue); }
+.state-title { display: flex; align-items: baseline; gap: 12px; margin: 40px 0 16px; padding-bottom: 12px; border-bottom: 2px solid var(--navy); scroll-margin-top: 110px; }
+.college-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 32px; margin: 0; padding: 0; list-style: none; }
+.college-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.college-list img, .college-list .mark { width: 44px; height: 44px; }
+.college-list img { object-fit: contain; }
+.college-list .mark { display: grid; place-items: center; background: var(--blue-tint); }
+.college-list .mark svg { width: 22px; height: 22px; fill: none; stroke: var(--blue); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.college-list strong { display: block; font-size: .9375rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.college-list small { display: block; margin-top: 2px; font-size: .8125rem; color: var(--muted); }
+
 .impact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 48px; background: var(--navy); }
 .impact div { padding: 28px 32px; border-right: 1px solid rgba(255, 255, 255, .12); color: #c9d6e4; }
 .impact div:last-child { border-right: 0; }
