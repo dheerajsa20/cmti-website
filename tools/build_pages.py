@@ -565,6 +565,31 @@ el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skil
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
     "images/cmti/e-learning-laptop.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
+# Courses offered: data comes from tools/elearn_courses.json (taken from elearn.cmti.co.in)
+import json as _json
+from html import escape as _esc
+ELEARN = _json.load(open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "elearn_courses.json"), encoding="utf-8"))["courses"]
+COURSE_CATS = ["Concrete & materials", "Quality, safety & standards", "Quantity surveying & billing",
+               "Site & project management", "Software & BIM", "Interiors", "Careers"]
+
+TOPIC_ICONS = {"Concrete & materials": "layers", "Quality, safety & standards": "shield", "Quantity surveying & billing": "rupee",
+               "Site & project management": "helmet", "Software & BIM": "monitor", "Interiors": "home", "Careers": "briefcase"}
+
+def topic_block(cat):
+    names = [c["title"] for c in ELEARN if c["category"] == cat]
+    items = "".join(f"<li>{_esc(n, quote=False)}</li>" for n in names)
+    return f"""<article class="topic-block reveal">
+  <div class="tb-head">{icon(TOPIC_ICONS[cat])}<h3>{_esc(cat, quote=False)}</h3><span class="tb-count">{len(names)} courses</span></div>
+  <ul class="tb-list">{items}</ul>
+</article>"""
+
+n_free = sum(1 for c in ELEARN if not c["price"])
+el += section(shead("Courses offered", "We offer courses on these topics",
+    f"{len(ELEARN)} self-paced construction courses by industry practitioners, including {n_free} free courses, on CMTI Civil Engg Connect.",
+    hid="courses-title") +
+    '<div class="topic-grid">' + "".join(topic_block(k) for k in COURSE_CATS) + "</div>" +
+    '<p class="course-more"><a class="btn btn-primary" href="https://elearn.cmti.co.in/learn/view-all?show=courses&amp;type=1" target="_blank" rel="noopener">Browse all courses</a></p>',
+    "section alt", "courses", "courses-title")
 el += section(shead("Learn, practise and earn a certificate", "Self-paced lessons · Mock tests · Course e-certificate", hid="app-title") +
     f'''<div class="grid" style="--cols:3">
       {card("Learn anytime", "Fit lessons around work or study and revisit them when you need a refresher.", "clock")}

@@ -1,0 +1,766 @@
+{
+ "source": "https://elearn.cmti.co.in/learn/view-all?show=courses&type=1",
+ "note": "Published courses on the CMTI e-learning platform. Prices in rupees; sale is the discounted price when set.",
+ "courses": [
+  {
+   "title": "Various Concrete Durability Test",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/VARIOUS-CONCRETE-DURABILITY-TEST",
+   "lessons": 8,
+   "free_previews": 0,
+   "price": 999,
+   "sale": null,
+   "description": "Explore various concrete durability tests used to evaluate resistance against water, chlorides, carbonation, chemicals, and environmental exposure, helping ensure stronger, safer, and…"
+  },
+  {
+   "title": "Quality Management Excellence Course",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Quality-Management-Excellence-Course",
+   "lessons": 45,
+   "free_previews": 0,
+   "price": 6000,
+   "sale": 5000,
+   "description": "Build stronger projects through a culture of quality, consistency, continuous improvement. The Quality Management Excellence Program focuses on essential quality-management principles…"
+  },
+  {
+   "title": "Quality in Concrete Construction",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Quality-in-Concrete-Construction",
+   "lessons": 11,
+   "free_previews": 0,
+   "price": 999,
+   "sale": null,
+   "description": "Master Quality Control & Inspection in Concrete Construction with this comprehensive guide from CMTi! Whether you are a civil engineer, site supervisor, or construction management student."
+  },
+  {
+   "title": "Concrete Flooring",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/CONCRETE-FLOORING",
+   "lessons": 2,
+   "free_previews": 0,
+   "price": 999,
+   "sale": null,
+   "description": "CMTI’s Concrete Flooring Course is designed to help learners understand the principles, techniques, and best practices involved in concrete flooring for durable and long-lasting…"
+  },
+  {
+   "title": "National Building Construction Standards 2026",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/NATIONAL-BUILDING-CONSTRUCTION-STANDARDS",
+   "lessons": 11,
+   "free_previews": 0,
+   "price": 1000,
+   "sale": null,
+   "description": "Are you ready to understand the latest NBCS 2026? This video covers key updates revised standards & their impact on construction projects. Perfect for civil engineering students, site…"
+  },
+  {
+   "title": "Internal Curing of Concrete",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/INTERNAL-CURING-OF-CONCRETE",
+   "lessons": 14,
+   "free_previews": 0,
+   "price": 999,
+   "sale": null,
+   "description": "Master Internal Curing of Concrete! Learn the science, methods, materials, advantages & practical applications of internal curing to improve concrete strength, durability & crack…"
+  },
+  {
+   "title": "Mass Concrete Course",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Mass-Concrete",
+   "lessons": 12,
+   "free_previews": 0,
+   "price": 999,
+   "sale": null,
+   "description": "Ready to master mass concrete? Whether you're working on massive foundations, dams, or heavy infrastructure projects, managing thermal cracking and material behavior is critical."
+  },
+  {
+   "title": "Concrete Maturity Meter Course",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Concrete-Maturity-Meter-Course",
+   "lessons": 9,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Master the concrete maturity method and accelerate your construction projects! In this comprehensive certification course, learn how to use a concrete maturity meter to estimate in-place…"
+  },
+  {
+   "title": "Waterproofing course",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Waterproofin-course",
+   "lessons": 17,
+   "free_previews": 0,
+   "price": 1000,
+   "sale": null,
+   "description": "Our comprehensive course covers the latest in membrane technology, liquid-applied systems & structural drainage. From basement foundations to rooftop gardens, learn the industry-standard…"
+  },
+  {
+   "title": "Non Destructive Testing Course",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Non-Destructive-Testing",
+   "lessons": 14,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Are you ready to level up your civil engineering and QA/QC career? Welcome to the Complete Non-Destructive Testing (NDT) Masterclass!"
+  },
+  {
+   "title": "Self Compacting Concrete Course",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Self-Compacted-Concrete",
+   "lessons": 15,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Learn Self-Compacting Concrete (SCC) from basics to advanced with practical site knowledge. Topics: Mix design, materials, properties & applications Perfect for civil engineers, students &…"
+  },
+  {
+   "title": "Fire Safety in Highrise Construction",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Fire-Safety-in-Highrise-Construction",
+   "lessons": 9,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Fire Safety in High-Rise Buildings: Ensures fire prevention, quick detection, and safe evacuation to protect lives and reduce damage."
+  },
+  {
+   "title": "Building Information Modeling Course (BIM)",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/Building-Information-Modeling-Course--BIM-",
+   "lessons": 25,
+   "free_previews": 1,
+   "price": 4000,
+   "sale": 2000,
+   "description": ""
+  },
+  {
+   "title": "Quality Control Engineer Course",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Quality-Control",
+   "lessons": 119,
+   "free_previews": 4,
+   "price": 8000,
+   "sale": 4000,
+   "description": ""
+  },
+  {
+   "title": "Building Planning & Vaastu",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/Building-Planning---Vaastu",
+   "lessons": 19,
+   "free_previews": 1,
+   "price": 2000,
+   "sale": null,
+   "description": "Building Planning & Vaastu"
+  },
+  {
+   "title": "Course on Waterproofing",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Waterproofing",
+   "lessons": 23,
+   "free_previews": 1,
+   "price": 3000,
+   "sale": null,
+   "description": "Waterproofing is an important activity in Construction, very often this questions are asked in Interviews also Course on Waterproofing is delivered by Er Sreenivasan, having 30+ years of…"
+  },
+  {
+   "title": "AutoCAD Course",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/AutoCAD-Course",
+   "lessons": 38,
+   "free_previews": 3,
+   "price": 3000,
+   "sale": 1000,
+   "description": "CAD, or computer-aided design and drafting (CADD), is technology designed for creators to design, draft and produce technical documentation – replacing manual hand-drawn and drafting…"
+  },
+  {
+   "title": "Confused About Internship?",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Confused-About-Internship-",
+   "lessons": 16,
+   "free_previews": 2,
+   "price": 500,
+   "sale": null,
+   "description": "Learn what delay analysis is, why it is important, and how to manage delays on construction projects with software and smart automation."
+  },
+  {
+   "title": "How to become QS & Billing Engineer",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/How-to-become-QS---Billing-Engineer",
+   "lessons": 12,
+   "free_previews": 1,
+   "price": 500,
+   "sale": null,
+   "description": "How to become QS & Billing Engineer"
+  },
+  {
+   "title": "Plant & Machinery in Construction",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Importance-of-Plant---Machinery",
+   "lessons": 18,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Plant & Machinery in Construction An essential part of large and complex construction projects is getting sites ready for building and moving materials from A to B."
+  },
+  {
+   "title": "Interior Fitout Management",
+   "category": "Interiors",
+   "url": "https://elearn.cmti.co.in/learn/Project-Management",
+   "lessons": 27,
+   "free_previews": 1,
+   "price": 1000,
+   "sale": 499,
+   "description": "Interior Fitout Management useful for Engineers looking forward your career in Commercial Interiors and Fit out Management"
+  },
+  {
+   "title": "Global Opportunities for Civil Engineers & QS Engineers",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Global-Opportunities-for-QS-Engineers",
+   "lessons": 16,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Global Opportunities for Civil Engineers & Quantity surveyors In Middle East Construction Industry"
+  },
+  {
+   "title": "Introduction to Imos",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/Introduction-to-Imos",
+   "lessons": 10,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Introduction To Imos"
+  },
+  {
+   "title": "Construction Safety Hinglish",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Construction-Safety-Hinglish",
+   "lessons": 24,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Safety is important for any works, that too in Construction Safety helps lot and saves time during the Construction and Helps the Project alot"
+  },
+  {
+   "title": "Primavera P6",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Primavera-P6",
+   "lessons": 52,
+   "free_previews": 2,
+   "price": 5000,
+   "sale": 2500,
+   "description": "Primavera tool is used for Project Planning & Scheduling for Major Projects, Its a useful software for the planning engineers and Engineers with good knowledge on Primavera are demand…"
+  },
+  {
+   "title": "Quantity Surveying & Billing – Hindi",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Quantity-Surveying---Billing---Hindi",
+   "lessons": 77,
+   "free_previews": 1,
+   "price": 1000,
+   "sale": 500,
+   "description": "Quantity Surveying & Billing in Hindi Language, our Construction Management Expert helps budding Civil Engineers to get into QS & Billing field by structured training"
+  },
+  {
+   "title": "Construction Safety",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Construction-Safety",
+   "lessons": 30,
+   "free_previews": 2,
+   "price": 3000,
+   "sale": 999,
+   "description": "Construction Safety is important for any Engineer at the Construction Projects. Engineer having Safety Knowledge at work, will be preferred by leading Companies compared to others"
+  },
+  {
+   "title": "Project Planning Using MSP – Hindi Version",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Project-Planning-Using-MSP---Hindi-Version",
+   "lessons": 45,
+   "free_previews": 3,
+   "price": 1000,
+   "sale": 500,
+   "description": "Project Planning Using MS Project Software, the course is delivered in Hindi, this course will be useful for engineers looking for office based jobs, and knowledge addition for engineers…"
+  },
+  {
+   "title": "Facade in construction",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Facade-in-construction",
+   "lessons": 11,
+   "free_previews": 1,
+   "price": 1000,
+   "sale": 498,
+   "description": "Facade is an external element, and integral part of any structure gives good elevation and look for the Structure"
+  },
+  {
+   "title": "Global Project Management",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Global-Project-Management",
+   "lessons": 10,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Global Project Management - Er Subendu Dutta"
+  },
+  {
+   "title": "Customer Relation Management",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Customer-Relation-Management",
+   "lessons": 10,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Customer Relation Management is an important function in Real Estate and Interiors domain"
+  },
+  {
+   "title": "Prolance Software Training",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/Prolance-Software-Training",
+   "lessons": 20,
+   "free_previews": 1,
+   "price": 3000,
+   "sale": null,
+   "description": "Prolance Software helps Users to generate quotes, Cutlist and detailed BOM upon some clicks, lot of Interior Companies using this advanced software for automation and to avoid errors"
+  },
+  {
+   "title": "Preparation of Cutlist – English Version",
+   "category": "Interiors",
+   "url": "https://elearn.cmti.co.in/learn/Preparation-of-Cutlist---English-Version",
+   "lessons": 77,
+   "free_previews": 2,
+   "price": 7500,
+   "sale": 3750,
+   "description": "Cutlist course will be helpful for Interior Designers, upon completion of the course, the learners can practice with the projects and can do the Cutlist / BOQ Independently"
+  },
+  {
+   "title": "Interior Design & Site Management – Hinglish",
+   "category": "Interiors",
+   "url": "https://elearn.cmti.co.in/learn/Interior-Design---Site-Management--Hinglish",
+   "lessons": 61,
+   "free_previews": 3,
+   "price": 7500,
+   "sale": 3750,
+   "description": "Interior Design & Site Management - Hinglish This Programme is delivered by Experts from Interior Industry and the Programme will be helpful for Civil Engineers looking for Best Careers in…"
+  },
+  {
+   "title": "Industrial Construction & Warehousing",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Industrial-Construction",
+   "lessons": 51,
+   "free_previews": 2,
+   "price": 3000,
+   "sale": 1500,
+   "description": "Industrial Construction is different from residential Construction in terms of Planning, activities and the Management, this course can be taken by people interested to get into Industrial…"
+  },
+  {
+   "title": "Formwork in Construction",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/Formwork",
+   "lessons": 23,
+   "free_previews": 1,
+   "price": 2000,
+   "sale": 999,
+   "description": "Formwork in Construction"
+  },
+  {
+   "title": "Metro Construction",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Metro-Construction",
+   "lessons": 10,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Metro Construction Short Course for Civil Engineers"
+  },
+  {
+   "title": "Cad for Civil Engineers",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/Cad-for-Civil-Engineers",
+   "lessons": 15,
+   "free_previews": 3,
+   "price": 999,
+   "sale": null,
+   "description": "Cad for Civil Engineers"
+  },
+  {
+   "title": "MS Project – English Version",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/MS-Project----English-Version",
+   "lessons": 9,
+   "free_previews": 1,
+   "price": 3000,
+   "sale": null,
+   "description": ""
+  },
+  {
+   "title": "Smart Sheet – Project Management Software",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Smart-Sheet---Project-Management-Software",
+   "lessons": 11,
+   "free_previews": 1,
+   "price": 10000,
+   "sale": 2998,
+   "description": ""
+  },
+  {
+   "title": "Site Engineer Course – Kannada",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Site-Engineer-Course---Kannada",
+   "lessons": 40,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Site Engineer Course - Kannada will help the learners to understand the field aspects in Construction"
+  },
+  {
+   "title": "Billing Engineer – English & Malayalam",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Billing-Engineer---English---Malayalam",
+   "lessons": 22,
+   "free_previews": 0,
+   "price": 3000,
+   "sale": 999,
+   "description": "Billing Engineer - English & Malayalam"
+  },
+  {
+   "title": "Higher Education for Civil Engineers",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Higher-Education-at-USA",
+   "lessons": 1,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Higher Education for Civil Engineers"
+  },
+  {
+   "title": "Internship Programme",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Internship-Programme",
+   "lessons": 33,
+   "free_previews": 0,
+   "price": 5000,
+   "sale": 2998,
+   "description": "Internship Programme for Civil Engineering Students"
+  },
+  {
+   "title": "Site Engineer Course – (Hindi + English) – Er R Srinivasan",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Site-Engineer-Course----Hindi---English---Er-R-Srininvasan",
+   "lessons": 90,
+   "free_previews": 4,
+   "price": 3000,
+   "sale": 599,
+   "description": "CMTI offering Site Engineer Course in Hindi, for larger benefit, easier understanding of audience, CMTI is providing Online & offline Trainings on multiple languages for easier understanding"
+  },
+  {
+   "title": "Site Engineer Course – (Tamil + English) – Er R Srinivasan",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Site-Engineer-Course----Tamil---English----Er-R-Srinivasan",
+   "lessons": 67,
+   "free_previews": 7,
+   "price": 3000,
+   "sale": 999,
+   "description": "Site Engineer - Tamil Version, In this Course you will be learning about Building Construction procedures from a Construction Expert R Srinivasan, having 35+ years of High rise Construction…"
+  },
+  {
+   "title": "Preparation of Bar Bending Schedules – Hinglish",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Preparation-of-Bar-Bending-Schedules--Hinglish",
+   "lessons": 29,
+   "free_previews": 2,
+   "price": 1500,
+   "sale": 750,
+   "description": "Preparation of Bar bending Schedules from Foundation to Slab, Upon Completion of this Course , the learner can prepare Bar bending schedules for a project"
+  },
+  {
+   "title": "Sketchup For Beginners",
+   "category": "Software & BIM",
+   "url": "https://elearn.cmti.co.in/learn/Sketchup-For-Beginners",
+   "lessons": 33,
+   "free_previews": 6,
+   "price": 5000,
+   "sale": 2000,
+   "description": "SketchUp is a 3D modeling computer program for a wide range of drawing applications such as architectural, interior design, landscape architecture, civil and mechanical engineering, film…"
+  },
+  {
+   "title": "Preparation of Bar Bending Schedules – English",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Preparation-of-Bar-Bending-Schedules---English",
+   "lessons": 26,
+   "free_previews": 0,
+   "price": 1500,
+   "sale": 750,
+   "description": "Preparation of Bar Bending Schedules - In this course, the learner will be learning about how to estimate the steel, and preparation of cut, bend, lapping etc , Course useful for Budding…"
+  },
+  {
+   "title": "Bridge Engineer – Fundamentals",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Fundamentals-for-a-Bridge-Engineer",
+   "lessons": 43,
+   "free_previews": 3,
+   "price": 3000,
+   "sale": 599,
+   "description": "Bridge Engineer -Fundamentals - Value added course for the engineers looking for an entry in Infrastructure Companies, adds value to the CV...Helps for the Interviews"
+  },
+  {
+   "title": "Entrepreneurship for Civil Engineers",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Entrepreneurship-for-Civil-Engineers",
+   "lessons": 3,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Entrepreneurship for Civil Engineers"
+  },
+  {
+   "title": "Preparation of Job Cost Report – English",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Preparation-of-Job-Cost-Report",
+   "lessons": 15,
+   "free_previews": 0,
+   "price": 10000,
+   "sale": 2999,
+   "description": "Preparation of Job Cost report for a Construction Project Costing for a project is very much important, needs to be done periodically to ensure the planned profits are achieved"
+  },
+  {
+   "title": "Billing Engineer Course",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Billing-Engineer-Course",
+   "lessons": 103,
+   "free_previews": 1,
+   "price": 3000,
+   "sale": 999,
+   "description": "Billing Engineer Course"
+  },
+  {
+   "title": "Building Byelaws & Regulations – Hinglish Version",
+   "category": "Quality, safety & standards",
+   "url": "https://elearn.cmti.co.in/learn/Building-Byelaws---Regulations---Hinglish-Version",
+   "lessons": 16,
+   "free_previews": 2,
+   "price": 1000,
+   "sale": 349,
+   "description": "Building Byelaws & regulations for a Residential Project, explained by Er R Srinivasan, Construction Management expert having 35+ years of Experience in Construction"
+  },
+  {
+   "title": "Engineering your Career by Er R Sivaraman, PE, PMP",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Engineering-your-Career",
+   "lessons": 10,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Engineering your Career by Er R Sivaraman,PE,PMP, its a wonderful short course for clueless budding civil engineers, to give an idea about How to get into the Construction Industry"
+  },
+  {
+   "title": "Rate Analysis by Er Parimal Marathe",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Rate-Analysis--by-Er-Parimal-Marathe",
+   "lessons": 17,
+   "free_previews": 4,
+   "price": 3000,
+   "sale": 299,
+   "description": "Rate Analysis is an important topic for a Project either it may be tendering, monitoring or costing"
+  },
+  {
+   "title": "Project Planning Using MSP – English",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Project-Planning-Using-MSP---English",
+   "lessons": 25,
+   "free_previews": 6,
+   "price": 5000,
+   "sale": 999,
+   "description": "Project Planning Using MSP - English"
+  },
+  {
+   "title": "Career Options – Er S G Ashok Kumar",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/Career-Options---Er-S-G-Ashok-Kumar",
+   "lessons": 3,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Career Options - by Er S G Ashok Kumar"
+  },
+  {
+   "title": "Drones in Construction",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Drones-in-Construction",
+   "lessons": 8,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "Smart Cities, Large Infrastructure Projects, Residential & Commercial Projects are using digital technologies like drones."
+  },
+  {
+   "title": "Quantity Take off by Mr Ananthanarayanan",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Quantity-Take-off-by-Mr-Ananthanarayanan",
+   "lessons": 24,
+   "free_previews": 0,
+   "price": 1500,
+   "sale": null,
+   "description": "Quantity Surveying is an important function in a project, any civil engineer should be good in Quantity Surveying Quantity Surveying starts from before the execution and completes after the…"
+  },
+  {
+   "title": "Site Engineer Course",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/civil-site-engineering-course",
+   "lessons": 74,
+   "free_previews": 6,
+   "price": 2000,
+   "sale": 999,
+   "description": "This Civil Site Engineer Course in India is exclusively for Diploma, BE/ BTech passed out and pursuing Students who have the dream of becoming a Site Engineer. Our trainers are having 25+…"
+  },
+  {
+   "title": "Green Building Technology / Practices",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/green-building-technology-practices",
+   "lessons": 24,
+   "free_previews": 2,
+   "price": 3000,
+   "sale": 749,
+   "description": "Green Building Technology / Practices Courses is useful for Architects, Civil engineers, Builders & Construction Professionals to learn about Green Buildings and help them prepare for…"
+  },
+  {
+   "title": "E-Library",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/E---Library",
+   "lessons": 67,
+   "free_previews": 0,
+   "price": 0,
+   "sale": null,
+   "description": "In this E Library, to help the learners we are collated the Books / Notes / Presentations / Code Books, etc. If anyone has any objection you can inform us through email to…"
+  },
+  {
+   "title": "Quantity Surveyor Course",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/estimation-quantity-surveyor-course",
+   "lessons": 68,
+   "free_previews": 14,
+   "price": 10000,
+   "sale": 2999,
+   "description": "Estimation and Quantity Surveying is an important function for any Civil project, project planning will be based on the scope of works. Study Quantity Surveyor course online in Bangalore…"
+  },
+  {
+   "title": "Quantity Surveying Course in Tamil",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/Quantity-Surveying-Course-in-Tamil",
+   "lessons": 43,
+   "free_previews": 7,
+   "price": 3000,
+   "sale": 749,
+   "description": "Quantity Surveying Course in Tamil"
+  },
+  {
+   "title": "Construction Finishes Course",
+   "category": "Concrete & materials",
+   "url": "https://elearn.cmti.co.in/learn/building-construction-finishing",
+   "lessons": 28,
+   "free_previews": 1,
+   "price": 5000,
+   "sale": 1500,
+   "description": "Finishes is an important activity in Construction, lot of Companies, Engineers face challenges at the time of handover, getting a good Engineer for Finishing activities. For a end user…"
+  },
+  {
+   "title": "Advanced Construction Management Course",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/advanced-construction-management-certification-course",
+   "lessons": 131,
+   "free_previews": 4,
+   "price": 30000,
+   "sale": 9999,
+   "description": "The course is suitable for Civil Engineering Students, Working professionals. This is an extensive course comprised of Project planning, Quantity Surveying & estimation, Quality Assurance &…"
+  },
+  {
+   "title": "Understanding BOQ & Specifications & Rate Analysis",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/understanding-boq-specifications-of-a-project",
+   "lessons": 18,
+   "free_previews": 1,
+   "price": 2000,
+   "sale": 599,
+   "description": "Understanding the BOQ is important for a Project, This course is suitable for entry-level engineers looking for QS Profiles & SIte Engineer Profiles."
+  },
+  {
+   "title": "Rate Analysis Course",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/rate-analysis-for-construction-civil-works",
+   "lessons": 13,
+   "free_previews": 1,
+   "price": 1000,
+   "sale": 349,
+   "description": "Rate Analysis of Various works in Construction"
+  },
+  {
+   "title": "Construction Liaisoning",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Construction-Liaisoning",
+   "lessons": 20,
+   "free_previews": 6,
+   "price": 3000,
+   "sale": 599,
+   "description": "Any successful Project requires Liaisoning as there are so many stake holders involved in the Construction, In this course, Subhash Pathak sir having 40+ years of experience in construction…"
+  },
+  {
+   "title": "Digital Construction Course",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/digital-construction-course",
+   "lessons": 18,
+   "free_previews": 1,
+   "price": 3000,
+   "sale": 999,
+   "description": "Digital Construction Course from Construction Management Training Institute helps you on how to reduce the Construction Cost, Time with better Quality & Safety using the technologies…"
+  },
+  {
+   "title": "Interior Design & Site Management Course",
+   "category": "Interiors",
+   "url": "https://elearn.cmti.co.in/learn/online-interior-design-courses-bangalore",
+   "lessons": 109,
+   "free_previews": 3,
+   "price": 45000,
+   "sale": 30000,
+   "description": "This Online Interior Designing Courses in Bangalore will help the Engineers to learn about the Planning / Production / Execution process with a little bit of Design. The course syllabus is…"
+  },
+  {
+   "title": "Cracking the Interviews",
+   "category": "Careers",
+   "url": "https://elearn.cmti.co.in/learn/cracking-the-interview",
+   "lessons": 12,
+   "free_previews": 2,
+   "price": 3000,
+   "sale": 499,
+   "description": "Interviews is a continuous process, at any stage or profile the Interviews are conducted by Employers for getting the right candidate for positions. Preparation for Interview is must for…"
+  },
+  {
+   "title": "Contracts Management Course",
+   "category": "Quantity surveying & billing",
+   "url": "https://elearn.cmti.co.in/learn/procurement-engineer-course",
+   "lessons": 31,
+   "free_previews": 0,
+   "price": 3000,
+   "sale": 999,
+   "description": "Contracts Management is important for delivering the project within Scope, Cost & Time."
+  },
+  {
+   "title": "Planning Engineer Course",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/Planning-Engineer-Course",
+   "lessons": 31,
+   "free_previews": 2,
+   "price": 5000,
+   "sale": 2999,
+   "description": "Planning Engineer is a important person for a project, he needs to prepare a plan and direct the stakeholders for completing the Scope of project within cost & time"
+  },
+  {
+   "title": "Infrastructure Management",
+   "category": "Site & project management",
+   "url": "https://elearn.cmti.co.in/learn/infrastructure-management-course",
+   "lessons": 36,
+   "free_previews": 1,
+   "price": 5000,
+   "sale": 2999,
+   "description": "The infrastructure industry is doing well, and our Indian Government is investing much in Infrastructure"
+  }
+ ]
+}
