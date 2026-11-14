@@ -838,17 +838,6 @@ a.rating-box:hover { color: var(--muted); box-shadow: var(--shadow); }
 .slider-dots button[aria-current="true"] { background: var(--amber); border-color: var(--amber); }
 @media (max-width: 860px) { .award:nth-child(even) .award-slider { order: 0; } }
 
-/* "Ask Neo" chatbot (loaded from cmti-chatbot.onrender.com): stack it on the right, above WhatsApp,
-   with back-to-top above both. "html body" beats the widget's own stylesheet, which loads later. */
-html body .cmti-chat { left: auto; right: 20px; bottom: 96px; }
-html body .cmti-chat.is-open { bottom: 20px; }
-.to-top { bottom: 160px; }
-@media (max-width: 600px) {
-  html body .cmti-chat { left: auto; right: 16px; bottom: 92px; }
-  html body .cmti-chat.is-open { left: 0; right: 0; top: 0; bottom: 0; }
-  .to-top { bottom: 156px; }
-}
-
 /* ---------- Testimonials page ---------- */
 .story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 .story { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); overflow: hidden; transition: transform 300ms var(--ease), box-shadow 300ms var(--ease); }

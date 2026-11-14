@@ -19,9 +19,6 @@ def asset_version(path):
 
 CSS_V = asset_version("site.css")
 JS_V = asset_version("site.js")
-# The chat widget files are copied from dheerajsa20/cmti-chatbot (web/widget.js, web/widget.css) so the
-# bubble shows at once even while the free backend is asleep. Copy them again after changing them there.
-CHAT_V = asset_version("chatbot/widget.js")
 GOOGLE = "https://www.google.com/maps/search/?api=1&amp;query=Construction+Management+Training+Institute+Jayanagar+Bengaluru"
 WA = "918884422179"
 
@@ -176,8 +173,6 @@ def head(title, desc):
 <link rel="stylesheet" href="site.css?v={CSS_V}">
 <script>document.documentElement.classList.add("js")</script>
 <script src="site.js?v={JS_V}" defer></script>
-<!-- "Ask Neo" help-desk chatbot (backend: github.com/dheerajsa20/cmti-chatbot, hosted on Render) -->
-<script src="chatbot/widget.js?v={CHAT_V}" data-api="https://cmti-chatbot.onrender.com" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
