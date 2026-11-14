@@ -73,6 +73,10 @@ for (const link of document.querySelectorAll('.site-nav a[href]')) {
   // Links to a section (./#contact, cacm#internship) point into a page, not at it.
   if (!href.includes('#') && pageName(href) === here) link.setAttribute('aria-current', 'page');
 }
+// Underline the dropdown (About Us, For Corporates…) that holds the current page.
+for (const group of document.querySelectorAll('.site-nav .has-sub')) {
+  if (group.querySelector('a[aria-current="page"]')) group.querySelector(':scope > button')?.classList.add('is-current');
+}
 
 // ----- Tabs helper (hero finder and course journey) -----
 function setupTabs(tabs, onSelect) {

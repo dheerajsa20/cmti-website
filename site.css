@@ -107,6 +107,7 @@ main { overflow-x: clip; }
 .site-nav > ul > li > a:hover, .site-nav > ul > li > button:hover,
 .site-nav > ul > li > button[aria-expanded="true"] { color: var(--blue); border-bottom-color: var(--blue); }
 .site-nav a[aria-current="page"] { color: var(--blue); border-bottom-color: var(--blue) !important; }
+.site-nav > ul > li > button.is-current { color: var(--blue); border-bottom-color: var(--blue); }
 .sub {
   position: absolute; top: 100%; left: 0; min-width: 300px; padding: 10px 0;
   background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--blue); box-shadow: var(--shadow);
