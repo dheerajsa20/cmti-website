@@ -1,6 +1,6 @@
 CMTI WEBSITE SOURCE
 
-Links use clean addresses (/about rather than /about.html), which GitHub Pages serves automatically. To preview the site on your own computer, run this from this folder and visit http://localhost:3000:
+Links use clean addresses (/about rather than /about.html), which the .htaccess file makes work on Hostinger (GitHub Pages serves them automatically too). To preview the site on your own computer, run this from this folder and visit http://localhost:3000:
 
     npx serve .
 
