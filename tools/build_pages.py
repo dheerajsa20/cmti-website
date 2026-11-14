@@ -8,6 +8,7 @@ The wording comes from the original CMTI site; page structure follows the
 or the next run will overwrite your edits.
 """
 import hashlib
+import os
 import re
 import sys
 from urllib.parse import quote
@@ -264,15 +265,32 @@ def client_marquee():
     return ('<div class="marquee-group reveal" data-marquee-group>' + row(CLIENTS[:10], "large") + row(CLIENTS[10:], "reverse") +
             '</div>')
 
-COLLEGES = [("bmsit", "BMSIT"), ("presidency", "Presidency University"), ("sharnbasava", "Sharnbasava University"),
-    ("kpriet", "KPRIET"), ("karunya", "Karunya"), ("sona", "Sona College"), ("rgm", "RGM Nandyal"),
-    ("gndec", "Gurunanak Dev, Bidar"), ("bgsit", "BGSIT"), ("gprec", "G. Pulla Reddy Engineering College"),
-    ("nitte", "Nitte Meenakshi Institute of Technology")]
+from college_list import COLLEGE_STATES
 
-def college_marquee():
-    return ('<div class="marquee-group reveal" data-marquee-group><div class="marquee"><ul class="marquee-track">' +
-            "".join(f'<li class="college"><img src="college-logos/{f}.jpeg" alt="" loading="lazy">{n}</li>' for f, n in COLLEGES) +
-            '</ul></div></div>')
+def college_logo(slug):
+    """File name of a college's logo in college-logos/, whatever its image type."""
+    for ext in ("webp", "png", "svg", "jpg", "jpeg"):
+        if os.path.exists(f"{ROOT}/college-logos/{slug}.{ext}"):
+            return f"college-logos/{slug}.{ext}"
+    raise SystemExit(f"college_list.py names the logo '{slug}', but college-logos/ has no such image")
+
+def college_directory():
+    """Every partner college, state by state: its logo where we have one, a cap mark where we don't."""
+    cap = f'<span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="{ICONS["cap"]}"/></svg></span>'
+    def item(name, place, slug=None):
+        mark = f'<img src="{college_logo(slug)}" alt="" width="44" height="44" loading="lazy">' if slug else cap
+        return f'<li>{mark}<span><strong>{name}</strong>' + (f"<small>{place}</small>" if place else "") + "</span></li>"
+    total = sum(len(rows) for _, rows in COLLEGE_STATES)
+    out = ('<div class="section-head reveal"><p class="eyebrow">Partner colleges</p>'
+           f'<h2 id="dir-title">{total} colleges across {len(COLLEGE_STATES)} states</h2>'
+           "<p>Engineering colleges CMTI works with for training, internships and placements.</p></div>")
+    out += ('<nav class="state-nav" aria-label="Jump to a state">' +
+            "".join(f'<a href="#state-{s.lower().replace(" ", "-")}">{s} <span>{len(rows)}</span></a>' for s, rows in COLLEGE_STATES) + "</nav>")
+    for state, rows in COLLEGE_STATES:
+        sid = "state-" + state.lower().replace(" ", "-")
+        out += (f'<h3 class="state-title" id="{sid}">{state} <span>{len(rows)} colleges</span></h3>'
+                '<ul class="college-list">' + "".join(item(*r) for r in rows) + "</ul>")
+    return out
 
 MOU = [("briefcase", "Placement support and campus interviews", "Employer coordination, résumé guidance, mock interviews and campus interviews."),
     ("helmet", "Internships", "Help students find and apply for relevant industry opportunities."),
@@ -714,8 +732,7 @@ col += '''<div class="stat-strip"><div class="container"><dl style="grid-templat
   <div><dt>companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
 </dl></div></div>'''
 col += section(shead("College partnerships", "Benefits for Colleges Signing an MoU with CMTI", hid="mou-title") + mou_tiles(), label="mou-title")
-col += section('<div class="section-head reveal"><p class="eyebrow">College network</p><h2 id="net-title">Selected institutions</h2></div>' + college_marquee() +
-    f'<p style="margin-top:32px"><a class="btn btn-primary" href="{enquire("College MoU")}">Discuss a College MoU</a></p>', "section alt", label="net-title")
+col += section(college_directory(), label="dir-title")
 col += cta()
 write("colleges.html", "College MoUs | CMTI", "What a CMTI MoU offers engineering colleges: placements, internships, software training, curriculum development and more.", col)
 
