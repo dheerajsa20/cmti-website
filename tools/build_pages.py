@@ -8,6 +8,7 @@ The wording comes from the original CMTI site; page structure follows the
 or the next run will overwrite your edits.
 """
 import hashlib
+import os
 import re
 import sys
 from urllib.parse import quote
@@ -75,10 +76,10 @@ NAV = [
                               ("Capability Development Programme for Workmen", "corporate.html#workmen"),
                               ("Content Development", "corporate.html#content-development"),
                               ("Assessment of Employees", "corporate.html#assessment"), ("Hiring Support", "corporate.html#hiring")]),
-    ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "finishing-school.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
-                                ("Internships", "finishing-school.html#internship"),
-                                ("Construction Software Courses", "finishing-school.html#construction-software"),
-                                ("BIM Design Software", "finishing-school.html#bim-design")]),
+    ("Certified Courses", None, [("Advanced Construction Management Course (CACM)", "cacm.html"), ("Interior Design &amp; Management Course (IDM)", "idmti.html"),
+                                ("Internships", "cacm.html#internship"),
+                                ("Construction Software Courses", "cacm.html#construction-software"),
+                                ("BIM Design Software", "cacm.html#bim-design")]),
     ("College MoUs", "colleges.html", None),
     ("E-Learning", None, [("Online Courses", "e-learning.html"), ("Webinars", "e-learning.html#webinars")]),
     ("Contact", "index.html#contact", None),
@@ -138,7 +139,7 @@ FOOTER = f'''<footer class="site-footer">
     </div>
     <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="awards.html">Awards &amp; Certificates</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
-    <div><h3>Certified Courses</h3><ul><li><a href="finishing-school.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
+    <div><h3>Certified Courses</h3><ul><li><a href="cacm.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
     <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
   </div>
   <div class="footer-social">
@@ -259,15 +260,32 @@ def client_marquee():
     return ('<div class="marquee-group reveal" data-marquee-group>' + row(CLIENTS[:10], "large") + row(CLIENTS[10:], "reverse") +
             '</div>')
 
-COLLEGES = [("bmsit", "BMSIT"), ("presidency", "Presidency University"), ("sharnbasava", "Sharnbasava University"),
-    ("kpriet", "KPRIET"), ("karunya", "Karunya"), ("sona", "Sona College"), ("rgm", "RGM Nandyal"),
-    ("gndec", "Gurunanak Dev, Bidar"), ("bgsit", "BGSIT"), ("gprec", "G. Pulla Reddy Engineering College"),
-    ("nitte", "Nitte Meenakshi Institute of Technology")]
+from college_list import COLLEGE_STATES
 
-def college_marquee():
-    return ('<div class="marquee-group reveal" data-marquee-group><div class="marquee"><ul class="marquee-track">' +
-            "".join(f'<li class="college"><img src="college-logos/{f}.jpeg" alt="" loading="lazy">{n}</li>' for f, n in COLLEGES) +
-            '</ul></div></div>')
+def college_logo(slug):
+    """File name of a college's logo in college-logos/, whatever its image type."""
+    for ext in ("webp", "png", "svg", "jpg", "jpeg"):
+        if os.path.exists(f"{ROOT}/college-logos/{slug}.{ext}"):
+            return f"college-logos/{slug}.{ext}"
+    raise SystemExit(f"college_list.py names the logo '{slug}', but college-logos/ has no such image")
+
+def college_directory():
+    """Every partner college, state by state: its logo where we have one, a cap mark where we don't."""
+    cap = f'<span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="{ICONS["cap"]}"/></svg></span>'
+    def item(name, place, slug=None):
+        mark = f'<img src="{college_logo(slug)}" alt="" width="44" height="44" loading="lazy">' if slug else cap
+        return f'<li>{mark}<span><strong>{name}</strong>' + (f"<small>{place}</small>" if place else "") + "</span></li>"
+    total = sum(len(rows) for _, rows in COLLEGE_STATES)
+    out = ('<div class="section-head reveal"><p class="eyebrow">Partner colleges</p>'
+           f'<h2 id="dir-title">{total} colleges across {len(COLLEGE_STATES)} states</h2>'
+           "<p>Engineering colleges CMTI works with for training, internships and placements.</p></div>")
+    out += ('<nav class="state-nav" aria-label="Jump to a state">' +
+            "".join(f'<a href="#state-{s.lower().replace(" ", "-")}">{s} <span>{len(rows)}</span></a>' for s, rows in COLLEGE_STATES) + "</nav>")
+    for state, rows in COLLEGE_STATES:
+        sid = "state-" + state.lower().replace(" ", "-")
+        out += (f'<h3 class="state-title" id="{sid}">{state} <span>{len(rows)} colleges</span></h3>'
+                '<ul class="college-list">' + "".join(item(*r) for r in rows) + "</ul>")
+    return out
 
 MOU = [("briefcase", "Placement support and campus interviews", "Employer coordination, résumé guidance, mock interviews and campus interviews."),
     ("helmet", "Internships", "Help students find and apply for relevant industry opportunities."),
@@ -337,9 +355,34 @@ NITI = '''<aside class="panel reveal">
   <p class="muted">Source inspiration: NITI Aayog, <cite>Reimagining Skilling for Viksit Bharat@2047</cite>, August 2026.</p>
 </aside>'''
 
-ABOUT_CARDS = ('<div class="grid" style="--cols:2;margin-top:40px">' +
-    card("Corporate, Government and International Training", "CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies. It delivers capability development programmes at project sites across India, has trained the Indian Space Research Organisation (ISRO), and delivered an international programme for Towell Group in Manchester, UK.", "building", extra=arrow_link("Explore corporate training", "corporate.html")) +
-    card("College Trainings and Placements", "On-campus and off-campus training, internship support and campus interviews for engineering students. CMTI partners with <strong>100+ engineering colleges</strong>, has placed <strong>5,000+ engineers</strong> in construction and interiors roles, and works with <strong>300+ companies</strong> across construction, real estate, interiors and BIM.", "cap", extra=arrow_link("Explore college partnerships", "colleges.html")) +
+def pillar(num, label, title, text, points, img, alt, cta, href, tone=""):
+    pts = "".join(f"<li>{icon('check', 'tick')}<span>{pt}</span></li>" for pt in points)
+    return f"""<article class="pillar {tone} reveal">
+  <div class="pillar-img"><img src="{img}" alt="{alt}" loading="lazy" width="1600" height="1000"><span class="pillar-num">{num}</span></div>
+  <div class="pillar-body">
+    <p class="pillar-label">{label}</p>
+    <h3>{title}</h3>
+    <p class="pillar-text">{text}</p>
+    <ul class="pillar-points">{pts}</ul>
+    <a class="btn btn-primary" href="{href}">{cta}</a>
+  </div>
+</article>"""
+
+ABOUT_CARDS = ('<div class="pillars">' +
+    pillar("01", "For companies and institutions", "Corporate, Government and International Training",
+        "CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies.",
+        ["Capability development programmes delivered at project sites across India",
+         "Training delivered for the Indian Space Research Organisation (ISRO)",
+         "International programme for Towell Group in Manchester, UK"],
+        "images/cmti/corporate-staff-training.webp", "A CMTI trainer leading a capability development session for corporate staff",
+        "Explore corporate training", "corporate.html") +
+    pillar("02", "For engineering colleges and students", "College Trainings and Placements",
+        "On-campus and off-campus training, internship support and campus interviews for engineering students.",
+        ["Partnerships with <strong>100+ engineering colleges</strong>",
+         "<strong>5,000+ engineers</strong> placed in construction and interiors roles",
+         "Hiring connections with <strong>300+ companies</strong> across construction, real estate, interiors and BIM"],
+        "images/cmti/colleges-banner.webp", "CMTI college partnerships sign with a handshake on a college campus",
+        "Explore college partnerships", "colleges.html", tone="alt") +
     "</div>")
 
 PROGRAMME_GROUPS = [
@@ -356,7 +399,7 @@ home = f'''<section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow">Construction education and skilling · Pan India</p>
       <h1 id="hero-title">Build the skills construction demands.</h1>
       <p class="lede">Practical training for engineers, interior professionals, project teams and skilled workmen, led by industry practitioners.</p>
-      <div class="hero-actions"><a class="btn btn-white" href="finishing-school.html">Explore programmes</a><a class="btn btn-ghost-white" href="#contact">Make an enquiry</a></div>
+      <div class="hero-actions"><a class="btn btn-white" href="cacm.html">Explore programmes</a><a class="btn btn-ghost-white" href="#contact">Make an enquiry</a></div>
     </div>
   </div>
 </section>
@@ -371,6 +414,9 @@ home = f'''<section class="hero" aria-labelledby="hero-title">
   </div>
 </div>
 '''
+home += section(shead("What we do", "Two ways CMTI builds construction talent",
+    "Industry-led training for the companies that build India, and for the engineers who join them.", hid="services-title") +
+    ABOUT_CARDS, "section services", "services", "services-title")
 home += section(f'''<div class="two-col">
   <div class="prose reveal">
     <p class="eyebrow">About CMTI · Established 2018</p>
@@ -380,8 +426,7 @@ home += section(f'''<div class="two-col">
     {arrow_link("About Us", "about.html")}
   </div>
   {NITI}
-</div>
-{ABOUT_CARDS}''', sid="about", label="about-title")
+</div>''', sid="about", label="about-title")
 home += section(shead("Delivery formats", "Learn in the format that fits", hid="formats-title") + '''<div class="cols-rule reveal">
   <article>''' + icon("building") + '''<h3>Offline</h3><p>Classroom workshops, site visits and hands-on trade demonstrations.</p></article>
   <article>''' + icon("laptop") + '''<h3>Online</h3><p>Live sessions and self-paced learning through CMTI Civil Engg Connect.</p>''' + arrow_link("Explore CMTI e-learning", "e-learning.html") + '''</article>
@@ -523,7 +568,7 @@ tst += section(shead("The journey", "From training to your first job", hid="jour
   <li><span class="j-num">01</span><h3>Learn on real sites</h3><p>Classroom workshops, site visits and hands-on trade demonstrations led by construction industry experts.</p></li>
   <li><span class="j-num">02</span><h3>Prepare for placements</h3><p>Interview preparation and career guidance as students get ready for recruitment.</p></li>
   <li><span class="j-num">03</span><h3>Start your career</h3><p>CMTI coordinates with employers across construction, real estate, interiors and BIM to help students take their first step.</p></li>
-</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore our certified courses", "finishing-school.html")}</p>',
+</ol>''' + f'<p style="margin-top:36px">{arrow_link("Explore our certified courses", "cacm.html")}</p>',
     cls="section alt", sid="journey", label="journey-title")
 tst += cta()
 write("testimonials.html", "Testimonials and Reviews | CMTI", "Training feedback from CMTI programmes and CMTI’s Google reviews.", tst)
@@ -533,21 +578,37 @@ el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skil
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
     "images/cmti/e-learning-laptop.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
-el += section(f'''<div class="two-col center">
-  <div class="reveal">
-    <p class="eyebrow">Learn, practise and earn a certificate</p>
-    <h2 id="app-title">Self-paced lessons · Mock tests · Course e-certificate</h2>
-    <div class="grid" style="--cols:1;margin-top:32px">
+# Courses offered: data comes from tools/elearn_courses.json (taken from elearn.cmti.co.in)
+import json as _json
+from html import escape as _esc
+ELEARN = _json.load(open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "elearn_courses.json"), encoding="utf-8"))["courses"]
+COURSE_CATS = ["Concrete & materials", "Quality, safety & standards", "Quantity surveying & billing",
+               "Site & project management", "Software & BIM", "Interiors", "Careers"]
+
+TOPIC_ICONS = {"Concrete & materials": "layers", "Quality, safety & standards": "shield", "Quantity surveying & billing": "rupee",
+               "Site & project management": "helmet", "Software & BIM": "monitor", "Interiors": "home", "Careers": "briefcase"}
+
+def topic_block(cat):
+    names = [c["title"] for c in ELEARN if c["category"] == cat]
+    items = "".join(f"<li>{_esc(n, quote=False)}</li>" for n in names)
+    return f"""<article class="topic-block reveal">
+  <div class="tb-head">{icon(TOPIC_ICONS[cat])}<h3>{_esc(cat, quote=False)}</h3><span class="tb-count">{len(names)} courses</span></div>
+  <ul class="tb-list">{items}</ul>
+</article>"""
+
+n_free = sum(1 for c in ELEARN if not c["price"])
+el += section(shead("Courses offered", "We offer courses on these topics",
+    f"{len(ELEARN)} self-paced construction courses by industry practitioners, including {n_free} free courses, on CMTI Civil Engg Connect.",
+    hid="courses-title") +
+    '<div class="topic-grid">' + "".join(topic_block(k) for k in COURSE_CATS) + "</div>" +
+    '<p class="course-more"><a class="btn btn-primary" href="https://elearn.cmti.co.in/learn/view-all?show=courses&amp;type=1" target="_blank" rel="noopener">Browse all courses</a></p>',
+    "section alt", "courses", "courses-title")
+el += section(shead("Learn, practise and earn a certificate", "Self-paced lessons · Mock tests · Course e-certificate", hid="app-title") +
+    f'''<div class="grid" style="--cols:3">
       {card("Learn anytime", "Fit lessons around work or study and revisit them when you need a refresher.", "clock")}
       {card("Practise with mock tests", "Check your understanding and identify topics to review.", "check")}
       {card("Earn an e-certificate", "Complete the course requirements to earn your certificate.", "award")}
-    </div>
-  </div>
-  <figure class="reveal" style="margin:0">
-    <div class="app-frame"><img src="images/app-preview.png" alt="CMTI Civil Engg Connect app preview from Google Play" loading="lazy"></div>
-    <figcaption class="app-cap" style="color:var(--muted)">App preview from Google Play</figcaption>
-  </figure>
-</div>''', label="app-title")
+    </div>''', label="app-title")
 el += section(f'''<div class="two-col center">
   <div class="reveal">
     <p class="eyebrow">CMTI Webinars</p>
@@ -601,7 +662,24 @@ fs += section(shead("Certified Courses", "More certified courses", hid="more-tit
     card("BIM Design Software", "Explore model-based design and coordination for construction and interiors.", "cpu", cid="bim-design", extra=arrow_link("Enquire", enquire("BIM Design Software"))) +
     "</div>", "section alt", label="more-title")
 fs += cta()
-write("finishing-school.html", "Advanced Construction Management Course (CACM) | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
+write("cacm.html", "Advanced Construction Management Course (CACM) | CMTI", "Certificate Course on Advanced Construction Management: 3 months, offline, online and hybrid, with hands-on exercises and construction site visits.", fs)
+
+# Old address: the CACM page used to live at /finishing-school. Send visitors on, keeping any #section.
+REDIRECT = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Advanced Construction Management Course (CACM) | CMTI</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="cacm">
+<meta http-equiv="refresh" content="0; url=cacm">
+<script>location.replace('cacm' + location.search + location.hash)</script>
+</head>
+<body><p>This page has moved to <a href="cacm">the CACM course page</a>.</p></body>
+</html>
+"""
+open(f"{ROOT}/finishing-school.html", "w", encoding="utf-8").write(REDIRECT)
+print("wrote finishing-school.html (redirect)")
 
 # ================================================================ IDMTI
 PI = "Interior Design &amp; Management Course (IDM)"
@@ -649,8 +727,7 @@ col += '''<div class="stat-strip"><div class="container"><dl style="grid-templat
   <div><dt>companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
 </dl></div></div>'''
 col += section(shead("College partnerships", "Benefits for Colleges Signing an MoU with CMTI", hid="mou-title") + mou_tiles(), label="mou-title")
-col += section('<div class="section-head reveal"><p class="eyebrow">College network</p><h2 id="net-title">Selected institutions</h2></div>' + college_marquee() +
-    f'<p style="margin-top:32px"><a class="btn btn-primary" href="{enquire("College MoU")}">Discuss a College MoU</a></p>', "section alt", label="net-title")
+col += section(college_directory(), label="dir-title")
 col += cta()
 write("colleges.html", "College MoUs | CMTI", "What a CMTI MoU offers engineering colleges: placements, internships, software training, curriculum development and more.", col)
 
