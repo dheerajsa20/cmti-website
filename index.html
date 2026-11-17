@@ -1,218 +1,308 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-type="service" data-radius="soft" data-buttons="block" data-motion>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explore CMTI construction, interiors, corporate and trade skills programmes in offline, online and hybrid formats.">
-<title>CMTI | Construction Management Training Institute</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CMTI: construction training for companies, colleges and engineers</title>
+<meta name="description" content="Construction training in Bengaluru and across India: staff and workmen programmes for EPC and real estate firms, CACM and IDM certified courses, and 76 online courses.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CMTI: construction training for companies, colleges and engineers">
+<meta property="og:description" content="Construction training in Bengaluru and across India: staff and workmen programmes for EPC and real estate firms, CACM and IDM certified courses, and 76 online courses.">
+<meta property="og:image" content="images/cmti/rebar-inspection.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="cmti-logo.webp" type="image/webp">
+<meta name="theme-color" content="#ffffff">
+<!-- TODO(CMTI): <link rel="canonical" href="https://[CMTI's domain]/"> once the domain is confirmed; og:image then becomes a 1200x630 share.jpg -->
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="preload" as="image" href="images/cmti/rebar-inspection.webp" imagesrcset="images/cmti/rebar-inspection-phone.webp 567w, images/cmti/rebar-inspection.webp 1600w" imagesizes="(max-width: 639px) 342px, 1280px" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="site.css?v=4782d2a00b">
-<script>document.documentElement.classList.add("js")</script>
-<script src="site.js?v=80b41b74cb" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Libre+Franklin:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css?v=aa881128">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<link rel="stylesheet" href="vendor/lenis-1.3.27/lenis.css">
+<style>
+:root {
+  --p-bg: #ffffff; --p-surface: #f3f5f8; --p-ink: #0a1f3a; --p-muted: #55657a;
+  --p-accent: #195b9c; --p-accent-ink: #ffffff; --p-action: #195b9c; --p-action-ink: #ffffff;
+  --p-inv-bg: #0a1f3a; --p-inv-surface: #192c47; --p-inv-ink: #ffffff; --p-inv-muted: #99a3b0;
+  --p-inv-accent: #ffffff; --p-inv-accent-ink: #0a1f3a; --p-inv-action: #ffffff; --p-inv-action-ink: #0a1f3a;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-text: "Libre Franklin", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.02em;
+  --display-tracking-xl: -0.026em;
+}
+</style>
+<link rel="stylesheet" href="cmti.css?v=4cf7d983">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js"><link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topbar">
-  <div class="topbar-inner">
-    <ul>
-      <li class="tb-label tb-hide">Contact us</li>
-      <li><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a></li>
-      <li class="tb-hide"><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></li>
-    </ul>
-    <ul class="tb-right">
-      <li class="tb-label tb-hide">Follow us</li>
-      <li class="tb-hide"><a href="https://www.linkedin.com/company/cmtionline/">LinkedIn</a></li>
-      <li class="tb-hide"><a href="https://linktr.ee/cmti">Social channels</a></li>
-    </ul>
-  </div>
-</div>
-<header class="masthead">
-  <div class="masthead-inner">
-    <a class="brand" href="./"><img src="cmti-logo.webp" alt="Construction Management Training Institute" width="900" height="529"></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <ul><li><a href="./">Home</a></li><li class="has-sub"><button type="button" aria-expanded="false">About Us</button><div class="sub"><a href="about">About Us</a><a href="vision-mission">Mission &amp; Vision</a><a href="about#clients">Our Clients</a><a href="associations">Professional Associations</a><a href="awards">Awards &amp; Certificates</a><a href="testimonials">Testimonials</a></div></li><li class="has-sub"><button type="button" aria-expanded="false">For Corporates</button><div class="sub"><a href="corporate">Overview</a><a href="corporate#training-participants">Capability Development Programme for Staff</a><a href="corporate#workmen">Capability Development Programme for Workmen</a><a href="corporate#content-development">Content Development</a><a href="corporate#assessment">Assessment of Employees</a><a href="corporate#hiring">Hiring Support</a></div></li><li class="has-sub"><button type="button" aria-expanded="false">Certified Courses</button><div class="sub"><a href="cacm">Advanced Construction Management Course (CACM)</a><a href="idmti">Interior Design &amp; Management Course (IDM)</a><a href="cacm#internship">Internships</a><a href="cacm#construction-software">Construction Software Courses</a><a href="cacm#bim-design">BIM Design Software</a></div></li><li><a href="colleges">College MoUs</a></li><li class="has-sub"><button type="button" aria-expanded="false">E-Learning</button><div class="sub"><a href="e-learning">Online Courses</a><a href="e-learning#webinars">Webinars</a></div></li><li><a href="./#contact">Contact</a></li></ul>
-      <a class="btn btn-primary" href="./#contact">Make an enquiry</a>
+<!-- type: service · deal: hero film, nav nav-mega (redealt from nav-split), close close-type (redealt from close-photo: no unused photograph), footer footer-visit, rhythm surface-pairs, buttons block, mark: CMTI logo · moments: pinned-chapters (#programmes), word-highlight (#trainers) -->
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="./"><img src="cmti-logo-nav.webp" alt="CMTI, Construction Management Training Institute" width="240" height="141"></a>
+    <nav class="nav__links" aria-label="Main" data-lenis-prevent>
+      <div class="nav__item"><a class="nav__link" href="corporate">Companies <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav__menu" data-lenis-prevent><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">Staff and workmen</p><a href="corporate#training-participants">Staff programmes<span>Freshers to project heads</span></a><a href="corporate#workmen">Workmen training<span>Formwork, masonry, bar bending</span></a></div><div class="menu-col span-3"><p class="t-label">For L&amp;D teams</p><a href="corporate#content-development">Content development<span>SOPs and training material</span></a><a href="corporate#assessment">Employee assessment<span>Skill gaps and priorities</span></a><a href="corporate#hiring">Hiring support<span>Campus hiring, entry roles</span></a></div><a class="menu-card span-3 start-10" href="corporate"><div class="panel"><img class="frame__img" src="images/cmti/corporate-staff-group.webp" srcset="images/cmti/corporate-staff-group-400.webp 400w, images/cmti/corporate-staff-group-800.webp 800w, images/cmti/corporate-staff-group.webp 1455w" sizes="300px" alt="Staff from a CMTI capability development programme outside their office" width="1455" height="1091" loading="lazy"></div><span class="t-card">Programmes at project sites</span><span class="t-small muted">Across India, online and hybrid</span></a></div></div></div><div class="nav__item"><a class="nav__link" href="cacm">Courses <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav__menu" data-lenis-prevent><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">Certified courses</p><a href="cacm">Construction management<span>CACM, three months</span></a><a href="idmti">Interior design<span>IDM, three months</span></a></div><div class="menu-col span-3"><p class="t-label">Other programmes</p><a href="cacm#internship">Internships<span>Exposure on live projects</span></a><a href="cacm#construction-software">Construction software<span>Drawings, estimates, planning</span></a><a href="cacm#bim-design">BIM design software<span>Model-based design</span></a></div><a class="menu-card span-3 start-10" href="cacm"><div class="panel"><img class="frame__img" src="images/cmti/site-visit-group.webp" srcset="images/cmti/site-visit-group-400.webp 400w, images/cmti/site-visit-group-800.webp 800w, images/cmti/site-visit-group.webp 1600w" sizes="300px" alt="CACM students in hard hats on a construction site visit" width="1600" height="1200" loading="lazy"></div><span class="t-card">Courses with site visits</span><span class="t-small muted">Offline, online and hybrid</span></a></div></div></div><div class="nav__item"><a class="nav__link" href="colleges">Colleges</a></div><div class="nav__item"><a class="nav__link" href="e-learning">E-learning <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav__menu" data-lenis-prevent><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">Learn online</p><a href="e-learning">Online courses<span>76 self-paced courses</span></a><a href="e-learning#webinars">Webinars<span>Saturdays at 7:00 PM IST</span></a></div></div></div></div><div class="nav__item"><a class="nav__link" href="about">About <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav__menu" data-lenis-prevent><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">CMTI</p><a href="about">About CMTI<span>Story, mentor and team</span></a><a href="vision-mission">Mission and vision<span>What guides CMTI</span></a><a href="about#clients">Clients<span>Firms we have trained</span></a></div><div class="menu-col span-3"><p class="t-label">Recognition</p><a href="awards">Awards<span>ISDA Infracon 2025</span></a><a href="associations">Associations<span>ACCE, ICI, IPA, IGBC</span></a><a href="testimonials">Testimonials<span>Participant videos</span></a></div></div></div></div>
     </nav>
+    <div class="nav__actions">
+      <a class="nav__link" href="https://elearn.cmti.co.in/">E-learning login</a>
+      <a class="btn btn--primary" href="./#enquiry">Send an enquiry</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
   </div>
 </header>
 
-<main id="main">
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg"><img src="images/cmti/home-banner.webp" alt="A CMTI trainer reviewing construction drawings with engineers on site" width="1600" height="900" fetchpriority="high"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow">Construction education and skilling · Pan India</p>
-      <h1 id="hero-title">Build the skills construction demands.</h1>
-      <p class="lede">Practical training for engineers, interior professionals, project teams and skilled workmen, led by industry practitioners.</p>
-      <div class="hero-actions"><a class="btn btn-white" href="cacm">Explore programmes</a><a class="btn btn-ghost-white" href="#contact">Make an enquiry</a></div>
+<main id="top">
+<section class="hero hero--film" data-enter aria-labelledby="hero-h">
+  <div class="wrap"><div class="hero-text hero__in">
+    <div class="hero__media hero__fill" data-film-host>
+      <img src="images/cmti/rebar-inspection.webp" srcset="images/cmti/rebar-inspection-phone.webp 567w, images/cmti/rebar-inspection.webp 1600w" sizes="(max-width: 639px) 342px, 1280px" alt="CMTI course participants in hard hats inspecting reinforcement steel on a construction site" width="1600" height="1200" style="--ly-pos: 50% 45%; --ly-pos-phone: 50% 50%" fetchpriority="high">
+      <div class="hero__over">
+        <div>
+          <p class="hero__kicker"><a href="awards">Best Skill Development Award, ISDA Infracon 2025</a></p>
+          <h1 id="hero-h">Construction training for site teams</h1>
+          <p class="hero__lead">Programmes for EPC and real estate staff and workmen at their sites, and three-month certified courses for engineers. 5,000+ engineers placed since 2018.</p>
+          <div class="btn-row"><a class="btn btn--primary" href="corporate">See team training</a><a class="btn btn--secondary" href="#programmes">Find a course</a></div>
+          <p class="hero__rating"><a href="testimonials">Rated 4.7 on Google from 2,362 reviews</a></p>
+        </div>
+        <a class="ly-play" href="https://www.youtube.com/watch?v=jxEoc8QkPOo" data-yt-film="jxEoc8QkPOo" data-title="Certificate Course on Advanced Construction Management">
+          <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span>
+          <span class="ly-play__label">Watch the CACM film<small>Certificate course overview</small></span>
+        </a>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="section g2m" id="training" aria-labelledby="training-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="training-h">Training for companies, colleges and engineers</h2>
+        <p>Each programme is planned with the client and delivered offline, online or hybrid.</p>
+      </div>
+      <ul class="rows">
+        <li><span class="rows__name">Companies and government</span><span class="rows__value">ISRO, DLF, L&amp;T</span><p>Staff and workmen programmes at your sites, planned with your L&amp;D team.</p></li>
+        <li><span class="rows__name">Engineering colleges</span><span class="rows__value">116 colleges</span><p>MoUs for placements, internships and software training.</p></li>
+        <li><span class="rows__name">Graduates and professionals</span><span class="rows__value">76 courses online</span><p>Three-month certified courses and self-paced courses online.</p></li>
+      </ul>
+      <p class="rows-link"><a class="link" href="corporate#training-participants">See staff programmes</a></p>
+    </div>
+    <div class="frame frame--photo frame--split span-6 start-7">
+      <img class="frame__img" src="images/cmti/corporate-staff-training.webp" srcset="images/cmti/corporate-staff-training-phone.webp 465w, images/cmti/corporate-staff-training.webp 1600w" sizes="(max-width: 639px) 342px, 1100px" alt="A CMTI trainer leading a workshop for corporate staff around a conference table" width="1600" height="952" loading="lazy">
     </div>
   </div>
 </section>
-<div class="stat-strip">
-  <div class="container">
-    <dl>
-      <div><dt>Established</dt><dd>2018</dd></div>
-      <div><dt>engineering college partners</dt><dd data-count="100">100+</dd></div>
-      <div><dt>engineers placed</dt><dd data-count="5000">5,000+</dd></div>
-      <div><dt>companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
-    </dl>
-  </div>
-</div>
-<section class="section services" id="services" aria-labelledby="services-title">
-<div class="container">
-<div class="section-head reveal"><p class="eyebrow">What we do</p><h2 id="services-title">Two ways CMTI builds construction talent</h2><p>Industry-led training for the companies that build India, and for the engineers who join them.</p></div><div class="pillars"><article class="pillar  reveal">
-  <div class="pillar-img"><img src="images/cmti/corporate-staff-training.webp" alt="A CMTI trainer leading a capability development session for corporate staff" loading="lazy" width="1600" height="1000"><span class="pillar-num">01</span></div>
-  <div class="pillar-body">
-    <p class="pillar-label">For companies and institutions</p>
-    <h3>Corporate, Government and International Training</h3>
-    <p class="pillar-text">CMTI is a technical training partner to real estate and engineering, procurement and construction (EPC) companies.</p>
-    <ul class="pillar-points"><li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span>Capability development programmes delivered at project sites across India</span></li><li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span>Training delivered for the Indian Space Research Organisation (ISRO)</span></li><li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span>International programme for Towell Group in Manchester, UK</span></li></ul>
-    <a class="btn btn-primary" href="corporate">Explore corporate training</a>
-  </div>
-</article><article class="pillar alt reveal">
-  <div class="pillar-img"><img src="images/cmti/colleges-banner.webp" alt="CMTI college partnerships sign with a handshake on a college campus" loading="lazy" width="1600" height="1000"><span class="pillar-num">02</span></div>
-  <div class="pillar-body">
-    <p class="pillar-label">For engineering colleges and students</p>
-    <h3>College Trainings and Placements</h3>
-    <p class="pillar-text">On-campus and off-campus training, internship support and campus interviews for engineering students.</p>
-    <ul class="pillar-points"><li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span>Partnerships with <strong>100+ engineering colleges</strong></span></li><li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span><strong>5,000+ engineers</strong> placed in construction and interiors roles</span></li><li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span>Hiring connections with <strong>300+ companies</strong> across construction, real estate, interiors and BIM</span></li></ul>
-    <a class="btn btn-primary" href="colleges">Explore college partnerships</a>
-  </div>
-</article></div>
-</div>
-</section>
-<section class="section" id="about" aria-labelledby="about-title">
-<div class="container">
-<div class="two-col">
-  <div class="prose reveal">
-    <p class="eyebrow">About CMTI · Established 2018</p>
-    <h2 id="about-title">Preparing professionals for construction careers</h2>
-    <p class="lead">CMTI is one of India’s leading construction edtech institutes, delivering industry-led skilling across India.</p>
-    <p>Er. S. G. Ashok Kumar, PMP, founded the Construction Management Training Institute in 2018. With guidance from Er. V. Suresh, a senior industry leader in building and construction standards, CMTI has expanded its training and placement activities across India.</p>
-    <a class="link-arrow" href="about">About Us</a>
-  </div>
-  <aside class="panel reveal">
-  <h3>Construction skills for a developed India</h3>
-  <p>NITI Aayog’s August 2026 skilling report emphasises flexible, lifelong learning aligned with industry needs. In construction, foundational skilling helps new entrants read drawings, measure work and follow site procedures. Reskilling helps experienced professionals move into roles that use BIM, digital quality tools and new construction methods. Upskilling helps project teams improve planning, safety, quality and resource efficiency as India builds towards Viksit Bharat 2047.</p>
-  <p class="muted">Source inspiration: NITI Aayog, <cite>Reimagining Skilling for Viksit Bharat@2047</cite>, August 2026.</p>
-</aside>
-</div>
-</div>
-</section>
-<section class="section" id="formats" aria-labelledby="formats-title">
-<div class="container">
-<div class="section-head reveal"><p class="eyebrow">Delivery formats</p><h2 id="formats-title">Learn in the format that fits</h2></div><div class="cols-rule reveal">
-  <article><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5l8-2v18M12 7l8 3v11M8 9h.01M8 13h.01M8 17h.01M16 13h.01M16 17h.01M2 21h20"/></svg></span><h3>Offline</h3><p>Classroom workshops, site visits and hands-on trade demonstrations.</p></article>
-  <article><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM2 19h20"/></svg></span><h3>Online</h3><p>Live sessions and self-paced learning through CMTI Civil Engg Connect.</p><a class="link-arrow" href="e-learning">Explore CMTI e-learning</a></article>
-  <article><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><h3>Hybrid</h3><p>Online instruction combined with in-person workshops or site-based practice.</p></article>
-</div>
-</div>
-</section>
-<section class="section alt" id="clients" aria-labelledby="clients-title">
-<div class="container">
-<div class="section-head reveal"><h2 id="clients-title">Trusted By Leading Organizations</h2></div><div class="marquee-group reveal" data-marquee-group><div class="marquee large"><ul class="marquee-track"><li><img src="client-logos/1.png" alt="DLF" loading="lazy"></li><li><img src="client-logos/2.png" alt="Godrej Properties" loading="lazy"></li><li><img src="client-logos/3.png" alt="Hines" loading="lazy"></li><li><img src="client-logos/4.png" alt="ISRO" loading="lazy"></li><li><img src="client-logos/5.jpeg" alt="L&amp;T Institute of Project Management" loading="lazy"></li><li><img src="client-logos/6.png" alt="Larsen &amp; Toubro" loading="lazy"></li><li><img src="client-logos/7.png" alt="M3M" loading="lazy"></li><li><img src="client-logos/8.png" alt="Prestige Group" loading="lazy"></li><li><img src="client-logos/9.jpeg" alt="Sattva Group" loading="lazy"></li><li><img src="client-logos/10.jpeg" alt="Signature Global" loading="lazy"></li></ul></div><div class="marquee reverse"><ul class="marquee-track"><li><img src="client-logos/11.png" alt="Tata Projects" loading="lazy"></li><li><img src="client-logos/12.jpeg" alt="Adarsh Group" loading="lazy"></li><li><img src="client-logos/13.png" alt="Birla Estates" loading="lazy"></li><li><img src="client-logos/14.jpeg" alt="Blue Wing Design and Construction" loading="lazy"></li><li><img src="client-logos/15.png" alt="Cemindia" loading="lazy"></li><li><img src="client-logos/16.png" alt="Century" loading="lazy"></li><li><img src="client-logos/17.jpeg" alt="H.G. Infra Engineering" loading="lazy"></li><li><img src="client-logos/18.png" alt="KEC International" loading="lazy"></li><li><img src="client-logos/19.jpeg" alt="KNK" loading="lazy"></li><li><img src="client-logos/20.png" alt="Piramal Realty" loading="lazy"></li><li><img src="client-logos/21.jpeg" alt="Ramky Estates" loading="lazy"></li><li><img src="client-logos/22.jpeg" alt="Ramky Infrastructure" loading="lazy"></li><li><img src="client-logos/23.png" alt="Riviera Infraprojects" loading="lazy"></li><li><img src="client-logos/24.png" alt="Shapoorji Pallonji" loading="lazy"></li><li><img src="client-logos/25.png" alt="Sowparnika" loading="lazy"></li><li><img src="client-logos/26.jpeg" alt="Spartan Builders" loading="lazy"></li><li><img src="client-logos/27.jpeg" alt="Sumadhura" loading="lazy"></li><li><img src="client-logos/28.png" alt="Uniqcore" loading="lazy"></li></ul></div></div>
-</div>
-</section>
-<section class="section alt" id="team" aria-labelledby="team-title">
-<div class="container">
-<div class="section-head reveal"><p class="eyebrow">Leadership</p><h2 id="team-title">The team behind CMTI</h2></div><div class="grid" style="--cols:4"><article class="card reveal leader"><h3 class="leader-name">Er. S. G. Ashok Kumar</h3><p class="label leader-role">Founder &amp; CEO</p><p class="cred">PMP, IGBC AP · 26 years in construction</p><p>Founded CMTI and established IDMTI to develop interior design professionals. He leads the CMTI Finishing School, corporate training, industry readiness programmes and partnerships. His experience includes L&amp;T highway and airport projects. He serves on the IGBC Core Committee.</p><a class="link-arrow" href="https://www.linkedin.com/in/er-ashok-kumar-b645126b/" aria-label="View S. G. Ashok Kumar on LinkedIn">View LinkedIn profile</a></article><article class="card reveal leader"><h3 class="leader-name">Er. S. K. Deepasree</h3><p class="label leader-role">Co-founder &amp; Head of Operations</p><p class="cred">22 years of academic experience</p><p>Oversees the CMTI and IDMTI Finishing Schools. She leads placements, coordinates with employers, guides students through recruitment and career decisions, and manages human resources.</p><a class="link-arrow" href="https://www.linkedin.com/in/s-k-deepasree/" aria-label="View S. K. Deepasree on LinkedIn">View LinkedIn profile</a></article><article class="card reveal leader"><h3 class="leader-name">Er. Sachin Amarnath</h3><p class="label leader-role">Partner for Corporate Training Initiatives</p><p class="cred">10 years of experience</p><p>A project management and learning and development professional. He assesses client needs, develops content, and designs and delivers capability development programmes for project teams.</p><a class="link-arrow" href="https://www.linkedin.com/in/sachin-amarnath/" aria-label="View Sachin Amarnath on LinkedIn">View LinkedIn profile</a></article><article class="card reveal leader"><h3 class="leader-name">Mr. Manish Dave</h3><p class="label leader-role">Collaboration Partner &amp; Quality Leader</p><p class="cred">35+ years in construction</p><p>Supports business development and client acquisition in Gujarat. He helps develop training programmes using his expertise in construction quality and site practices.</p><a class="link-arrow" href="https://www.linkedin.com/in/manish-dave-464081296/" aria-label="View Manish Dave on LinkedIn">View LinkedIn profile</a></article></div>
-</div>
-</section>
-<section class="section dark on-dark" id="trainers" aria-labelledby="trainers-title">
-<div class="container">
-<div class="two-col">
-  <div class="reveal">
-    <p class="eyebrow">People behind the programmes</p>
-    <h2 id="trainers-title">Our trainer network</h2>
-  </div>
-  <div class="reveal">
-    <p class="lead" style="color:#fff">CMTI works with <strong>50+ construction and real estate practitioners</strong>, most of whom are former L&amp;T professionals. They use real project examples to connect training with on-site practice.</p>
-    <p>Trainers are based in Delhi NCR, Gujarat, Karnataka, Pune, Hyderabad and Chennai, and travel to project sites and training venues as required.</p>
-    <p><a class="link-arrow" style="color:#fff" href="./?programme=Trainer%20Profiles#contact">Request trainer profiles for your programme</a></p>
-  </div>
-</div>
-<div class="grid trainer-grid" style="--cols:4;margin-top:48px">
-  <article class="card reveal"><p class="label">Founder &amp; CEO</p><h3>Er. S. G. Ashok Kumar</h3><p>PMP, IGBC AP. 26 years of construction industry experience, including highway and airport projects.</p><a class="link-arrow" href="https://www.linkedin.com/in/er-ashok-kumar-b645126b/" aria-label="View Er. S. G. Ashok Kumar on LinkedIn">View LinkedIn profile</a></article><article class="card reveal"><h3>Sachin Amarnath</h3><p>Sachin Specializes on Project Management, Digital Construction, Real Estate, Artificial Intelligence in Construction and Risk Management</p><a class="link-arrow" href="https://www.linkedin.com/in/sachin-amarnath/" aria-label="View Sachin Amarnath on LinkedIn">View LinkedIn profile</a></article><article class="card reveal"><h3>K B Natarajan</h3><p>Natarajan Specializes on Construction Management, having Vast Experience in Handling the Graduate Engineer Trainees / Diploma Engineer Trainees</p><a class="link-arrow" href="https://www.linkedin.com/in/kozunjavadi-balu-natarajan-193b8754/" aria-label="View K B Natarajan on LinkedIn">View LinkedIn profile</a></article><article class="card reveal"><h3>N Balaji</h3><p>N Balaji Specializes on Construction Management having vast experience in handling Real Estate and Industrial Construction Projects</p><a class="link-arrow" href="https://www.linkedin.com/in/balaji-nachiappan-362475214/" aria-label="View N Balaji on LinkedIn">View LinkedIn profile</a></article><article class="card reveal"><h3>Manish Dave</h3><p>Manish Dave carries experience on Project Management, executed complex projects and held leadership positions in leading Construction Companies</p><a class="link-arrow" href="https://www.linkedin.com/in/manish-dave-464081296/" aria-label="View Manish Dave on LinkedIn">View LinkedIn profile</a></article><article class="card reveal"><h3>Nagareddayya Subbagari</h3><p>Nagareddayya Subbagari carries rich experience on Quality Management Systems, Construction Management</p><a class="link-arrow" href="https://www.linkedin.com/in/nagareddayya-subbagari-81309318/" aria-label="View Nagareddayya Subbagari on LinkedIn">View LinkedIn profile</a></article><article class="card reveal"><h3>Madhukeshwar Jaglur</h3><p>Madhukeshwar Jaglur carries rich experience on Project Management, handled Large Complex projects</p><a class="link-arrow" href="https://www.linkedin.com/in/jaglur-m-188b1316/" aria-label="View Madhukeshwar Jaglur on LinkedIn">View LinkedIn profile</a></article>
-</div>
-</div>
-</section>
-<section class="section webinar-section" id="webinars" aria-labelledby="webinars-title">
-<div class="container">
-<div class="webinar-strip reveal">
-  <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h18v12H3zM8 20h8M12 16v4"/></svg></span>
-  <div class="ws-text">
-    <p class="ws-label">CMTI Webinars</p>
-    <h2 id="webinars-title">Free webinars led by industry practitioners</h2>
-    <p class="ws-when">Saturdays at 7:00 PM IST · Certificate of participation</p>
-  </div>
-  <a class="btn btn-primary" href="e-learning#webinars">Explore CMTI webinars</a>
-</div>
-</div>
-</section>
-<section class="section alt" id="contact" aria-labelledby="contact-title">
-<div class="container">
-<div class="contact-wrap">
-  <div class="contact-info reveal">
-    <p class="eyebrow">Contact us</p>
-    <h2 id="contact-title">Let’s discuss your training needs</h2>
-    <p class="promise">We reply within one working day.</p>
-    <h3>Office address</h3>
-    <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
-    <h3>Call or email CMTI</h3>
-    <p><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
-    <p><a class="link-arrow" href="testimonials">Student testimonials</a></p>
-  </div>
-  <form id="enquiry" class="form-panel reveal" novalidate>
-    <h3>Training enquiry</h3>
-    <p class="help">Complete the form to open a draft in WhatsApp. Review and send it there.</p>
-    <div class="fields">
-      <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required maxlength="100" aria-describedby="e-name"><p class="field-error" id="e-name"></p></div>
-      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="150" aria-describedby="e-email"><p class="field-error" id="e-email"></p></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="35" aria-describedby="e-phone"><p class="field-error" id="e-phone"></p></div>
-      <div class="field"><label for="f-org">Organisation (optional)</label><input id="f-org" name="organisation" autocomplete="organization" maxlength="120"><p class="field-error"></p></div>
-      <div class="field"><label for="programme">Programme</label><select id="programme" name="programme" required aria-describedby="e-programme"><option value="">Select a programme</option><optgroup label="Certified Courses"><option>Advanced Construction Management Course (CACM)</option><option>Interior Design &amp; Management Course (IDM)</option><option>Internships</option><option>Construction Software Courses</option><option>BIM Design Software</option></optgroup><optgroup label="For Corporates"><option>Capability Development Programme for Staff</option><option>Capability Development Programme for Workmen</option><option>Content Development</option><option>Assessment of Employees</option><option>Hiring Support</option><option>Trainer Profiles</option></optgroup><optgroup label="Other"><option>College MoU</option><option>E-Learning and Webinars</option><option>Something else</option></optgroup></select><p class="field-error" id="e-programme"></p></div>
-      <div class="field"><label for="f-format">Preferred format</label><select id="f-format" name="format"><option>Flexible</option><option>Offline</option><option>Online</option><option>Hybrid</option></select><p class="field-error"></p></div>
-      <div class="field field-wide"><label for="f-message">Training requirements (optional)</label><textarea id="f-message" name="message" maxlength="1000"></textarea><p class="field-error"></p></div>
+
+<section class="section" id="programmes" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="programmes-h">
+  <div class="wrap mo-pc__grid">
+    <div class="mo-pc__text">
+      <h2 id="programmes-h">How the programmes run</h2>
+      <ol class="mo-pc__steps">
+        <li class="mo-pc__step">
+          <h3>Staff programmes at your sites</h3>
+          <p>We map skill gaps with your L&amp;D and operations teams, then train freshers, middle managers and project heads.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/corporate-staff-group.webp" srcset="images/cmti/corporate-staff-group-400.webp 400w, images/cmti/corporate-staff-group-800.webp 800w, images/cmti/corporate-staff-group.webp 1455w" sizes="(max-width: 1023px) 100vw, 50vw" alt="Staff from a CMTI capability development programme outside their office" width="1455" height="1091" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Trade training for workmen</h3>
+          <p>Formwork, masonry, bar bending, plumbing, waterproofing and finishes, taught on site by trade trainers.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/workmen-bar-bending.webp" srcset="images/cmti/workmen-bar-bending-400.webp 400w, images/cmti/workmen-bar-bending-800.webp 800w, images/cmti/workmen-bar-bending.webp 960w" sizes="(max-width: 1023px) 100vw, 50vw" alt="Workmen in hard hats learning to use a bar bending machine during CMTI on-site training" width="960" height="720" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Construction management course (CACM)</h3>
+          <p>Three months of drawings, BOQ, bar bending schedules, sequencing, quality and safety, with site visits.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/site-visit-group.webp" srcset="images/cmti/site-visit-group-400.webp 400w, images/cmti/site-visit-group-800.webp 800w, images/cmti/site-visit-group.webp 1600w" sizes="(max-width: 1023px) 100vw, 50vw" alt="CACM students in hard hats lined up on a construction site visit" width="1600" height="1200" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Interior design course (IDM)</h3>
+          <p>Three months of layouts, materials, estimates and cut lists, with visits to modular factories and showrooms.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/showroom-visit.webp" srcset="images/cmti/showroom-visit-400.webp 400w, images/cmti/showroom-visit-800.webp 800w, images/cmti/showroom-visit.webp 1600w" sizes="(max-width: 1023px) 100vw, 50vw" alt="IDM students listening to a guide during a showroom visit" width="1600" height="1117" loading="lazy"></figure>
+        </li>
+      </ol>
+      <p class="pc-link"><a class="link" href="cacm">See the certified courses</a></p>
     </div>
-    <button class="btn btn-wa" type="submit"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>Open WhatsApp draft</button>
-    <p class="form-status" id="form-status" role="status"></p>
-  </form>
-</div>
-</div>
+    <div class="mo-pc__visuals frame"></div>
+  </div>
+</section>
+
+<section class="section statement" id="trainers" data-moment="word-highlight" aria-label="Trainers">
+  <div class="wrap">
+    <p class="t-label">Trainers</p>
+    <p class="mo-wh__text">CMTI works with 50+ construction and real estate practitioners, most of them <strong>former L&amp;T professionals</strong>. They teach with real project examples and travel to sites from Delhi NCR, Gujarat, Karnataka, Pune, Hyderabad and Chennai.</p>
+  </div>
+</section>
+
+<section class="section ground-surface" id="recognition" aria-labelledby="recognition-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="recognition-h">Training awards and clients</h2>
+        <p>Best Skill Development Award at the ISDA Infracon 2025 national awards in New Delhi, and an appreciation from the Towell Group chairman for a programme in Manchester.</p>
+      </div>
+      <a class="link" href="awards">See the awards</a>
+    </div>
+    <div class="grid">
+      <div class="frame frame--photo span-6 pair"><img class="frame__img" src="images/awards/isda-infracon-2025-award.webp" srcset="images/awards/isda-infracon-2025-award-800.webp 800w, images/awards/isda-infracon-2025-award.webp 1600w" sizes="(max-width: 1023px) 100vw, 50vw" alt="The CMTI team receiving the Best Skill Development Award on stage at ISDA Infracon 2025, New Delhi" width="1600" height="1200" loading="lazy"></div>
+      <div class="frame frame--photo span-6 pair"><img class="frame__img" src="images/awards/towell-manchester-appreciation.webp" alt="CMTI receiving an appreciation certificate from the Towell Group chairman in Manchester" width="800" height="615" loading="lazy"></div>
+    </div>
+    <div class="clients">
+      <p class="t-small muted">Clients include</p>
+      <div class="logos"><img src="client-logos/h80/1.png" alt="DLF" width="131" height="62" loading="lazy"><img src="client-logos/h80/4.png" alt="ISRO" width="86" height="80" loading="lazy"><img src="client-logos/h80/6.png" alt="Larsen &amp; Toubro" width="185" height="80" loading="lazy"><img src="client-logos/h80/2.png" alt="Godrej Properties" width="264" height="70" loading="lazy"><img src="client-logos/h80/11.png" alt="Tata Projects" width="245" height="66" loading="lazy"><img src="client-logos/h80/8.png" alt="Prestige Group" width="66" height="80" loading="lazy"><img src="client-logos/h80/24.png" alt="Shapoorji Pallonji" width="264" height="75" loading="lazy"><img src="client-logos/h80/3.png" alt="Hines" width="232" height="80" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section ground-surface" id="feedback" aria-labelledby="feedback-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="feedback-h">Feedback from training participants</h2>
+        <p>Participants from two client programmes on what the training covered.</p>
+      </div>
+      <a class="link" href="https://youtube.com/c/CMTIConnect">Watch more on YouTube</a>
+    </div>
+    <div class="grid">
+      <article class="card card--open span-6">
+  <h3>Muskan Singh</h3>
+  <p>DLF training by CMTI experts, Gurugram</p>
+  <div class="panel panel--video"><button class="yt" type="button" data-yt="wjxFxRWlbUQ" data-title="Muskan Singh: DLF training by CMTI experts, Gurugram">
+    <img class="frame__img" src="https://i.ytimg.com/vi/wjxFxRWlbUQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+    <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span><span class="sr-only">Play the video: Muskan Singh, DLF training by CMTI experts, Gurugram</span>
+  </button></div>
+</article>
+      <article class="card card--open span-6">
+  <h3>Bluewing Design and Constructions</h3>
+  <p>Formwork training, employee feedback</p>
+  <div class="panel panel--video"><button class="yt" type="button" data-yt="DmFHuy2J4ow" data-title="Bluewing Design and Constructions: Formwork training, employee feedback">
+    <img class="frame__img" src="https://i.ytimg.com/vi/DmFHuy2J4ow/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+    <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span><span class="sr-only">Play the video: Bluewing Design and Constructions, Formwork training, employee feedback</span>
+  </button></div>
+</article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="colleges" aria-labelledby="colleges-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="colleges-h">College MoUs in 3 states</h2>
+        <p>116 engineering colleges in Karnataka, Tamil Nadu and Andhra Pradesh work with CMTI on training, internships and campus hiring.</p>
+      </div>
+      <ul class="facts">
+        <li>300+ hiring companies across construction, real estate, interiors and BIM</li>
+        <li>CAD, BIM, planning and estimation training on campus</li>
+        <li>Industry partner inputs for NBA accreditation visits</li>
+      </ul>
+      <p><a class="link" href="colleges">See the partner colleges</a></p>
+    </div>
+    <div class="frame frame--photo frame--split span-6 start-7">
+      <img class="frame__img" src="images/cmti/street-group.webp" srcset="images/cmti/street-group-800.webp 800w, images/cmti/street-group.webp 1500w" sizes="(max-width: 1023px) 100vw, 50vw" alt="CMTI students in hard hats with their trainers on a street outside a site" width="1500" height="1125" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="learn" aria-labelledby="learn-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="learn-h">Self-paced courses online</h2>
+        <p>76 courses by construction practitioners on CMTI Civil Engg Connect, 18 of them free. Free webinars run every Saturday at 7:00 PM IST.</p>
+      </div>
+      <a class="link" href="e-learning">See all 76 courses</a>
+    </div>
+    <div class="frame frame--lms">
+      <div class="lms ui ui-lms" role="group" aria-label="Free courses on CMTI Civil Engg Connect">
+        <div class="lms__bar"><span class="lms__name">CMTI Civil Engg Connect</span><span class="lms__tab">Free courses</span></div>
+        <ul class="lms__list"><li><a class="lms__row" href="https://elearn.cmti.co.in/learn/Non-Destructive-Testing"><span class="lms__title">Non Destructive Testing Course</span><span class="lms__meta">Quality, safety &amp; standards · 14 lessons</span><span class="lms__chip">Free</span></a></li><li><a class="lms__row" href="https://elearn.cmti.co.in/learn/Self-Compacted-Concrete"><span class="lms__title">Self Compacting Concrete Course</span><span class="lms__meta">Concrete &amp; materials · 15 lessons</span><span class="lms__chip">Free</span></a></li><li><a class="lms__row" href="https://elearn.cmti.co.in/learn/Fire-Safety-in-Highrise-Construction"><span class="lms__title">Fire Safety in Highrise Construction</span><span class="lms__meta">Quality, safety &amp; standards · 9 lessons</span><span class="lms__chip">Free</span></a></li><li><a class="lms__row" href="https://elearn.cmti.co.in/learn/Importance-of-Plant---Machinery"><span class="lms__title">Plant &amp; Machinery in Construction</span><span class="lms__meta">Site &amp; project management · 18 lessons</span><span class="lms__chip">Free</span></a></li><li><a class="lms__row" href="https://elearn.cmti.co.in/learn/Drones-in-Construction"><span class="lms__title">Drones in Construction</span><span class="lms__meta">Site &amp; project management · 8 lessons</span><span class="lms__chip">Free</span></a></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section g2m" id="enquiry" aria-labelledby="enquiry-h">
+  <div class="wrap grid">
+    <div class="span-5 stack-5">
+      <div class="section-head">
+        <h2 id="enquiry-h">Contact CMTI about training</h2>
+        <p>Tell us who needs training, where and when. We reply within one working day.</p>
+      </div>
+      <dl class="contact-list">
+        <div><dt>Call</dt><dd><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a class="wa-link" href="https://wa.me/918884422179"><span class="brand-ico" aria-hidden="true"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>Message CMTI on WhatsApp</a></dd></div>
+      </dl>
+    </div>
+    <form class="form form--panel span-6 start-7" id="enquiry-form" action="https://wa.me/918884422179" method="get" target="_blank" novalidate>
+      <div class="field"><label for="f-name">Full name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="f-name-err">
+        <p class="field__error" id="f-name-err" hidden>Write your full name.</p></div>
+      <div class="field"><label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="35" pattern="[\d\s\+\(\)\-]{7,}" aria-describedby="f-phone-err">
+        <p class="field__error" id="f-phone-err" hidden>Write a phone number we can call, with at least seven digits.</p></div>
+      <div class="field"><label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="150" aria-describedby="f-email-err">
+        <p class="field__error" id="f-email-err" hidden>Write an email address with an @, like name@company.com.</p></div>
+      <div class="field"><label for="f-org">Organisation (optional)</label>
+        <input id="f-org" name="organisation" type="text" autocomplete="organization" maxlength="120"></div>
+      <div class="field"><label for="programme">Programme</label>
+        <select id="programme" name="programme" required aria-describedby="programme-err"><option value="">Choose a programme</option><optgroup label="Certified Courses"><option>Advanced Construction Management Course (CACM)</option><option>Interior Design &amp; Management Course (IDM)</option><option>Internships</option><option>Construction Software Courses</option><option>BIM Design Software</option></optgroup><optgroup label="For Corporates"><option>Capability Development Programme for Staff</option><option>Capability Development Programme for Workmen</option><option>Content Development</option><option>Assessment of Employees</option><option>Hiring Support</option><option>Trainer Profiles</option></optgroup><optgroup label="Other"><option>College MoU</option><option>E-Learning and Webinars</option><option>Something else</option></optgroup></select>
+        <p class="field__error" id="programme-err" hidden>Choose the programme you are asking about.</p></div>
+      <div class="field"><label for="f-message">Training needs (optional)</label>
+        <textarea id="f-message" name="message" rows="2" maxlength="1000"></textarea></div>
+      <div class="btn-row"><button class="btn btn--primary" type="submit">Send an enquiry</button></div>
+      <p class="form__status" role="status" data-form-status></p>
+      <p class="t-small">Opens WhatsApp with your enquiry written out, ready to send to CMTI.</p>
+    </form>
+  </div>
 </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img class="footer-logo" src="cmti-logo-dark.webp" alt="CMTI" width="900" height="529">
-      <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
-      <p style="margin-top:14px"><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
+<footer class="footer closing footer--visit g2" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Plan your team’s training</h2>
+        <p>We reply within one working day.</p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="./#enquiry">Send an enquiry<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
     </div>
-    <div><h3>About Us</h3><ul><li><a href="about">About Us</a></li><li><a href="vision-mission">Mission &amp; Vision</a></li><li><a href="about#clients">Our Clients</a></li><li><a href="associations">Professional Associations</a></li><li><a href="awards">Awards &amp; Certificates</a></li><li><a href="testimonials">Testimonials</a></li></ul></div>
-    <div><h3>For Corporates</h3><ul><li><a href="corporate">Overview</a></li><li><a href="corporate#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning">E-Learning</a></li></ul></div>
-    <div><h3>Certified Courses</h3><ul><li><a href="cacm">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
-    <div><h3>CMTI</h3><ul><li><a href="colleges">College MoUs</a></li><li><a href="./#contact">Contact us</a></li></ul></div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <address class="footer__address">4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
+          <p><a class="link" href="https://www.openstreetmap.org/search?query=7th%20B%20Main%20Road%20Jayanagar%203rd%20Block%20Bengaluru">Get directions</a></p>
+        </div>
+        <div class="span-6 start-7 stack-4">
+          <h3>Call or write</h3>
+          <p><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
+          <div class="socials"><a href="https://whatsapp.com/channel/0029Va4S47dEgGfOPitXTT2f" aria-label="CMTI on WhatsApp"><span class="brand-ico" aria-hidden="true"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span></a><a href="https://www.linkedin.com/company/cmtionline" aria-label="CMTI on LinkedIn"><span class="brand-ico" aria-hidden="true"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path  d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4c-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.91 39.91 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186zM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009s9.851-22.014 22.008-22.016c12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97zM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453"/></svg></span></a><a href="https://www.instagram.com/cmtionline?r=nametag" aria-label="CMTI on Instagram"><span class="brand-ico" aria-hidden="true"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span></a><a href="https://t.me/joinchat/FNINrel7x3SKLBjd" aria-label="CMTI on Telegram"><span class="brand-ico" aria-hidden="true"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span></a><a href="https://youtube.com/c/CMTIConnect" aria-label="CMTI Connect on YouTube"><span class="brand-ico" aria-hidden="true"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span></a></div>
+        </div>
+      </div>
+      <div class="grid footer__cols"><div class="span-3 footer__col"><h3>Companies</h3><ul><li><a href="corporate#training-participants">Staff programmes</a></li><li><a href="corporate#workmen">Workmen training</a></li><li><a href="corporate#content-development">Content development</a></li><li><a href="corporate#assessment">Employee assessment</a></li><li><a href="corporate#hiring">Hiring support</a></li></ul></div><div class="span-3 footer__col"><h3>Courses</h3><ul><li><a href="cacm">Construction management (CACM)</a></li><li><a href="idmti">Interior design (IDM)</a></li><li><a href="cacm#internship">Internships</a></li><li><a href="cacm#construction-software">Construction software</a></li><li><a href="cacm#bim-design">BIM design software</a></li></ul></div><div class="span-3 footer__col"><h3>Learn</h3><ul><li><a href="colleges">College MoUs</a></li><li><a href="e-learning">Online courses</a></li><li><a href="e-learning#webinars">Webinars</a></li><li><a href="https://qrgo.page.link/SxLYw">CMTI Android app</a></li></ul></div><div class="span-3 footer__col"><h3>About</h3><ul><li><a href="about">About CMTI</a></li><li><a href="vision-mission">Mission and vision</a></li><li><a href="about#clients">Clients</a></li><li><a href="awards">Awards</a></li><li><a href="associations">Associations</a></li><li><a href="testimonials">Testimonials</a></li></ul></div></div>
+      <div class="footer__legal">
+        <span>&copy; 2026 CMTI Construction Management Training Institute Pvt Limited &nbsp; GSTIN: 29AAJCC1709L1ZE &nbsp; CIN: U74999KA2020PTC142113 &nbsp; <a href="privacy-policy">Privacy Policy</a></span>
+        <span class="credits">Icons via Simple Icons and SVG Logos. Product names and logos are trademarks of their owners.</span>
+      </div>
+    </div>
   </div>
-  <div class="footer-social">
-    <p class="fs-title">Follow our social media for regular updates</p>
-    <ul class="social-links"><li><a href="https://whatsapp.com/channel/0029Va4S47dEgGfOPitXTT2f" target="_blank" rel="noopener" aria-label="WhatsApp channel" title="WhatsApp channel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg></a></li><li><a href="https://www.linkedin.com/company/cmtionline" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9h3v10H6V9Zm1.5-4.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5ZM11 9h2.9v1.4c.4-.8 1.5-1.6 3.1-1.6 3 0 3.5 2 3.5 4.6V19h-3v-4.9c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19H11V9Z"/></svg></a></li><li><a href="https://www.instagram.com/cmtionline?r=nametag" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM16.6 2.5H7.4a4.9 4.9 0 0 0-4.9 4.9v9.2a4.9 4.9 0 0 0 4.9 4.9h9.2a4.9 4.9 0 0 0 4.9-4.9V7.4a4.9 4.9 0 0 0-4.9-4.9Zm3.2 14.1a3.2 3.2 0 0 1-3.2 3.2H7.4a3.2 3.2 0 0 1-3.2-3.2V7.4a3.2 3.2 0 0 1 3.2-3.2h9.2a3.2 3.2 0 0 1 3.2 3.2Z"/></svg></a></li><li><a href="https://t.me/joinchat/FNINrel7x3SKLBjd" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 3.8 2.9 10.7c-1.2.5-1.2 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14.2c.3-1.2-.5-1.8-1.6-1.3ZM9.8 14.3l-.4 3.8-1.4-4.6 10.3-6.5-8.5 7.3Z"/></svg></a></li><li><a href="https://youtube.com/c/CMTIConnect" target="_blank" rel="noopener" aria-label="YouTube: CMTI Connect" title="YouTube: CMTI Connect"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg></a></li><li><a href="https://qrgo.page.link/SxLYw" target="_blank" rel="noopener" aria-label="CMTI Android Application" title="CMTI Android Application"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9h10v8a1 1 0 0 1-1 1h-1v3h-2v-3h-2v3H9v-3H8a1 1 0 0 1-1-1V9Zm-3 0h2v6H4V9Zm14 0h2v6h-2V9ZM7 8a5 5 0 0 1 10 0H7Zm3-2.5a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4Zm4 0a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4ZM8.2 2.8l1.2 1.6M15.8 2.8l-1.2 1.6"/></svg></a></li><li><a href="https://elearn.cmti.co.in/" target="_blank" rel="noopener" aria-label="CMTI E Learning Website" title="CMTI E Learning Website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9Zm4 2.2v4.3c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.3l-6 3-6-3Z"/></svg></a></li></ul>
-  </div>
-  <div class="footer-base"><div class="fb-inner">
-    <p class="fb-rights">© 2026 CMTi. All Rights Reserved.</p>
-    <p class="fb-company"><strong>CMTI Construction Management Training Institute Pvt Limited</strong><span>GSTIN: 29AAJCC1709L1ZE</span><span>CIN: U74999KA2020PTC142113</span></p>
-    <p class="fb-links"><a href="privacy-policy">Privacy Policy</a></p>
-  </div></div>
 </footer>
 
-<button class="to-top" type="button" aria-label="Back to top" title="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<div class="quick-contact">
-  <a class="qc-wa" href="https://wa.me/918884422179" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg><span class="qc-text"><span>WhatsApp</span><small>8884422480 / 8884422179</small></span></a>
-  <a class="qc-call" href="tel:+918884422179" aria-label="Call CMTI"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></a>
-</div>
+<script src="vendor/lenis-1.3.27/lenis.min.js" defer></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script src="cmti.js?v=28dd73f6" defer></script>
 </body>
 </html>

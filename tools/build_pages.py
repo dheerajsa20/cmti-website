@@ -62,7 +62,7 @@ def icon(name, cls="icon"):
 
 def enquire(programme):
     import html as _html
-    return "index.html?programme=" + quote(_html.unescape(programme)) + "#contact"
+    return "index.html?programme=" + quote(_html.unescape(programme)) + "#enquiry"
 
 def arrow_link(text, href, attrs=""):
     return f'<a class="link-arrow" href="{href}"{attrs}>{text}</a>'
@@ -82,7 +82,7 @@ NAV = [
                                 ("BIM Design Software", "cacm.html#bim-design")]),
     ("College MoUs", "colleges.html", None),
     ("E-Learning", None, [("Online Courses", "e-learning.html"), ("Webinars", "e-learning.html#webinars")]),
-    ("Contact", "index.html#contact", None),
+    ("Contact", "index.html#enquiry", None),
 ]
 
 def header(home=False):
@@ -113,7 +113,7 @@ def header(home=False):
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <ul>{"".join(items)}</ul>
-      <a class="btn btn-primary" href="index.html#contact">Make an enquiry</a>
+      <a class="btn btn-primary" href="index.html#enquiry">Make an enquiry</a>
     </nav>
   </div>
 </header>'''
@@ -140,7 +140,7 @@ FOOTER = f'''<footer class="site-footer">
     <div><h3>About Us</h3><ul><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Mission &amp; Vision</a></li><li><a href="about.html#clients">Our Clients</a></li><li><a href="associations.html">Professional Associations</a></li><li><a href="awards.html">Awards &amp; Certificates</a></li><li><a href="testimonials.html">Testimonials</a></li></ul></div>
     <div><h3>For Corporates</h3><ul><li><a href="corporate.html">Overview</a></li><li><a href="corporate.html#training-participants">Capability Development Programme for Staff</a></li><li><a href="corporate.html#workmen">Capability Development Programme for Workmen</a></li><li><a href="e-learning.html">E-Learning</a></li></ul></div>
     <div><h3>Certified Courses</h3><ul><li><a href="cacm.html">Advanced Construction Management Course (CACM)</a></li><li><a href="idmti.html">Interior Design &amp; Management Course (IDM)</a></li></ul></div>
-    <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#contact">Contact us</a></li></ul></div>
+    <div><h3>CMTI</h3><ul><li><a href="colleges.html">College MoUs</a></li><li><a href="testimonials.html">Google reviews</a></li><li><a href="index.html#enquiry">Contact us</a></li></ul></div>
   </div>
   <div class="footer-social">
     <p class="fs-title">Follow our social media for regular updates</p>
@@ -239,7 +239,7 @@ def cta():
     return f'''<section class="cta-band">
   <div class="cta-inner">
     <div><h2>Let’s discuss your training needs</h2><p>We reply within one working day.</p></div>
-    <div class="cta-actions"><a class="btn btn-white" href="index.html#contact">Make an enquiry</a><a class="btn btn-ghost-white" href="tel:+918884422179">Call 8884422179</a></div>
+    <div class="cta-actions"><a class="btn btn-white" href="index.html#enquiry">Make an enquiry</a><a class="btn btn-ghost-white" href="tel:+918884422179">Call 8884422179</a></div>
   </div>
 </section>'''
 
@@ -260,6 +260,7 @@ def client_marquee():
     return ('<div class="marquee-group reveal" data-marquee-group>' + row(CLIENTS[:10], "large") + row(CLIENTS[10:], "reverse") +
             '</div>')
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from college_list import COLLEGE_STATES
 
 def college_logo(slug):
@@ -381,7 +382,7 @@ ABOUT_CARDS = ('<div class="pillars">' +
         ["Partnerships with <strong>100+ engineering colleges</strong>",
          "<strong>5,000+ engineers</strong> placed in construction and interiors roles",
          "Hiring connections with <strong>300+ companies</strong> across construction, real estate, interiors and BIM"],
-        "images/cmti/colleges-banner.webp", "CMTI college partnerships sign with a handshake on a college campus",
+        "images/cmti/street-group.webp", "CMTI students in hard hats with their trainers on a street outside a site",
         "Explore college partnerships", "colleges.html", tone="alt") +
     "</div>")
 
@@ -391,89 +392,242 @@ PROGRAMME_GROUPS = [
     ("Other", ["College MoU", "E-Learning and Webinars", "Something else"]),
 ]
 
-# ================================================================ HOME
-home = f'''<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg"><img src="images/cmti/home-banner.webp" alt="A CMTI trainer reviewing construction drawings with engineers on site" width="1600" height="900" fetchpriority="high"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow">Construction education and skilling · Pan India</p>
-      <h1 id="hero-title">Build the skills construction demands.</h1>
-      <p class="lede">Practical training for engineers, interior professionals, project teams and skilled workmen, led by industry practitioners.</p>
-      <div class="hero-actions"><a class="btn btn-white" href="cacm.html">Explore programmes</a><a class="btn btn-ghost-white" href="#contact">Make an enquiry</a></div>
+# ================================================================ HOME (redesign-2026, design-taste-frontend kit)
+import json as _json_home
+import chrome_v2 as v2
+
+_COURSES = _json_home.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "elearn_courses.json"), encoding="utf-8"))["courses"]
+_N_COURSES = len(_COURSES)
+_N_FREE = sum(1 for c in _COURSES if not c["price"])
+_N_COLLEGES = sum(len(cs) for _, cs in COLLEGE_STATES)
+_FREE_PICKS = ["Non Destructive Testing Course", "Self Compacting Concrete Course", "Fire Safety in Highrise Construction",
+               "Plant &amp; Machinery in Construction", "Drones in Construction"]
+
+def _course_row(title):
+    c = next(c for c in _COURSES if c["title"].replace("&", "&amp;") == title or c["title"] == title)
+    return (f'<li><a class="lms__row" href="{c["url"]}"><span class="lms__title">{c["title"].replace("&", "&amp;")}</span>'
+            f'<span class="lms__meta">{c["category"].replace("&", "&amp;")} · {c["lessons"]} lessons</span>'
+            f'<span class="lms__chip">Free</span></a></li>')
+
+_HOME_CLIENTS = [(1, "png", "DLF"), (4, "png", "ISRO"), (6, "png", "Larsen &amp; Toubro"), (2, "png", "Godrej Properties"),
+                 (11, "png", "Tata Projects"), (8, "png", "Prestige Group"), (24, "png", "Shapoorji Pallonji"), (3, "png", "Hines")]
+
+def _logo_size(n, e):
+    from PIL import Image as _Img
+    return _Img.open(os.path.join(ROOT, f"client-logos/h80/{n}.{e}")).size
+
+_PLAY = '<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg>'
+
+def _video_card(vid, name, line):
+    return f'''<article class="card card--open span-6">
+  <h3>{name}</h3>
+  <p>{line}</p>
+  <div class="panel panel--video"><button class="yt" type="button" data-yt="{vid}" data-title="{name}: {line}">
+    <img class="frame__img" src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+    <span class="ly-play__disc">{_PLAY}</span><span class="sr-only">Play the video: {name}, {line}</span>
+  </button></div>
+</article>'''
+
+_opts = "".join(f'<optgroup label="{g}">' + "".join(f"<option>{o}</option>" for o in opts) + "</optgroup>" for g, opts in PROGRAMME_GROUPS)
+
+home = f'''<section class="hero hero--film" data-enter aria-labelledby="hero-h">
+  <div class="wrap"><div class="hero-text hero__in">
+    <div class="hero__media hero__fill" data-film-host>
+      <img src="images/cmti/rebar-inspection.webp" srcset="images/cmti/rebar-inspection-phone.webp 567w, images/cmti/rebar-inspection.webp 1600w" sizes="(max-width: 639px) 342px, 1280px" alt="CMTI course participants in hard hats inspecting reinforcement steel on a construction site" width="1600" height="1200" style="--ly-pos: 50% 45%; --ly-pos-phone: 50% 50%" fetchpriority="high">
+      <div class="hero__over">
+        <div>
+          <p class="hero__kicker"><a href="awards.html">Best Skill Development Award, ISDA Infracon 2025</a></p>
+          <h1 id="hero-h">Construction training for site teams</h1>
+          <p class="hero__lead">Programmes for EPC and real estate staff and workmen at their sites, and three-month certified courses for engineers. 5,000+ engineers placed since 2018.</p>
+          <div class="btn-row"><a class="btn btn--primary" href="corporate.html">See team training</a><a class="btn btn--secondary" href="#programmes">Find a course</a></div>
+          <p class="hero__rating"><a href="testimonials.html">Rated 4.7 on Google from 2,362 reviews</a></p>
+        </div>
+        <a class="ly-play" href="https://www.youtube.com/watch?v=jxEoc8QkPOo" data-yt-film="jxEoc8QkPOo" data-title="Certificate Course on Advanced Construction Management">
+          <span class="ly-play__disc">{_PLAY}</span>
+          <span class="ly-play__label">Watch the CACM film<small>Certificate course overview</small></span>
+        </a>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="section g2m" id="training" aria-labelledby="training-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="training-h">Training for companies, colleges and engineers</h2>
+        <p>Each programme is planned with the client and delivered offline, online or hybrid.</p>
+      </div>
+      <ul class="rows">
+        <li><span class="rows__name">Companies and government</span><span class="rows__value">ISRO, DLF, L&amp;T</span><p>Staff and workmen programmes at your sites, planned with your L&amp;D team.</p></li>
+        <li><span class="rows__name">Engineering colleges</span><span class="rows__value">{_N_COLLEGES} colleges</span><p>MoUs for placements, internships and software training.</p></li>
+        <li><span class="rows__name">Graduates and professionals</span><span class="rows__value">{_N_COURSES} courses online</span><p>Three-month certified courses and self-paced courses online.</p></li>
+      </ul>
+      <p class="rows-link"><a class="link" href="corporate.html#training-participants">See staff programmes</a></p>
+    </div>
+    <div class="frame frame--photo frame--split span-6 start-7">
+      <img class="frame__img" src="images/cmti/corporate-staff-training.webp" srcset="images/cmti/corporate-staff-training-phone.webp 465w, images/cmti/corporate-staff-training.webp 1600w" sizes="(max-width: 639px) 342px, 1100px" alt="A CMTI trainer leading a workshop for corporate staff around a conference table" width="1600" height="952" loading="lazy">
     </div>
   </div>
 </section>
-<div class="stat-strip">
-  <div class="container">
-    <dl>
-      <div><dt>Established</dt><dd>2018</dd></div>
-      <div><dt>engineering college partners</dt><dd data-count="100">100+</dd></div>
-      <div><dt>engineers placed</dt><dd data-count="5000">5,000+</dd></div>
-      <div><dt>companies across construction, real estate, interiors and BIM</dt><dd data-count="300">300+</dd></div>
-    </dl>
-  </div>
-</div>
-'''
-home += section(shead("What we do", "Two ways CMTI builds construction talent",
-    "Industry-led training for the companies that build India, and for the engineers who join them.", hid="services-title") +
-    ABOUT_CARDS, "section services", "services", "services-title")
-home += section(f'''<div class="two-col">
-  <div class="prose reveal">
-    <p class="eyebrow">About CMTI · Established 2018</p>
-    <h2 id="about-title">Preparing professionals for construction careers</h2>
-    <p class="lead">CMTI is one of India’s leading construction edtech institutes, delivering industry-led skilling across India.</p>
-    <p>Er. S. G. Ashok Kumar, PMP, founded the Construction Management Training Institute in 2018. With guidance from Er. V. Suresh, a senior industry leader in building and construction standards, CMTI has expanded its training and placement activities across India.</p>
-    {arrow_link("About Us", "about.html")}
-  </div>
-  {NITI}
-</div>''', sid="about", label="about-title")
-home += section(shead("Delivery formats", "Learn in the format that fits", hid="formats-title") + '''<div class="cols-rule reveal">
-  <article>''' + icon("building") + '''<h3>Offline</h3><p>Classroom workshops, site visits and hands-on trade demonstrations.</p></article>
-  <article>''' + icon("laptop") + '''<h3>Online</h3><p>Live sessions and self-paced learning through CMTI Civil Engg Connect.</p>''' + arrow_link("Explore CMTI e-learning", "e-learning.html") + '''</article>
-  <article>''' + icon("layers") + '''<h3>Hybrid</h3><p>Online instruction combined with in-person workshops or site-based practice.</p></article>
-</div>''', sid="formats", label="formats-title")
-home += section('<div class="section-head reveal"><h2 id="clients-title">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "clients", "clients-title")
-home += team_section("section alt")
-home += trainers_section()
-home += section(f'''<div class="webinar-strip reveal">
-  {icon("monitor")}
-  <div class="ws-text">
-    <p class="ws-label">CMTI Webinars</p>
-    <h2 id="webinars-title">Free webinars led by industry practitioners</h2>
-    <p class="ws-when">Saturdays at 7:00 PM IST · Certificate of participation</p>
-  </div>
-  <a class="btn btn-primary" href="e-learning.html#webinars">Explore CMTI webinars</a>
-</div>''', "section webinar-section", "webinars", "webinars-title")
-options = "".join(f'<optgroup label="{g}">' + "".join(f"<option>{o}</option>" for o in opts) + "</optgroup>" for g, opts in PROGRAMME_GROUPS)
-home += section(f'''<div class="contact-wrap">
-  <div class="contact-info reveal">
-    <p class="eyebrow">Contact us</p>
-    <h2 id="contact-title">Let’s discuss your training needs</h2>
-    <p class="promise">We reply within one working day.</p>
-    <h3>Office address</h3>
-    <address>4th Floor, 177/1, 7th B Main Road<br>Above Menaka Cards, Near NMKRV Women’s College<br>Jayanagar 3rd Block, Bengaluru 560011, Karnataka</address>
-    <h3>Call or email CMTI</h3>
-    <p><a href="tel:+918884422480">8884422480</a> / <a href="tel:+918884422179">8884422179</a><br><a href="mailto:cmtioffice@cmti.co.in">cmtioffice@cmti.co.in</a></p>
-    <p>{arrow_link("Student testimonials", "testimonials.html")}</p>
-  </div>
-  <form id="enquiry" class="form-panel reveal" novalidate>
-    <h3>Training enquiry</h3>
-    <p class="help">Complete the form to open a draft in WhatsApp. Review and send it there.</p>
-    <div class="fields">
-      <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required maxlength="100" aria-describedby="e-name"><p class="field-error" id="e-name"></p></div>
-      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="150" aria-describedby="e-email"><p class="field-error" id="e-email"></p></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="35" aria-describedby="e-phone"><p class="field-error" id="e-phone"></p></div>
-      <div class="field"><label for="f-org">Organisation (optional)</label><input id="f-org" name="organisation" autocomplete="organization" maxlength="120"><p class="field-error"></p></div>
-      <div class="field"><label for="programme">Programme</label><select id="programme" name="programme" required aria-describedby="e-programme"><option value="">Select a programme</option>{options}</select><p class="field-error" id="e-programme"></p></div>
-      <div class="field"><label for="f-format">Preferred format</label><select id="f-format" name="format"><option>Flexible</option><option>Offline</option><option>Online</option><option>Hybrid</option></select><p class="field-error"></p></div>
-      <div class="field field-wide"><label for="f-message">Training requirements (optional)</label><textarea id="f-message" name="message" maxlength="1000"></textarea><p class="field-error"></p></div>
+
+<section class="section" id="programmes" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="programmes-h">
+  <div class="wrap mo-pc__grid">
+    <div class="mo-pc__text">
+      <h2 id="programmes-h">How the programmes run</h2>
+      <ol class="mo-pc__steps">
+        <li class="mo-pc__step">
+          <h3>Staff programmes at your sites</h3>
+          <p>We map skill gaps with your L&amp;D and operations teams, then train freshers, middle managers and project heads.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/corporate-staff-group.webp" alt="Staff from a CMTI capability development programme outside their office" width="1455" height="1091" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Trade training for workmen</h3>
+          <p>Formwork, masonry, bar bending, plumbing, waterproofing and finishes, taught on site by trade trainers.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/workmen-bar-bending.webp" alt="Workmen in hard hats learning to use a bar bending machine during CMTI on-site training" width="960" height="720" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Construction management course (CACM)</h3>
+          <p>Three months of drawings, BOQ, bar bending schedules, sequencing, quality and safety, with site visits.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/site-visit-group.webp" alt="CACM students in hard hats lined up on a construction site visit" width="1600" height="1200" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Interior design course (IDM)</h3>
+          <p>Three months of layouts, materials, estimates and cut lists, with visits to modular factories and showrooms.</p>
+          <figure class="mo-pc__visual"><img src="images/cmti/showroom-visit.webp" alt="IDM students listening to a guide during a showroom visit" width="1600" height="1117" loading="lazy"></figure>
+        </li>
+      </ol>
+      <p class="pc-link"><a class="link" href="cacm.html">See the certified courses</a></p>
     </div>
-    <button class="btn btn-wa" type="submit">{WA_ICON}Open WhatsApp draft</button>
-    <p class="form-status" id="form-status" role="status"></p>
-  </form>
-</div>''', "section alt", "contact", "contact-title")
-write("index.html", "CMTI | Construction Management Training Institute",
-      "Explore CMTI construction, interiors, corporate and trade skills programmes in offline, online and hybrid formats.", home)
+    <div class="mo-pc__visuals frame"></div>
+  </div>
+</section>
+
+<section class="section statement" id="trainers" data-moment="word-highlight" aria-label="Trainers">
+  <div class="wrap">
+    <p class="t-label">Trainers</p>
+    <p class="mo-wh__text">CMTI works with 50+ construction and real estate practitioners, most of them <strong>former L&amp;T professionals</strong>. They teach with real project examples and travel to sites from Delhi NCR, Gujarat, Karnataka, Pune, Hyderabad and Chennai.</p>
+  </div>
+</section>
+
+<section class="section ground-surface" id="recognition" aria-labelledby="recognition-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="recognition-h">Training awards and clients</h2>
+        <p>Best Skill Development Award at the ISDA Infracon 2025 national awards in New Delhi, and an appreciation from the Towell Group chairman for a programme in Manchester.</p>
+      </div>
+      <a class="link" href="awards.html">See the awards</a>
+    </div>
+    <div class="grid">
+      <div class="frame frame--photo span-6 pair"><img class="frame__img" src="images/awards/isda-infracon-2025-award.webp" alt="The CMTI team receiving the Best Skill Development Award on stage at ISDA Infracon 2025, New Delhi" width="1600" height="1200" loading="lazy"></div>
+      <div class="frame frame--photo span-6 pair"><img class="frame__img" src="images/awards/towell-manchester-appreciation.webp" alt="CMTI receiving an appreciation certificate from the Towell Group chairman in Manchester" width="800" height="615" loading="lazy"></div>
+    </div>
+    <div class="clients">
+      <p class="t-small muted">Clients include</p>
+      <div class="logos">{"".join(f'<img src="client-logos/h80/{n}.{e}" alt="{a}" width="{_logo_size(n, e)[0]}" height="{_logo_size(n, e)[1]}" loading="lazy">' for n, e, a in _HOME_CLIENTS)}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section ground-surface" id="feedback" aria-labelledby="feedback-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="feedback-h">Feedback from training participants</h2>
+        <p>Participants from two client programmes on what the training covered.</p>
+      </div>
+      <a class="link" href="https://youtube.com/c/CMTIConnect">Watch more on YouTube</a>
+    </div>
+    <div class="grid">
+      {_video_card("wjxFxRWlbUQ", "Muskan Singh", "DLF training by CMTI experts, Gurugram")}
+      {_video_card("DmFHuy2J4ow", "Bluewing Design and Constructions", "Formwork training, employee feedback")}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="colleges" aria-labelledby="colleges-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="colleges-h">College MoUs in 3 states</h2>
+        <p>{_N_COLLEGES} engineering colleges in Karnataka, Tamil Nadu and Andhra Pradesh work with CMTI on training, internships and campus hiring.</p>
+      </div>
+      <ul class="facts">
+        <li>300+ hiring companies across construction, real estate, interiors and BIM</li>
+        <li>CAD, BIM, planning and estimation training on campus</li>
+        <li>Industry partner inputs for NBA accreditation visits</li>
+      </ul>
+      <p><a class="link" href="colleges.html">See the partner colleges</a></p>
+    </div>
+    <div class="frame frame--photo frame--split span-6 start-7">
+      <img class="frame__img" src="images/cmti/street-group.webp" alt="CMTI students in hard hats with their trainers on a street outside a site" width="1500" height="1125" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="learn" aria-labelledby="learn-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="learn-h">Self-paced courses online</h2>
+        <p>{_N_COURSES} courses by construction practitioners on CMTI Civil Engg Connect, {_N_FREE} of them free. Free webinars run every Saturday at 7:00 PM IST.</p>
+      </div>
+      <a class="link" href="e-learning.html">See all {_N_COURSES} courses</a>
+    </div>
+    <div class="frame frame--lms">
+      <div class="lms ui ui-lms" role="group" aria-label="Free courses on CMTI Civil Engg Connect">
+        <div class="lms__bar"><span class="lms__name">CMTI Civil Engg Connect</span><span class="lms__tab">Free courses</span></div>
+        <ul class="lms__list">{"".join(_course_row(t) for t in _FREE_PICKS)}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section g2m" id="enquiry" aria-labelledby="enquiry-h">
+  <div class="wrap grid">
+    <div class="span-5 stack-5">
+      <div class="section-head">
+        <h2 id="enquiry-h">Contact CMTI about training</h2>
+        <p>Tell us who needs training, where and when. We reply within one working day.</p>
+      </div>
+      <dl class="contact-list">
+        <div><dt>Call</dt><dd>{v2.PHONES}</dd></div>
+        <div><dt>Email</dt><dd>{v2.EMAIL}</dd></div>
+        <div><dt>WhatsApp</dt><dd><a class="wa-link" href="https://wa.me/{v2.WA_NUMBER}">{v2.wa_icon(ROOT)}Message CMTI on WhatsApp</a></dd></div>
+      </dl>
+    </div>
+    <form class="form form--panel span-6 start-7" id="enquiry-form" action="https://wa.me/{v2.WA_NUMBER}" method="get" target="_blank" novalidate>
+      <div class="field"><label for="f-name">Full name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="f-name-err">
+        <p class="field__error" id="f-name-err" hidden>Write your full name.</p></div>
+      <div class="field"><label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="35" pattern="[\\d\\s\\+\\(\\)\\-]{{7,}}" aria-describedby="f-phone-err">
+        <p class="field__error" id="f-phone-err" hidden>Write a phone number we can call, with at least seven digits.</p></div>
+      <div class="field"><label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="150" aria-describedby="f-email-err">
+        <p class="field__error" id="f-email-err" hidden>Write an email address with an @, like name@company.com.</p></div>
+      <div class="field"><label for="f-org">Organisation (optional)</label>
+        <input id="f-org" name="organisation" type="text" autocomplete="organization" maxlength="120"></div>
+      <div class="field"><label for="programme">Programme</label>
+        <select id="programme" name="programme" required aria-describedby="programme-err"><option value="">Choose a programme</option>{_opts}</select>
+        <p class="field__error" id="programme-err" hidden>Choose the programme you are asking about.</p></div>
+      <div class="field"><label for="f-message">Training needs (optional)</label>
+        <textarea id="f-message" name="message" rows="2" maxlength="1000"></textarea></div>
+      <div class="btn-row"><button class="btn btn--primary" type="submit">Send an enquiry</button></div>
+      <p class="form__status" role="status" data-form-status></p>
+      <p class="t-small">Opens WhatsApp with your enquiry written out, ready to send to CMTI.</p>
+    </form>
+  </div>
+</section>
+'''
+open(f"{ROOT}/index.html", "w", encoding="utf-8").write(clean_links(v2.render_v2(
+    ROOT, "CMTI: construction training for companies, colleges and engineers",
+    "Construction training in Bengaluru and across India: staff and workmen programmes for EPC and real estate firms, CACM and IDM certified courses, and 76 online courses.",
+    home, "Plan your team’s training", "We reply within one working day.",
+    moments=("pinned-chapters", "word-highlight"), preload_img="images/cmti/rebar-inspection.webp",
+    deal="type: service · deal: hero film, nav nav-mega (redealt from nav-split), close close-type (redealt from close-photo: no unused photograph), footer footer-visit, rhythm surface-pairs, buttons block, mark: CMTI logo · moments: pinned-chapters (#programmes), word-highlight (#trainers)")))
+print("wrote index.html (redesign)")
 
 # ================================================================ ABOUT
 about = page_hero("About Us", "About CMTI · Established 2018", "Preparing professionals for construction careers",
@@ -513,11 +667,11 @@ write("about.html", "About CMTI | CMTI", "About the Construction Management Trai
 # ================================================================ VISION & MISSION
 vm = page_hero("Mission &amp; Vision", "What guides CMTI", "Vision &amp; Mission", img="images/cmti/site-visit-group.webp")
 vm += section(f'''<div class="vm-block reveal">
-  <div class="vm-img"><img src="images/cmti/vision.webp" alt="A CMTI trainer pointing out a city skyline and green building to engineers on a rooftop" loading="lazy" width="1600" height="800"></div>
+  <div class="vm-img"><img src="images/cmti/rebar-inspection.webp" alt="CMTI course participants in hard hats inspecting reinforcement steel on a construction site" loading="lazy" width="1600" height="1200"></div>
   <div class="vm-text">{icon("eye")}<h2 id="vision-title">Vision</h2><p>Our objective is to help construction based professionals be prepared and ready once they enter the industry by providing an extensive module of necessary training that gives them the fundamental skills and paramount level of preparedness to perform tasks and tackle any challenge that lies ahead of them once they enter the building and construction industry.</p></div>
 </div>
 <div class="vm-block flip reveal">
-  <div class="vm-img"><img src="images/cmti/mission.webp" alt="A CMTI trainer reviewing drawings with engineers at a construction site" loading="lazy" width="1440" height="667"></div>
+  <div class="vm-img"><img src="images/cmti/site-visit-group.webp" alt="CACM students in hard hats lined up on a construction site visit" loading="lazy" width="1600" height="1200"></div>
   <div class="vm-text">{icon("target")}<h2>Mission</h2><p>Our services are designed to help individuals improve their chances of building their careers in the construction industry in two different ways. Firstly by providing the required training to be eligible for employment. Secondly by offering placements and opportunities to professionals through our list of excellent, renowned clients and contacts in the construction industry.</p></div>
 </div>''', label="vision-title")
 vm += cta()
@@ -528,7 +682,7 @@ def assoc(logo, abbr, name, text):
     return f'<article class="card reveal"><img class="logo" src="association-logos/{logo}" alt="{abbr} logo" loading="lazy"><p class="label">{abbr}</p><h3>{name}</h3><p>{text}</p></article>'
 asc = page_hero("Professional Associations", "Professional network", "Professional associations",
     "CMTI experts regularly participate in conferences, exhibitions and webinars to keep up with emerging industry requirements.",
-    "images/cmti/associations-banner.webp", "Areas of professional exchange", ["Civil engineering", "Concrete practice", "Plumbing systems", "Green buildings"])
+    "images/cmti/corporate-staff-training.webp", "Areas of professional exchange", ["Civil engineering", "Concrete practice", "Plumbing systems", "Green buildings"])
 asc += section('<div class="grid" style="--cols:4">' +
     assoc("acce.jpeg", "ACCE", "Association of Consulting Civil Engineers", "A forum for civil engineers to exchange practical knowledge on design, construction and professional practice.") +
     assoc("ici.jpeg", "ICI", "Indian Concrete Institute", "Promotes knowledge of concrete technology, from materials and mix design to site execution, testing and durability.") +
@@ -554,7 +708,7 @@ def story(vid, name, sub):
 
 tst = page_hero("Testimonials", "CMTI testimonials", "Hear from the people we train",
     "Feedback from participants of CMTI training programmes, from on-site corporate training to our certified courses.",
-    "images/cmti/testimonials-banner.webp",
+    "images/cmti/site-visit-group.webp",
     actions='<a class="btn btn-white" href="#stories">Watch training feedback</a>',
     extra='<div class="rating-box" style="margin-top:28px"><span class="score">4.7</span><span><span class="stars" style="--rating:4.7" role="img" aria-label="Rated 4.7 out of 5"></span><strong>2,362</strong> Google reviews</span></div>')
 tst += section(shead("Training feedback", "In their own words",
@@ -576,7 +730,7 @@ write("testimonials.html", "Testimonials and Reviews | CMTI", "Training feedback
 # ================================================================ E-LEARNING
 el = page_hero("E-Learning", "CMTI Civil Engg Connect", "Learn construction skills at your pace",
     "Explore 80+ affordable, self-paced courses delivered by construction industry experts. Designed for civil engineering students, fresh graduates and working professionals.",
-    "images/cmti/e-learning-laptop.webp",
+    "images/cmti/showroom-visit.webp",
     actions='<a class="btn btn-white" href="https://play.google.com/store/apps/details?id=com.learn.cmti">Download the Android app</a><a class="btn btn-ghost-white" href="https://elearn.cmti.co.in/">Open the e-learning platform</a>')
 # Courses offered: data comes from tools/elearn_courses.json (taken from elearn.cmti.co.in)
 import json as _json
@@ -718,7 +872,7 @@ idm += cta()
 write("idmti.html", "Interior Design &amp; Management Course (IDM) | CMTI", "Certificate Course on Interior Design & Management from IDMTI: 3 months, offline, online and hybrid.", idm)
 
 # ================================================================ COLLEGES
-col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/colleges-banner.webp",
+col = page_hero("College MoUs", "College partnerships", "What a CMTI MoU offers your college", img="images/cmti/street-group.webp",
     tags_label="Campus-to-career support", tags=["Software and workshops", "Internship exposure", "Interview preparation"],
     actions=f'<a class="btn btn-white" href="{enquire("College MoU")}">Discuss a College MoU</a>')
 col += '''<div class="stat-strip"><div class="container"><dl style="grid-template-columns:repeat(3,minmax(0,1fr))">
@@ -883,7 +1037,7 @@ def award(img, alt, w, h, kind, title, meta, text="", extra=None):
             f'<div class="award-body"><p class="award-kind">{kind}</p><h2>{title}</h2><p class="award-meta">{meta}</p>{f"<p>{text}</p>" if text else ""}</div></article>')
 
 aw = page_hero("Awards &amp; Certificates", "About CMTI", "Awards &amp; Certificates",
-    "Recognition for CMTI's work in construction skilling and corporate training.", "images/awards/awards-banner.webp")
+    "Recognition for CMTI's work in construction skilling and corporate training.", "images/awards/isda-infracon-2025-award.webp")
 aw += section('<div class="award-list">' +
     award("images/awards/isda-infracon-2025-award.webp", "CMTI receiving the Best Skill Development Award on stage at the ISDA Infracon National Awards 2025", 1600, 1200,
           "Award", "Best Skill Development Award for CMTI",
