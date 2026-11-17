@@ -1,0 +1,21 @@
+{
+ "palettes": [],
+ "types": [],
+ "dealt": [
+  "nunito",
+  "source-serif",
+  "gabarito"
+ ],
+ "moments": [
+  {
+   "id": "pinned-chapters",
+   "at": "2026-11-17T17:18:33.740Z",
+   "seed": "c775063c"
+  },
+  {
+   "id": "word-highlight",
+   "at": "2026-11-17T17:18:33.740Z",
+   "seed": "c775063c"
+  }
+ ]
+}
