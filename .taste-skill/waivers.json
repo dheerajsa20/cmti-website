@@ -1,22 +1,6 @@
 [
-  {
-    "check": "effect-kind",
-    "target": "(the page)",
-    "reason": "The client's brief asks for Lenis smooth scrolling: wheel smoothing only, native touch, turned off under reduced motion; nothing on the page is linked to the scroll by it"
-  },
-  {
-    "check": "phone-number",
-    "target": "tel:+918884422480",
-    "reason": "CMTI's own office number, given in the brief to keep exactly; it is the client's real line, not a stranger's"
-  },
-  {
-    "check": "phone-number",
-    "target": "tel:+918884422179",
-    "reason": "CMTI's own office and WhatsApp number, given in the brief to keep exactly; it is the client's real line"
-  },
-  {
-    "check": "phone-number",
-    "target": "div.span-5.stack-5 > dl.contact-list > div:nth-of-type(1) \"8884422480\"",
-    "reason": "The same CMTI office numbers, printed beside their label as the brief requires; they are the client's own lines"
-  }
+  {"check": "effect-kind", "target": "(the page)", "reason": "The client's brief asks for Lenis smooth scrolling: wheel smoothing only, native touch, turned off under reduced motion; nothing on the page is linked to the scroll by it"},
+  {"check": "phone-number", "target": "tel:+918884422480", "reason": "CMTI's own office number in the footer, given in the brief to keep exactly; it is the client's real line"},
+  {"check": "phone-number", "target": "tel:+918884422179", "reason": "CMTI's own office and WhatsApp number in the footer, given in the brief to keep exactly; it is the client's real line"},
+  {"check": "no-visual", "target": "section#training-topics", "reason": "The twelve training topics are a reference list, like a specs table; the skill allows one picture-less list section and both neighbours carry photographs"}
 ]

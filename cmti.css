@@ -115,3 +115,26 @@ html[data-buttons] .btn.btn--wa:hover { background: #0e7a40; }
 /* real brand marks (assets/icons), inlined so they take the text colour */
 .brand-ico { display: inline-flex; width: 18px; height: 18px; }
 .brand-ico svg { width: 100%; height: 100%; }
+
+/* ---- For Corporates ---- */
+/* picture-develops: the one photograph beside the career stages, as tall as the list (kit demo's page CSS) */
+.develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(560px, var(--ly-fit, 560px)); }
+.develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) { .develop { height: auto; aspect-ratio: 4 / 3; margin-top: var(--s-7); } }
+/* the still diagram of the five programme steps */
+.panel.panel--dg { --p-h: 520px; --font-mono: var(--font-text); background: var(--surface); border-radius: var(--r-lg); flex: none; }
+@media (max-width: 1023px) { .panel.panel--dg { margin-top: var(--s-7); } }
+/* the twelve topics: three columns of rows */
+#training-topics .rows > li { padding-block: var(--s-5); }
+/* the five programme steps, drawn as a still illustration (its words are in the frame's aria-label) */
+.steps-pic { --ratio: 0; justify-content: flex-start; padding: clamp(var(--s-5), 4vw, var(--s-8)); }
+.steps-pic__list { display: grid; gap: var(--s-5); position: relative; width: 100%; }
+.steps-pic__list::before { content: ""; position: absolute; left: 23px; top: 24px; bottom: 24px; width: 2px; background: color-mix(in oklab, var(--accent) 35%, var(--line)); }
+.steps-pic__list li { position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: var(--s-4); align-items: center; }
+.steps-pic__ic { grid-row: 1 / span 2; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--bg);
+                 border: 1px solid var(--line); color: var(--accent); box-shadow: 0 6px 16px -10px rgb(10 31 58 / .35); }
+.steps-pic__ic svg { width: 22px; height: 22px; }
+.steps-pic__l { font-weight: 500; }
+.steps-pic__s { font-size: var(--t-small); color: var(--muted); }
+.rows--trades > li { padding-block: var(--s-3); }
+@media (max-width: 1023px) { #training-topics .rows > li { padding-block: var(--s-3); } }

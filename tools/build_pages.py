@@ -885,104 +885,164 @@ col += section(college_directory(), label="dir-title")
 col += cta()
 write("colleges.html", "College MoUs | CMTI", "What a CMTI MoU offers engineering colleges: placements, internships, software training, curriculum development and more.", col)
 
-# ================================================================ CORPORATE
-def stage(title, text, big, small, tone):
-    """Solid colour block: a large experience figure on the left, title and text on the right."""
-    return (f'<article class="stage-block tone-{tone}"><p class="sb-figure">{big}<small>{small}</small></p>'
-            f'<div><h4>{title}</h4><p>{text}</p></div></article>')
-
+# ================================================================ CORPORATE (redesign-2026, design-taste-frontend kit)
 PC = "Capability Development Programme for Staff"
-corp = page_hero("For Corporates", "For Corporates", "Technical capability development",
-    "Customised construction training for your teams, project needs and industry standards.", "images/cmti/corporate-staff-training.webp",
-    actions=f'<a class="btn btn-white" href="{enquire(PC)}">Discuss your training needs</a>')
-REASONS = [("target", "Customised programmes", "We work with Learning &amp; Development and Operations teams to align training with participant roles, project needs and industry standards."),
-    ("helmet", "Experienced industry practitioners", "Our network of 50+ trainers brings hands-on construction and real estate experience. Most are former Larsen &amp; Toubro professionals."),
-    ("pin", "Pan-India delivery", "We deliver training at project sites and corporate offices across India, with online and hybrid options."),
-    ("tag", "Affordable pricing", "We align the scope, duration and delivery format with your training priorities and budget."),
-    ("chart", "Proven track record and strong NPS", "We deliver programmes for real estate, EPC and government organisations, track participant feedback using Net Promoter Score, and assess learning against agreed objectives.")]
-reason_items = "".join(
-    f'<li class="reason{" is-open" if i == 1 else ""}"><button type="button" class="reason-head" aria-expanded="{"true" if i == 1 else "false"}" aria-controls="reason-{i}">'
-    f'<span class="reason-num">{i:02d}</span>{icon(ic)}<span class="reason-title">{t}</span><span class="reason-x" aria-hidden="true"></span></button>'
-    f'<div class="reason-body" id="reason-{i}"{"" if i == 1 else " hidden"}><p>{d}</p></div></li>'
-    for i, (ic, t, d) in enumerate(REASONS, 1))
-corp += section(f'''<div class="reasons-panel reveal">
-  <div class="reasons-lead">
-    <h2 id="why-title">Top 5 reasons corporates choose CMTI as their technical capability development partner</h2>
-    <p>Customised construction training for your teams, project needs and industry standards.</p>
-    <a class="btn btn-primary" href="{enquire(PC)}">Make an enquiry</a>
-  </div>
-  <ol class="reasons-list" data-reasons>{reason_items}</ol>
-</div>''', label="why-title")
-corp += section(shead("", "How we customise each programme", hid="steps-title") + '<ol class="steps reveal" aria-label="Programme customisation steps">' + "".join(f"<li>{s}</li>" for s in [
-    "Discuss needs with L&amp;D and Operations", "Identify skill gaps and map competencies", "Refine and agree the session plan",
-    "Develop tailored training content", "Deliver and assess learning"]) + "</ol>", "section dark on-dark", label="steps-title")
-corp += section(f'''<div class="two-col">
-  <div class="prose reveal">
-    <p class="eyebrow">Corporate training</p>
-    <h2 id="staff-title">Capability Development Programme for Staff</h2>
-    <p class="lead">When skilled hires are hard to find, upskilling helps existing staff take on more responsibility in their current roles, while reskilling prepares them for new roles. CMTI works with L&amp;D and Operations to identify skill gaps and design training around the work participants will do.</p>
-    <div class="photo" style="margin-top:32px"><img src="images/cmti/corporate-staff-group.webp" alt="Corporate staff participants of a CMTI capability development programme" loading="lazy" width="1455" height="1091"></div>
-  </div>
-  <div class="reveal">
-    <h3 style="margin-bottom:20px">Training by career stage</h3>
-    <div class="stage-blocks">
-      {stage("Freshers", "Diploma Engineer Trainee (DET) and Graduate Engineer Trainee (GET) programmes. We tailor the duration and topics to business needs. CMTI has delivered GET programmes for nine years, with programme details available on request.", "DET / GET", "programmes", 1)}
-      {stage("Middle management", "We recommend a two-day workshop on construction topics selected with your team.", "3–15", "years of experience", 2)}
-      {stage("Construction and project managers", "Workshops tailored to senior project responsibilities and organisational priorities.", "15+", "years of experience", 3)}
+_CORP_STEPS = {
+    "layout": "timeline", "orient": "v", "ground": "none", "motion": {"pulse": "none"},
+    "alt": "CMTI builds a programme in five steps: needs discussed with L&D and operations, skill gaps mapped, the session plan agreed, content developed, then training delivered and learning assessed.",
+    "steps": [
+        {"label": "Needs discussed", "sub": "With L&D and operations", "icon": "ui:messages-square"},
+        {"label": "Skill gaps mapped", "sub": "Roles and competencies", "icon": "ui:target"},
+        {"label": "Session plan agreed", "sub": "Refined with your team", "icon": "ui:clipboard-check"},
+        {"label": "Content developed", "sub": "Tailored to your projects", "icon": "ui:file-pen"},
+        {"label": "Learning assessed", "sub": "Delivered and measured", "icon": "ui:graduation-cap"},
+    ]}
+_TOPICS_V2 = [("Construction management", "Core and shell, formwork, finishes and handover."),
+    ("Project management", "Planning, project controls and software tools."),
+    ("Quality management", "Quality planning, inspections and corrective actions."),
+    ("Safety management", "Hazard identification, risk controls and safe work."),
+    ("MEPF", "Mechanical, electrical, plumbing and firefighting systems."),
+    ("AI in construction", "Applying AI across construction functions."),
+    ("Real estate", "Real estate basics for people outside the sector."),
+    ("Finance", "Finance basics for non-finance professionals."),
+    ("Customer relationship management", "Customer communication, issues and handover."),
+    ("RERA and National Building Code", "Real estate regulation and building code requirements."),
+    ("Green buildings, sustainability and ESG", "Resource efficiency and sustainable construction."),
+    ("Quality management systems (QMS)", "ISO 9001:2026, audits and third-party certification.")]
+
+def _lucide(name):
+    svg = open(os.path.join(ROOT, f"assets/icons/ui-{name}.svg"), encoding="utf-8").read()
+    return svg.replace("<svg ", '<svg aria-hidden="true" focusable="false" ', 1)
+
+def _rows(items):
+    return "".join(f'<li><span class="rows__name">{n}</span><p>{t}</p></li>' for n, t in items)
+
+corp = f'''<section class="hero hero--photo" data-enter data-calm="left" aria-labelledby="hero-h">
+  <img class="hero__bg" src="images/cmti/corporate-staff-training.webp" srcset="images/cmti/corporate-staff-training-hero-phone.webp 1049w, images/cmti/corporate-staff-training.webp 1600w" sizes="(max-width: 639px) 390px, 100vw" alt="A CMTI trainer leading a workshop for corporate staff around a conference table" width="1600" height="952" style="--ly-pos: 72% 50%; --ly-pos-phone: 50% 50%" fetchpriority="high">
+  <div class="wrap"><div class="hero-text">
+    <div class="hero__text">
+      <h1 id="hero-h">Construction team training</h1>
+      <p class="hero__lead">Staff and workmen training for EPC and real estate teams, by 50+ trainers.</p>
+      <div class="btn-row"><a class="btn btn--primary" href="{enquire(PC)}">Send an enquiry</a><a class="btn btn--secondary" href="#training-topics">See the training topics</a></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="section" id="process" aria-labelledby="process-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="process-h">How CMTI builds a training programme</h2>
+        <p>Five steps with your L&amp;D and operations teams, led by CMTI’s 50+ practitioner trainers. Scope, duration and format are set to your priorities and budget.</p>
+      </div>
+      <p><a class="link" href="{enquire(PC)}">Request a training plan</a></p>
+    </div>
+    <div class="steps-pic frame span-6 start-7" role="img" aria-label="{_CORP_STEPS['alt']}">
+      <ol class="steps-pic__list" aria-hidden="true">{"".join(f'<li><span class="steps-pic__ic">{_lucide(st["icon"][3:])}</span><span class="steps-pic__l">{st["label"]}</span><span class="steps-pic__s">{st["sub"]}</span></li>' for st in _CORP_STEPS["steps"])}</ol>
     </div>
   </div>
-</div>''', "section alt", "training-participants", "staff-title")
-TOPICS = [("building", "Construction Management", "Core and shell, formwork, finishes and handover protocols."),
-    ("chart", "Project Management", "Project planning, project controls and software tools."),
-    ("check", "Quality Management", "Quality planning, inspections and corrective actions."),
-    ("shield", "Safety Management", "Site hazard identification, risk controls and safe work practices."),
-    ("bolt", "MEPF", "Mechanical, electrical, plumbing and firefighting systems."),
-    ("cpu", "AI in Construction", "Applying artificial intelligence across construction functions."),
-    ("home", "Real Estate", "Real estate fundamentals for professionals outside the sector."),
-    ("rupee", "Finance", "Finance fundamentals for non-finance professionals."),
-    ("handshake", "Customer Relationship Management", "Customer communication, issue resolution and handover coordination."),
-    ("scale", "RERA and National Building Code", "An overview of real estate regulation and building code requirements."),
-    ("leaf", "Green Buildings, Sustainability and ESG", "Resource efficiency, sustainable construction and ESG practices."),
-    ("award", "Quality Management Systems (QMS)", "ISO 9001:2026 requirements, audit planning, auditing principles, audit reporting and the third-party certification process.")]
-# Topic flip cards: hover (or tap / Enter) flips a card to show what the topic covers.
-flips = "".join(
-    f'<article class="flip-card" data-flip>'
-    f'<div class="flip-inner">'
-    f'<button class="flip-face flip-front" type="button" aria-expanded="false">{icon(ic)}<h3>{t}</h3>'
-    f'<span class="flip-hint" aria-hidden="true">Flip for details</span><span class="sr-only">: show what this topic covers</span></button>'
-    f'<div class="flip-face flip-back"><p class="flip-num">Topic {i:02d}</p><h3>{t}</h3><p>{d}</p>'
-    f'<div class="flip-actions"><a class="link-arrow" href="{enquire(PC)}">Enquire with CMTI</a>'
-    f'<button class="flip-return" type="button">Back</button></div></div>'
-    f'</div></article>'
-    for i, (ic, t, d) in enumerate(TOPICS, 1))
-corp += section(shead("", "Explore training topics", "Select a topic to see what it covers.", hid="topics-title") +
-    f'<div class="flip-grid reveal">{flips}</div>', sid="training-topics", label="topics-title")
-corp += section(f'''<div class="two-col center">
-  <div class="photo reveal"><img src="images/cmti/workmen-bar-bending.webp" alt="Workmen in hard hats learning to use a bar bending machine during CMTI on-site training" loading="lazy" width="960" height="720"></div>
-  <div class="reveal">
-    <h2 id="workmen-title">Capability Development Programme for Workmen</h2>
-    <ul class="tags light" style="padding:0">{"".join(f'<li style="border:1px solid var(--line);color:var(--ink)">{t}</li>' for t in ["Formwork &amp; scaffolding", "Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"])}</ul>
-    <p class="lead">Experienced trade trainers customise practical programmes around project requirements and the work crews perform on site.</p>
-    <p>Formwork and scaffolding certification is available as part of the trade training offering.</p>
-    <a class="btn btn-primary" href="{enquire("Capability Development Programme for Workmen")}">Enquire with CMTI</a>
+</section>
+
+<section class="section" id="where" data-moment="photo-chapters" aria-labelledby="where-h">
+  <div class="wrap mo-ph">
+    <div class="mo-ph__head"><h2 id="where-h">Where the training happens</h2><p>At your offices and on live sites across India, with online and hybrid options.</p></div>
+    <ol class="mo-ph__list">
+      <li class="mo-ph__ch" id="training-participants">
+        <figure class="mo-ph__pic"><img src="images/cmti/corporate-staff-group.webp" alt="Staff from a CMTI capability development programme outside their office" width="1455" height="1091" srcset="images/cmti/corporate-staff-group-phone.webp 666w, images/cmti/corporate-staff-group.webp 1455w" sizes="(max-width: 639px) 360px, 1440px" loading="lazy"></figure>
+        <h3>Staff programmes at offices and sites</h3>
+        <p>Upskilling for current roles and reskilling for new ones, designed around the work participants do.</p>
+      </li>
+      <li class="mo-ph__ch">
+        <figure class="mo-ph__pic"><img src="images/cmti/rebar-inspection.webp" alt="Trainees in hard hats inspecting reinforcement steel on a construction site" width="1600" height="1200" srcset="images/cmti/rebar-inspection-phone.webp 567w, images/cmti/rebar-inspection.webp 1600w" sizes="(max-width: 639px) 360px, 1440px" loading="lazy"></figure>
+        <h3>Practice on live sites</h3>
+        <p>Hybrid programmes add site-based practice to online sessions and in-person workshops.</p>
+      </li>
+      <li class="mo-ph__ch">
+        <figure class="mo-ph__pic"><img src="images/cmti/site-visit-group.webp" alt="Trainee engineers in hard hats lined up on a construction site visit" width="1600" height="1200" srcset="images/cmti/site-visit-group-phone.webp 732w, images/cmti/site-visit-group.webp 1600w" sizes="(max-width: 639px) 360px, 1440px" loading="lazy"></figure>
+        <h3>Trainee engineer programmes</h3>
+        <p>DET and GET programmes with the duration and topics set to your needs, run by CMTI for nine years.</p>
+      </li>
+    </ol>
   </div>
-</div>''', "section alt", "workmen", "workmen-title")
-def service(sid, ic, title, steps, text):
-    prog = title
-    return (f'<article class="service reveal" id="{sid}"><div class="service-head">{icon(ic)}<h3>{title}</h3></div>'
-            f'<div class="service-body"><p class="service-label">How it works</p><ol class="service-steps">' + "".join(f"<li>{s}</li>" for s in steps) +
-            f'</ol><p class="service-text">{text}</p><a class="btn btn-primary service-cta" href="{enquire(prog)}">Enquire with CMTI</a></div></article>')
-corp += section('<div class="service-grid">' +
-    service("content-development", "doc", "Content Development", ["Understand project workflows", "Develop SOPs and learning materials", "Review with your team"],
-            "CMTI develops standard operating procedures and training content for in-house learning systems. We tailor materials to project workflows, roles and site requirements.") +
-    service("assessment", "search", "Assessment of Employees", ["Identify role competencies", "Assess skills and knowledge", "Report gaps and training priorities"],
-            "CMTI helps L&amp;D teams assess employees periodically using suitable internationally used assessment tools. We report competency gaps and priorities for follow-up training. CMTI has delivered assessments for multiple clients.") +
-    service("hiring", "handshake", "Hiring Support", ["Share your hiring needs", "Connect with campuses", "Interview potential hires"],
-            "CMTI has trained 5,000+ engineers through its Finishing School and works with 100+ engineering colleges. We can help employers coordinate campus hiring for entry-level engineering roles.") +
-    "</div>")
-corp += section('<div class="section-head reveal"><h2 id="corp-clients">Trusted By Leading Organizations</h2></div>' + client_marquee(), "section alt", "client-logos", "corp-clients")
-corp += cta()
-write("corporate.html", "For Corporates | CMTI", "Customised construction training for staff and workmen, content development, employee assessment and hiring support across India.", corp)
+</section>
+
+<section class="section" id="workmen" aria-labelledby="workmen-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="workmen-h">Trade training for workmen</h2>
+        <p>Experienced trade trainers build practical programmes around your project and the work your crews do on site.</p>
+      </div>
+      <ul class="rows rows--trades"><li><span class="rows__name">Formwork and scaffolding</span><span class="rows__value">Certification available</span></li>{"".join(f'<li><span class="rows__name">{t}</span></li>' for t in ("Masonry", "Bar bending", "Plumbing", "Waterproofing", "Finishing works"))}</ul>
+    </div>
+    <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="images/cmti/workmen-bar-bending.webp" alt="Workmen in hard hats learning to use a bar bending machine during CMTI on-site training" width="960" height="720" loading="lazy" data-full></figure>
+  </div>
+</section>
+
+<section class="section" id="training-topics" aria-labelledby="topics-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="topics-h">12 training topics</h2>
+        <p>Middle managers with 3 to 15 years of experience take a two-day workshop on topics chosen with your team; project heads with 15+ years take workshops built around senior responsibilities.</p>
+      </div>
+      <a class="link" href="{enquire(PC)}">Ask about a topic</a>
+    </div>
+    <div class="grid">
+      <ul class="rows span-4">{_rows(_TOPICS_V2[0:4])}</ul>
+      <ul class="rows span-4">{_rows(_TOPICS_V2[4:8])}</ul>
+      <ul class="rows span-4">{_rows(_TOPICS_V2[8:12])}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" aria-labelledby="services-h">
+  <div class="wrap grid">
+    <div class="span-5">
+      <div class="section-head">
+        <h2 id="services-h">Support services for L&amp;D teams</h2>
+        <p>Beyond training, CMTI helps L&amp;D teams write material, measure skills and hire engineers.</p>
+      </div>
+      <ul class="rows">
+        <li id="content-development"><span class="rows__name">Content development</span><span class="rows__value">SOPs</span><p>SOPs and training material for your in-house learning system, written around your workflows.</p></li>
+        <li id="assessment"><span class="rows__name">Employee assessment</span><span class="rows__value">Skill gaps</span><p>Periodic assessments with internationally used tools, reporting gaps and training priorities.</p></li>
+        <li id="hiring"><span class="rows__name">Hiring support</span><span class="rows__value">100+ colleges</span><p>Campus hiring for entry-level engineering roles through CMTI's partner colleges.</p></li>
+      </ul>
+    </div>
+    <div class="frame frame--photo frame--split span-6 start-7">
+      <img class="frame__img" src="images/cmti/street-group.webp" alt="Engineering trainees in hard hats with their CMTI trainers outside a site" width="1500" height="1125" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section ground-surface" id="client-logos" aria-labelledby="clients-h">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="clients-h">Clients and training awards</h2>
+        <p>Programmes for real estate, EPC and government clients including ISRO, and for the Towell Group in Manchester. Participant feedback is tracked by Net Promoter Score.</p>
+      </div>
+      <a class="link" href="awards.html">See the awards</a>
+    </div>
+    <div class="grid">
+      <div class="frame frame--photo span-6 pair"><img class="frame__img" src="images/awards/isda-infracon-2025-award.webp" alt="The CMTI team receiving the Best Skill Development Award on stage at ISDA Infracon 2025, New Delhi" width="1600" height="1200" loading="lazy"></div>
+      <div class="frame frame--photo span-6 pair"><img class="frame__img" src="images/awards/towell-manchester-appreciation.webp" alt="CMTI receiving an appreciation certificate from the Towell Group chairman in Manchester" width="800" height="615" loading="lazy"></div>
+    </div>
+    <div class="clients">
+      <p class="t-small muted">Clients include</p>
+      <div class="logos">{"".join(f'<img src="client-logos/h80/{n}.{e}" alt="{a}" width="{_logo_size(n, e)[0]}" height="{_logo_size(n, e)[1]}" loading="lazy">' for n, e, a in _HOME_CLIENTS)}</div>
+    </div>
+  </div>
+</section>
+'''
+open(f"{ROOT}/corporate.html", "w", encoding="utf-8").write(clean_links(v2.render_v2(
+    ROOT, "CMTI for companies: construction training for staff and workmen",
+    "Construction training for EPC, real estate and government teams across India: staff and workmen programmes, 12 training topics, content development, employee assessment and hiring support.",
+    corp, "Plan your team’s training", "We reply within one working day.", current="corporate.html",
+    moments=("photo-chapters", "picture-develops"), preload_img="images/cmti/corporate-staff-training.webp",
+    preload_set=("images/cmti/corporate-staff-training-hero-phone.webp 1049w, images/cmti/corporate-staff-training.webp 1600w", "(max-width: 639px) 390px, 100vw"),
+    deal="type: service · deal: hero photo (data-calm left), nav nav-mega, close close-type, footer footer-visit, rhythm surface-pairs, buttons block · moments: photo-chapters (#where), picture-develops (#workmen) · a still illustration of the five steps (#process)")))
+print("wrote corporate.html (redesign)")
 
 # ================================================================ PRIVACY POLICY (text from cmti.co.in)
 def legal_page(blocks):

@@ -1,81 +1,92 @@
 {
- "start": "2026-11-17T17:18:18.081Z",
- "round": 2,
+ "start": "2026-11-18T18:50:55.809Z",
+ "round": 3,
  "idle": 0,
  "errors": 0,
- "status": "pass",
+ "status": "open",
  "history": [
   {
-   "at": "2026-11-17T17:23:44.430Z",
-   "mode": "hook",
-   "host": "claude",
-   "status": "fail",
-   "fails": 112,
-   "round": 0,
-   "reused": false,
-   "stopHookActive": false,
-   "decision": "block",
-   "reason": "112 FAILs remain (not a round: the gate has not been run by hand in this build yet):"
-  },
-  {
-   "at": "2026-11-17T17:23:49.826Z",
-   "mode": "hook",
-   "host": "claude",
-   "status": "fail",
-   "fails": 112,
-   "round": 0,
-   "reused": true,
-   "stopHookActive": true,
-   "decision": "allow",
-   "reason": "nothing changed since the last block; this stop is allowed once without a round (a question to the user)"
-  },
-  {
-   "at": "2026-11-17T17:48:49.391Z",
+   "at": "2026-11-18T18:53:04.771Z",
    "mode": "manual",
    "status": "fail",
-   "fails": 3,
+   "fails": 5,
    "round": 1,
    "reused": false,
    "stopHookActive": false
   },
   {
-   "at": "2026-11-17T18:02:46.091Z",
+   "at": "2026-11-18T18:57:51.173Z",
    "mode": "manual",
    "status": "fail",
-   "fails": 2,
+   "fails": 1,
    "round": 2,
    "reused": false,
    "stopHookActive": false
   },
   {
-   "at": "2026-11-17T18:07:59.246Z",
+   "at": "2026-11-18T19:00:20.650Z",
    "mode": "manual",
-   "status": "pass",
-   "fails": 0,
-   "round": 2,
+   "status": "open",
+   "fails": 1,
+   "round": 3,
    "reused": false,
    "stopHookActive": false
   }
  ],
  "max": 3,
  "marker": {
-  "page": "index.html",
-  "dir": "/home/user/cmti-website",
-  "kind": "service",
-  "start": "2026-11-17T17:18:18.081Z",
-  "by": "start.mjs",
+  "page": "corporate.html",
   "url": null,
+  "root": null,
+  "kind": "service",
   "category": "construction training programmes and courses",
-  "primary": "Send an enquiry"
+  "primary": "Send an enquiry",
+  "rounds": 3,
+  "start": "2026-11-18T18:50:55.809Z",
+  "by": "gate.mjs --start"
  },
- "roundKey": "acb7a7bce62831ec:22efc619",
+ "manual": true,
+ "roundKey": "80555242044174da:cc390c73",
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "79be781c31e9afbf",
- "page": "index.html",
+ "fp": "80555242044174da",
+ "page": "corporate.html",
  "found": {
   "fails": [
+   {
+    "check": "no-visual",
+    "where": "section#training-topics \"12 training topics\"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#training-topics \"12 training topics\""
+    ]
+   },
+   {
+    "check": "copy-fact",
+    "where": "h1#hero-h \"Construction team training\"",
+    "msg": "the first screen holds no number, price, date, place, platform or genre",
+    "fix": "put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-fact"
+    ],
+    "wheres": [
+     "h1#hero-h \"Construction team training\""
+    ]
+   },
    {
     "check": "effect-kind",
     "where": "(the page)",
@@ -94,8 +105,8 @@
    },
    {
     "check": "phone-number",
-    "where": "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(1) \"tel:+918884422480\"",
-    "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422480\"; a visitor can dial it and reach a stranger (and 1 more like it: div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(1))",
+    "where": "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(1) \"tel:+918884422480\"",
+    "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422480\"; a visitor can dial it and reach a stranger",
     "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
     "widths": [
      1440
@@ -105,13 +116,13 @@
      "phone-number"
     ],
     "wheres": [
-     "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(1) \"tel:+918884422480\""
+     "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(1) \"tel:+918884422480\""
     ]
    },
    {
     "check": "phone-number",
-    "where": "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(2) \"tel:+918884422179\"",
-    "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422179\"; a visitor can dial it and reach a stranger (and 2 more like it: dl.contact-list > div:nth-of-type(3) > dd > a.wa-link, div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(2))",
+    "where": "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(2) \"tel:+918884422179\"",
+    "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422179\"; a visitor can dial it and reach a stranger",
     "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
     "widths": [
      1440
@@ -121,42 +132,15 @@
      "phone-number"
     ],
     "wheres": [
-     "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(2) \"tel:+918884422179\""
-    ]
-   },
-   {
-    "check": "phone-number",
-    "where": "div.wrap.grid > div.span-5.stack-5 > dl.contact-list > div:nth-of-type(1) \"8884422480\"",
-    "msg": "a phone number after its label: \"8884422480\"; a visitor can dial it and reach a stranger",
-    "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
-    "widths": [
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "phone-number"
-    ],
-    "wheres": [
-     "div.wrap.grid > div.span-5.stack-5 > dl.contact-list > div:nth-of-type(1) \"8884422480\""
+     "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(2) \"tel:+918884422179\""
     ]
    }
   ],
   "warns": [
    {
-    "check": "cut-text",
-    "where": "h1#hero-h \"Construction training for site teams\"",
-    "msg": "sits across the edge of a panel behind it",
-    "fix": "give the text room: no overflow clipping a line, no line past its box",
-    "widths": [
-     1440,
-     390
-    ],
-    "from": "consistency"
-   },
-   {
     "check": "scroll-reveal",
-    "where": "section#trainers > div.wrap > p.mo-wh__text \"CMTI works with 50+ construction and rea\"",
-    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "where": "section#workmen > div.wrap.grid > figure.develop.span-6",
+    "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
     "widths": [
      1440,
@@ -166,38 +150,41 @@
    },
    {
     "check": "scroll-reveal",
-    "where": "section#programmes \"How the programmes run Staff programmes \"",
-    "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "where": "section#where \"Where the training happens At your offic\"",
+    "msg": "starts \"opacity\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on div.mo-ph__words (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
     "widths": [
-     1440
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
     "check": "pinned",
-    "where": "section#programmes > div.wrap.mo-pc__grid \"How the programmes run Staff programmes \"",
-    "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
+    "where": "section#where > div.wrap.mo-ph \"Where the training happens At your offic\"",
+    "msg": "held on screen for 2 screens of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
     "fix": "let the section scroll with the page",
     "widths": [
-     1440
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
-    "check": "copy-headings",
-    "where": "div.wrap > div.grid > article.card.card--open:nth-of-type(1) > h3 \"Muskan Singh\"",
-    "msg": "\"Muskan Singh\" names no product, part, place or section (the one brand line a page may have)",
-    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "check": "cta",
+    "where": "section#where \"Where the training happens\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
     "widths": [
-     1440
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
     "check": "section-gaps",
-    "where": "main#top > section.hero.hero--film / section#training",
-    "msg": "177px between these sections, -30% against the median 253px",
+    "where": "main#top > section.hero.hero--photo / section#process",
+    "msg": "113px between these sections, -60% against the median 280px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -206,8 +193,8 @@
    },
    {
     "check": "section-gaps",
-    "where": "section#training / section#programmes",
-    "msg": "370px between these sections, +47% against the median 253px",
+    "where": "section#process / section#where",
+    "msg": "424px between these sections, +51% against the median 280px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -216,8 +203,8 @@
    },
    {
     "check": "section-gaps",
-    "where": "section#recognition / section#feedback",
-    "msg": "181px between these sections, -28% against the median 253px",
+    "where": "section#where / section#workmen",
+    "msg": "145px between these sections, -48% against the median 280px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -226,48 +213,30 @@
    },
    {
     "check": "section-gaps",
-    "where": "section#colleges / section#learn",
-    "msg": "391px between these sections, +55% against the median 253px",
+    "where": "section#client-logos / footer#contact",
+    "msg": "181px between these sections, -35% against the median 280px of gaps at a change of ground",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
-     1440
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
     "check": "section-gaps",
-    "where": "section#learn / section#enquiry",
-    "msg": "132px between these sections, -48% against the median 253px",
+    "where": "section#services / section#client-logos",
+    "msg": "uneven space at the edge of a band: 232px outside its edge, 113px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "section-gaps",
-    "where": "section#enquiry / footer#contact",
-    "msg": "324px between these sections, +28% against the median 253px",
-    "fix": "use one gap between sections (all within 25% of each other)",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "photo-set",
-    "where": "section#colleges > div.wrap.grid > div.frame.frame--photo > img.frame__img \"street-group-800.webp\"",
-    "msg": "7 photographs in more than one look: saturation from 0.11 to 0.46; the odd one out is street-group-800.webp",
-    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
-    "widths": [
-     1440
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
     "check": "empty-area",
     "where": "footer#contact \"Plan your team’s training\"",
-    "msg": "42% of the section is empty: 656px of empty rows between its content, 32px under its last (span.credits), in its 1620px of rows (WARN over 35%, FAIL over 50%)",
+    "msg": "45% of the section is empty: 640px of empty rows between its content, 96px under its last (span.credits), in its 1620px of rows (WARN over 35%, FAIL over 50%)",
     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
     "widths": [
      1440,
@@ -276,10 +245,20 @@
     "from": "consistency"
    },
    {
-    "check": "container-edges",
-    "where": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1) \"Staff programmes at your sites We map sk\"",
-    "msg": "4 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"Trade training for workmen Formw\", \"Construction management course (\", \"Interior design course (IDM) Thr\") (it is in a scroll scene: told as a WARN) (SR-6)",
-    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "check": "action-repeat",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2) \"send an enquiry\"",
+    "msg": "\"send an enquiry\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-air",
+    "where": "section#process \"How CMTI builds a training programme Fiv\"",
+    "msg": "the content fills 51.1% of the section's height (460 of 900px): 55% or more (40% WARN) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
     "widths": [
      1440
     ],
@@ -296,40 +275,10 @@
     "from": "consistency"
    },
    {
-    "check": "button-styles",
-    "where": "div.hero-text.hero__in > div.hero__media.hero__fill > div.hero__over > button.ly-play \"Watch the CACM film\"",
-    "msg": "on the phone 3 buttons run the full width of their column, but  \"Watch the CACM film\" is 257px of 318px: one action in two sizes",
-    "fix": "give every button the same width rule on the phone: all full width, or all at their own width",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
     "check": "off-grid",
     "where": "div.closing__links > div.footer__legal > span:nth-of-type(1) > a \"Privacy Policy\"",
-    "msg": "left edge at 203px, 2px off a common edge of its section at 201px (13 elements)",
+    "msg": "left edge at 203px, 2px off a common edge of its section at 201px (13 elements, like a)",
     "fix": "move it onto the page margin, or the column edge its section uses",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "section-gaps",
-    "where": "section#feedback / section#colleges",
-    "msg": "uneven space at the edge of a band: 92px outside its edge, 48px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-    "fix": "use one gap between sections (all within 25% of each other)",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "photo-set",
-    "where": "div.wrap > div.hero-text.hero__in > div.hero__media.hero__fill > img \"rebar-inspection-phone.webp\"",
-    "msg": "8 photographs in more than one look: saturation from 0.18 to 0.54; warm and cool photographs mixed (b* -11 to +16); the odd one out is rebar-inspection-phone.webp",
-    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
     "widths": [
      390
     ],
@@ -338,12 +287,47 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 144,
+   "consistency": 125,
    "layout": 4
   }
  },
- "open": [],
+ "open": [
+  {
+   "check": "copy-fact",
+   "where": "h1#hero-h \"Construction team training\"",
+   "msg": "the first screen holds no number, price, date, place, platform or genre",
+   "fix": "put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-fact"
+   ],
+   "wheres": [
+    "h1#hero-h \"Construction team training\""
+   ]
+  }
+ ],
  "waived": [
+  {
+   "check": "no-visual",
+   "where": "section#training-topics \"12 training topics\"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#training-topics \"12 training topics\""
+   ],
+   "reason": "The twelve training topics are a reference list, like a specs table; the skill allows one picture-less list section and both neighbours carry photographs"
+  },
   {
    "check": "effect-kind",
    "where": "(the page)",
@@ -363,8 +347,8 @@
   },
   {
    "check": "phone-number",
-   "where": "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(1) \"tel:+918884422480\"",
-   "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422480\"; a visitor can dial it and reach a stranger (and 1 more like it: div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(1))",
+   "where": "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(1) \"tel:+918884422480\"",
+   "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422480\"; a visitor can dial it and reach a stranger",
    "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
    "widths": [
     1440
@@ -374,14 +358,14 @@
     "phone-number"
    ],
    "wheres": [
-    "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(1) \"tel:+918884422480\""
+    "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(1) \"tel:+918884422480\""
    ],
-   "reason": "CMTI's own office number, given in the brief to keep exactly; it is the client's real line, not a stranger's"
+   "reason": "CMTI's own office number in the footer, given in the brief to keep exactly; it is the client's real line"
   },
   {
    "check": "phone-number",
-   "where": "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(2) \"tel:+918884422179\"",
-   "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422179\"; a visitor can dial it and reach a stranger (and 2 more like it: dl.contact-list > div:nth-of-type(3) > dd > a.wa-link, div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(2))",
+   "where": "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(2) \"tel:+918884422179\"",
+   "msg": "a tel: link calls a number in a real dialable format: \"tel:+918884422179\"; a visitor can dial it and reach a stranger",
    "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
    "widths": [
     1440
@@ -391,30 +375,12 @@
     "phone-number"
    ],
    "wheres": [
-    "dl.contact-list > div:nth-of-type(1) > dd > a:nth-of-type(2) \"tel:+918884422179\""
+    "div.grid:nth-of-type(1) > div.span-6.start-7 > p > a:nth-of-type(2) \"tel:+918884422179\""
    ],
-   "reason": "CMTI's own office and WhatsApp number, given in the brief to keep exactly; it is the client's real line"
-  },
-  {
-   "check": "phone-number",
-   "where": "div.wrap.grid > div.span-5.stack-5 > dl.contact-list > div:nth-of-type(1) \"8884422480\"",
-   "msg": "a phone number after its label: \"8884422480\"; a visitor can dial it and reach a stranger",
-   "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
-   "widths": [
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "phone-number"
-   ],
-   "wheres": [
-    "div.wrap.grid > div.span-5.stack-5 > dl.contact-list > div:nth-of-type(1) \"8884422480\""
-   ],
-   "reason": "The same CMTI office numbers, printed beside their label as the brief requires; they are the client's own lines"
+   "reason": "CMTI's own office and WhatsApp number in the footer, given in the brief to keep exactly; it is the client's real line"
   }
  ],
- "warnCount": 19,
- "at": "2026-11-17T18:07:59.246Z",
- "session": "ad61babf-bc32-5b58-af8d-353ada6bcd7d",
- "manual": true
+ "warnCount": 14,
+ "at": "2026-11-18T19:00:20.651Z",
+ "openTold": true
 }

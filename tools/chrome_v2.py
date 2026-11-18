@@ -208,7 +208,7 @@ def add_srcset(root, html):
     return re.sub(r'<img [^>]*?src="(images/[a-z0-9/-]+\.webp)"[^>]*>', fix, html)
 
 
-def head_v2(root, title, desc, moments=(), preload_img=None):
+def head_v2(root, title, desc, moments=(), preload_img=None, diagrams=False, preload_set=None):
     mo = ""
     if moments:
         mo = ("<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>\n"
@@ -217,9 +217,15 @@ def head_v2(root, title, desc, moments=(), preload_img=None):
     pre = ""
     if preload_img:
         small = preload_img[:-5] + "-800.webp"
-        phone = preload_img[:-5] + "-phone.webp"
-        ss = (f' imagesrcset="{phone} 567w, {preload_img} 1600w" imagesizes="(max-width: 639px) 342px, 1280px"'
-              if os.path.exists(os.path.join(root, phone)) else "")
+        phone, small = preload_img[:-5] + "-phone.webp", preload_img[:-5] + "-800.webp"
+        if preload_set:
+            ss = f' imagesrcset="{preload_set[0]}" imagesizes="{preload_set[1]}"'
+        elif os.path.exists(os.path.join(root, phone)):
+            ss = f' imagesrcset="{phone} 567w, {preload_img} 1600w" imagesizes="(max-width: 639px) 342px, 1280px"'
+        elif os.path.exists(os.path.join(root, small)):
+            ss = f' imagesrcset="{small} 800w, {preload_img} 1600w" imagesizes="100vw"'
+        else:
+            ss = ""
         pre = f'<link rel="preload" as="image" href="{preload_img}"{ss} fetchpriority="high">\n'
     return f'''<!doctype html>
 <html lang="en" data-type="{KIND}" data-radius="soft" data-buttons="block" data-motion>
@@ -246,7 +252,7 @@ def head_v2(root, title, desc, moments=(), preload_img=None):
 <link rel="stylesheet" href="assets/motion/motion.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
 <link rel="stylesheet" href="assets/icons/icon.css">
-<link rel="stylesheet" href="vendor/lenis-1.3.27/lenis.css">
+{'<link rel="stylesheet" href="assets/diagrams/diagram.css">' + chr(10) if diagrams else ""}<link rel="stylesheet" href="vendor/lenis-1.3.27/lenis.css">
 <style>
 {ROOT_TOKENS}
 </style>
@@ -267,12 +273,15 @@ TAIL = '''<script src="vendor/lenis-1.3.27/lenis.min.js" defer></script>
 '''
 
 
-def page_v2(root, title, desc, body, close_h2, close_line, current=None, moments=(), preload_img=None, deal="", bar=False):
-    return (head_v2(root, title, desc, moments, preload_img) +
+def page_v2(root, title, desc, body, close_h2, close_line, current=None, moments=(), preload_img=None, deal="", bar=False, diagrams=False, preload_set=None):
+    tail = TAIL.replace("{v}", _version(root, "cmti.js"))
+    if diagrams:
+        tail = tail.replace('<script src="cmti.js', '<script type="module" src="assets/diagrams/mount.js"></script>\n<script src="cmti.js')
+    return (head_v2(root, title, desc, moments, preload_img, diagrams, preload_set) +
             (f"<!-- {deal} -->\n" if deal else "") +
             nav_v2(current) + '\n\n<main id="top">\n' + body + "\n</main>\n\n" +
             footer_v2(root, close_h2, close_line) + "\n\n" + (actionbar(root) + "\n" if bar else "") +
-            TAIL.replace("{v}", _version(root, "cmti.js")))
+            tail)
 
 
 def render_v2(root, *args, **kw):
