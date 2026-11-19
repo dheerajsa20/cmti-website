@@ -423,7 +423,7 @@ def _video_card(vid, name, line):
   <h3>{name}</h3>
   <p>{line}</p>
   <div class="panel panel--video"><button class="yt" type="button" data-yt="{vid}" data-title="{name}: {line}">
-    <img class="frame__img" src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+    <img class="frame__img" src="images/youtube/{vid}.webp" alt="" width="480" height="360" loading="lazy">
     <span class="ly-play__disc">{_PLAY}</span><span class="sr-only">Play the video: {name}, {line}</span>
   </button></div>
 </article>'''
