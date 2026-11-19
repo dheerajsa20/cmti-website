@@ -1,7 +1,7 @@
 {
  "page": "/home/user/cmti-website/corporate.html",
  "url": "http://127.0.0.1:5200/corporate.html",
- "at": "2026-11-18T19:00:31.401Z",
+ "at": "2026-11-19T15:54:48.658Z",
  "out": "/home/user/cmti-website/.taste-skill/consistency-corporate",
  "widths": [
   {
@@ -96,7 +96,7 @@
      "sel": "main#top > section.hero.hero--photo / section#process",
      "text": "",
      "stop": 1,
-     "msg": "113px between these sections, -60% against the median 280px",
+     "msg": "129px between these sections, -54% against the median 280px",
      "crop": "1440-01-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -116,7 +116,7 @@
      "sel": "section#where / section#workmen",
      "text": "",
      "stop": 5,
-     "msg": "145px between these sections, -48% against the median 280px",
+     "msg": "161px between these sections, -42% against the median 280px",
      "crop": "1440-04-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -126,7 +126,7 @@
      "sel": "section#client-logos / footer#contact",
      "text": "",
      "stop": 10,
-     "msg": "181px between these sections, -35% against the median 280px of gaps at a change of ground",
+     "msg": "201px between these sections, -28% against the median 280px of gaps at a change of ground",
      "crop": "1440-08-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -136,7 +136,7 @@
      "sel": "section#services / section#client-logos",
      "text": "",
      "stop": 9,
-     "msg": "uneven space at the edge of a band: 232px outside its edge, 113px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "msg": "uneven space at the edge of a band: 216px outside its edge, 129px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "1440-07-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -146,7 +146,7 @@
      "sel": "section#client-logos / footer#contact",
      "text": "",
      "stop": 10,
-     "msg": "uneven space at the edge of a band: 113px outside its edge, 68px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "msg": "uneven space at the edge of a band: 129px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "1440-09-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -155,7 +155,7 @@
      "sev": "WARN",
      "sel": "footer#contact",
      "text": "Plan your team’s training",
-     "msg": "45% of the section is empty: 640px of empty rows between its content, 96px under its last (span.credits), in its 1620px of rows (WARN over 35%, FAIL over 50%)",
+     "msg": "44% of the section is empty: 640px of empty rows between its content, 80px under its last (span.credits), in its 1620px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 11,
      "crop": "1440-12-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
@@ -266,7 +266,7 @@
      "sel": "section#services / section#client-logos",
      "text": "",
      "stop": 11,
-     "msg": "uneven space at the edge of a band: 48px outside its edge, 92px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "msg": "uneven space at the edge of a band: 48px outside its edge, 100px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "390-06-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -276,7 +276,7 @@
      "sel": "section#client-logos / footer#contact",
      "text": "",
      "stop": 12,
-     "msg": "uneven space at the edge of a band: 92px outside its edge, 48px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "msg": "uneven space at the edge of a band: 100px outside its edge, 48px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "390-07-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -285,7 +285,7 @@
      "sev": "WARN",
      "sel": "footer#contact",
      "text": "Plan your team’s training",
-     "msg": "45% of the section is empty: 1152px of empty rows between its content, in its 2563px of rows (WARN over 35%, FAIL over 50%)",
+     "msg": "45% of the section is empty: 1168px of empty rows between its content, in its 2573px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 13,
      "crop": "390-08-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
@@ -307,7 +307,7 @@
  ],
  "shaders": 0,
  "hidden": {
-  "screens": 19,
+  "screens": 22,
   "quick": true
  },
  "sweep": {

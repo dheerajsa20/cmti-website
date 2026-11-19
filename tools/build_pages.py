@@ -401,7 +401,7 @@ _N_COURSES = len(_COURSES)
 _N_FREE = sum(1 for c in _COURSES if not c["price"])
 _N_COLLEGES = sum(len(cs) for _, cs in COLLEGE_STATES)
 _FREE_PICKS = ["Non Destructive Testing Course", "Self Compacting Concrete Course", "Fire Safety in Highrise Construction",
-               "Plant &amp; Machinery in Construction", "Drones in Construction"]
+               "Drones in Construction"]
 
 def _course_row(title):
     c = next(c for c in _COURSES if c["title"].replace("&", "&amp;") == title or c["title"] == title)

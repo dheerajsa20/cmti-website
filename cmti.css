@@ -6,9 +6,15 @@
 
 :root { --cmti-orange: #ffa434; --cmti-wa: #128c4b; }
 
-/* CMTI's own logo in the bar and the footer (the kit sizes a mark at 24px) */
-.nav__logo img { height: 40px; width: auto; }
-@media (max-width: 639px) { .nav__logo img { height: 32px; } }
+/* CMTI's own logo in the bar, at about the size cmti.co.in shows it (82px there), so its full name and
+   "Gain your experience" line stay readable. The bar grows to hold it, and the sections' top padding with it
+   (the kit's rhythm: --padt is the bar plus 48px; 40px on a phone). */
+:root { --nav: 88px; --padt: 136px; }
+.nav__logo img { height: 72px; width: auto; }
+@media (max-width: 639px) {
+  :root { --nav: 64px; --padt: 104px; }
+  .nav__logo img { height: 52px; }
+}
 
 /* hero: the award line and the rating line inside the film's navy box */
 .hero__kicker a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: var(--s-2); }
@@ -26,7 +32,7 @@
 .facts li { max-width: 46ch; padding-block: var(--s-3); border-bottom: 1px solid var(--line); }
 
 /* awards: two photographs at one ratio */
-.frame.pair { --ratio: 58%; }
+.frame.pair { --ratio: 55%; }
 
 /* client logos: the clients' own marks in their own colours, one row, still */
 .clients { margin-top: var(--s-8); display: grid; gap: var(--s-4); }
@@ -138,3 +144,19 @@ html[data-buttons] .btn.btn--wa:hover { background: #0e7a40; }
 .steps-pic__s { font-size: var(--t-small); color: var(--muted); }
 .rows--trades > li { padding-block: var(--s-3); }
 @media (max-width: 1023px) { #training-topics .rows > li { padding-block: var(--s-3); } }
+
+/* ---- Short desktop windows (a 1366x768 laptop, a browser not at full height, an embedded preview) ----
+   The kit holds each section at exactly its screens from 1280px wide; when a window is short, the content no longer
+   fits and runs over the next section. As the kit already does from 640 to 1279, a section here is at least its
+   screens and grows with its content, so nothing overlaps or is cut. On a full-height screen nothing changes. */
+@media (min-width: 1280px) {
+  main > :is(section, .section):not(.hero, .section--hero, .is-live), footer.closing {
+    height: auto; min-height: calc(var(--h, 1) * 100vh); min-height: calc(var(--h, 1) * 100svh);
+  }
+  :where(main > :is(section, .section):not(.hero, .section--hero, .is-live), footer.closing) { display: flex; flex-direction: column; }
+  main > :is(section, .section):not(.hero, .section--hero, .is-live) > :is(.wrap, .container), footer.closing > .wrap { flex: 1 0 auto; height: auto; min-height: 0; }
+}
+/* the hero keeps its one screen, but a short window lets it grow rather than cut its words */
+main > .hero { min-height: 100svh; }
+@media (max-height: 760px) and (min-width: 640px) { main > .hero { height: auto; } }
+@media (max-width: 639px) { #training .rows-link { margin-top: var(--s-2); } #training .rows > li:last-child { padding-bottom: var(--s-2); } }

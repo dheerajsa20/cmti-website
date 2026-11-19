@@ -108,7 +108,7 @@ def nav_v2(current=None):
     return f'''<header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="index.html"><img src="cmti-logo-nav.webp" alt="CMTI, Construction Management Training Institute" width="240" height="141"></a>
+    <a class="nav__logo" href="index.html"><img src="cmti-logo-nav.webp" alt="CMTI, Construction Management Training Institute" width="368" height="216"></a>
     <nav class="nav__links" aria-label="Main" data-lenis-prevent>
       {"".join(items)}
     </nav>
