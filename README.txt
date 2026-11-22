@@ -8,6 +8,6 @@ Opening index.html by double-clicking it shows the home page, but links to other
 
 This is a static HTML, CSS and JavaScript website. No build step is required. All local logos and inline SVG illustrations are included.
 
-YouTube embeds and external service links require internet access. The enquiry form opens an email draft; there is no server-side form backend.
+YouTube embeds and external service links require internet access. The enquiry form opens a WhatsApp draft and, once connected, saves each enquiry with its date and time to a Google Sheet that can be downloaded as Excel. Setup steps: tools/ENQUIRY-SHEET-SETUP.txt
 
 For further development, provide this folder to your developer or coding assistant and ask it to preserve the existing assets and content.

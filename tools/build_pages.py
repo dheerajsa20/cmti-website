@@ -458,7 +458,7 @@ home += section(f'''<div class="contact-wrap">
   </div>
   <form id="enquiry" class="form-panel reveal" novalidate>
     <h3>Training enquiry</h3>
-    <p class="help">Complete the form to open a draft in WhatsApp. Review and send it there.</p>
+    <p class="help">Complete the form to send us your enquiry and open a draft in WhatsApp. Review and send it there.</p>
     <div class="fields">
       <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required maxlength="100" aria-describedby="e-name"><p class="field-error" id="e-name"></p></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="150" aria-describedby="e-email"><p class="field-error" id="e-email"></p></div>
@@ -467,6 +467,7 @@ home += section(f'''<div class="contact-wrap">
       <div class="field"><label for="programme">Programme</label><select id="programme" name="programme" required aria-describedby="e-programme"><option value="">Select a programme</option>{options}</select><p class="field-error" id="e-programme"></p></div>
       <div class="field"><label for="f-format">Preferred format</label><select id="f-format" name="format"><option>Flexible</option><option>Offline</option><option>Online</option><option>Hybrid</option></select><p class="field-error"></p></div>
       <div class="field field-wide"><label for="f-message">Training requirements (optional)</label><textarea id="f-message" name="message" maxlength="1000"></textarea><p class="field-error"></p></div>
+      <div class="sr-only" aria-hidden="true"><label for="f-website">Leave this empty</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
     </div>
     <button class="btn btn-wa" type="submit">{WA_ICON}Open WhatsApp draft</button>
     <p class="form-status" id="form-status" role="status"></p>
@@ -848,10 +849,12 @@ privacy += section(legal_page([
     ("Information that is gathered from visitors", [[
         "In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.",
         "Cookies may be used to remember visitor preferences when interacting with the website.",
-        "Where registration is required, the visitor's email and a username will be stored on the server."]]),
+        "Where registration is required, the visitor's email and a username will be stored on the server.",
+        "When the enquiry form is used, the details entered (name, email, phone, organisation, programme, preferred format and training requirements) and the date and time of the enquiry are saved in CMTi's enquiry records, held in Google Sheets, so that CMTi can reply. The form also opens WhatsApp with the same details for the visitor to send."]]),
     ("How the Information is used?", [[
         "The information is used to enhance the vistor's experience when using the website to display personalised content and possibly advertising.",
         "E-mail addresses &amp; Mobile numbers will not be sold, rented or leased to 3rd parties.",
+        "Enquiry details are used to respond to the enquiry and to follow up on CMTi training programmes.",
         "E-mails and SMSes may be sent to inform you of news of our services or offers by us or our affiliates."]]),
     ("Visitor Options", [[
         "If you have subscribed to one of our services, you may unsubscribe by following the instructions which are included in e-mail that you receive.",
