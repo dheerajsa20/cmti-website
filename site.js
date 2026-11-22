@@ -2,7 +2,7 @@
 const WHATSAPP_NUMBER = '918884422179';
 // Web-app link of the Google Sheet that records every enquiry (see tools/ENQUIRY-SHEET-SETUP.txt).
 // Leave empty to skip saving; the form then only opens WhatsApp.
-const ENQUIRY_SHEET_URL = '';
+const ENQUIRY_SHEET_URL = 'https://script.google.com/macros/s/AKfycby3I1xlXMFqfPgMOHxOWbHQcm6_alXgQq_nXbJuEW587S_RJ6MdYclGYN63-m8OxyptfA/exec';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.documentElement.classList.add('js');
 
