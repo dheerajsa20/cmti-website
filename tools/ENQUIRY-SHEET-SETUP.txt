@@ -20,8 +20,6 @@ One-time setup takes about 10 minutes.
    - In the sheet, open Extensions > Apps Script.
    - Delete everything in the Code.gs editor, then paste in the whole of
      tools/enquiry-sheet.gs from this folder.
-   - Optional email alerts: near the top, put an address between the quotes,
-     for example  const NOTIFY_EMAIL = 'cmtioffice@cmti.co.in';
    - Click the Save icon (or press Ctrl+S).
 
 3. RUN SETUP ONCE
@@ -29,10 +27,10 @@ One-time setup takes about 10 minutes.
    - Google asks for permission. Click Review permissions, pick the same
      account, then Advanced > Go to (project name) and Allow. The warning
      appears because the script is your own and not published by Google;
-     it only works on this sheet and sends the optional alert emails.
+     it only adds rows to this sheet.
    - Back in the sheet there is now an "Enquiries" tab with the headings.
    - To try it, choose "testEnquiry" in the function list and click Run.
-     A sample row appears (and the alert email arrives if you set one).
+     A sample row appears.
      Delete the test row afterwards.
 
 4. PUBLISH IT AS A WEB APP
@@ -63,7 +61,7 @@ SHARING WITH STAFF
    for your own use (Status, Called on, Notes) can go to the right of
    "Training requirements"; don't insert columns in between.
 
-CHANGING THE SCRIPT LATER (for example, to add or change the alert email)
+CHANGING THE SCRIPT LATER
    Edit and save the code, then Deploy > Manage deployments > pencil icon >
    Version: New version > Deploy. This keeps the same URL. Making a
    "New deployment" instead gives a new URL that the website does not know.

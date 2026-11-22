@@ -10,10 +10,6 @@
  * File > Download > Microsoft Excel (.xlsx).
  */
 
-// Optional: email address that gets a short alert for every new enquiry.
-// Leave as '' for no emails. Separate several addresses with commas.
-const NOTIFY_EMAIL = '';
-
 const SHEET_NAME = 'Enquiries';
 const TIME_ZONE = 'Asia/Kolkata';
 const HEADERS = ['Date', 'Time', 'Name', 'Email', 'Phone', 'Organisation',
@@ -54,18 +50,12 @@ function doPost(e) {
     lock.releaseLock();
   }
 
-  if (NOTIFY_EMAIL) {
-    const lines = HEADERS.slice(2).map((h, i) => h + ': ' + (values[i].replace(/^'/, '') || '-'));
-    MailApp.sendEmail(NOTIFY_EMAIL, 'New CMTI enquiry: ' + values[4], lines.join('\n'),
-      { replyTo: values[1] || undefined });
-  }
   return reply('ok');
 }
 
 /**
- * Run from the editor to try it out: adds a sample row (and sends the alert
- * email if NOTIFY_EMAIL is set) without needing the website. Delete the test
- * row from the sheet afterwards.
+ * Run from the editor to try it out: adds a sample row without needing the
+ * website. Delete the test row from the sheet afterwards.
  */
 function testEnquiry() {
   doPost({ parameter: {
