@@ -1,0 +1,67 @@
+SAVING WEBSITE ENQUIRIES TO A GOOGLE SHEET (AND EXCEL)
+
+Every time someone sends the enquiry form, the website adds one row to a
+Google Sheet with the date and time (India time), then opens WhatsApp as
+before. You can download the sheet as an Excel file whenever you like.
+
+Columns: Date | Time | Name | Email | Phone | Organisation | Programme |
+         Preferred format | Training requirements
+
+One-time setup takes about 10 minutes.
+
+
+1. CREATE THE SHEET
+   - Sign in to the Google account that should own the enquiry records
+     (ideally a CMTI office account, not a personal one).
+   - Go to https://sheets.new and name the sheet, for example
+     "CMTI Website Enquiries".
+
+2. ADD THE SCRIPT
+   - In the sheet, open Extensions > Apps Script.
+   - Delete everything in the Code.gs editor, then paste in the whole of
+     tools/enquiry-sheet.gs from this folder.
+   - Click the Save icon (or press Ctrl+S).
+
+3. RUN SETUP ONCE
+   - In the toolbar, choose "setup" from the function list and click Run.
+   - Google asks for permission. Click Review permissions, pick the same
+     account, then Advanced > Go to (project name) and Allow. The warning
+     appears because the script is your own and not published by Google;
+     it only adds rows to this sheet.
+   - Back in the sheet there is now an "Enquiries" tab with the headings.
+   - To try it, choose "testEnquiry" in the function list and click Run.
+     A sample row appears.
+     Delete the test row afterwards.
+
+4. PUBLISH IT AS A WEB APP
+   - In Apps Script click Deploy > New deployment.
+   - Click the gear icon next to "Select type" and choose Web app.
+   - Execute as: Me.  Who has access: Anyone.  Click Deploy.
+   - Copy the "Web app" URL. It looks like
+     https://script.google.com/macros/s/..../exec
+   "Anyone" only lets the website add rows. Nobody can read the sheet
+   through this link; the sheet itself stays private to you.
+
+5. CHECK IT AND CONNECT THE WEBSITE
+   - Paste the URL into a browser. It should say
+     "CMTI enquiry sheet is connected."
+   - Put the URL in site.js on the line
+       const ENQUIRY_SHEET_URL = '';
+     between the quotes, then run  python3 tools/build_pages.py .
+     and publish the site (or send the URL to your developer).
+   - Send a test enquiry from the live website and check that a row appears.
+
+
+DOWNLOADING AS EXCEL
+   In the sheet: File > Download > Microsoft Excel (.xlsx).
+
+SHARING WITH STAFF
+   Use the sheet's Share button. Give "Viewer" access to people who only
+   read enquiries, "Editor" to people who should add notes. Extra columns
+   for your own use (Status, Called on, Notes) can go to the right of
+   "Training requirements"; don't insert columns in between.
+
+CHANGING THE SCRIPT LATER
+   Edit and save the code, then Deploy > Manage deployments > pencil icon >
+   Version: New version > Deploy. This keeps the same URL. Making a
+   "New deployment" instead gives a new URL that the website does not know.

@@ -1,5 +1,8 @@
 // CMTI site behaviour: navigation, hero finder, motion, video dialog and WhatsApp enquiries.
 const WHATSAPP_NUMBER = '918884422179';
+// Web-app link of the Google Sheet that records every enquiry (see tools/ENQUIRY-SHEET-SETUP.txt).
+// Leave empty to skip saving; the form then only opens WhatsApp.
+const ENQUIRY_SHEET_URL = 'https://script.google.com/macros/s/AKfycby3I1xlXMFqfPgMOHxOWbHQcm6_alXgQq_nXbJuEW587S_RJ6MdYclGYN63-m8OxyptfA/exec';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.documentElement.classList.add('js');
 
@@ -363,7 +366,7 @@ for (const link of document.querySelectorAll('[data-programme]')) {
 }
 choose(new URLSearchParams(location.search).get('programme'));
 
-// ----- Enquiry form: validate, then open WhatsApp with the message -----
+// ----- Enquiry form: validate, save to the Google Sheet, then open WhatsApp -----
 const messages = {
   name: 'Enter your name so we know who to reply to.',
   email: 'Enter an email address, for example name@example.com.',
@@ -405,6 +408,12 @@ form?.addEventListener('submit', (event) => {
   }
   const requirements = (data.get('message') || '').trim();
   if (requirements) lines.push('', 'Training requirements: ' + requirements);
+  // Save a copy to the enquiry sheet. Sent in the background (no-cors, so the reply is not
+  // readable) and with keepalive so it still arrives if WhatsApp opens in this same tab.
+  if (ENQUIRY_SHEET_URL) {
+    fetch(ENQUIRY_SHEET_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: new URLSearchParams(data) })
+      .catch(() => {});
+  }
   const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
   // Open WhatsApp in a new tab; fall back to the same tab if pop-ups are blocked.
   const opened = window.open(url, '_blank');
