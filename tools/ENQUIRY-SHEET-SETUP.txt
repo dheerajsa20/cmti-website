@@ -31,6 +31,9 @@ One-time setup takes about 10 minutes.
      appears because the script is your own and not published by Google;
      it only works on this sheet and sends the optional alert emails.
    - Back in the sheet there is now an "Enquiries" tab with the headings.
+   - To try it, choose "testEnquiry" in the function list and click Run.
+     A sample row appears (and the alert email arrives if you set one).
+     Delete the test row afterwards.
 
 4. PUBLISH IT AS A WEB APP
    - In Apps Script click Deploy > New deployment.

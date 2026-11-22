@@ -62,6 +62,19 @@ function doPost(e) {
   return reply('ok');
 }
 
+/**
+ * Run from the editor to try it out: adds a sample row (and sends the alert
+ * email if NOTIFY_EMAIL is set) without needing the website. Delete the test
+ * row from the sheet afterwards.
+ */
+function testEnquiry() {
+  doPost({ parameter: {
+    name: 'Test enquiry', email: 'test@example.com', phone: '+91 98765 43210',
+    organisation: 'Test company', programme: 'Advanced Construction Management Course (CACM)',
+    format: 'Online', message: 'This is a test row. It can be deleted.',
+  } });
+}
+
 /** Opening the web-app link in a browser shows this, so you can check it is live. */
 function doGet() {
   return reply('CMTI enquiry sheet is connected.');
